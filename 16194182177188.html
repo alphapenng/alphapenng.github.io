@@ -1,0 +1,3067 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+    闫辉 CCNP/HCNP 笔记 - alphapenng Note & Blog
+    
+    </title>
+    
+
+    
+    
+    <link href="atom.xml" rel="alternate" title="alphapenng Note & Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/style.min.css">
+    <link rel="stylesheet" href="asset/css/doc.css">
+    <script src="asset/app.js"></script>
+</head>
+  <body>
+    <section class="hero">
+      <div class="hero-head">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="container">
+              <div class="navbar-brand">
+                
+                <a target="self" class="navbar-item " href="index.html">Home</a>
+                
+                <a target="_self" class="navbar-item " href="archives.html">Archives</a>
+                
+
+                <a role="button" id="navbarSNSRssSwitchBtn" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarSNSRssButtons">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+            
+              <div id="navbarSNSRssButtons" class="navbar-menu">
+                <div class="navbar-start">
+                  
+                </div>
+            
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <!--buttons start-->
+                    <div class="buttons">
+                      
+                        
+                        
+                        
+                        
+                      
+                      <a href="atom.xml" target="_blank" title="RSS">
+                          <span class="icon is-large has-text-black-bis">
+                              <svg class="svg-inline--fa fa-rss fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rss" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg><!-- <i class="fas fa-rss fa-lg"></i> -->
+                          </span>
+                      </a>
+                    </div>
+                    <!--buttons end-->
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </nav>
+      </div>
+
+ <div class="hero-body ct-body"></div>
+      
+    </section>
+    <section class="ct-body">
+      <div class="container">
+          <div class="columns is-variable bd-klmn-columns is-4 is-centered">
+              <div class="column is-four-fifths">
+                  <div class="post-body single-content">
+                    
+                    <h1 class="title">
+                            闫辉 CCNP/HCNP 笔记   
+                      </h1>
+                     
+                    
+                      <div class="media">
+                            
+                            <div class="media-content">
+                              <div class="content">
+                                <p>
+                                 <span class="date">2021/04/26</span>
+                                  
+                                         
+                                  
+
+                                   
+                                      
+                                  <br />
+                                  <span class="tran-tags">Tags:</span>&nbsp;
+                                  
+                                    <a class="tag is-link is-light" href='tag_Network.html'>#Network</a>
+                                     
+
+                                </p>
+                              </div>
+                            </div>
+                         
+                    </div>
+                </div>
+                  <article class="markdown-body single-content">
+                    <p>[TOC]<br />
+**</p>
+<h2><a id="ospf" class="anchor" aria-hidden="true" href="#ospf"><span class="octicon octicon-link"></span></a>OSPF</h2>
+<ul>
+<li>Preference 0-255</li>
+<li><code>loopback0 24 32</code></li>
+<li><code>3类LSA 不再包含拓扑信息 ABR Area 0</code></li>
+<li>报文类型
+<ul>
+<li>Hello DBD LSR LSU LSAck  <code>Layer 2|IP|OSPF|FCS 协议号89</code></li>
+</ul>
+<ol>
+<li><code>Hello</code> 发现和维护邻居关系</li>
+<li><code>Database Description</code> 发送链路状态数据库摘要</li>
+<li><code>Link State Request</code> 请求特定的链路状态信息 <code>三个字段唯一标识一个LSA：LS Type、Link State ID、Advertising Router</code></li>
+<li><code>Link State Update</code> 发送详细的链路状态信息</li>
+<li><code>Link State Ack</code> 发送确认报文</li>
+</ol>
+<ul>
+<li>OSPF 11 类 LSA 1-5类、7类</li>
+<li><code>OSPF 既支持周期性 30min 老化计时器LS age（默认60min）更新又支持触发更新</code></li>
+<li>OSPF LSA 报头序列号从 80000001 开始<br />
+<figure><img src="https://i.imgur.com/p8WOrC3.jpg" alt="OSPF包含在各种报报文中的LSA信息" /><figcaption>OSPF包含在各种报报文中的LSA信息<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/uRGJR6D.jpg" alt="OSPF报文的目的地址1" /><figcaption>OSPF报文的目的地址1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/XxZjKMu.jpg" alt="OSPF报文的目的地址2" /><figcaption>OSPF报文的目的地址2<figcaption></figure></li>
+</ul>
+</li>
+<li>显式确认和隐式确认<br />
+1.显式确认：LSAck<br />
+2.隐式确认：hello DBD Seq</li>
+<li>参数匹配
+<ul>
+<li>OSPF 报头的参数
+<ol>
+<li>Version</li>
+<li>Area ID</li>
+<li>Authentication Type</li>
+<li>Key</li>
+</ol>
+</li>
+<li>Hello <code>不匹配无法建立邻居 Two-way</code>
+<ol>
+<li>hello 时间和 dead 时间</li>
+<li>RID 不能冲突</li>
+<li>Area ID</li>
+<li>Option 字段 标准区域 E 1 N 0 stub E 0 N 0 NSSA E 0 N 1</li>
+<li>Authentication</li>
+<li>子网掩码</li>
+</ol>
+</li>
+<li>DBD
+<ol>
+<li>MTU（Cisco）</li>
+</ol>
+</li>
+<li><code>两端接口 OSPF 网络类型要匹配 LS Type</code></li>
+</ul>
+</li>
+<li>邻居与邻接
+<ul>
+<li>Neighbor hello</li>
+<li>Adjacency 5类</li>
+<li>邻接状态机
+<ul>
+<li>Down</li>
+<li>Attempt NMBA才有</li>
+<li>Init</li>
+<li>Two-way 邻居</li>
+<li>Exstart</li>
+<li>Exchange</li>
+<li>Loading</li>
+<li>Full 邻接<br />
+<figure><img src="https://i.imgur.com/WyWr7s1.jpg" alt="OSPF邻居状态变换（邻居关系）" /><figcaption>OSPF邻居状态变换（邻居关系）<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/Kh13iuo.jpg" alt="OSPF邻居状态变换（邻接关系）" /><figcaption>OSPF邻居状态变换（邻接关系）<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网络类型 逻辑概念
+<ul>
+<li>Cisco： Loopback Point-to-Point Broadcast Non-Broadcast(NBMA) Point-to-Multipoint Point-to-Multipoint Non-Broadcast</li>
+<li>Huawei:
+<ul>
+<li>Point-to-Point Serial(HDLC/PPP) ISDN BRI Frame Relay point-to-point subinterface <code>不选DR/BDR</code> 支持单播/组播/广播 <code>只能建立1个邻接关系</code> Link state包含 Stub Point-to-Point
+<ul>
+<li><strong>LSA Link state（1类LSA）宣告的链路类型：Stub Transit Point-to-Point VL</strong></li>
+</ul>
+</li>
+<li>Broadcast Ethernet <code>选举DR/BDR wait interval</code> 支持组播 <code>可以建立任意多个邻接关系</code> Link state Transit + LSA Type2</li>
+<li>Non-Broadcast(NBMA) ATM Frame Relay 帧中继多点子接口 <code>选举DR/BDR</code> 不支持组播 Link state Transit</li>
+<li>Point-to-Multipoint <code>不选DR/BDR</code> 多个邻接关系 支持组播 Link state Stub Point-to-Point</li>
+<li>VL
+<ul>
+<li><code>Cisco：建立好邻居就抑制 hello 报文 LSA 也不会周期性泛洪</code></li>
+<li>Huawei：会继续发送</li>
+<li>部署条件：
+<ol>
+<li>连接多区域的路由器之间建立</li>
+<li>两个路由器必须要共享至少一个区域</li>
+<li>指定对端 Router-id</li>
+<li>基于对端设备的 LSA Type-1 判断对方在本区域所属的 SPF 树的哪个部分来判断本地去往对端的最优路径</li>
+<li><strong>逻辑的点到点的只属于 Area 0 的路径</strong></li>
+</ol>
+</li>
+<li>建立过程：发送单播hello（报头area ID：0.0.0.0）报文至对端物理口➡️发送组播224.0.0.5 LS Update在传输区域（Type1 ABR位置1）➡️发送组播224.0.0.5 LS Update在传输区域（Type3 宣告area2网段）➡️收到对端单播hello至本端物理接口➡️收到对端的组播224.0.0.5 LS Ack在传输区域➡️双方单播发送DBD、LS Request、LS Update和LS Ack在骨干区域➡️双方在传输区域发送组播224.0.0.5 LS Update（Type1 Virtual link endpoint位置1）➡️双方在传输区域发送组播224.0.0.5 LS Ack确认➡️邻居达到full，不断在骨干区域单播交互hello报文。</li>
+<li><code>同 area 0 认证</code>
+<ul>
+<li><code>同时配置 area 0 认证，可行</code></li>
+<li><code>配置 area 0、vlink-peer认证，不一定一样，vlink-peer认证高于area 0认证，可行</code></li>
+<li>配置 area 0、area 1 相同认证，不可行</li>
+<li>配置 area 0、物理接口认证，不可行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DR/BDR
+<ul>
+<li><code>第一台进入 two-way 状态的路由器宣告选举开始</code></li>
+<li>two-way： wait interval 40s 120s</li>
+<li>优先级 1 RID</li>
+<li>特征
+<ol>
+<li>不可抢占</li>
+<li>DR 挂了永远是 BDR 成为新的 DR</li>
+<li>基于一个网络进行选择</li>
+<li>接口 OSPF 优先级为 0 的时候没有资格成为 DR/BDR</li>
+<li>FR Hub &amp; Spoke 只有DR</li>
+<li>DR/BDR 选举是有时限的</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>OSPF 接口状态机<br />
+<figure><img src="https://i.imgur.com/ZQuBwGL.jpg" alt="OSPF MA端口状态机" /><figcaption>OSPF MA端口状态机<figcaption></figure></li>
+<li>认证  0: 不认证 1: 明文认证 2: MD5
+<ul>
+<li>链路级认证</li>
+<li>区域级认证<br />
+<code>Area 0 开启认证：属于 Area 0 的所有路由器 不属于 Area 0 的 VL 连接者</code></li>
+<li>虚链路认证</li>
+<li>HMAC 散列认证信息码 数字签名</li>
+</ul>
+</li>
+<li>路由类型
+<ul>
+<li>域内路由 O 10 1类2类</li>
+<li>域间路由 O IA 10 3类</li>
+<li>域外路由 O E1（一类的外部） O E2（二类的外部） 150 4类5类</li>
+</ul>
+</li>
+<li>LSA 类型
+<ul>
+<li>Router LSA <code>任何路由器都会形成1类LSA 泛洪范围：一个区域内 内容：该路由器宣告进该区域内的所有接口的链路状态信息（宣告的链路类型：Stub Transit Point-to-Point）有flag字段指明ABR和ASBR：B 1 E 1</code></li>
+<li>Network LSA <code>DR会针对其所在的MA网络形成一条2类LSA 泛洪范围：一个区域内 内容：所有属于该MA网络的路由器的RID 掩码</code></li>
+<li>Summary LSA <code>ABR（非RFC定义）每条3类LSA指定的都是一个独立的域间路由 泛洪范围：整个路由3选择域 内容：一条域间路由O IA</code> <code>防止路由反馈：一台ABR通过非骨干区域收到3类LSA只会加入LSDB但是不会执行任何处理（加入路由表或转发给其他人）</code></li>
+<li>Summary ASB LSA <code>ASBR所在区域内的ABR 泛洪范围：除了ASBR所在区域外的整个OSPF域内传递 内容：ASBR的RID以及该ABR去往ASBR路径的度量值</code></li>
+<li>External LSA <code>ASBR 泛洪范围：整个路由选择域（但不会出现环路 通过4类/3类进行防环处理） 内容：一条5类LSA包含一条域外路由（FA地址、Tag 32bit修改路由度量值、下一跳或路由过滤）</code>
+<ul>
+<li><strong>FA最末跳路由优化机制：1.路由的下一跳地址所连接的网络被ASBR宣告进OSPF 2.ASBR连接该网络接口网络类型必须是MA/NBMA 3.接口状态必须是upup</strong> <code>FA地址可达，3类LSA无环，把报文发送给FA地址 若无FA地址，4类LSA无环</code></li>
+<li>Tag：<code>只有5类和7类才有 默认0 32bit修改路由度量值、下一跳或路由过滤 route-policy</code></li>
+<li>seed metric 1</li>
+<li>Type 1 O ASE1</li>
+<li>Type 2 O ASE2</li>
+</ul>
+</li>
+<li>NSSA LSA</li>
+</ul>
+</li>
+<li>计算 OSPF 区域内路由
+<ul>
+<li>节点（路由器RID） 树叶（网络）</li>
+<li>MA 大于等于2台才能形成 Transit 类型</li>
+<li><code>网段宣告对应的 Router-LSA 的link数量（只有1类LSA才有link count值）</code>
+<ul>
+<li>Loopback 1link Stub</li>
+<li>Serial HDLC/PPP 2link Stub+P2P</li>
+<li>Ethernet FR 1link Transit<br />
+<figure><img src="https://i.imgur.com/tHkfFch.jpg" alt="OSPF Router-LSA中的重要字段" /><figcaption>OSPF Router-LSA中的重要字段<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/pYunDga.jpg" alt="OSPF配置接口开销" /><figcaption>OSPF配置接口开销<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>计算 OSPF 区域间路由
+<ul>
+<li>ToS
+<ul>
+<li>IP Precedence 3bit 0-7 0 1 2 3 4 5 6（控制层面OSPF报文发送所携带的值，<code>二进制11000000 十进制192</code>OSPF流量ip报头对应的值，可用作acl流量抓取） 7</li>
+<li>DSCP 6bit</li>
+</ul>
+</li>
+<li>虚连接（Virtual Link）</li>
+</ul>
+</li>
+<li>OSPF 外部路由
+<ul>
+<li>seed metric 外部度量值</li>
+<li>优先级 O&lt;O IA&lt;O E1&lt;O E2</li>
+</ul>
+</li>
+<li>OSPF 特殊区域
+<ul>
+<li>Stub 区域 末节区域
+<ul>
+<li>ABR 3类0.0.0.0/0 metric 1</li>
+</ul>
+</li>
+<li>NSSA 次末节区域
+<ul>
+<li>7类 NSSA External LSA type1 type2 O N1 O N2</li>
+<li>转换者 ABR RID（最大，只有1台） 5类LSA</li>
+<li>7类 LSA 一定会携带FA 地址：
+<ol>
+<li>宣告进 OSPF 的最大环回口地址</li>
+<li>宣告进 OSPF 的最大物理接口地址</li>
+<li>接口状态 UP UP</li>
+</ol>
+</li>
+<li><code>NSSA 多台 ABR 非转换者上做重分发，会以7类在 NSSA 区域传递，会以5类在常规区域传递；转换者就不会转换7类以5类转发出去。</code></li>
+<li>外部默认路由下放 7类LSA<br />
+<figure><img src="https://i.imgur.com/9qNGY60.jpg" alt="OSPF配置NSSA默认路由下放" /><figcaption>OSPF配置NSSA默认路由下放<figcaption></figure></li>
+<li><code>No-redistribution 无需重分发7类明细 就让外部路由不要进入 NSSA 区域直接进入其他区域</code><br />
+4. ABR 下放 7类缺省<br />
+5. ABR 下放 3类缺省</li>
+<li><code>总结</code>
+<ul>
+<li>Stub ABR 过滤 4/5类 LSA 进入区域内不能拥有 ASBR ABR 主动下放3类缺省</li>
+<li>Totally Stub ABR 增加对进入该区域3类 LSA 过滤，只需要在 ABR 上开启 totally stub 特性</li>
+<li>NSSA ABR 过滤4/5类进入，区域内可以拥有 ASBR 区域中拥有最大 RID 的 ABR 成为转换者 ABR 不会主动下放缺省，需要下放要通过配置命令实现 ABR 可以下放 ASBR 也可以下放（ASBR 下放前提有默认路由）</li>
+<li>Totally NSSA ABR 过滤3类 ABR 主动下放 3类 LSA<br />
+<figure><img src="https://i.imgur.com/uy548S3.jpg" alt="OSPF NSSA区域FA地址的重要性1" /><figcaption>OSPF NSSA区域FA地址的重要性1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/fjDr97E.jpg" alt="OSPF NSSA区域FA地址的重要性2" /><figcaption>OSPF NSSA区域FA地址的重要性2<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>OSPF 故障处理
+<ul>
+<li>OSPF 形成过程
+<ol>
+<li>建邻居</li>
+<li>传LSA LSDB</li>
+<li>将LSA转成路由条目加入路由表</li>
+</ol>
+</li>
+<li>IGP 直连路由器之间要通
+<ul>
+<li>X--R1--R2--Y
+<ol>
+<li><code>ping 直连 协议号 89 组播地址：224.0.0.5 224.0.0.6 Tos 字段为192，IP Precedence 为 6 的放行 </code></li>
+<li>宣告接口 <code>dis ospf interface</code>  <code>dis ospf peer bri</code></li>
+<li>hello 路由器ID不能冲突 MA/NBMA 网络子网掩码 相同的hello时间和dead时间 相同的区域 相同的认证类型和密钥 相同的option值（相同的区域类型）Two-way <code>不通 Init：ACL过滤掉了hello；Exstart：选举主从；</code></li>
+<li>有 LSA5 类没有路由 有 FA 必须可达 没有 FA 就是没有收到 LSA4 类</li>
+<li><code>PBR 策略路由优于路由表查询</code> traceroute</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>ABR 跟area 0内路由器建立full邻接关系 loopback 0即使宣告进area 0也建立不了邻接关系，不算真正的 ABR</strong></li>
+<li><strong>cost值：控制层面 路由流向的所有入接口度量值累加</strong></li>
+</ul>
+<h2><a id="%E7%BB%84%E6%92%AD" class="anchor" aria-hidden="true" href="#%E7%BB%84%E6%92%AD"><span class="octicon octicon-link"></span></a>组播</h2>
+<ul>
+<li>
+<p><code>比较三种流量类型</code></p>
+<ul>
+<li>Unicast:</li>
+<li>Broadcast:</li>
+<li>Multicast:
+<ul>
+<li>优点
+<ul>
+<li>Video on demand:VOD</li>
+<li>利用链路带宽</li>
+<li>节约处理器资源</li>
+<li><code>不需要知道接收者的ip地址</code></li>
+<li><code>同时性，股票大厅大屏</code></li>
+<li>路由器可以基于组播转发——<code>组播动态路由选择协议</code></li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li><code>数据层面：基于UDP</code>
+<ul>
+<li>UDP报头长度8个字节，TCP报头长度至少20个字节 UDP比TCP占用带宽少</li>
+<li><code>TCP比UDP带来的好处：流控、防乱序、防丢包、重传，组播不需要TCP提供的可靠服务</code></li>
+<li><code>TCP是基于点到点协议，无法应用到组播</code></li>
+<li>尽力而为的传输</li>
+<li>无拥塞避免机制</li>
+<li>重复报文：一台设备接收到一模一样的多份报文（<code>解决：靠组播路由选择协议</code>）</li>
+<li>传递乱序：<code>组播封装包：L2➡️IP➡️UDP➡️RTP（Real Time Transport Protocol实时传输协议为整个数据流提供传递的序列性，这个报头中包含序列号字段）➡️VoIP➡️FCS</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>基于组播的应用</p>
+<ul>
+<li><code>一对多：VoIP（电话会议）、VOD（封装：Audio-表示层：G.7xx,PCM（解码器）➡️RTP/RTCP➡️UDP➡️IP；Video：表示层：H.261，MPEG➡️RTP/RTCP➡️UDP➡️IP）</code></li>
+<li>多到多：视频会议、共享白板</li>
+<li>多对一：监控</li>
+</ul>
+</li>
+<li>
+<p>组播服务架构-组播环境划分为3⃣️大块</p>
+<ul>
+<li>第一跳路由器：<code>First-hop</code> routers forward data</li>
+<li>最后一跳路由器：<code>Last-hop(leaf)</code> routers communicate group membership to the network</li>
+<li>第1⃣️大块：Source segment</li>
+<li>第2⃣️大块：Multicast distribution tree-<code>PIM(Protocol Independent Multicast)组播动态路由选择协议</code>
+<ol>
+<li><code>第一跳路由器收到报文后如何转发？</code></li>
+<li><code>转发机制是什么？</code></li>
+<li>使用什么路径进行转发？树形or环形</li>
+<li>组播动态路由选择协议
+<ul>
+<li>IGP：DVMRP,PIM,MOSPF,CBT</li>
+<li>EGP：<code>MBGP</code>/<code>MSDP</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>第3⃣️大块：Receiver segment-<code>IGMP</code>
+<ol>
+<li><code>让最后一跳路由器知道下游有哪些PC想要接收发往哪个组播组流量</code></li>
+<li><code>让下游PC得知我想要接收组播组流量时我把消息发给哪台路由器告知它这点</code></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>组播地址</p>
+<ul>
+<li>范围：<code>224.0.0.0 to 239.255.255.255</code></li>
+<li><code>组播地址和节点没有任何关联，组播地址只跟组播服务有一个关联，它永远只能够成为流量的目的地址</code></li>
+<li><code>组播地址要有掩码也是32，扁平化地址，总共有</code> 2^28^ <code>个地址，分成3⃣️大类</code>
+<ol>
+<li>被保留的<code>链路本地（广播域本地TTL=1）</code>地址：224.0.0.0 to 224.0.0.255
+<ul>
+<li>224.0.0.1-全体的组播地址</li>
+<li>224.0.0.2-同一个广播域的路由器监听</li>
+<li>224.0.0.5-OSPF</li>
+<li>224.0.0.6-OSPF报文发给DR、BDR</li>
+<li>224.0.0.9-RIPv2发送更新的组播组地址</li>
+<li>224.0.0.10-EIGRP发送组播组地址</li>
+<li><code>224.0.0.13-PIM发送Hello地址</code></li>
+</ul>
+</li>
+<li>全球可聚合的组播地址（公网可路由的）：224.0.1.0 to 238.255.255.255 有以下2段无法使用：
+<ul>
+<li><code>232.0.0.0-232.255.255.255 指定源组播（Source specific multicast）这是PIM的高级应用，这是默认SSM地址，可以修改</code></li>
+<li><code>ASM（Any source multicast) 任意源组播：不关心源，这导致下游PC收到流量不知道是谁发的</code></li>
+<li><code>SSM：下游PC可以得知我监听的是哪个服务器给我发的流量</code></li>
+<li>233.0.0.0-233.255.255.255 AS➡️Multicast AS号12345➡️0x30｜39➡️233.48.57.0-233.48.57.255（GLOP addresses）</li>
+</ul>
+</li>
+<li>私有广播地址（只有在AS内使用）：239.0.0.0 to 239.255.255.255.255</li>
+<li>组播地址跟MAC地址映射
+<ul>
+<li>ipv4: 0100.5E+ip地址后23位 <strong>映射比是32：1</strong></li>
+<li>ipv6: 3333.+ipv6后32位<br />
+<figure><img src="https://i.imgur.com/g01LyBB.jpg" alt="组播IP地址到mac地址的映射" /><figcaption>组播IP地址到mac地址的映射<figcaption></figure></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>组播 IP 模型分类
+<ul>
+<li>ASM（Any-Source Multicast）</li>
+<li>SFM（Source-Filtered Multicast）</li>
+<li>SSM（Sourece-Specific Multicast）指定源组查询 <code>启用条件：终端主机要支持 IGMPv3 或者 IGMPｖ2 group-map</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>组播动态路由选择协议</p>
+<ul>
+<li>AS-Sourece-FH-LH-Receive
+<ul>
+<li>IGP：PIM</li>
+<li>EGP：MSDP MPBGP ipv4 multicast</li>
+</ul>
+</li>
+<li>组播分发树
+<ul>
+<li>组播分发树的两个基本类型
+<ul>
+<li>源路径树（DM）</li>
+<li>共享树（SM）
+<ul>
+<li>RP 汇合点</li>
+<li>FH—RP SPT</li>
+<li>RP-LH RPT</li>
+</ul>
+</li>
+<li><code>组播路由表的表项描述的就是树形结构（S，G）（1.1.1.1，224.1.1.1）Incoming-interface Outgoing-interface-list</code></li>
+<li>dense-mode 初始泛洪➡️回向修剪（prune）</li>
+<li>sparse-mode 在IGMP report中pc告诉LH路由器我要接收发往 224.1.1.1 的组播组流量，不关心信源是谁➡️LH路由器会发送一跳一跳的（<code>*</code>，224.1.1.1）join 最终发送给 RP（沿途路径按照单播igp计算而得的最优路径）➡️这时就已经形成了 RP-LH 的 共享树➡️信源开始发送组播后，FH路由器会发送注册给RP，询问RP域内有没有接收者➡️<code>如果RP判断没有接收者，会直接给FH路由器发送register stop,告知没有接收者，请直接停止➡️FH路由器的组播接口在接收到组播流量后就什么也不会</code>➡️如果RP判断域内有接收者，<strong>注册是指FH路由器在收到组播组信源发送的第一个组播流量，再把第一个组播流量通过封装的形式封装成单播pim注册发送给RP</strong>，会把pim注册解封装成原始组播流量，然后通过共享树发送下去➡️只要发送下来，RP的地址就成为共享树中的路由器对于组播流量的RPF评判标准， <strong>RP到FH路由器会发送2个报文：（source，G）join和register stop</strong>➡️形成（<code>*</code>，G）表项<br />
+<figure><img src="https://i.imgur.com/msqJshW.jpg" alt="组播PIM SM共享树" /><figcaption>组播PIM SM共享树<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PIM
+<ul>
+<li>Dense-Mode SPT 源树</li>
+<li>Sparse-Mode RPT 共享树 SPT</li>
+<li>RPF 反向路径转发 组播路由表项</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>组播数据转发</p>
+<ul>
+<li><code>组播路由使用「反向路径转发」机制（RPF， Reverse Path Forwarding）</code></li>
+<li><code>对于一个Source一台路由器只有一个接口可以接收他发送的组播流量</code></li>
+<li>RPF 接口
+<ol>
+<li>路由器收到组播数据报文后，只有确认这个数据报文是从自身连接到组播源的接口上收到的，才进行转发，否则丢弃。</li>
+<li>最长匹配原则
+<ul>
+<li>1.1.0.0/16 fa0/1 12.1.1.1</li>
+<li>1.1.0.0/16 serial1/0/1 13.1.1.1 <code>RPF接口看接口ip地址大小</code></li>
+</ul>
+</li>
+<li>比较管理距离谁最小，RPF接口就是谁</li>
+<li>组播静态&gt;MP-BGP&gt;单播路由</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>IGMP-<code>Internet Group Management Protocol</code></p>
+<ul>
+<li><code>OSI定义的4⃣️层协议：封装 L2➡️IP➡️IGMP➡️FCS</code> <code>对应IP层的上层协议号字段是2</code></li>
+<li>IGMPv1：C/S架构模型</li>
+<li>Membership Queries(组播组成员资格查询):<code>周期发，默认60s一次</code> <code>发送前提是路由器连接下游网段接口必须要启用某种模式的PIM</code>
+<ul>
+<li>类型：0x11</li>
+<li><code>封装：Ethernet➡️IP(SIP: Router接口IP,DIP:224.0.0.1 with TTL=1)➡️IGMP(Group:0.0.0.0)➡️FCS</code></li>
+<li>HoldTime计时器：180s <code>IGMP表项过期时间，离组确认要180s时间</code></li>
+</ul>
+</li>
+<li>Membership Reports(组播组成员资格通告)
+<ul>
+<li>类型：0x12 <code>版本2:0x16</code></li>
+<li><code>封装：Ethernet➡️IP(SIP: PC1接口IP,DIP:224.1.1.1 with TTL=1)➡️IGMP(Group:224.1.1.1我想要加入的组播组地址)➡️FCS</code></li>
+<li><code>告知网段内的最后一跳路由器该网段内有人想接收去往224.1.1.1的组播流量</code></li>
+<li><code>告知网段内所有想加入相同组的成员请你们不要再发送report报文</code></li>
+<li><code>收到queries后会开启最大响应时间计时器 1s-10s不等（随机时间）</code></li>
+<li><code>Report报文2个用途：</code>
+<ol>
+<li>充当ACK</li>
+<li>主动发送</li>
+</ol>
+</li>
+<li><code>IGMPv1中PIM DR机制来指定查询者，避免重复报文</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>IGMPv2</p>
+<ul>
+<li>新增2类报文：
+<ul>
+<li><code>Group-specific query(指定组查询报文) 只有收到离组报文时才会触发 源IP：路由器的IP 目的IP：224.1.1.1</code>
+<ul>
+<li>pc收到指定组查询报文后，不会再开启1s-10s不等的最大响应时间计时器，<code>会开启一个2s（cisco 2s、huawei 1s）的随机计时器</code>，会在2s内给路由器做响应</li>
+<li><code>路由器收到响应后，把IGMP表项超时时间恢复成180s</code></li>
+<li><code>路由器没有收到响应后，直接丢弃表项，离组完成</code></li>
+<li>cisco离组最多耗时<code>2</code>s</li>
+</ul>
+</li>
+<li><code>Leave Group message(离组报文)</code> <code>源IP：PC1的IP 目的IP：224.0.0.2 GROUP:224.1.1.1(想离开的组)</code>
+<ul>
+<li>类型：0x17</li>
+<li>收到离组报文，路由器会担心组内还有没有其他人，如果没人再保持发报文就浪费带宽</li>
+<li>收到离组报文，路由器会干2件事
+<ol>
+<li>把接口所关联的IGMP表项的超时时间从180s缩短到2s</li>
+<li><code>通过这个接口发送一个指定组查询报文，目的IP：224.1.1.1，Group：224.1.1.1</code></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Querier election mechanism(查询者选举机制)-<code>多台最后一跳路由器，避免重复报文</code>
+<ul>
+<li><code>比较最后一跳路由器连接下游网段的接口的ip地址，谁ip地址小，谁就成为查询者</code></li>
+<li><code>路由器之间交互第一份查询报文来选举查询者</code></li>
+<li><code>查询者超时计时器：120s，如果备份查询者在120s内没有收到查询者发送queries报文，意识到查询者down，还是通过选举机制来查看能否成为新的查询者，如果当上新的查询者，就周期性发送query并向下游转发组播流量</code>
+<ul>
+<li><code>show ip igmp group</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>配置实验
+<ul>
+<li>
+<p>Cisco 在接口启用 PIM，自动启用 IGMP</p>
+</li>
+<li>
+<p>R1</p>
+<pre class="line-numbers"><code>思科
+en
+conf t
+ip multicast-routing 开启组播路由选择功能
+int fa 0/0
+ip pim sparse-mode
+end
+show ip igmp interface fa 0/0
+show ip igmp groups
+logging on
+logging buffered debugging
+exit
+debug
+debug ip igmp
+华为
+[]multicast-routing-enable
+[]int e0/0
+[e0/0]ip add 172.16.1.3 255.255.255.0
+[e0/0]igmp enable
+[e0/0]igmp version 2
+[]dis igmp interface
+[]dis igmp group
+</code></pre>
+</li>
+<li>
+<p>R2</p>
+<pre class="line-numbers"><code>思科
+en
+conf t
+ip multicast-routing
+int fa 0/0
+ip pim sparse-mode
+end
+show ip igmp interface fa 0/0
+show ip igmp groups
+logging on
+logging buffered debugging
+end
+debug
+debug ip igmp
+华为
+[]multicast routing-enable
+[]int e0/1
+[e0/1]ip add 172.16.1.1 255.255.255.0
+[e0/1]igmp enable
+[e0/1]igmp version 2
+[]dis igmp interface
+[]dis igmp group
+</code></pre>
+</li>
+<li>
+<p>PC3</p>
+<pre class="line-numbers"><code>思科
+en
+conf t
+int fa 0/0
+ip igmp join-group 224.1.1.1 接口加入组播组
+exit
+debug
+debug ip igmp
+conf t
+int fa 0/0
+no ip igmp join-group 224.1.1.1
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>IGMPv3</p>
+<ul>
+<li><code>与SSM使用可以指定组播源</code></li>
+<li><code>report 组播组地址是 224.0.0.22</code><br />
+<figure><img src="https://i.imgur.com/M06hV2Q.jpg" alt="组播IGMPv3工作机制" /><figcaption>组播IGMPv3工作机制<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/TyXjVHV.jpg" alt="组播IGMP版本比较" /><figcaption>组播IGMP版本比较<figcaption></figure></li>
+</ul>
+</li>
+<li>
+<p><code>Layer 2 Multicast Switching Solutions</code></p>
+<ul>
+<li>工作机制 当二层以太网交换机收到主机和路由器之间传递的IGMP报文时，IGMP Snooping分析报文所带的信息：
+<ul>
+<li>如果主机发出IGMP主机报告报文时，交换机将该主机加入到相应的组播表中</li>
+<li>如果主机发出IGMP离开报文时，交换机将删除与该主机对应的组播表项</li>
+<li><code>交换机无法抑制report报文</code><br />
+<figure><img src="https://i.imgur.com/I7uiESi.jpg" alt="组播IGMP Snooping建立和维护组" /><figcaption>组播IGMP Snooping建立和维护组<figcaption></figure></li>
+</ul>
+</li>
+<li><code>组播ip地址到组播mac地址的映射：32:1</code></li>
+<li><code>组播mac地址：01-00-5e-7f-00-01 前25bits不变，后23bits同组播IP地址后23bits一一对应</code></li>
+<li><code>交换机拥有组播相对应的mac表项，2⃣️种机制：</code>
+<ul>
+<li>IGMP snooping：
+<ul>
+<li>开启后能拆3层信息</li>
+<li>截获pc发给路由器的report报文3⃣️层的源目ip地址，源：pc的ip、目：224.1.1.1</li>
+<li>IGMP Snooping表项</li>
+<li><code>纯3⃣️层交换机开启igmp snooping</code></li>
+</ul>
+</li>
+<li>IGMP snooping proxy(最新标准):</li>
+</ul>
+</li>
+<li>配置实验<br />
+<figure><img src="https://i.imgur.com/WpJw1fA.png" alt="组播L2igmp-snooping配置" /><figcaption>组播L2igmp-snooping配置<figcaption></figure>
+<ul>
+<li>
+<p>SW1:</p>
+<pre class="line-numbers"><code>思科
+show ip igmp snooping
+Show ip igmp snooping groups
+华为
+[]vlan 2
+[vlan2]port e1/0/5 to e1/0/8
+[vlan2]igmp-snooping enable
+[]dis igmp-snooping group
+</code></pre>
+</li>
+<li>
+<p>PC3:</p>
+<pre class="line-numbers"><code>思科
+ip igmp join-group 224.1.1.1
+show ip igmp groups
+华为
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>PIM-DM 协议原理</p>
+<ul>
+<li>DM SPT Push Initial Flooding <code>（S，G）表项</code> Prune 180s（超时时间huawei 210s）<code>相当于每3分钟一次的泛洪和修剪过程</code></li>
+<li>封装 <code>Ethernet2｜IP｜PIM｜FCS 协议号 103</code>
+<ul>
+<li>报头类型：<br />
+0:Hello <code>每30s一次 组播地址：224.0.0.13 老化计时器：105s</code><br />
+3:加入/剪枝<br />
+5:Assert<br />
+6:嫁接<br />
+7:嫁接回应<br />
+9:状态刷新</li>
+</ul>
+</li>
+<li>版本1和版本2的区别：路由器是否支持状态可刷新 路由器是否可以识别pim优先级 <code>优先级高的或者IP地址大的成为DR</code></li>
+<li>命令</li>
+</ul>
+<pre class="line-numbers"><code>[]multicast routing-enable
+[]int s0/0
+[s0/0]pim dm
+</code></pre>
+<ul>
+<li>Graft 嫁接：新加入的接收者想接收组播</li>
+<li>Assert 机制：<code>MA网络防止重复报文 路由器-路由器</code>
+<ul>
+<li>触发前提：<code>1台路由器通过一个接口收到组播流量， RPF校验失败 通过这个接口要发送相同组播流量</code></li>
+<li>彼此发送pim assert报文：<code>描述我这台路由器去往信源的单播路由条目的管理距离、度量值还有我这个接口的ip地址</code></li>
+<li>DM 和 SM 都可能用到</li>
+</ul>
+</li>
+<li>查看PIM-DM组播路由表
+<ul>
+<li><code>dis pim routing-table</code></li>
+</ul>
+</li>
+<li>查看PIM邻居
+<ul>
+<li><code>dis pim neighbor</code></li>
+</ul>
+</li>
+<li>查看PIM接口配置
+<ul>
+<li><code>dis pim interface verbose</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>PIM-SM 协议原理</p>
+<ul>
+<li>一个域内 RP 有且只有1个</li>
+<li>SM RPT Pull SPT RPT SPT <code>SPT threshold</code></li>
+<li>BSR <code>BootStrap Router 自举路由器 AutoRP</code>
+<ul>
+<li>CRP RP-candidate 配置优先级 默认为0 配置ACL成为哪些组播组的rp 224.0.0.0-239.255.255.255 默认224.0.0.0/4 group-policy <code>CRP发送advertise报文给BSR默认60s一次</code></li>
+<li>MA BSR-candidate 平行存在，选举原则一致，确定相同RP，发送discovery报文
+<ul>
+<li>先比较 C-BSR 的优先级 大代表越高 优先级一样比较接口的ip地址 先认为自己是 BSR，再开启初始计时器默认130s➡️过期后发送 BootStrap Message自举消息(130s一次)，使用pim报文发送，目的地址：<code>224.0.0.13</code>，报文内容包含<code>BSR的优先级 IP地址 HASH掩码 RP-SET空</code>，发送我的所有邻居路由器➡️邻居路由器收到后会作BSR RPF校验<code>（校验内容：路由表里查看去往BSR地址的路由对应的出接口 去往BSR的路由条目的下一跳地址是不是3层报头中的源ip地址）</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RPT 形成：receiver发送report➡️LH路由器去往RP单播路由条目的下一跳发送（<code>*</code>，G）join，同时本地形成（<code>*</code>，G）的表项➡️上游收到也会形成（<code>*</code>，G）的表项➡️RP也会形成（<code>*</code>，G）的表项</li>
+<li>SPT 形成：FH路由器收到组播组信源发送的第一个组播数据封装成pim的单播注册报文，然后把register报文发送给rp➡️rp不知道有没有接收者就（不会作任何响应，FH会周期性发register，提醒rp信源存在/发送register stop，FH不再发register，但一旦有receiver，也无法通知FH）➡️如果有接收者，rp先解封装然后还原成原始组播数据包通过共享树发下去➡️共享树沿途路由器收到组播流量基于rp作RPF校验➡️rp会发送（S，G）的join给FH路由器，告知FH路由器请你把组播组信源流量通过SPT发下来，同时rp会给FH路由器发送register stop停止发送注册报文<br />
+<figure><img src="https://i.imgur.com/4eP4PzY.jpg" alt="组播PIM-SM概述" /><figcaption>组播PIM-SM概述<figcaption></figure></li>
+<li>PIM-SM 基本配置</li>
+</ul>
+<pre class="line-numbers"><code>[]multicast routing-enable
+[]pim
+[pim]static-rp 172.16.1.1
+[]int e0/1
+[e0/1]pim sm
+</code></pre>
+<pre class="line-numbers"><code>[]multicast routing-enable
+[]int g2/0/0
+[g2/0/0]igmp enable
+[g2/0/0]igmp version 2
+[g2/0/0]pim sm
+[g2/0/0]quit
+[]int pos3/0/0
+[pos3/0/0]pim sm
+[pos3/0/0]quit
+</code></pre>
+<ul>
+<li>C-RP 和 C-BSR 配置</li>
+</ul>
+<pre class="line-numbers"><code>[]acl number 2005
+[acl-basic-2005]rule permit source 225.1.1.0 0.0.0.255
+[acl-basic-2005]quit
+[]pim
+[pim]c-bsr pos 3/0/0
+[pim]c-rp pos 3/0/0 group-policy 2005
+[]dis pim interface
+[]dis pim bsr-info
+[]dis pim rp-info
+[]dis pim routing-table
+</code></pre>
+<ul>
+<li>PIM-SM 验证</li>
+</ul>
+<pre class="line-numbers"><code>dis pim neighbor
+dis pim rp-info
+dis pim interface verbose
+dis pim routing-table
+</code></pre>
+<ul>
+<li><code>DR 在 第一跳 DR 和 最后一跳 DR 有用避免重复报文</code></li>
+<li>RP(Rendezvous Point)发现
+<ul>
+<li>静态RP：所有路由器都要指定，包括rp</li>
+<li>动态RP：BSR 见上</li>
+<li>选举RP：PC发送report 224.1.1.1给LH路由器➡️LH路由器通过BSR得知多个RP信息，比较第一步对比group-policy（最长匹配原则），第二步对比C-RP的优先级（值越小代表优先级越高），第三步对比BSR HASH，第四步对比C-RP的接口地址</li>
+<li><code>一个RP可以同时为多个组播组服务，但一个组播组只能对应一个RP。</code><br />
+<figure><img src="https://i.imgur.com/Bin4V2K.png" alt="组播c-rp group-policy" /><figcaption>组播c-rp group-policy<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/C1LRXvU.png" alt="组播RP选举" /><figcaption>组播RP选举<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/F5qX6nc.png" alt="组播PIM-SM共享树构建和组播源注册" /><figcaption>组播PIM-SM共享树构建和组播源注册<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/r86EXIE.png" alt="组播PIM-SM之源树切换" /><figcaption>组播PIM-SM之源树切换<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/8okVU1V.png" alt="组播PIM-SM动态RP之BSR管理域" /><figcaption>组播PIM-SM动态RP之BSR管理域<figcaption></figure></li>
+</ul>
+</li>
+<li>SPT Threshold 默认0 直接组播路径转换</li>
+<li>PIM-SM 的工作过程主要有：
+<ul>
+<li>邻居发现</li>
+<li>DR 选举</li>
+<li>RP 发现</li>
+<li>加入</li>
+<li>注册</li>
+<li>SPT 切换</li>
+<li>剪枝</li>
+</ul>
+</li>
+<li>PIM-SM 基本配置<br />
+<figure><img src="https://i.imgur.com/Bp3kp0G.png" alt="组播PIM-SM（SSM模型）" /><figcaption>组播PIM-SM（SSM模型）<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+<h2><a id="bgp" class="anchor" aria-hidden="true" href="#bgp"><span class="octicon octicon-link"></span></a>BGP</h2>
+<ul>
+<li>动态路由选择协议
+<ul>
+<li>IGP：RIP EIGRP OSPF IS-IS</li>
+<li>EGP：BGP（CLassless）
+<ol>
+<li>EGP</li>
+<li>路径矢量协议 internet AS-AS（一跳是从AS➡️AS）ECMP（默认不支持负载均衡）</li>
+<li>Classless</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>封装：Layer 2｜IP｜TCP｜BGP｜FCS <code>目的端口号179</code></li>
+<li>什么是 BGP？
+<ul>
+<li>AS号：0-65535 IANA 公有：1-64511 私有：64512-65535</li>
+<li><code>为什么不能通过IGP在AS之间传递路由？</code>
+<ul>
+<li>管理</li>
+<li>开销 OSPF支持3万条路由前提是：路由器性能比较强大</li>
+<li>选路 属性</li>
+<li>路由支持（ipv4/ipv6）<code>BGPv4：IPv4-unicast BGPv4+：Address-family ipv4-unicast、ipv4-multicast、ipv6-unicast、ipv6-multicast、VPNv4-unicast、VPNv4-multicast、VPNv6-unicast、VPNv6-multicast</code></li>
+</ul>
+</li>
+<li>BGP route-policy和正则表达式</li>
+</ul>
+</li>
+<li>BGP 的基本工作机制
+<ul>
+<li>本地始发路由
+<ol>
+<li><code>network语句路由通告（路由表中已存在的路由条目信息）</code></li>
+<li>redistribute</li>
+<li>aggregate（路由聚合）</li>
+</ol>
+</li>
+<li>非本地始发路由
+<ul>
+<li>IBPG：<code>默认情况下，一条BGP路由在一个AS域内传递时，下一跳是永远维持不变的</code></li>
+<li>EBGP</li>
+</ul>
+</li>
+<li>BGP 可靠的路由更新
+<ul>
+<li>TCP 端口号179</li>
+<li>无需周期性更新</li>
+<li>路由更新：只发送增量路由</li>
+<li>周期性发送keepalive报文检测TCP的连通性
+<ul>
+<li><code>IGP Hello报文 1.邻居发现 2.维护邻居</code></li>
+<li><code>BGP Open报文只发一次 keepalive报文周期性发送，用来维护邻居，Cisco60s一次，holdtime180s</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BGP 消息类型
+<ul>
+<li>BGP 报文有五种类型：
+<ul>
+<li>Open：负责和对等体建立邻居关系</li>
+<li>KeepAlive：该消息在对等体之间周期性地发送，用以维护连接</li>
+<li>Update：该消息被用来在BGP对等体之间传递路由信息</li>
+<li>Notification：当BGP Speaker检测到错误的时候，就发送该消息给对等体</li>
+<li>Route-refresh：用来通知对等体自己支持路由刷新能力</li>
+</ul>
+</li>
+<li>状态机
+<ul>
+<li>Idle
+<ul>
+<li><code>TCP通过自身的哪个接口发出</code></li>
+</ul>
+</li>
+<li>Connect：尝试完成TCP三次握手会话</li>
+<li>Active</li>
+<li>Open-sent</li>
+<li>Open-confirm</li>
+<li>established<br />
+<figure><img src="https://i.imgur.com/ZBe7vnb.jpg" alt="BGP状态机" /><figcaption>BGP状态机<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BGP 的数据库
+<ul>
+<li>IP路由表（IP-RIB）
+<ul>
+<li>全局路由信息库，包括所有IP路由信息</li>
+<li><code>BGP选出的最优路由标识号：*&gt; *表示该路由有资格加入路由表</code></li>
+<li><code>AD Cisco EBGP 20 IBGP 200 Huawei EBGP/IBGP 255</code></li>
+</ul>
+</li>
+<li>BGP路由表（Loc-RIB）
+<ul>
+<li>BGP路由信息库，包括本地BGP Speaker选择的路由信息</li>
+</ul>
+</li>
+<li>邻居表
+<ul>
+<li>对等体邻居清单列表</li>
+</ul>
+</li>
+<li>Adj-RIB-In
+<ul>
+<li><code>对等体宣告给本地Speaker的未处理的路由信息库</code></li>
+</ul>
+</li>
+<li>Adj-RIB-Out
+<ul>
+<li><code>本地Speaker宣告给指定对等体的路由信息库</code><br />
+<figure><img src="https://i.imgur.com/2fZc8IA.jpg" alt="BGP路由信息处理" /><figcaption>BGP路由信息处理<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BGP 工作原理
+<ul>
+<li>
+<p>BGP 邻居关系</p>
+<ul>
+<li>EBGP R1 AS1 R2 AS2 <code>通过AS-Path属性防环</code>  <strong>TTL=1路由器必须直连</strong></li>
+<li>IBGP <code>前提运行IGP  默认TTL=255 尽可能使用路由器的环回口建立</code></li>
+<li><code>防火墙给TCP端口号179放行</code></li>
+<li><code>Open报文 源ip地址一定要在 neighbor｜peer IP地址中</code>
+<ul>
+<li>更新源地址：Cisco <code>neighbor 4.4.4.4 update-source lookback 0</code><br />
+<figure><img src="https://i.imgur.com/2S2A9yT.jpg" alt="BGP的EBGP多跳和指定更新源" /><figcaption>BGP的EBGP多跳和指定更新源<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>BGP 通告原则</p>
+<ul>
+<li>本地产生了BGP路由 0.0.0.0 127.0.0.1
+<ul>
+<li><code>下一跳地址为0.0.0.0:Connect、没有下一跳地址的Static</code></li>
+<li><strong>下一跳继承 没有下一跳路由通告进BGP就是0.0.0.0，拥有下一跳路由通告进BGP，通告者BGP路由表里会维持原始下一跳不变</strong></li>
+</ul>
+</li>
+<li><code>本地产生的BGP路由向所有IBGP邻居和EBGP通告</code></li>
+<li><code>IBGP路由默认只能传给所有EBGP邻居，不会通告给它的IBGP邻居，解决方法：IBGP全互连</code>
+<ul>
+<li><code>路由黑洞：解决方法1.IBGP之间物理链路全互连；2.IBGP邻接关系全互连；3.BGP被引入IGP内；4.在所有运行BGP的路由器之间加tunnel；5.MPLS BGP路由下一跳地址根据IGP路由的标签（最优方案）；5.路由反射器；6.联盟</code><br />
+<figure><img src="https://i.imgur.com/hlU8e2z.png" alt="BGP路由黑洞" /><figcaption>BGP路由黑洞<figcaption></figure></li>
+</ul>
+</li>
+<li><code>IGP引入BGP原则：默认只有EBGP路由可以被重分发进入</code></li>
+<li><code>EBGP路由默认可以传给所有其他EBGP邻居以及所有IBGP邻居</code></li>
+<li><strong>BGP判断最优路由：选路原则，最优就会标记「&gt;」，是否有资格加路由表就和IGP比较AD</strong></li>
+<li><code>路由无标记「&gt;」，对IBGP而言1.下一跳地址不可达；2.BGP同步原则没有满足</code></li>
+<li><code>第一跳传递规则：始发路由器把BGP路由传递给邻居下一跳自动变更为针对该邻居的更新源地址</code></li>
+<li><code>第二跳传递，当传给IBGP邻居时，路由的下一跳地址不变，解决方法：peer 1.1.1.1 next-hop-local；当传给EBGP邻居时，路由的下一跳会变更为更新源地址</code></li>
+</ul>
+</li>
+<li>
+<p>BGP 路由提高</p>
+<pre class="line-numbers"><code>bgp 200
+    ipv4-family unicast
+        network 18.0.0.1 255.255.255.255
+</code></pre>
+</li>
+</ul>
+</li>
+<li>BGP 路径选择
+<ul>
+<li>BGP路径属性介绍
+<ul>
+<li>
+<p>BGP路径属性可以被分为四大类：</p>
+<ul>
+<li>公认属性：所有设备厂商都能支持的属性
+<ul>
+<li>公认强制(Well-known mandatory)：必须携带</li>
+<li>公认自由(Well-known discretionary)</li>
+</ul>
+</li>
+<li>可选属性：厂商的私有属性
+<ul>
+<li>可选传递(Optional transitive)：<code>当你一个属性不能被路由器厂商支持，这个属性值是否会记住在路由器条目中继续传递下去</code>
+<ul>
+<li>完整属性</li>
+<li>部分属性</li>
+</ul>
+</li>
+<li>可选非传递(Optional non-transitive)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>常见BGP路由属性</p>
+<ol>
+<li><code>Origin</code>：公认强制（i、e、？）</li>
+</ol>
+<pre class="line-numbers"><code>[R1]int loo0
+[R1-loo0]ip add 1.1.1.1 24
+[R1-loo0]int g0/0/0
+[R1-g0/0/0]ip add 12.1.1.1 24
+[R1]bgp 10
+[R1-bgp]router-id 1.1.1.1
+[R1-bgp]ipv4-family unicast
+[R1-bgp-af-ipv4]quit
+[R1-bgp]peer 12.1.1.2 as-number 20
+[R1-bgp]ipv4-family unicast
+[R1-bgp-af-ipv4]peer 12.1.1.2 enable
+[R1-bgp-af-ipv4]network 1.1.1.0 255.255.255.0
+[R1-bgp-af-ipv4]quit
+[R1-bgp]quit
+[R1]dis bgp routing-table
+[R2]int g0/0/0
+[R2-g0/0/0]ip add 12.1.1.2 24
+[R2]bgp 20
+[R2-bgp]router-id 2.2.2.2
+[R2-bgp]peer 12.1.1.1 as-number 10
+[R2-bgp]ipv4-family unicast
+[R2-bgp-af-ipv4]peer 12.1.1.1 enable
+[R2-bgp-af-ipv4]ping 12.1.1.1
+[R2-bgp-af-ipv4]quit
+[R2-bgp]quit
+[R2]ip ip-prefix test index 10 permit 1.1.1.0 24
+[R2]route-policy origin permit node 10
+[R2-route-policy]if-match ip-prefix test
+[R2-route-policy]apply origin [egp 20/incomplete]
+[R2-route-policy]quit
+[R2]dis route-policy
+[R2]route-policy origin permit node 20
+[R2-route-policy]quit
+[R2]dis route-policy 做条空语句，匹配所有
+[R2]bgp 20
+[R2-bgp]ipv4-family unicast
+[R2-bgp-af-ipv4]peer 12.1.1.1 route-policy origin import
+[R2-bgp-af-ipv4]quit
+[R2-bgp]quit
+[R2]dis bgp routing-table
+[R2]quit
+&lt;R2&gt;refresh bgp all import
+&lt;R2&gt;dis bgp routing-table
+&lt;R2&gt;dis cur section bgp
+</code></pre>
+<ol start="2">
+<li><code>AS_PATH</code>：公认强制 <code>当你把一条路由发送给你的EBGP邻居时，你在发送之前会在AS_PATH属性中填充你自身的AS号</code></li>
+<li><code>Next hop</code>：公认强制
+<ul>
+<li><code>BGP下一跳特例：两个AS之间通过MA网络互连，RC 20.0.0.0/8 10.0.0.3 要跟RA建邻居 10.0.0.1</code><br />
+<figure><img src="https://i.imgur.com/1mX9DRD.jpg" alt="BGP下一跳特例" /><figcaption>BGP下一跳特例<figcaption></figure></li>
+</ul>
+</li>
+<li><code>MED</code>：可选非传递<br />
+<figure><img src="https://i.imgur.com/p5W6DJq.jpg" alt="BGP MED属性" /><figcaption>BGP MED属性<figcaption></figure>
+<ul>
+<li><code>比较MED的前提条件：邻居要来自同一个AS，我们可以通过配置compare-different-as-med命令来允许比较来自不同自治系统中的邻居的路由的MED值。不过，除非能够确认不同的自治系统采用了同样的IGP和路由选择方式，否则不要使用此命令。</code><br />
+<figure><img src="https://i.imgur.com/55A6Ktv.jpg" alt="BGP不同AS邻居MED值的比较" /><figcaption>BGP不同AS邻居MED值的比较<figcaption></figure></li>
+</ul>
+</li>
+<li><code>Local-Preference</code>：公认自由
+<ul>
+<li>默认值 100 <code>针对EBGP邻居在接收方向去做修改，或者针对IBGP邻居在发送方向去做修改，一般在边界路由器上做修改</code></li>
+</ul>
+</li>
+<li>Atomic-Aggregate：公认自由</li>
+<li>Aggregator：可选传递</li>
+<li><code>Community</code>：可选传递
+<ul>
+<li>标准的community属性
+<ul>
+<li>公有团体属性：
+<ol>
+<li>no-advertise(0xFFFFFF02）<code>这条路由不能再发送给任何人</code></li>
+<li>no-export(0xFFFFFF01)<code>只能发送给IBGP邻居，不能发送给EBGP邻居，不会影响联邦内子AS之间的EBGP路由传递</code></li>
+<li>local-as(0xFFFFFF03)<code>即不能发送给EBGP邻居，也不能发送给联邦内子AS之间的EBGP邻居</code></li>
+</ol>
+</li>
+<li>私有团体属性：</li>
+</ul>
+</li>
+<li>扩展的community属性：MPLS VPN</li>
+<li>通过 <code>peer 12.1.1.2 advertise-community</code> 开启属性功能</li>
+</ul>
+</li>
+<li>Originator-ID：可选非传递</li>
+<li>Cluster-List：可选非传递</li>
+<li>MP_Reach_NLRI</li>
+<li>MP_Unreach_NLRI</li>
+<li>Extended_Communities</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><code>BGP路径选择过程</code>
+<ol>
+<li>如果此路由的下一跳不可达，忽略此路由（IBGP忘记<code>next-hop-local</code>或者开启同步但同步不满足）</li>
+<li>Preferred-Value值数值高的优先 等同于Cisco的Weight <code>接收到的BGP路由加入到BGP路由表中会打上这个值 本地路由Weight 32768 非本地0</code> <strong>不具备传递性，路由器本地入栈修改</strong></li>
+<li>Local-Preference值最高路由优先 <code>PV一样后比较LP，只能在一个AS内传递，默认值100，值越高越好，当出AS发送给EBGP邻居时值恢复为100</code> <strong>当一个AS内有多台边界路由器，当多台边界路由器给AS发送相同BGP路由时，可修改LP值选最优，就相当于你转发去往外网报文时，你选择谁作为出口（出）</strong></li>
+<li><code>本地路由要优于邻居产生的路由</code>
+<ol>
+<li>聚合路由优先于非聚合路由</li>
+<li>本地手动聚合路由的优先级高于本地自动聚合的路由</li>
+<li>本地通过network命令引入的路由的优先级高于本地通过import-route命令引入的路由</li>
+</ol>
+</li>
+<li>AS路径的长度最短的路径优先</li>
+<li><code>比较Origin属性，IGP优于EGP，EGP优于Incomplete（i(network、aggregate）&gt;e&gt;?（其他方式import-route))</code></li>
+<li><code>选择MED较小的路由 通告给EBGP邻居，让EBGP邻居发包去往本地的时候优选哪条路径进入 默认值是0 只能在邻居AS内传递，传递给其他AS后还原为默认值</code><strong>（进）</strong></li>
+<li>EBGP路由优于IBGP路由 <code>选路原则中根本不会看AD值</code></li>
+<li>BGP优先选择到BGP下一跳的IGP度量最低的路径
+<ol>
+<li>当以上全部相同，则为等价路由，可以负载分担
+<ol>
+<li><code>注：AS_PATH必须一致</code></li>
+<li>当负载分担时，以下3条原则无效</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>比较Cluster-List长度，短者优先 <code>当你在一个AS内部署路由反射器，路由反射器每反射一次路由都会把它的Cluster_ID填充到Cluster-List中</code></li>
+<li>比较Originator_ID（如果没有Originator_ID，则用Router ID比较），选择数值较小的路径</li>
+<li>比价对等体的IP地址，选择IP地址数值最小的路径<br />
+<figure><img src="https://i.imgur.com/1kJhxa6.jpg" alt="BGP路径选择过程" /><figcaption>BGP路径选择过程<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/i3FYAiw.jpg" alt="BGP路径选择过程（续）" /><figcaption>BGP路径选择过程（续）<figcaption></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>BGP 路由聚合
+<ul>
+<li>自动汇总
+<ul>
+<li>auto-summary</li>
+<li>影响2⃣️类路由
+<ul>
+<li>主类network
+<ul>
+<li>不汇总 10.1.1.0/24 10 MED 下一跳1.1.1.1</li>
+<li>以主类network宣告 不携带MED和下一跳1.1.1.1</li>
+</ul>
+</li>
+<li>redistribute <code>开启自动汇总后MED和下一跳会被抑制掉 MED为0 下一跳为0.0.0.0</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>手动汇总
+<ul>
+<li>
+<p>民间做法</p>
+<ul>
+<li>172.16.0.0/24 172.16.1.0/24➡️ip route 172.16.0.0 255.255.254.0 null 0 <code>只针对始发路由</code></li>
+</ul>
+</li>
+<li>
+<p>官方做法</p>
+<ul>
+<li>aggregate</li>
+</ul>
+<pre class="line-numbers"><code>[RTA]bgp 100
+[RTA-bgp]network 192.168.1.1 255.255.255.255
+[RTA-bgp]network 192.168.1.2 255.255.255.255
+[RTA-bgp]network 192.168.1.3 255.255.255.255
+[RTA-bgp]peer 10.1.1.2 as-num 101
+[RTA-bgp]aggregate 192.168.1.0 24 detail-suppressed
+</code></pre>
+<ul>
+<li>BGP路由属性的继承
+<ul>
+<li>AS-Path</li>
+<li>Origin</li>
+<li>Community</li>
+<li><code>aggregate 160.0.0.0 255.0.0.0 detail-suppressed as-set 路由的始发路由器和聚合路由器不在同一个AS才要设置as-set</code></li>
+</ul>
+</li>
+<li>过滤策略
+<ul>
+<li>origin-policy：仅选择符合route-policy的具体路由来生成聚合路由</li>
+<li>suppress-policy：抑制指定路由的通告</li>
+<li>attribute-policy：把你生成的聚合路由的某些属性做修改</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BGP 路由策略
+<ul>
+<li>BGP可以修改的选路参数
+<ul>
+<li>Local-Preference
+<ul>
+<li><strong>通过BGP获悉路由的方式</strong>
+<ol>
+<li>network</li>
+<li>redistribute</li>
+<li>aggregate</li>
+<li>EBGP</li>
+<li>IBGP</li>
+</ol>
+</li>
+<li>通过 <code>[Router-bgp]default local-preference 配置BGP的缺省本地优先级</code>能影响除aggregate以外的所有BGP获悉路由的方式<br />
+<figure><img src="https://i.imgur.com/oj5PhwZ.jpg" alt="BGP通过策略设置Local- Preference1" /><figcaption>BGP通过策略设置Local- Preference1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/LGe3BNL.jpg" alt="BGP通过策略设置Local- Preference2" /><figcaption>BGP通过策略设置Local- Preference2<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/7cwcARA.jpg" alt="BGP通过策略设置Local- Preference3" /><figcaption>BGP通过策略设置Local- Preference3<figcaption></figure></li>
+</ul>
+</li>
+<li>AS-Path Filter
+<ul>
+<li>正则表达式<br />
+<figure><img src="https://i.imgur.com/VsTMPbW.jpg" alt="BGP正则表达式" /><figcaption>BGP正则表达式<figcaption></figure>
+<ul>
+<li><code>ip as-path-filter 1 permit ^12.*74$</code> 匹配以12开始并且以74结束的AS路径</li>
+<li><code>ip as-path-filter 1 permit 23|43</code> 匹配有23或43的AS号</li>
+<li><code>ip as-path-filter 1 permit [1-3][47]</code> 匹配有14，17，24，27，34或37的AS号</li>
+<li><code>ip as-path-filter 1 permit _34512 170$</code> AS34512与AS170直接相连</li>
+<li><code>ip as-path-filter 1 permit [1-3].[47]</code></li>
+<li><code>ip as-path-filter 1 permit _621 .+ 170$</code> 接受从AS170始发的路由，但是要经过AS621</li>
+</ul>
+</li>
+<li>BGP一些常用的正则表达式<br />
+<figure><img src="https://i.imgur.com/1eCjoIE.jpg" alt="BGP一些常用的正则表达式" /><figcaption>BGP一些常用的正则表达式<figcaption></figure></li>
+<li>过滤路由<br />
+<figure><img src="https://i.imgur.com/arD3c6m.jpg" alt="BGP AS-Path Filter过滤路由" /><figcaption>BGP AS-Path Filter过滤路由<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/wGYFsLW.jpg" alt="BGP AS-Path Filter过滤路由1" /><figcaption>BGP AS-Path Filter过滤路由1<figcaption></figure></li>
+</ul>
+</li>
+<li>MED
+<ul>
+<li>通过 <code>[Router-bgp]default med 配置BGP的缺省MED值，缺省情况下，MED的值为0</code></li>
+<li><code>前缀列表</code>
+<ul>
+<li><code>ip prefix-list 10 seq 10 permit 10.1.1.0/24</code></li>
+<li><strong>前24位前缀为10.1.1.0的前24位</strong></li>
+<li><strong>掩码为24位</strong></li>
+<li><code>ip prefix-list 10 seq 20 permit 172.16.0.0/16 ge 24</code></li>
+<li><strong>前缀的前16位和172.16.0.0一致</strong></li>
+<li><strong>掩码必须要大于等于24位 172.16.0-255.0/24</strong></li>
+<li><code>ip prefix-list 10 seq 30 permit 10.0.0.0/7 le 24</code></li>
+<li><strong>前缀的前7位必须为10.0.0.0</strong></li>
+<li><strong>掩码长度要小于等于24位</strong></li>
+<li><code>ip prefix-list 10 seq 40 permit 10.1.0.0/16 ge 24 le 32</code></li>
+<li><strong>x&lt;=y&lt;=z</strong></li>
+<li><strong>前缀的前16位必须是10.1.0.0</strong></li>
+<li><strong>掩码长度必须大于等于24</strong></li>
+<li><strong>掩码长度必须小于等于32</strong></li>
+<li>匹配主A类：<code>ip prefix-list A seq 10 permit 0.0.0.0/1 ge 8 le 8</code></li>
+<li>匹配主B类：<code>ip prefix-list B seq 10 permit 128.0.0.0/2 ge 16 le 16</code></li>
+<li>匹配主C类：<code>ip prefix-list C seq 10 permit 192.0.0.0/3 ge 24 le 24</code></li>
+<li>匹配any：<code>ip prefix-list Any seq 10 permit 0.0.0.0/0 le 32</code><br />
+<figure><img src="https://i.imgur.com/nYSScus.jpg" alt="BGP通过策略设置MED1" /><figcaption>BGP通过策略设置MED1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/MCSxwhX.jpg" alt="BGP通过策略设置MED2" /><figcaption>BGP通过策略设置MED2<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/l0EwIlt.jpg" alt="BGP通过策略设置MED3" /><figcaption>BGP通过策略设置MED3<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Communities<br />
+<figure><img src="https://i.imgur.com/3DnEfkR.jpg" alt="BGP路由策略Community1" /><figcaption>BGP路由策略Community1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/d2PGQGj.jpg" alt="BGP路由策略Community2" /><figcaption>BGP路由策略Community2<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/louPeW7.jpg" alt="BGP路由策略Community3" /><figcaption>BGP路由策略Community3<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/vDjCbhR.jpg" alt="BGP路由策略Community4" /><figcaption>BGP路由策略Community4<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/9BQMiWr.jpg" alt="BGP查看团体属性1" /><figcaption>BGP查看团体属性1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/vikXMqP.jpg" alt="BGP查看团体属性2" /><figcaption>BGP查看团体属性2<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BGP 反射与联盟
+<ul>
+<li>BGP 是怎样防止环路的？
+<ul>
+<li>EBGP
+<ul>
+<li><code>通过AS-Path属性，丢弃从EBGP对等体接收到的在AS-Path属性里包含自身AS号的任何更新信息</code></li>
+</ul>
+</li>
+<li>IBGP
+<ul>
+<li><code>BGP路由器不会将任何从IBGP对等体接收到的更新信息传给其它IBGP对等体</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IBGP 防止环路机制带来的问题
+<ul>
+<li>
+<p>为保证更新信息可以到达所有IBGP对等体</p>
+<ul>
+<li>解决方案：IBGP Speaker与IBGP Speaker之间要保证会话的全互连</li>
+<li><code>从而又带来IBGP会话数 n(n-1)/2 的问题</code></li>
+</ul>
+</li>
+<li>
+<p>路由反射（RFC2796）</p>
+<ul>
+<li>IBGP对等体可以有三种角色：
+<ul>
+<li>路由反射器（Router Reflector）</li>
+<li>客户机（Client）</li>
+<li>非客户机（Non-Client）</li>
+</ul>
+</li>
+<li><code>对等体之间的关系</code>
+<ul>
+<li>Client只需维护与RR之间的IBGP会话</li>
+<li>RR与RR之间需要建立IBGP的全互连</li>
+<li>Non-Client与Non-Client之间需要建立IBGP全互连</li>
+<li>RR与Non-Client之间需要建立IBGP全互连</li>
+</ul>
+</li>
+<li>路由反射宣告原则<br />
+<figure><img src="https://i.imgur.com/mSrffEf.jpg" alt="BGP路由反射宣告原则" /><figcaption>BGP路由反射宣告原则<figcaption></figure></li>
+<li>路由反射簇（Cluster）<br />
+<figure><img src="https://i.imgur.com/ThOUvtn.jpg" alt="BGP路由反射簇（Cluster）" /><figcaption>BGP路由反射簇（Cluster）<figcaption></figure>
+<ul>
+<li>Cluster ID 32bit Router ID</li>
+<li><strong>Cluster-list 当你一条路由在被做第一次反射时，这个RR收到路由之后会给这条路由添加Cluster-list，在这个Cluster-list中会放置自身的Cluster ID</strong></li>
+<li><code>只有RR会查看Cluster ID</code></li>
+</ul>
+</li>
+<li>路由反射环路防止机制-Originator_ID</li>
+<li><code>RR用于控制层面，尽量不要用于数据层面</code></li>
+<li>层次化路由反射<br />
+<figure><img src="https://i.imgur.com/bWRczNp.jpg" alt="BGP层次化路由反射" /><figcaption>BGP层次化路由反射<figcaption></figure></li>
+</ul>
+</li>
+<li>
+<p>联盟（RFC3065）<br />
+<figure><img src="https://i.imgur.com/72wqDNH.jpg" alt="BGP联盟" /><figcaption>BGP联盟<figcaption></figure></p>
+<pre class="line-numbers"><code>Router bgp 1001
+    bgp confederation identifier 100
+    bgp confederation peer 1002
+    bgp confederation peer 1003
+</code></pre>
+<ul>
+<li><code>一条路由在联邦内传递时基本所有属性都是保持不变的，AS-Path会变，联邦内的AS-Path只用来防环，不用来计算选路（1002 1001 1003）</code><br />
+<figure><img src="https://i.imgur.com/4hsBEzL.jpg" alt="BGP AS-Path四种类型" /><figcaption>BGP AS-Path四种类型<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/wmQpRVG.jpg" alt="BGP联盟AS_Path变化（入）" /><figcaption>BGP联盟AS_Path变化（入）<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/kDbONWv.jpg" alt="BGP联盟AS_Path变化（出）" /><figcaption>BGP联盟AS_Path变化（出）<figcaption></figure></li>
+</ul>
+</li>
+<li>
+<p>BGP 联盟与反射的比较<br />
+<figure><img src="https://i.imgur.com/EOPXswM.jpg" alt="BGP联盟与反射的比较" /><figcaption>BGP联盟与反射的比较<figcaption></figure></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BGP 多归属
+<ul>
+<li>Multi-Homing 多宿主
+<ul>
+<li>单路由器单出口</li>
+<li>双路由器单出口</li>
+<li>单路由器双出口/双路由器双出口</li>
+</ul>
+</li>
+<li>单归属末端网络
+<ul>
+<li>可以用静态路由或缺省路由代替BGP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BGP 故障排除
+<ul>
+<li>BGP故障处理流程</li>
+<li>BGP对等体建立故障
+<ul>
+<li>TCP连接
+<ul>
+<li><code>BGP连接建立在TCP会话基础之上，端口号为179</code></li>
+</ul>
+</li>
+<li>IP连通性
+<ul>
+<li>BGP对等体在大多数的情况下，需要静态路由或IGP提供可达性</li>
+</ul>
+</li>
+<li>OPEN消息的交互
+<ul>
+<li>OPEN消息是BGP建立对等体关系时交互信息的主要报文，交互的信息主要有：AS号、更新源地址以及其他参数</li>
+</ul>
+</li>
+<li>EBGP多跳
+<ul>
+<li><code>建立EBGP邻居关系时，报文的默认TTL值为1，当建立非直连邻居关系时需要手动修改TTL值</code></li>
+</ul>
+</li>
+<li>其它问题
+<ul>
+<li>物理连接的不稳定导致振荡（经常UP/DOWN）</li>
+</ul>
+</li>
+<li>检查故障
+<ul>
+<li><code>dis bgp peer</code></li>
+<li><code>dis tcp status</code></li>
+<li><code>&lt;RTB&gt;debug tcp packet</code></li>
+<li><code>ping -a 2.2.2.2 1.1.1.1</code></li>
+<li><code>dis cur configuration bgp</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BGP路由学习故障
+<ul>
+<li>成为BGP路由的方法
+<ul>
+<li>通过network命令
+<ul>
+<li><code>被network命令通告的前缀必须存在于IP路由表里</code></li>
+</ul>
+</li>
+<li>通过aggregate命令
+<ul>
+<li><code>被aggregate命令通告的前缀必须存在于BGP路由表里</code></li>
+</ul>
+</li>
+<li>通过import命令
+<ul>
+<li><code>被import命令通告的前缀也必须是存在于IP路由表里</code></li>
+<li>R中A重分发进B <strong>R宣告进协议A的所有直连路由以及通过协议A学习到的已加入路由表的路由</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>路由器永远只会把它认为最优的BGP路由发送给邻居，也就是路由前面要有&gt;标志</code></li>
+</ul>
+</li>
+<li>BGP路径选择故障</li>
+</ul>
+</li>
+</ul>
+<h2><a id="%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7" class="anchor" aria-hidden="true" href="#%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7"><span class="octicon octicon-link"></span></a>路由选择工具</h2>
+<ul>
+<li>路由选择工具<br />
+<figure><img src="https://i.imgur.com/BfGraIB.jpg" alt="路由选择工具" /><figcaption>路由选择工具<figcaption></figure>
+<ul>
+<li>ACL 反码精确匹配前缀
+<ul>
+<li>basic acl只能抓前缀<code>access-list 10 permit 10.1.1.0 0.0.0.255 匹配 10.1.1.0-10.1.1.255 掩码多少无所谓 10.1.1.0/24 10.1.1.0/25 10.1.1.0/26</code> 取值范围2000～2999</li>
+<li>advanced acl源抓前缀，目的匹配掩码<code>access-list 100 permit ip host 1.1.1.0 host 255.255.255.128</code> 取值范围3000～3999</li>
+<li>interface-based acl 1000～1999<br />
+<figure><img src="https://i.imgur.com/b7FQpZO.jpg" alt="ACL示例1" /><figcaption>ACL示例1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/jYrfdgF.jpg" alt="ACL示例2" /><figcaption>ACL示例2<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/bj2GzUU.jpg" alt="ACL示例3" /><figcaption>ACL示例3<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/dD8UowJ.jpg" alt="ACL示例4" /><figcaption>ACL示例4<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/Iu4mG5X.jpg" alt="ACL示例5" /><figcaption>ACL示例5<figcaption></figure></li>
+</ul>
+</li>
+<li>前缀列表<br />
+<figure><img src="https://i.imgur.com/7cjXP3b.jpg" alt="前缀列表" /><figcaption>前缀列表<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/nGU4uDf.jpg" alt="前缀列表示例" /><figcaption>前缀列表示例<figcaption></figure></li>
+<li>AS-Path-Filter<br />
+<figure><img src="https://i.imgur.com/blmtPCZ.jpg" alt="AS-Path-Filter" /><figcaption>AS-Path-Filter<figcaption></figure></li>
+<li>Community-filter<br />
+<figure><img src="https://i.imgur.com/M4htLjW.jpg" alt="Community-filter" /><figcaption>Community-filter<figcaption></figure></li>
+<li>Route-policy
+<ul>
+<li>router-map test permit/deny 10
+<ul>
+<li>match ACL prefix</li>
+</ul>
+</li>
+<li><code>三大用途</code>
+<ol>
+<li>路由选择协议的重分发</li>
+<li><code>BGP修改属性（需要加空语句把不需要修改属性的都放行）</code></li>
+<li><code>PBR 策略路由 ACL抓的是真实层面的数据流 凌驾于路由表之上的路由转发策略 对于接收这股流量的入接口部署PBR permit/deny匹配或者不匹配流量</code><br />
+<figure><img src="https://i.imgur.com/RWLrfRf.jpg" alt="Route-policy" /><figcaption>Route-policy<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/i0Ut2FO.jpg" alt="Route-policy示例" /><figcaption>Route-policy示例<figcaption></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="%E8%B7%AF%E7%94%B1%E7%AD%96%E7%95%A5" class="anchor" aria-hidden="true" href="#%E8%B7%AF%E7%94%B1%E7%AD%96%E7%95%A5"><span class="octicon octicon-link"></span></a>路由策略</h2>
+<ul>
+<li>
+<p>路由引入 import-route OSPF---R1---EIGRP</p>
+<ul>
+<li>单点双向重分发</li>
+<li>双点双向重分发</li>
+</ul>
+</li>
+<li>
+<p>路由过滤</p>
+<ul>
+<li>避免路由引入导致的次优路由</li>
+<li>避免路由回馈导致的路由环路</li>
+<li>进行精确的路由引入和路由通告控制</li>
+<li><code>单一协议 发送或接收路由过滤 分发列表distribute-list 路由过滤 只针对DV RIP EIGRP BGP</code></li>
+<li><code>使用filter-policy在做acl调用时，只能调用标准acl来完成路由过滤</code><br />
+<figure><img src="https://i.imgur.com/tyWPqjT.jpg" alt="使用路由过滤避免次优路由配置" /><figcaption>使用路由过滤避免次优路由配置<figcaption></figure></li>
+<li>BGP精确控制路由引入和路由发布<br />
+<figure><img src="https://i.imgur.com/mPzrj6S.jpg" alt="BGP精确控制路由引入和路由发布" /><figcaption>BGP精确控制路由引入和路由发布<figcaption></figure></li>
+<li>路由过滤规则<br />
+<figure><img src="https://i.imgur.com/kt7qLBl.jpg" alt="路由过滤规则" /><figcaption>路由过滤规则<figcaption></figure></li>
+</ul>
+</li>
+<li>
+<p>使用路由协议优先级</p>
+</li>
+<li>
+<p>控制缺省路由下发</p>
+<ul>
+<li>OSPF 可以配置多种下发方式
+<ul>
+<li>在ABR上下发</li>
+<li>在ASBR上下发</li>
+<li>强制下发</li>
+<li>非强制下发<br />
+<figure><img src="https://i.imgur.com/FP7PnSE.jpg" alt="OSPF下发缺省路由" /><figcaption>OSPF下发缺省路由<figcaption></figure></li>
+</ul>
+</li>
+<li>BGP下发缺省路由<br />
+<figure><img src="https://i.imgur.com/IkwbiN0.jpg" alt="BGP下发缺省路由1" /><figcaption>BGP下发缺省路由1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/ZcrUKvr.jpg" alt="BGP下发缺省路由2" /><figcaption>BGP下发缺省路由2<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/m3Eqdhl.jpg" alt="BGP下发缺省路由3" /><figcaption>BGP下发缺省路由3<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/eE7UN10.jpg" alt="BGP下发缺省路由4" /><figcaption>BGP下发缺省路由4<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/5qLiFq0.jpg" alt="BGP下发缺省路由5" /><figcaption>BGP下发缺省路由5<figcaption></figure></li>
+</ul>
+<pre class="line-numbers"><code>[RTA]int loo0
+[RTA-loo0]ip add 1.1.1.1 32
+[RTA-loo0]quit
+[RTA]int g0/0/1
+[RTA-g0/0/1]ip add 13.1.1.1 24
+[RTA-g0/0/1]undo shutdown
+[RTA-g0/0/1]int g0/0/2
+[RTA-g0/0/2]ip add 14.1.1.1 24
+[RTA-g0/0/2]undo shutdown
+[RTA]router id 1.1.1.1
+[RTA]ospf 1
+[RTA-ospf-1]area 0.0.0.0
+[RTA-ospf-1-area-0.0.0.0]network 1.1.1.1 0.0.0.0
+[RTA-ospf-1-area-0.0.0.0]network 14.1.1.1 0.0.0.0
+[RTA-ospf-1-area-0.0.0.0]network 13.1.1.1 0.0.0.0
+[RTA-ospf-1-area-0.0.0.0]quit
+[RTA-ospf-1]quit
+[RTA]dis ospf int bri
+[RTA]dis ip routing-table protocol ospf
+[RTA]tracert -a 1.1.1.1 6.6.6.6
+[RTA]ping 5.5.5.5
+</code></pre>
+<pre class="line-numbers"><code>[RTB]int loo0
+[RTB-loo0]ip add 2.2.2.2 32
+[RTB-loo0]quit
+[RTB]int g0/0/1
+[RTB-g0/0/1]ip add 23.1.1.2 24
+[RTB-g0/0/1]undo shutdown
+[RTB-g0/0/1]int g0/0/2
+[RTB-g0/0/2]ip add 24.1.1.2 24
+[RTB-g0/0/2]undo shutdown
+[RTB]router id 2.2.2.2
+[RTB]ospf 1
+[RTB-ospf-1]area 0.0.0.0
+[RTB-ospf-1-area-0.0.0.0]network 2.2.2.2 0.0.0.0
+[RTB-ospf-1-area-0.0.0.0]network 23.1.1.2 0.0.0.0
+[RTB-ospf-1-area-0.0.0.0]network 24.1.1.2 0.0.0.0
+[RTB-ospf-1-area-0.0.0.0]quit
+[RTB-ospf-1]quit
+[RTB]dis ospf int bri
+[RTB]dis ip routing-table protocol ospf
+[RTB]ping 5.5.5.5
+</code></pre>
+<pre class="line-numbers"><code>[RTC]int loo0
+[RTC-loo0]ip add 3.3.3.3 32
+[RTC-loo0]quit
+[RTC]int e1/0/0
+[RTC-e1/0/0]ip add 13.1.1.3 24
+[RTC-e1/0/0]undo shutdown
+[RTC-e1/0/0]int e1/0/1
+[RTC-e1/0/1]ip add 23.1.1.3 24
+[RTC-e1/0/1]undo shutdown
+[RTC-e1/0/1]int g0/0/1
+[RTC-g0/0/1]ip add 35.1.1.3 24
+[RTC-g0/0/1]undo shutdown
+[RTC-g0/0/1]int g0/0/0
+[RTC-g0/0/0]ip add 34.1.1.3 24
+[RTC-g0/0/0]undo shutdown
+[RTC]router id 3.3.3.3
+[RTC]ospf 1
+[RTC-ospf-1]area 0.0.0.0
+[RTC-ospf-1-area-0.0.0.0]network 3.3.3.3 0.0.0.0
+[RTC-ospf-1-area-0.0.0.0]network 13.1.1.3 0.0.0.0
+[RTC-ospf-1-area-0.0.0.0]network 23.1.1.3 0.0.0.0
+[RTC-ospf-1-area-0.0.0.0]network 34.1.1.3 0.0.0.0
+[RTC-ospf-1-area-0.0.0.0]quit
+[RTC-ospf-1]quit
+[RTC]dis ospf int bri
+[RTC]dis ospf peer bri
+[RTC]bgp 100
+[RTC-bgp]router-id 3.3.3.3
+[RTC-bgp]peer 35.1.1.5 as-number 200
+[RTC-bgp]peer 4.4.4.4 as-number 100
+[RTC-bgp]peer 4.4.4.4 connect-interface lo 0
+[RTC-bgp]ipv4-family unicast
+[RTC-bgp-af-ipv4]peer 35.1.1.5 enable
+[RTC-bgp-af-ipv4]peer 4.4.4.4 enable
+[RTC-bgp-af-ipv4]peer 4.4.4.4 next-hop-local
+[RTC-bgp-af-ipv4]quit
+[RTC-bgp]quit
+[RTC]dis bgp routing-table
+[RTC]bgp 100
+[RTC-bgp]ipv4-family unicast
+[RTC-bgp-af-ipv4]import-route ospf 1
+[RTC-bgp-af-ipv4]quit
+[RTC-bgp]quit
+[RTC]ospf 1
+[RTC-ospf-1]default-route-advertise always
+[RTC-ospf-1]undo default-route-advertise
+[RTC-ospf-1]default-route-advertise
+[RTC]bgp 100
+[RTC-bgp]preference 100 255 255
+优先级只是一个本地概念
+</code></pre>
+<pre class="line-numbers"><code>[RTD]int loo0
+[RTD-loo0]ip add 4.4.4.4 32
+[RTD-loo0]quit
+[RTD]int e1/0/0
+[RTD-e1/0/0]ip add 14.1.1.4 24
+[RTD-e1/0/0]undo shutdown
+[RTD-e1/0/0]int e1/0/1
+[RTD-e1/0/1]ip add 24.1.1.4 24
+[RTD-e1/0/1]undo shutdown
+[RTD-e1/0/1]int g0/0/1
+[RTD-g0/0/1]ip add 46.1.1.4 24
+[RTD-g0/0/1]undo shutdown
+[RTD-g0/0/1]int g0/0/0
+[RTD-g0/0/0]ip add 34.1.1.4 24
+[RTD-g0/0/0]undo shutdown
+[RTD]router id 3.3.3.3
+[RTD]ospf 1
+[RTD-ospf-1]area 0.0.0.0
+[RTD-ospf-1-area-0.0.0.0]network 4.4.4.4 0.0.0.0
+[RTD-ospf-1-area-0.0.0.0]network 14.1.1.4 0.0.0.0
+[RTD-ospf-1-area-0.0.0.0]network 24.1.1.4 0.0.0.0
+[RTD-ospf-1-area-0.0.0.0]network 34.1.1.4 0.0.0.0
+[RTD-ospf-1-area-0.0.0.0]quit
+[RTD-ospf-1]quit
+[RTD]dis ospf int bri
+[RTD]dis ospf peer bri
+[RTD]bgp 100
+[RTD-bgp]router-id 4.4.4.4
+[RTD-bgp]peer 46.1.1.6 as-number 200
+[RTD-bgp]peer 3.3.3.3 as-number 100
+[RTD-bgp]peer 3.3.3.3 connect-interface lo 0
+[RTD-bgp]ipv4-family unicast
+[RTD-bgp-af-ipv4]peer 46.1.1.6 enable
+[RTD-bgp-af-ipv4]peer 3.3.3.3 enable
+[RTD-bgp-af-ipv4]peer 3.3.3.3 next-hop-local
+[RTD-bgp-af-ipv4]quit
+[RTD-bgp]quit
+[RTD]dis bgp routing-table
+[RTD]bgp 100
+[RTD-bgp]ipv4-family unicast
+[RTD-bgp-af-ipv4]import-route ospf 1
+[RTD-bgp-af-ipv4]quit
+[RTD-bgp]quit
+[RTD]ospf 1
+[RTD-ospf-1]default-route-advertise always
+[RTD]int g0/0/1
+[RTD-g0/0/1]shutdown
+[RTD]dis bgp routing-table
+[RTD]tracert -a 4.4.4.4 6.6.6.6
+[RTD]int g0/0/0
+[RTD-g0/0/0]shutodwn
+[RTD]dis ospf peer brief
+[RTD]dis bgp peer
+[RTD]dis bgp routing-table
+[RTD]dis ip routing-tabel protocol ospf
+[RTD-ospf-1]undo default-route-advertise
+[RTD-ospf-1]default-route-advertise
+[RTD]bgp 100
+[RTD-bgp]preference 100 255 255
+优先级只是一个本地概念
+</code></pre>
+<pre class="line-numbers"><code>[RTE]int loo0
+[RTE-loo0]ip add 5.5.5.5 32
+[RTE-loo0]quit
+[RTE]int g0/0/1
+[RTE-g0/0/1]ip add 35.1.1.5 24
+[RTE-g0/0/1]undo shutdown
+[RTE-g0/0/1]int g0/0/0
+[RTE-g0/0/0]ip add 56.1.1.5 24
+[RTE-g0/0/0]undo shutdown
+[RTE]bgp 200
+[RTE-bgp]router-id 5.5.5.5
+[RTE-bgp]peer 35.1.1.3 as-number 100
+[RTE-bgp]ipv4-family unicast
+[RTE-bgp-af-ipv4]peer 35.1.1.3 enable
+[RTE-bgp-af-ipv4]quit
+[RTE-bgp]quit
+[RTE]router id 5.5.5.5
+[RTE]ospf 200
+[RTE-ospf-200-area-0.0.0.200]network 5.5.5.5 0.0.0.0
+[RTE-ospf-200-area-0.0.0.200]network 56.1.1.5 0.0.0.0
+[RTE-ospf-200-area-0.0.0.200]quit
+[RTE-ospf-200]quit
+[RTE]bgp 200
+[RTE-bgp]peer 6.6.6.6 as-number 200
+[RTE-bgp]peer 6.6.6.6 connect-interface lo 0
+[RTE-bgp]ipv4-family unicast
+[RTE-bgp-af-ipv4]peer 6.6.6.6 enable
+[RTE-bgp-af-ipv4]peer 6.6.6.6 next-hop-local
+[RTE-bgp-af-ipv4]quit
+[RTE-bgp]quit
+[RTE]dis bgp peer
+[RTE]bgp 200
+[RTE-bgp]ipv4-family unicast
+[RTE-bgp-af-ipv4]peer 35.1.1.3 default-route-advertise
+[RTE-bgp-af-ipv4]quit
+[RTE-bgp]quit
+[RTE]dis ip routing-table
+</code></pre>
+<pre class="line-numbers"><code>[RTF]int loo0
+[RTF-loo0]ip add 6.6.6.6 32
+[RTF-loo0]quit
+[RTF]int g0/0/1
+[RTF-g0/0/1]ip add 46.1.1.6 24
+[RTF-g0/0/1]undo shutdown
+[RTF-g0/0/1]int g0/0/0
+[RTF-g0/0/0]ip add 56.1.1.6 24
+[RTF-g0/0/0]undo shutdown
+[RTF]bgp 200
+[RTF-bgp]router-id 6.6.6.6
+[RTF-bgp]peer 46.1.1.4 as-number 100
+[RTF-bgp]ipv4-family unicast
+[RTF-bgp-af-ipv4]peer 46.1.1.4 enable
+[RTF-bgp-af-ipv4]quit
+[RTF-bgp]quit
+[RTF]router id 6.6.6.6
+[RTF]ospf 200
+[RTF-ospf-200-area-0.0.0.200]network 6.6.6.6 0.0.0.0
+[RTF-ospf-200-area-0.0.0.200]network 56.1.1.6 0.0.0.0
+[RTF-ospf-200-area-0.0.0.200]quit
+[RTF-ospf-200]quit
+[RTF]bgp 200
+[RTF-bgp]peer 5.5.5.5 as-number 200
+[RTF-bgp]peer 5.5.5.5 connect-interface lo 0
+[RTF-bgp]ipv4-family unicast
+[RTF-bgp-af-ipv4]peer 5.5.5.5 enable
+[RTF-bgp-af-ipv4]peer 5.5.5.5 next-hop-local
+[RTF-bgp-af-ipv4]quit
+[RTF-bgp]quit
+[RTF]dis bgp peer
+[RTF]bgp 200
+[RTF-bgp]ipv4-family unicast
+[RTF-bgp-af-ipv4]peer 46.1.1.4 default-route-advertise
+</code></pre>
+<p><strong>通过default-route-advertise always下发缺省路由要谨慎，最好不要带always参数</strong></p>
+</li>
+<li>
+<p>基于策略的路由选择(两种方式）</p>
+<ul>
+<li>前提路由表中要有路由条目</li>
+<li>不管有没有路由条目都转发</li>
+<li>调用方式
+<ul>
+<li>全局：<code>ip local policy-based-route PBR1</code><br />
+<figure><img src="https://i.imgur.com/vp2P8jq.jpg" alt="策略路由实例" /><figcaption>策略路由实例<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="mpls" class="anchor" aria-hidden="true" href="#mpls"><span class="octicon octicon-link"></span></a>MPLS</h2>
+<ul>
+<li>MPLS概述
+<ul>
+<li>Multi Protocol Label Switching</li>
+<li>控制层面
+<ul>
+<li>IGP BGP Static</li>
+</ul>
+</li>
+<li>数据层面
+<ul>
+<li>Switch CAM表 ASIC</li>
+<li>Router 网络号 CPU</li>
+<li>Router转发比Switch转发慢的原因
+<ol>
+<li>表项无法精确匹配报文目的地址</li>
+<li>CPU查表不依赖ASIC</li>
+<li>MPLS增加Router转发效率，减小延迟</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>MPLS标签20bit
+<ul>
+<li><code>标签分发基于FEC：转发等价类 一组去往相同目的地（广播域）的报文集合 可以理解为同一条路由条目转发的数据包</code></li>
+<li>LFIB 标签转发信息库</li>
+<li>必须要启用CEF（Cisco极速/快速转发）交换机制 <code>路由器交换机启用后会有FIB（转发信息库）和Adjacency Table(邻接关系表）集成在ASIC芯片中</code></li>
+<li>FIB基于ASIC芯片的（无需再递归查询）</li>
+<li>路由器转发从进程交换➡️快速交换（数据流Flow Flow中的转发第一个数据所需要的信息形成Cache---ASIC）<code>一次查表多次转发</code>➡️CEF</li>
+<li>可以解决BGP的黑洞</li>
+<li>高级特性MPLS VPN MPLS TE（大规模部署的PBR）</li>
+<li>标签分为2种<br />
+4. <code>in-label 入标签 路由器自身关于一条路由条目所产生的标签</code><br />
+5. <code>out-label 出标签</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MPLS基本原理
+<ul>
+<li>MPLS基本结构
+<ul>
+<li>PHP：次末跳标签弹出</li>
+<li>标签押入impose</li>
+<li>标签弹出pop</li>
+<li>标签交换switch</li>
+<li>控制协议
+<ul>
+<li>TDP/LDP</li>
+<li>MP-BGP对应VPN</li>
+<li>RSVP对应TE</li>
+</ul>
+</li>
+<li><code>0-15被保留标签 3（Cisco下游最后一跳路由器产生隐式空标签）Cisco从16开始创建 Huawei 1024</code></li>
+<li>LIB标签信息库类似于OSPF LSDB➡️LFIB（本地标签/远程标签 出接口 下一跳地址）<br />
+<figure><img src="https://i.imgur.com/F0UijTD.jpg" alt="MPLS结构" /><figcaption>MPLS结构<figcaption></figure></li>
+</ul>
+</li>
+<li>MPLS标签格式<br />
+<figure><img src="https://i.imgur.com/IU1ZSA0.jpg" alt="帧格式MPLS" /><figcaption>帧格式MPLS<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/R9Nngd1.jpg" alt="MPLS标签嵌套" /><figcaption>MPLS标签嵌套<figcaption></figure></li>
+<li>MPLS转发流程传统IP转发
+<ul>
+<li><code>&lt;SWA&gt;dis mpls lsp include 10.2.0.0 24 verbose</code><br />
+<figure><img src="https://i.imgur.com/IF1ijcJ.jpg" alt="MPLS转发- Ingress LER" /><figcaption>MPLS转发- Ingress LER<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/a59pS1U.jpg" alt="MPLS转发-Ingress LER（SWA）" /><figcaption>MPLS转发-Ingress LER（SWA）<figcaption></figure></li>
+<li><code>&lt;SWB&gt;dis mpls lsp include 10.2.0.0 24 in-label 1030 verbose</code><br />
+<figure><img src="https://i.imgur.com/OdZnxT7.jpg" alt="MPLS转发-LSR（SWB）" /><figcaption>MPLS转发-LSR（SWB）<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/3oPiFdq.jpg" alt="MPLS转发-LSR（SWB）续" /><figcaption>MPLS转发-LSR（SWB）续<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/X6iPC1o.jpg" alt="MPLS转发- Egress LER（SWD）" /><figcaption>MPLS转发- Egress LER（SWD）<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/4FCU4Lx.jpg" alt="MPLS转发-Egress LER（SWD）续" /><figcaption>MPLS转发-Egress LER（SWD）续<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MPLS环路检测
+<ul>
+<li>
+<p>MPLS TTL环路检测</p>
+<pre class="line-numbers"><code>[SW]mpls
+[SW-mpls]undo ttl propagate public
+</code></pre>
+</li>
+<li>
+<p>LDP环路检测</p>
+<ul>
+<li>LDP路径向量法<br />
+<figure><img src="https://i.imgur.com/MJXhlMN.jpg" alt="MPLS LDP路径向量法" /><figcaption>MPLS LDP路径向量法<figcaption></figure></li>
+<li>LDP最大跳数法<br />
+<figure><img src="https://i.imgur.com/rRTqOtM.jpg" alt="MPLS LDP最大跳数法" /><figcaption>MPLS LDP最大跳数法<figcaption></figure></li>
+<li>LDP环路检测基本配置<br />
+<code>[SWC-mpls-ladp]dis mpls ldp</code><br />
+<figure><img src="https://i.imgur.com/Ti7gr28.jpg" alt="LDP环路检测基本配置" /><figcaption>LDP环路检测基本配置<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/RS2eZEw.jpg" alt="LDP环路检测基本配置（续）" /><figcaption>LDP环路检测基本配置（续）<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LDP协议原理
+<ul>
+<li>LDP邻居发现和会话建立
+<ul>
+<li>LDP基本概念<br />
+<figure><img src="https://i.imgur.com/bNkL9yK.jpg" alt="LDP基本概念" /><figcaption>LDP基本概念<figcaption></figure>
+<ul>
+<li><code>华为默认会对主机路由/32进行标签分发</code></li>
+<li>主要干两件事
+<ol>
+<li><code>产生标签 纯本地化</code></li>
+<li><code>通告标签 in label/out label</code></li>
+</ol>
+</li>
+<li>封装：Layer2｜IP｜TCP/UDP｜TDP/LDP｜FCS</li>
+<li>LDP消息类型与封装格式<br />
+<figure><img src="https://i.imgur.com/D8to37D.jpg" alt="LDP消息类型" /><figcaption>LDP消息类型<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/WFzw28x.jpg" alt="LDP消息类型与封装格式" /><figcaption>LDP消息类型与封装格式<figcaption></figure>
+<ul>
+<li>LDP Identifier
+<ul>
+<li><code>4byte Router-id X.X.X.X</code></li>
+<li><code>2byte 标签空间 （帧模式）基于平台的标签空间/（信元模式）基于接口的标签空间</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LDP消息作用<br />
+<figure><img src="https://i.imgur.com/MUOIrR6.jpg" alt="LDP消息作用" /><figcaption>LDP消息作用<figcaption></figure>
+<ul>
+<li><strong>LDP组播地址 224.0.0.2 发送hello源地址router-id 如果你的路由器router-id是loop0，loop0必须要宣告进IGP去</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LDP邻居发现机制<br />
+<figure><img src="https://i.imgur.com/PppqUGx.jpg" alt="LDP发现机制" /><figcaption>LDP发现机制<figcaption></figure></li>
+<li>LDP会话建立过程<br />
+<figure><img src="https://i.imgur.com/v9FC6vx.jpg" alt="本地LDP会话基本设置" /><figcaption>本地LDP会话基本设置<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/FSfytPv.jpg" alt="本地LDP会话基本配置～" /><figcaption>本地LDP会话基本配置～<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/9OBa4sq.jpg" alt="本地LDP会话基本配置（续）" /><figcaption>本地LDP会话基本配置（续）<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/RE5nr4L.jpg" alt="本地LDP会话基本配置transport-address" /><figcaption>本地LDP会话基本配置transport-address<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/GkIhiMU.jpg" alt="本地LDP会话基本配置transport-address（续）" /><figcaption>本地LDP会话基本配置transport-address（续）<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/pXwW0B7.jpg" alt="远端LDP会话基本配置" /><figcaption>远端LDP会话基本配置<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/hSEnYPr.jpg" alt="远端LDP会话基本配置（续）" /><figcaption>远端LDP会话基本配置（续）<figcaption></figure></li>
+<li>LDP状态机<br />
+<figure><img src="https://i.imgur.com/pOnZYGw.jpg" alt="LDP状态机" /><figcaption>LDP状态机<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/bc6bl0x.jpg" alt="LDP状态机案例分析" /><figcaption>LDP状态机案例分析<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/P3pxaOP.jpg" alt="LDP状态机案例分析（续）" /><figcaption>LDP状态机案例分析（续）<figcaption></figure></li>
+<li>LDP标签空间<br />
+<figure><img src="https://i.imgur.com/OJ88wLX.jpg" alt="基于平台的标签空间" /><figcaption>基于平台的标签空间<figcaption></figure></li>
+<li>标签通告
+<ul>
+<li>DU（Distribution Unsolicited）独立通告</li>
+<li>DoD（Distribution on Demand）按需通告<br />
+<figure><img src="https://i.imgur.com/HX0DfHs.jpg" alt="标签分发配置实例与分析" /><figcaption>标签分发配置实例与分析<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/HX0DfHs.jpg" alt="标签分发配置实例与分析（续）" /><figcaption>标签分发配置实例与分析（续）<figcaption></figure></li>
+</ul>
+</li>
+<li>标签分发
+<ul>
+<li>Ordered有序 <code>最后一跳路由器会针对FEC做自动标签分发，不是最后一跳路由器依据我的下游路由器已经把它所分发的标签分发给我了</code> Huawei</li>
+<li>Independent独立 Cisco<br />
+<figure><img src="https://i.imgur.com/tXVgKTh.jpg" alt="标签分发DoD+Independent" /><figcaption>标签分发DoD+Independent<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/6VSqecM.jpg" alt="标签分发DU+Independent" /><figcaption>标签分发DU+Independent<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/h3ZnFwe.jpg" alt="标签分发Dod+Ordered" /><figcaption>标签分发Dod+Ordered<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/81zN5ZD.jpg" alt="标签分发DU+Ordered" /><figcaption>标签分发DU+Ordered<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/JDexN1D.jpg" alt="标签通告和分发方式实例分析1" /><figcaption>标签通告和分发方式实例分析1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/icodKP2.jpg" alt="标签通告和分发方式实例分析2" /><figcaption>标签通告和分发方式实例分析2<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/d0bu3bu.jpg" alt="标签通告和分发方式实例分析3" /><figcaption>标签通告和分发方式实例分析3<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/ByEjDrD.jpg" alt="标签通告和分发方式实例分析4" /><figcaption>标签通告和分发方式实例分析4<figcaption></figure></li>
+</ul>
+</li>
+<li>标签保存
+<ul>
+<li>conservative保守的</li>
+<li>liberal自由的<br />
+<figure><img src="https://i.imgur.com/uHVHSCv.jpg" alt="标签保存- Conservative" /><figcaption>标签保存- Conservative<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/l6f9r8c.jpg" alt="标签保存- Liberal" /><figcaption>标签保存- Liberal<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/wERAVZh.jpg" alt="标签保存-配置实例与分析1" /><figcaption>标签保存-配置实例与分析1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/Hz5eHD1.jpg" alt="标签保存-配置实例与分析2" /><figcaption>标签保存-配置实例与分析2<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/PISHdOM.jpg" alt="标签保存-配置实例与分析3" /><figcaption>标签保存-配置实例与分析3<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/9mflDB1.jpg" alt="标签保存-配置实例与分析4" /><figcaption>标签保存-配置实例与分析4<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/C9ZnelS.jpg" alt="标签保存-配置实例与分析5" /><figcaption>标签保存-配置实例与分析5<figcaption></figure></li>
+</ul>
+</li>
+<li>PHP
+<ul>
+<li><code>Penultimate Hop Popping 倒数第二跳弹出</code></li>
+<li>隐式（默认，标签号为3）<br />
+<figure><img src="https://i.imgur.com/0TZmnix.jpg" alt="PHP（隐式）" /><figcaption>PHP（隐式）<figcaption></figure></li>
+<li>显式<br />
+<figure><img src="https://i.imgur.com/3uzR7QV.jpg" alt="PHP（显式）" /><figcaption>PHP（显式）<figcaption></figure></li>
+<li>NULL<br />
+<figure><img src="https://i.imgur.com/nm1sbN5.jpg" alt="PHP（NULL）" /><figcaption>PHP（NULL）<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LDP标签管理</li>
+</ul>
+</li>
+</ul>
+<h2><a id="mpls-ip-vpn" class="anchor" aria-hidden="true" href="#mpls-ip-vpn"><span class="octicon octicon-link"></span></a>MPLS IP VPN</h2>
+<ul>
+<li>
+<p>basic concepts and principles of mpls vpn</p>
+<ul>
+<li>a vpn has tow characteristics
+<ul>
+<li>virtual and dedicated</li>
+</ul>
+</li>
+<li>a type of Layer 3 VPN(L3VPN)
+<ul>
+<li>consists of four parts - BGP, MPLS, IP and VPN
+<ul>
+<li>BGP advertises VPN routes on the backbone network of a service provider(通告）</li>
+<li>MPLS forwards VPN packets on the backbone network(转发)</li>
+<li>IP packets are transmitted on such a network(传输)</li>
+<li>VPN indicates the BGP/MPLS IP VPN is a VPN technology</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>basic terms of mpls vpn
+<ul>
+<li>CEs are unaware of VPNs and do not need to support MPLS</li>
+<li>PEs need to be aware of, obtain, and advertise customer network routes, which are also known as VPN routes.</li>
+</ul>
+</li>
+<li>VPN Instance<br />
+<figure><img src="https://i.imgur.com/1fs23IC.jpg" alt="VPN Instance" /><figcaption>VPN Instance<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/wOEPHNh.jpg" alt="VPN Instance Application" /><figcaption>VPN Instance Application<figcaption></figure>
+<ul>
+<li>how do i prevent these routes from conflicting with each other?
+<ul>
+<li>Virtual routing and forwarding(VRF) is involved in the process(VRF is also known as VPN Instance)</li>
+<li>VPN instances are use to logically divide a physical device, enabling multiple virtual devices(also called VRFs) to be created on the physical device(such as a router or a switch).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Route Distinguisher<br />
+<figure><img src="https://i.imgur.com/PRGOljK.jpg" alt="Route Distinguisher" /><figcaption>Route Distinguisher<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/ERtf2Vd.jpg" alt="Route Distinguisher Application" /><figcaption>Route Distinguisher Application<figcaption></figure></li>
+<li>MP-BGP<br />
+<figure><img src="https://i.imgur.com/WyeKdk2.jpg" alt="MP-BGP" /><figcaption>MP-BGP<figcaption></figure></li>
+<li>Route Target(RT)<br />
+<figure><img src="https://i.imgur.com/y2fOFAl.jpg" alt="Route Target" /><figcaption>Route Target<figcaption></figure></li>
+<li>VPN Route Advertisement<br />
+<figure><img src="https://i.imgur.com/zWHXK7c.jpg" alt="VPN Route Advertisement" /><figcaption>VPN Route Advertisement<figcaption></figure></li>
+<li>Route Processing on PE2<br />
+<figure><img src="https://i.imgur.com/qXTMr0G.jpg" alt="Route Processing on PE2" /><figcaption>Route Processing on PE2<figcaption></figure></li>
+<li>Usage of an MPLS Tunnel<br />
+<figure><img src="https://i.imgur.com/iuzwtMh.jpg" alt="Usage of an MPLS Tunnel" /><figcaption>Usage of an MPLS Tunnel<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/TZfxjhi.jpg" alt="USage of an MPLS Tunnel（续）" /><figcaption>USage of an MPLS Tunnel（续）<figcaption></figure></li>
+</ul>
+</li>
+<li>
+<p>route exchange and data forwarding of mpls vpn<br />
+<figure><img src="https://i.imgur.com/H9hSRT3.jpg" alt="PE-CE Routing Protocol and VPN Instance" /><figcaption>PE-CE Routing Protocol and VPN Instance<figcaption></figure></p>
+<ul>
+<li>Functional Modules on the PE<br />
+<figure><img src="https://i.imgur.com/2c4RO91.jpg" alt="Functional Modules on the PE" /><figcaption>Functional Modules on the PE<figcaption></figure>
+<ol>
+<li>Configure VPN instances to exchange routes with CEs and store VPN instance routes.</li>
+<li>Establish IGP neighbor relationships on the public network and store IGP routing tables.</li>
+<li>Establish MPLS tunnels and maintain all entries related to MPLS.</li>
+<li>Establish MP-BGP peer relationships and maintain the VPNv4 routing tables.</li>
+</ol>
+</li>
+<li>Before delving into the process of VPNv4 route advertisement on an MPLS VPN network,let's examine the regular configuration:<br />
+5. CEs and PEs maintain IGP neighbor relationships or BGP peer relationships, and exchange VPN IPv4 routes.<br />
+6. An MP-BGP peer relationship is established between PEs. If PEs are in the same AS, an MP-IBGP peer relationship is established to exchange VPNv4 routes and labels.</li>
+<li>VPNv4 Route Advertisement on an MPLS VPN Network<br />
+<figure><img src="https://i.imgur.com/OPkog8b.jpg" alt="VPNv4 Route Advertisement on an MPLS VPN Network1" /><figcaption>VPNv4 Route Advertisement on an MPLS VPN Network1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/ovKa4PQ.jpg" alt="VPNv4 Route Advertisement on an MPLS VPN Network2" /><figcaption>VPNv4 Route Advertisement on an MPLS VPN Network2<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/Rg0gvbf.jpg" alt="VPNv4 Route Advertisement on an MPLS VPN Network3" /><figcaption>VPNv4 Route Advertisement on an MPLS VPN Network3<figcaption></figure><br />
+7. Each CE advertises a private IPv4 route to PE1.<br />
+8. PE1 adds the VPN routes to the IP routing tables of the VPN instances.<br />
+9. PE1 adds the RD to a VPN route prefix to form a VPNv4 route. In addition, the export RT is added to the VPNv4 route.<br />
+10. PE1 advertises the VPNv4 route to its peer through the MP-BGP peer relationship.<br />
+11. After receiving the VPNv4 route,PE2 matches the export RT of the VPNv4 route against the import RT of a VPN instance. If they match, PE2 removes the RD from the VPNv4 route and injects the IPv4 route to a specific VPN instance.<br />
+12. PE2 advertises the IPv4 route to a CE through a BGP peer relationship, and the CE adds the route to its own IP routing table.</li>
+<li>MPLS VPN Data Transmission(Label Value Preparation)<br />
+<figure><img src="https://i.imgur.com/880JbsQ.jpg" alt="MPLS VPN Data Transmission-Label Value Preparation-" /><figcaption>MPLS VPN Data Transmission-Label Value Preparation-<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/p2ZgMS5.jpg" alt="MPLS VPN Data Transmission" /><figcaption>MPLS VPN Data Transmission<figcaption></figure></li>
+</ul>
+</li>
+<li>
+<p>原理与配置<br />
+<figure><img src="https://i.imgur.com/hDInDfp.jpg" alt="VPN模型-Overlay VPN" /><figcaption>VPN模型-Overlay VPN<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/5oU6eVg.jpg" alt="VPN模型-Peer-to-Peer VPN" /><figcaption>VPN模型-Peer-to-Peer VPN<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/mKtmB6K.jpg" alt="解决地址空间重叠问题的讨论" /><figcaption>解决地址空间重叠问题的讨论<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/PFnQYRk.jpg" alt="本地路由冲突的解决方案" /><figcaption>本地路由冲突的解决方案<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/jbAx4SC.jpg" alt="如何在网络传递过程中区分冲突路由" /><figcaption>如何在网络传递过程中区分冲突路由<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/izi2KE1.jpg" alt="Hub-Spoke场景中VPN路由的引入问题" /><figcaption>Hub-Spoke场景中VPN路由的引入问题<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/uuaA0Ny.jpg" alt="Hub-Spoke场景中路由引入问题的解决" /><figcaption>Hub-Spoke场景中路由引入问题的解决<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/Qp1ZYth.jpg" alt="Hub-Spoke场景中路由引入问题的优化" /><figcaption>Hub-Spoke场景中路由引入问题的优化<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/b1800fF.jpg" alt="解决数据转发过程中冲突路由的查找" /><figcaption>解决数据转发过程中冲突路由的查找<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/vt6MTD6.jpg" alt="MPLS标签嵌套的应用" /><figcaption>MPLS标签嵌套的应用<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/uDYentt.jpg" alt="VPN路由注入MP-BGP的过程" /><figcaption>VPN路由注入MP-BGP的过程<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/rDgircO.jpg" alt="VPN路由注入MP-BGP的过程（续）" /><figcaption>VPN路由注入MP-BGP的过程（续）<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/0OXCTKI.jpg" alt="公网标签的分配过程" /><figcaption>公网标签的分配过程<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/Z1JbFw0.jpg" alt="CE设备到PE设备的数据转发" /><figcaption>CE设备到PE设备的数据转发<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/PH1GmFE.jpg" alt="MPLS VPN配置实例" /><figcaption>MPLS VPN配置实例<figcaption></figure></p>
+<ul>
+<li>配置步骤
+<ol>
+<li><code>实现公网互通；</code><br />
+2.<code> 创建VPN；</code></li>
+<li><code>在公网中做MPLS加快数据转发；</code></li>
+<li><code>配置BGP，实现私网相同的VPN互访；</code></li>
+</ol>
+</li>
+</ul>
+<pre class="line-numbers"><code>[pe1]int g0/0/0
+[pe1-g0/0/0]ip add 34.34.34.3 24
+[pe1-g0/0/0]int loo0
+[pe1-loo0]ip add 3.3.3.3 32
+[pe1-loo0]ospf r 3.3.3.3
+[pe1-ospf-1]a 0
+[pe1-ospf-1-area-0.0.0.0]network 34.34.34.0 0.0.0.255
+[pe1-ospf-1-area-0.0.0.0]network 3.3.3.3 0.0.0.0
+[pe1-ospf-1-area-0.0.0.0]q
+[pe1-ospf-1]q
+[pe1]ip vpn-instance vpn1
+[pe1-vpn-instance-vpn1]ipv4-family
+[pe1-vpn-instance-vpn1-af-ipv4]q
+[pe1-vpn-instance-vpn1]q
+[pe1]ip vpn-instance vpn2
+[pe1-vpn-instance-vpn2]ipv4-family
+[pe1-vpn-instance-vpn2-af-ipv4]q
+[pe1-vpn-instance-vpn2]q
+[pe1]int g0/0/1
+[pe1-g0/0/1]ip binding vpn-instance vpn1
+[pe1-g0/0/1]ip add 192.168.1.1 24
+[pe1-g0/0/1]int g0/0/2
+[pe1-g0/0/2]ip binding vpn-instance vpn2
+[pe1-g0/0/2]ip add 192.168.1.1 24
+[pe1-g0/0/2]q
+[pe1]dis ip int b
+[pe1]ip vpn-instance vpn1
+[pe1-vpn-instance-vpn1]route-distinguisher 100:400
+[pe1-vpn-instance-vpn1]vpn-target 1:6 export-extcommunity
+[pe1-vpn-instance-vpn1]vpn-target 6:1 import-extcommunity
+[pe1-vpn-instance-vpn1]q
+[pe1]ip vpn-instance vpn2
+[pe1-vpn-instance-vpn2]route-distinguisher 200:500
+[pe1-vpn-instance-vpn2]vpn-target 10:10
+[pe1-vpn-instance-vpn2]q
+[pe1]mpls lsr-id 3.3.3.3
+[pe1-mpls]lsp-trigger all
+[pe1-mpls]q
+[pe1]mpls ldp
+[pe1-mpls-ldp]q
+[pe1]int g0/0/0
+[pe1-g0/0/0]mpls 
+[pe1-g0/0/0]mpls ldp
+[pe1-g0/0/0]q
+[pe1]ping lsp -a 3.3.3.3 ip 5.5.5.5 32
+[pe1]bgp 300
+[pe1-bgp]peer 5.5.5.5 as 300
+[pe1-bgp]peer 5.5.5.5 c l0
+[pe1-bgp]peer 5.5.5.5 next-hop-local
+[pe1-bgp]ipv4-family vpnv4
+[pe1-bgp-af-vpnv4]peer 5.5.5.5 enable
+[pe1-bgp-af-vpnv4]di th
+[pe1-bgp-af-vpnv4]q
+[pe1-bgp]q
+[pe1]dis bgp peer
+[pe1]bgp 300
+[pe1-bgp]peer 192.168.1.2 as 100
+[pe1-bgp]undo peer 192.168.1.2
+[pe1-bgp]ipv4-family vpn-instance vpn1
+[pe1-bgp-vpn1]peer 192.168.1.2 as 100
+[pe1-bgp-vpn1]q
+[pe1-bgp]ipv4-family vpn-instance vpn2
+[pe1-bgp-vpn2]peer 192.168.1.2 as 200
+[pe1-bgp-vpn2]q
+[pe1-bgp]q
+[pe1]dis bgp peer
+[pe1]dis bgp vpnv4 vpn-instance vpn1 peer
+[pe1]dis bgp vpnv4 vpn-instance vpn2 peer
+[pe1]dis cu c bgp
+[pe1]dis ip routing-table
+[pe1]dis ip routing-table vpn-instance vpn1
+[pe1]dis ip routing-table vpn-instance vpn2
+</code></pre>
+<pre class="line-numbers"><code>[p]int g0/0/0
+[p-g0/0/0]ip add 34.34.34.4 24
+[p-g0/0/0]int g0/0/1
+[p-g0/0/1]ip add 45.45.45.4 24
+[p-g0/0/1]int loo0
+[p-loo0]ip add 4.4.4.4 32
+[p-loo0]ospf r 4.4.4.4
+[p-ospf-1]a 0
+[p-ospf-1-area-0.0.0.0]network 34.34.34.0 0.0.0.255
+[p-ospf-1-area-0.0.0.0]network 45.45.45.0 0.0.0.255
+[p-ospf-1-area-0.0.0.0]network 4.4.4.4 0.0.0.0
+[p-ospf-1-area-0.0.0.0]q
+[p-ospf-1]q
+[p]mpls lsr-id 4.4.4.4
+[p-mpls]lsp-trigger all
+[p-mpls]q
+[p]mpls ldp
+[p-mpls-ldp]q
+[p]int g0/0/0
+[p-g0/0/0]mpls 
+[p-g0/0/0]mpls ldp
+[p-g0/0/0]int g0/0/1
+[p-g0/0/1]mpls
+[p-g0/0/1]mpls ldp
+[p-g0/0/1]q
+[p]dis mpls ldp session
+</code></pre>
+<pre class="line-numbers"><code>[pe2]int g0/0/0
+[pe2-g0/0/0]ip add 45.45.45.5 24
+[pe2-g0/0/0]int loo0
+[pe2-loo0]ip add 5.5.5.5 32
+[pe2-loo0]ospf r 5.5.5.5
+[pe2-ospf-1]a 0
+[pe2-ospf-1-area-0.0.0.0]network 45.45.45.0 0.0.0.255
+[pe2-ospf-1-area-0.0.0.0]network 5.5.5.5 0.0.0.0
+[pe2-ospf-1-area-0.0.0.0]q
+[pe2-ospf-1]q
+[pe2]ip vpn-instance vpn3
+[pe2-vpn-instance-vpn3]ipv4-family
+[pe2-vpn-instance-vpn3-af-ipv4]q
+[pe2-vpn-instance-vpn3]q
+[pe2]ip vpn-instance vpn4
+[pe2-vpn-instance-vpn4]ipv4-family
+[pe2-vpn-instance-vpn4-af-ipv4]q
+[pe2-vpn-instance-vpn4]q
+[pe1]int g0/0/1
+[pe2-g0/0/1]ip binding vpn-instance vpn3
+[pe2-g0/0/1]ip add 192.168.2.1 24
+[pe2-g0/0/1]int g0/0/2
+[pe2-g0/0/2]ip binding vpn-instance vpn2
+[pe2-g0/0/2]ip add 192.168.2.1 24
+[pe2-g0/0/2]q
+[pe2]dis ip int b
+[pe2]ip vpn-instance vpn3
+[pe2-vpn-instance-vpn3]route-distinguisher 4:1
+[pe2-vpn-instance-vpn3]vpn-target 6:1 export-extcommunity
+[pe2-vpn-instance-vpn3]vpn-target 1:6 import-extcommunity
+[pe2-vpn-instance-vpn3]q
+[pe2]ip vpn-instance vpn4
+[pe2-vpn-instance-vpn4]route-distinguisher 200:500
+[pe2-vpn-instance-vpn4]vpn-target 10:10
+[pe2-vpn-instance-vpn4]q
+[pe2]mpls lsr-id 5.5.5.5
+[pe2-mpls]lsp-trigger all
+[pe2-mpls]q
+[pe2]mpls ldp
+[pe2-mpls-ldp]q
+[pe2]int g0/0/0
+[pe2-g0/0/0]mpls 
+[pe2-g0/0/0]mpls ldp
+[pe2]bgp 300
+[pe2-bgp]peer 3.3.3.3 as 300
+[pe2-bgp]peer 3.3.3.3 c l0
+[pe2-bgp]peer 3.3.3.3 next-hop-local
+[pe2-bgp]ipv4-family vpnv4
+[pe2-bgp-af-vpnv4]peer 3.3.3.3 enable
+[pe2-bgp-af-vpnv4]di th
+[pe2-bgp-af-vpnv4]q
+[pe2-bgp]q
+[pe2]dis bgp peer
+[pe2]bgp 300
+[pe1-bgp]ipv4-family vpn-instance vpn3
+[pe1-bgp-vpn3]peer 192.168.2.2 as 400
+[pe1-bgp-vpn3]q
+[pe1-bgp]ipv4-family vpn-instance vpn4
+[pe1-bgp-vpn4]peer 192.168.2.2 as 500
+[pe1-bgp-vpn4]q
+[pe1-bgp]q
+[pe1]dis bgp peer
+[pe1]dis bgp vpnv4 vpn-instance vpn3 peer
+[pe1]dis bgp vpnv4 vpn-instance vpn4 peer
+</code></pre>
+<pre class="line-numbers"><code>[ce1]int g0/0/0
+[ce1-g0/0/0]ip add 192.168.1.2 24
+[ce1-g0/0/0]ping 192.168.1.1 
+[ce1-g0/0/0]int loo172
+[ce1-loo172]ip add 172.16.1.1 24
+[ce1-loo172]q
+[ce1]bgp 100
+[ce1-bgp]peer 192.168.1.1 as 300
+[ce1-bgp]network 172.16.1.0 24
+[ce1-bgp]q
+</code></pre>
+<pre class="line-numbers"><code>[ce2]int g0/0/0
+[ce2-g0/0/0]ip add 192.168.1.2 24
+[ce2-g0/0/0]ping 192.168.1.1 
+[ce2-g0/0/0]int loo172
+[ce2-loo172]ip add 172.16.1.1 24
+[ce2-loo172]q
+[ce2]bgp 200
+[ce2-bgp]peer 192.168.1.1 as 300
+[ce2-bgp]network 172.16.1.0 24
+[ce2-bgp]q
+</code></pre>
+<pre class="line-numbers"><code>[ce3]int g0/0/0
+[ce3-g0/0/0]ip add 192.168.2.2 24
+[ce3-g0/0/0]ping 192.168.2.1 
+[ce3-g0/0/0]int loo172
+[ce3-loo172]ip add 172.16.2.1 24
+[ce3-loo172]int loo60
+[ce3-loo60]ip add 60.1.1.1 32
+[ce3-loo60]q
+[ce3]bgp 400
+[ce3-bgp]peer 192.168.2.1 as 300
+[ce3-bgp]network 172.16.2.0 24
+[ce3-bgp]network 60.1.1.1 32
+[ce3-bgp]q
+</code></pre>
+<pre class="line-numbers"><code>[ce4]int g0/0/0
+[ce4-g0/0/0]ip add 192.168.2.2 24
+[ce4-g0/0/0]ping 192.168.2.1 
+[ce4-g0/0/0]int loo172
+[ce4-loo172]ip add 172.16.2.1 24
+[ce4-loo172]int loo70
+[ce4-loo70]ip add 70.1.1.1 32
+[cd4-loo70]q
+[ce4]bgp 500
+[ce4-bgp]peer 192.168.2.1 as 300
+[ce4-bgp]network 172.16.1.0 24
+[ce4-bgp]network 70.1.1.1 32
+[ce4-bgp]q
+</code></pre>
+</li>
+</ul>
+<h2><a id="vlan" class="anchor" aria-hidden="true" href="#vlan"><span class="octicon octicon-link"></span></a>VLAN</h2>
+<ul>
+<li>Mux VLAN
+<ul>
+<li><code>MUX VLAN分为主VLAN和从VLAN，从VLAN又分为互通性从VLAN和隔离型从VLAN</code><br />
+<figure><img src="https://i.imgur.com/GfcIZuT.jpg" alt="mux vlan配置" /><figcaption>mux vlan配置<figcaption></figure></li>
+</ul>
+</li>
+<li>ARP Proxy方式
+<ul>
+<li>路由式ARP Proxy：解决同一网段不同物理网络上计算机的互通问题；</li>
+<li>VLAN内ARP Proxy：解决相同VLAN内，且VLAN配置用户隔离后的网络上计算机互通问题；</li>
+<li>VLAN间ARP Proxy：解决不同VLAN之间对应计算机的三层互通问题</li>
+</ul>
+</li>
+<li>VLAN Mapping原理<br />
+<figure><img src="https://i.imgur.com/eqMI5F3.jpg" alt="vlan mapping配置" /><figcaption>vlan mapping配置<figcaption></figure></li>
+<li>端口隔离配置
+<ul>
+<li><code>只在同一计算机上起作用</code><br />
+<figure><img src="https://i.imgur.com/B4X46uw.jpg" alt="vlan端口隔离配置" /><figcaption>vlan端口隔离配置<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+<h2><a id="qinq" class="anchor" aria-hidden="true" href="#qinq"><span class="octicon octicon-link"></span></a>QinQ</h2>
+<ul>
+<li>QinQ概述
+<ul>
+<li>什么是QinQ
+<ul>
+<li>基于802.1Q封装的隧道协议</li>
+<li>报文封装双层VLAN Tag</li>
+</ul>
+</li>
+<li>QinQ优点
+<ul>
+<li>解决日益紧缺的公网VLAN ID资源问题</li>
+<li>用户可以规划自己的私网VLAN ID</li>
+<li>提供一种较为简单的二层VPN解决方案</li>
+<li>使用户网络具有较高的独立性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QinQ的分类
+<ul>
+<li>基于端口的QinQ</li>
+<li>灵活QinQ：VLAN Stacking</li>
+<li>基于流的灵活QinQ：基于ACL的灵活QinQ</li>
+</ul>
+</li>
+<li>QinQ配置
+<ul>
+<li>基于端口的QinQ配置<br />
+<figure><img src="https://i.imgur.com/e925ttw.jpg" alt="基于端口的QinQ配置" /><figcaption>基于端口的QinQ配置<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/k9BgMGG.jpg" alt="基于端口的QinQ配置（续）" /><figcaption>基于端口的QinQ配置（续）<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+<h2><a id="stp" class="anchor" aria-hidden="true" href="#stp"><span class="octicon octicon-link"></span></a>STP</h2>
+<ul>
+<li><code>二层帧没有TTL</code></li>
+<li>选举非根交换机的根端口（<code>1台交换机的多个端口之间</code>）
+<ol>
+<li>Root ID 小</li>
+<li>Designated Cost + self cost 小</li>
+<li>Bridge ID 小</li>
+<li>Port ID 上游发送接口的Port ID 小</li>
+<li>Self Port ID 小<br />
+Port ID 2个字节：第1个字节-priority 取值0-255 默认128 修改大小必须是16的倍数；第2个字节-接口编号</li>
+</ol>
+</li>
+<li>选举网段的指定端口（<code>链路两端的交换机接口之间进行选举</code> <code>发送BPDU的端口</code>）</li>
+<li>Alternate Port（<code>只能接收BPDU，不能发送</code>）</li>
+<li>避免可能的临时环路（forward delay 默认15s）<br />
+<figure><img src="https://i.imgur.com/0OYVmz0.jpg" alt="stp可能的临时环路" /><figcaption>stp可能的临时环路<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/Rbt31h8.jpg" alt="stp端口状态转换" /><figcaption>stp端口状态转换<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/CDCeWMR.jpg" alt="stp端口状态描述" /><figcaption>stp端口状态描述<figcaption></figure></li>
+<li>根桥、根端口、指定端口选举过程
+<ol>
+<li>全局和接口都是自身为root的信息</li>
+<li>接收BPDU对比BPDU中的4个字段和接口记录的STP4个字段</li>
+<li>更新接收接口的信息</li>
+<li>在接口之间PK选最优的</li>
+<li>最优的接口的designated root和自身BID PK（根桥和Root port判断）</li>
+<li>更新全局参数</li>
+<li>选指定端口</li>
+<li>更新指定端口参数</li>
+</ol>
+</li>
+<li>RSTP
+<ul>
+<li>802.1D STP</li>
+<li>802.1W RSTP <code>P/A 提议和同意</code></li>
+<li>802.1S MSTP<br />
+<figure><img src="https://i.imgur.com/TxnVGir.jpg" alt="RSTP交换机端口状态" /><figcaption>RSTP交换机端口状态<figcaption></figure></li>
+<li>Proposal/Agreement
+<ul>
+<li>普通（Cisco）和增强（Huawei增强）</li>
+<li>A B口变成非边缘DP➡️Discarding➡️发送Proposal BPDU➡️有没有其他的非边缘DP➡️同步（把所有非边缘DP置为discarding）➡️所有非边缘DP发送Proposal</li>
+</ul>
+</li>
+<li><code>与STP区别</code>
+<ul>
+<li>端口角色 NDP AP BP</li>
+<li>转发状态<code> disable blocking listening=discarding</code></li>
+<li>边缘端口</li>
+<li>Proposal/Agreement</li>
+<li>次级BPDU（根桥和备份根桥切换）</li>
+<li>边缘接口 非边缘接口</li>
+<li>点到点链路 共享链路</li>
+<li>端口迁移，只要确定无环，立即forwarding（P/A）</li>
+<li>BPDU flag</li>
+<li>只有非边缘接口up才算拓扑变更</li>
+<li>不发TCN直接发送TC-BPDU，因此不需要TCA</li>
+<li>有邻接关系交换机间3次hello时间没收到对方BPDU，发现拓扑变更</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MSTP
+<ul>
+<li><code>region</code>
+<ol>
+<li>域名</li>
+<li>修订号</li>
+<li>进程到VLAN的mapping</li>
+</ol>
+</li>
+<li>instance0 ISTI 内部生成树实例</li>
+<li>CIST 混合生成树域</li>
+<li>边缘端口特性<br />
+4. 连线后跳过forward delay直接进入forwarding<br />
+5. UP交换机不会发送TC BPDU<br />
+6. 收到TC-BPDU后不会影响接口学习MAC地址的老化计时器<br />
+7. P/A协商过程中不会blocking边缘端口<br />
+8. 不会通过边缘端口泛洪TC-BPDU<br />
+9. 接收配置BPDU后，状态还原常规STP接口</li>
+</ul>
+</li>
+</ul>
+<h2><a id="802-1x%E5%8E%9F%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE" class="anchor" aria-hidden="true" href="#802-1x%E5%8E%9F%E7%90%86%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="octicon octicon-link"></span></a>802.1x原理与配置</h2>
+<ul>
+<li>
+<p>NAC技术简介</p>
+<ul>
+<li>PC（接入者）--NAS--ACS（ISE）RADUIS TACACS+命令授权 RBAC<br />
+<figure><img src="https://i.imgur.com/wrIsvNv.jpg" alt="NAC关键组件" /><figcaption>NAC关键组件<figcaption></figure></li>
+<li>AAA
+<ul>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>Accounting（审计、计费）</li>
+</ul>
+</li>
+<li>NAC认证方式
+<ul>
+<li>802.1x认证接入（包括旁路认证）</li>
+<li>MAC地址认证接入</li>
+<li>Web认证接入</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>802.1x工作原理<br />
+<figure><img src="https://i.imgur.com/BTlrB5J.jpg" alt="8021x体系结构" /><figcaption>8021x体系结构<figcaption></figure></p>
+</li>
+<li>
+<p>EAP和EAPOL<br />
+<figure><img src="https://i.imgur.com/tpE2sqx.jpg" alt="EAP数据报" /><figcaption>EAP数据报<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/hfNSAGE.jpg" alt="EAPOL数据报1" /><figcaption>EAPOL数据报1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/mmbIWDs.jpg" alt="EAPOL数据报2" /><figcaption>EAPOL数据报2<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/BmfWMxO.jpg" alt="EAPOL数据报3" /><figcaption>EAPOL数据报3<figcaption></figure></p>
+</li>
+<li>
+<p>802.1x协议运行过程<br />
+<figure><img src="https://i.imgur.com/N4fUqcR.jpg" alt="8021x中继方式认证" /><figcaption>8021x中继方式认证<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/20F8uYe.jpg" alt="8021x终结方式认证" /><figcaption>8021x终结方式认证<figcaption></figure></p>
+</li>
+<li>
+<p>802.1x业务配置<br />
+<figure><img src="https://i.imgur.com/Yt7XlXr.jpg" alt="8021x业务配置基本组网" /><figcaption>8021x业务配置基本组网<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/NTTpmvu.jpg" alt="8021x配置装备" /><figcaption>8021x配置装备<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/OEtzQkL.jpg" alt="8021x业务配置1" /><figcaption>8021x业务配置1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/aTOytoI.jpg" alt="8021x业务配置2" /><figcaption>8021x业务配置2<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/gMqDp1d.jpg" alt="8021x业务配置3" /><figcaption>8021x业务配置3<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/2UNJqFQ.jpg" alt="8021x业务配置4" /><figcaption>8021x业务配置4<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/S4b1o4n.jpg" alt="8021x业务配置5" /><figcaption>8021x业务配置5<figcaption></figure></p>
+</li>
+<li>
+<p>802.1x基本故障诊断<br />
+<figure><img src="https://i.imgur.com/kORk1yU.jpg" alt="8021x故障处理流程" /><figcaption>8021x故障处理流程<figcaption></figure></p>
+<pre class="line-numbers"><code># 查看dot1x是否使能
+[SW]dis dot1x
+[SW]dis dot1x int g2/0/2
+</code></pre>
+</li>
+</ul>
+<h2><a id="usg%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A7%E5%93%81%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7%E4%B8%8E%E9%85%8D%E7%BD%AE" class="anchor" aria-hidden="true" href="#usg%E9%98%B2%E7%81%AB%E5%A2%99%E4%BA%A7%E5%93%81%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="octicon octicon-link"></span></a>USG防火墙产品基本功能特性与配置</h2>
+<ul>
+<li>防火墙有3⃣️代：
+<ol>
+<li>Router + 自反ACL</li>
+<li>硬件防火墙 包过滤防火墙 第1⃣️代</li>
+<li>代理服务器 PC---FW---Server 第2⃣️代</li>
+<li>状态化分组过滤器 ASPF 第3⃣️代</li>
+<li>下一代防火墙</li>
+</ol>
+</li>
+<li>防火墙的基本概念
+<ul>
+<li>安全区域
+<ul>
+<li><code>USG防火墙上保留五个安全区域：</code>
+<ol>
+<li>本地区域（Local）安全优先级100</li>
+<li>受信区（Trust）安全优先级85</li>
+<li>非军事化区（DMZ）安全优先级50</li>
+<li>非受信区（Untrust）安全优先级5</li>
+<li>虚拟区（VZone）安全优先级0<br />
+<figure><img src="https://i.imgur.com/muzGRzb.jpg" alt="接口 网络和安全区域关系" /><figcaption>接口 网络和安全区域关系<figcaption></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>防火墙工作模式
+<ul>
+<li><code>路由模式</code></li>
+<li><code>透明模式</code></li>
+<li><code>混合模式</code></li>
+</ul>
+</li>
+<li>会话</li>
+</ul>
+</li>
+<li>防火墙关键技术</li>
+<li>防火墙基本功能</li>
+<li>防火墙扩展功能</li>
+</ul>
+<h2><a id="usg%E9%98%B2%E7%81%AB%E5%A2%99%E6%94%BB%E5%87%BB%E9%98%B2%E8%8C%83%E4%B8%9A%E5%8A%A1%E7%89%B9%E6%80%A7%E4%B8%8E%E9%85%8D%E7%BD%AE" class="anchor" aria-hidden="true" href="#usg%E9%98%B2%E7%81%AB%E5%A2%99%E6%94%BB%E5%87%BB%E9%98%B2%E8%8C%83%E4%B8%9A%E5%8A%A1%E7%89%B9%E6%80%A7%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="octicon octicon-link"></span></a>USG防火墙攻击防范业务特性与配置</h2>
+<ul>
+<li>网络中典型的攻击类型<br />
+<figure><img src="https://i.imgur.com/2SknhhD.jpg" alt="网络中典型的攻击类型" /><figcaption>网络中典型的攻击类型<figcaption></figure></li>
+<li>攻击防范特性与配置
+<ul>
+<li>拒绝服务攻击</li>
+<li>畸形报文攻击
+<ul>
+<li>TCP Flag攻击</li>
+<li>IP分片攻击</li>
+<li>Tear Drop攻击</li>
+<li>Ping of Death攻击</li>
+</ul>
+</li>
+<li>扫描窥探攻击
+<ul>
+<li>IP Sweep攻击</li>
+<li>Port Scan攻击</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>防火墙防范的其他报文
+<ul>
+<li>ICMP Redirect</li>
+<li>ICMP Unreachable</li>
+<li>Large ICMP</li>
+<li>Route Record</li>
+<li>Tracert</li>
+</ul>
+</li>
+</ul>
+<h2><a id="usg%E9%98%B2%E7%81%AB%E5%A2%99%E5%8F%8C%E6%9C%BA%E7%83%AD%E5%A4%87%E4%B8%9A%E5%8A%A1%E7%89%B9%E6%80%A7%E4%B8%8E%E9%85%8D%E7%BD%AE" class="anchor" aria-hidden="true" href="#usg%E9%98%B2%E7%81%AB%E5%A2%99%E5%8F%8C%E6%9C%BA%E7%83%AD%E5%A4%87%E4%B8%9A%E5%8A%A1%E7%89%B9%E6%80%A7%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="octicon octicon-link"></span></a>USG防火墙双机热备业务特性与配置</h2>
+<ul>
+<li>防火墙双机热备份技术分析
+<ul>
+<li>防火墙双机热备份技术的特征
+<ul>
+<li>控制主、备用防火墙的切换</li>
+<li>状态信息的备份</li>
+</ul>
+</li>
+<li>USG防火墙的双机热备份技术依靠三种协议实现：
+<ul>
+<li>VRRP（虚拟路由冗余协议）</li>
+<li>VGMP（VRRP组管理协议）</li>
+<li>HRP（华为冗余协议）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="ip-qos%E6%A6%82%E8%BF%B0" class="anchor" aria-hidden="true" href="#ip-qos%E6%A6%82%E8%BF%B0"><span class="octicon octicon-link"></span></a>IP QoS概述</h2>
+<ul>
+<li>Quality of Service
+<ul>
+<li>集成服务模型
+<ul>
+<li>RSVP 资源预留协议</li>
+<li>Call Admission Control CAC 呼叫准入控制</li>
+</ul>
+</li>
+<li>区分服务模型
+<ul>
+<li>流量分类 acl route-map NLRI 流量标记tag 队列 管制（监管Police）令牌桶算法 流量整形Serial 拥塞避免（WRED TCP RAM Tail Drop）</li>
+<li>MQC 模块化QoS命令行界面
+<ul>
+<li>Class-map 流量分类</li>
+<li>Policy-map 标记队列管制整形WRED</li>
+<li>Service policy</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>端到端时延 = 路径上所有传输时延、处理时延与队列时延之和</code>
+<ul>
+<li>传输时延</li>
+<li>处理时延</li>
+<li>串行化时延</li>
+<li>队列时延 Buffer RAM 软件队列 FIFO CQ PQ WFQ CBWFQ CBLLQ</li>
+</ul>
+</li>
+<li><code>抖动是因为每个包的端到端时延不相等造成的</code></li>
+<li>丢包可能在传输过程的每一个环节发生</li>
+<li>IPv4 Type of Service ToS 8bit  IP Precedence DSCP区分服务码点
+<ul>
+<li>IP Precedence XXX.....前3bit 取值0-7
+<ul>
+<li>IPP0 ToS 0</li>
+<li>IPP1 ToS 32</li>
+<li>IPP2 ToS 64</li>
+<li>IPP3 ToS 96</li>
+</ul>
+</li>
+<li>DSCP XXXYY0.. 最低位Y位恒为0
+<ul>
+<li>Default BE X=0 Y=0</li>
+<li>Class Selector 向后兼容IP Precedence X不等于0 Y恒等于0</li>
+<li>Assured Forwarding X=1-4 Y=1-3 X代表优先级 Y代表丢弃优先级</li>
+<li>Expedited Forwarding X=5 Y=3 10111000</li>
+</ul>
+</li>
+<li>DSCP PHB BE CS AF EF DSCP值 ToS字段的值
+<ul>
+<li>DSCP BE0 00000000 DSCP值0 ToS字段的值0</li>
+<li>DSCP CS6 11000000 DSCP值48 ToS字段的值192</li>
+<li>DSCP AF32 01110000 DSCP值28 ToS字段的值112</li>
+<li>DSCP EF 10111000 DSCP值46 ToS字段的值184</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="%E6%B5%81%E9%87%8F%E5%88%86%E7%B1%BB%E4%B8%8E%E6%A0%87%E8%AE%B0" class="anchor" aria-hidden="true" href="#%E6%B5%81%E9%87%8F%E5%88%86%E7%B1%BB%E4%B8%8E%E6%A0%87%E8%AE%B0"><span class="octicon octicon-link"></span></a>流量分类与标记</h2>
+<ul>
+<li>
+<p>标记方式</p>
+<ul>
+<li>ipv4/ipv6 ToS/Traffic Class 1Byte</li>
+<li>802.1Q｜802.1P 3bit priority CoS</li>
+<li>MPLS EXP</li>
+<li>Frame Relay DE<br />
+<figure><img src="https://i.imgur.com/vfN6Lvm.jpg" alt="简单流分类和标记" /><figcaption>简单流分类和标记<figcaption></figure></li>
+</ul>
+</li>
+<li>
+<p>抓所有VoIP媒体流量</p>
+<ul>
+<li>都是组播/单播</li>
+<li>UDP RTP（实时传输协议） 端口号16384-32767 偶数端口：媒体流量本身 奇数端口：信令流量</li>
+</ul>
+<pre class="line-numbers"><code>access-list 100 permit udp any any range 16384 32767
+class-map match-any RTP
+    match access-group 100
+Policy-map CBMark
+    class RTP
+        set ip dscp (ef/46)
+</code></pre>
+</li>
+</ul>
+<h2><a id="%E6%B5%81%E9%87%8F%E7%9B%91%E7%AE%A1%E4%B8%8E%E6%95%B4%E5%BD%A2" class="anchor" aria-hidden="true" href="#%E6%B5%81%E9%87%8F%E7%9B%91%E7%AE%A1%E4%B8%8E%E6%95%B4%E5%BD%A2"><span class="octicon octicon-link"></span></a>流量监管与整形</h2>
+<ul>
+<li>管制 Policing</li>
+<li><code>整形只能出站部署</code> 整形队列</li>
+<li>TB算法 令牌桶算法MIB</li>
+</ul>
+<h2><a id="%E6%8B%A5%E5%A1%9E%E7%AE%A1%E7%90%86%E4%B8%8E%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D" class="anchor" aria-hidden="true" href="#%E6%8B%A5%E5%A1%9E%E7%AE%A1%E7%90%86%E4%B8%8E%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D"><span class="octicon octicon-link"></span></a>拥塞管理与拥塞避免</h2>
+<ul>
+<li>拥塞管理 队列 FIFQ CQ PQ WRR WFQ CBWFQ CBLLQ<br />
+<figure><img src="https://i.imgur.com/xxh9Oir.jpg" alt="队列技术" /><figcaption>队列技术<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/2tI5E1f.jpg" alt="各种队列调度技术对比" /><figcaption>各种队列调度技术对比<figcaption></figure></li>
+<li>拥塞避免 Tail Drop RED（随机早期检测） WRED（加权随机早期检测）</li>
+<li>硬件队列 Bandwidth FIFO</li>
+<li>软件队列 RAM</li>
+</ul>
+<h2><a id="is-is" class="anchor" aria-hidden="true" href="#is-is"><span class="octicon octicon-link"></span></a>IS-IS</h2>
+<p>-简介<br />
+- IS 中间系统 OSI 网络设备 IS-IS<br />
+- IGP 支持中到大型网络<br />
+- LS协议 LSP（PDU 协议数据单元）➡️LSDB➡️IP Routing<br />
+- OSI TCP/IP IPv4 IPv6<br />
+- 封装 <code>Layer 2｜IS-IS｜FCS</code></p>
+<ul>
+<li>理解IS-IS基本原理
+<ul>
+<li>IS-IS基本概念
+<ul>
+<li>
+<p>IS-IS历史<br />
+<figure><img src="https://i.imgur.com/gBCIZAf.jpg" alt="IS-IS历史" /><figcaption>IS-IS历史<figcaption></figure></p>
+</li>
+<li>
+<p>IS-IS地址结构</p>
+<ul>
+<li>NSAP：长度从8Byte（1Byte 6Byte 1Byte）-20Byte</li>
+</ul>
+<pre class="line-numbers"><code>IDP（Initial Domain Part）           ｜DSP（Domain Specific Part）
+AFI（组织格式标识符）｜IDI（初始域标识符）｜High Order DSP（高位域指定部分）｜System ID（系统标识符）            ｜NSEL（网络服务选择器）
+1B 45 47 49私有地址｜可变长            ｜区域部分 可变长2B 0001 0002    ｜定长6B MAC或变形IP 1921.6801.0001 ｜1B 00 Protocol Port
+</code></pre>
+<p>-<code>IS-IS的NSAP地址：1AFI+2HODSP+6SID+1NSEL 共10Byte</code></p>
+</li>
+<li>
+<p>IS-IS整体拓扑<br />
+<figure><img src="https://i.imgur.com/KMkkivC.jpg" alt="IS-IS整体拓扑" /><figcaption>IS-IS整体拓扑<figcaption></figure></p>
+<ul>
+<li><code>OSPF划分区域：一个接口宣告进协议进程的时候 表明一台路由器可以属于一个区域也可以属于多个区域 两台路由器要建邻居必须直连接口宣告进同一个区域</code>  <strong>任何一根路由器间链路必须属于同一个区域</strong> <code>Area0是骨干区域</code></li>
+<li><code>ISIS划分区域：由NET地址决定 AFI+HODSP来决定</code> <strong>路由器间的一根链路是可以跨越不同区域的</strong> <code>没有骨干区域只有骨干链路，由L2和L1/2相连而成的链路 Level1（区域内） Level2（区域间）默认ISIS Type L1/2</code> <code>邻居关系也分两种：L1（建立必须要在同一个区域） L2（可以同一个区域也可以跨越区域）</code></li>
+<li><code>L1/2路由器 1⃣️L1/2路由器拥有其他区域L2的邻居2⃣️L1/2的L2 LSDB中拥有其他区域的L2 LSP➡️L1 LSP ATT位0置1</code></li>
+<li><code>避免非对称路由 ISIS的路由泄露：在边界L1/2路由器上，强制要求把Level2的LSP拷贝一份变成Level1的形式然后通过区域内去发送</code></li>
+</ul>
+</li>
+<li>
+<p>IS-IS路由器分类<br />
+<figure><img src="https://i.imgur.com/TtxM84s.jpg" alt="IS-IS路由器分类" /><figcaption>IS-IS路由器分类<figcaption></figure></p>
+</li>
+<li>
+<p>IS-IS网络类型</p>
+<ul>
+<li>点到点链路：PPP、HDLC等</li>
+<li>广播链路：如Ethernet等
+<ul>
+<li>DIS：Designated IS指定中间系统</li>
+<li>功能：在广播网络实现更高效的数据库同步</li>
+<li>选取DIS
+<ol>
+<li>接口优先级：0-127 默认64</li>
+<li><code>比较SNPA（即MAC地址） IS-IS描述设备NSAP 描述接口Circuit-ID电路ID 1Byte system-id.Circuit-ID描述某台设备的某个接口 SNPA描述接口类型 HDLC PPP MAC</code></li>
+<li><code>选出DIS后，路由器之间仍然会俩俩建邻居 N（N-1）/2</code></li>
+</ol>
+</li>
+<li>DIS作用
+<ul>
+<li>SNP（序号PDU）CSNP（完整序列号PDU类似OSPF DBD）PSNP（部分序列号PDU类似OSPF LSR LSAck）<code>DIS在收到LSP收录到LSDB然后会每10S发送CSNP（包含它的LSDB中的所有LSP报头）</code></li>
+</ul>
+</li>
+<li><code>DIS可以任意抢占</code>
+<ul>
+<li><code>OSPF如果DR、BDR被抢占会造成邻接关系重新建立</code></li>
+<li><code>DR、BDR地址写在OSPF hello报文中，如果改变会造成hello报文不匹配</code></li>
+<li>DIS只发CSNP，谁发都一样</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>IS-IS报文类型</p>
+<ul>
+<li>HELLO PDU（IIH）用于建立和维持邻居关系
+<ul>
+<li>Level-1 LAN IIH（广播）<code>三次握手类似于OSPF two-way</code></li>
+<li>Level-2 LAN IIH（广播）三次握手</li>
+<li>P2P IIH（单播）两次握手</li>
+</ul>
+</li>
+<li>LSP PDU用于交换链路状态信息
+<ul>
+<li>Level-1 LSP 区域内交互</li>
+<li>Level-2 LSP</li>
+</ul>
+</li>
+<li>SNP PDU用于维护LSDB的完整与同步，且为摘要信息
+<ul>
+<li>CSNP
+<ul>
+<li>Level 1 CSNP</li>
+<li>Level 2 CSNP</li>
+</ul>
+</li>
+<li>PSNP
+<ul>
+<li>Level 1 PSNP</li>
+<li>Level 2 PSNP</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IS-IS基本原理
+<ul>
+<li>形成邻居关系的条件
+<ul>
+<li>同一层次</li>
+<li>同一区域</li>
+<li>同一网段</li>
+<li>相同网络类型</li>
+<li><code>邻居建立不传路由：Metric-Style要匹配 度量值类型 Narrow（默认 路径度量值取值范围10bit 0-1023，接口度量值取值范围6bit 0-63） Wide（路径度量值取值范围32bit，接口度量值取值范围24bit）</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IS-IS基本特点
+<ul>
+<li>路由渗透<br />
+<figure><img src="https://i.imgur.com/YNskgex.jpg" alt="IS-IS路由渗透" /><figcaption>IS-IS路由渗透<figcaption></figure>
+<ul>
+<li>I l1路由</li>
+<li>I l2路由</li>
+<li>I ia渗透路由 down bit</li>
+</ul>
+</li>
+<li>路由过载<br />
+<figure><img src="https://i.imgur.com/FwuT9l4.jpg" alt="IS-IS路由过载" /><figcaption>IS-IS路由过载<figcaption></figure>
+<ul>
+<li><code>OL置1 overload过载bit 可用作分片扩展</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IS-IS收敛特性<br />
+<figure><img src="https://i.imgur.com/N3omJBK.jpg" alt="IS-IS收敛特性" /><figcaption>IS-IS收敛特性<figcaption></figure></li>
+<li>IS-IS扩展特性
+<ul>
+<li>IS-IS认证
+<ul>
+<li>认证分类
+<ul>
+<li>接口认证
+<ul>
+<li>只对Level-1和Level-2的Hello报文进行认证</li>
+</ul>
+</li>
+<li>区域认证
+<ul>
+<li>对Level-1的SNP和LSP报文进行认证</li>
+</ul>
+</li>
+<li>路由域认证
+<ul>
+<li>对Level-2的SNP和LSP报文进行认证</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>认证方式
+<ul>
+<li>Null</li>
+<li>明文</li>
+<li>MD5</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LSP分片扩展<br />
+<figure><img src="https://i.imgur.com/yjitAWk.jpg" alt="IS-IS LSP分片扩展" /><figcaption>IS-IS LSP分片扩展<figcaption></figure></li>
+</ul>
+</li>
+<li>IS-IS管理特性
+<ul>
+<li>IS-IS管理标记（Tag）<br />
+<figure><img src="https://i.imgur.com/wbe5Daq.jpg" alt="IS-IS管理标记（Tag）" /><figcaption>IS-IS管理标记（Tag）<figcaption></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>掌握IS-IS配置命令<br />
+<figure><img src="https://i.imgur.com/7YSHV5Y.jpg" alt="配置IS-IS的基本功能" /><figcaption>配置IS-IS的基本功能<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/cDnbdhc.jpg" alt="配置IS-IS的基本功能（续）" /><figcaption>配置IS-IS的基本功能（续）<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/erB5o17.jpg" alt="配置IS-IS在不同网络类型中的属性" /><figcaption>配置IS-IS在不同网络类型中的属性<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/HidM27M.jpg" alt="配置IS-IS在不同网络类型中的属性（续）" /><figcaption>配置IS-IS在不同网络类型中的属性（续）<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/ZeFGLso.jpg" alt="控制IS-IS路由信息的发布" /><figcaption>控制IS-IS路由信息的发布<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/YViiv5J.jpg" alt="控制IS-IS路由信息的发布（续）" /><figcaption>控制IS-IS路由信息的发布（续）<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/OfmuhEa.jpg" alt="控制IS-IS路由信息的接收" /><figcaption>控制IS-IS路由信息的接收<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/duArU26.jpg" alt="控制IS-IS路由信息的接收（续）" /><figcaption>控制IS-IS路由信息的接收（续）<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/63Jmg9V.jpg" alt="提高IS-IS的安全性" /><figcaption>提高IS-IS的安全性<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/kKHBlMZ.jpg" alt="提高IS-IS的安全性（续）" /><figcaption>提高IS-IS的安全性（续）<figcaption></figure></li>
+<li>提升IS-IS排错能力<br />
+<figure><img src="https://i.imgur.com/dUC41c0.jpg" alt="IS-IS故障诊断" /><figcaption>IS-IS故障诊断<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/lKDbOqe.jpg" alt="IS-IS故障排除流程" /><figcaption>IS-IS故障排除流程<figcaption></figure></li>
+<li>加强IS-IS综合运用能力<br />
+<figure><img src="https://i.imgur.com/iW2W7PA.jpg" alt="IS-IS案例1" /><figcaption>IS-IS案例1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/0ZBoVJh.jpg" alt="IS-IS案例1-需求1" /><figcaption>IS-IS案例1-需求1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/z1n2g3a.jpg" alt="IS-IS案例1-需求2" /><figcaption>IS-IS案例1-需求2<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/ijiMcON.jpg" alt="IS-IS案例1-需求3" /><figcaption>IS-IS案例1-需求3<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/Ldm4KDx.jpg" alt="IS-IS案例2" /><figcaption>IS-IS案例2<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/2LxWkyk.jpg" alt="IS-IS案例2-预配" /><figcaption>IS-IS案例2-预配<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/SdYt0ns.jpg" alt="IS-IS案例2-需求1" /><figcaption>IS-IS案例2-需求1<figcaption></figure><br />
+<figure><img src="https://i.imgur.com/AMLwxe1.jpg" alt="IS-IS案例2-需求2" /><figcaption>IS-IS案例2-需求2<figcaption></figure></li>
+<li>增强应试能力</li>
+</ul>
+
+                  </article>
+                  <div class="comments-wrap">
+                    <div class="share-comments">
+                      
+
+                      
+
+                      
+                    </div>
+                  </div><!-- end comments wrap -->
+              </div>
+            </div><!-- end columns -->
+      </div><!-- end container -->
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+              Copyright &copy; 2019
+              Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+              Theme used <a target="_blank" href="https://bulma.io/">Bulma CSS</a>.
+          </p>
+        </div>
+      </footer>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+
+  
+    
+
+
+
+
+  </body>
+</html>
