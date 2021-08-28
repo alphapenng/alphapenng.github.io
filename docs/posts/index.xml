@@ -1,0 +1,24 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>文章列表 on balabala</title>
+		<link>https://alphapenng.github.io/posts/</link>
+		<description>Recent content in 文章列表 on balabala</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>本文采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议进行许可，转载请注明 出处链接。</copyright>
+		<lastBuildDate>Fri, 27 Aug 2021 21:52:14 +0800</lastBuildDate>
+		<atom:link href="https://alphapenng.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>My First Post</title>
+			<link>https://alphapenng.github.io/posts/my-first-post/</link>
+			<pubDate>Fri, 27 Aug 2021 21:52:14 +0800</pubDate>
+			
+			<guid>https://alphapenng.github.io/posts/my-first-post/</guid>
+			<description>这是第一篇文章。。。</description>
+			<content type="html"><![CDATA[<p>这是第一篇文章。。。</p>
+]]></content>
+		</item>
+		
+	</channel>
+</rss>
