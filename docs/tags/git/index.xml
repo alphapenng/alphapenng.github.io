@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>balabala</title>
-    <link>https://alphapenng.github.io/</link>
-    <description>Recent content on balabala</description>
+    <title>Git on balabala</title>
+    <link>https://alphapenng.github.io/tags/git/</link>
+    <description>Recent content in Git on balabala</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>本文采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议进行许可，转载请注明 出处链接。</copyright>
-    <lastBuildDate>Sat, 28 Aug 2021 19:15:47 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Aug 2021 19:15:47 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>版本管理和Git入门</title>
       <link>https://alphapenng.github.io/posts/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%92%8Cgit%E5%85%A5%E9%97%A8/</link>
@@ -15,15 +15,6 @@
       
       <guid>https://alphapenng.github.io/posts/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%92%8Cgit%E5%85%A5%E9%97%A8/</guid>
       <description>.aspect-ratio { position: relative; width: 100%; height: 0; padding-bottom: 75%; } .aspect-ratio iframe { position: absolute; width: 100%; height: 100%; left: 0; top: 0; } 版本管理的需求 时间机器 方案对比 版本库 版本库-文件命名 SHA-1 如果文件内容是一样的，那它产生的 SHA-1 值一定是一样的 tree结构和暂存区 目录结构和对应关系 源代码和版本库的对应关系 暂存区 文件状态 快照链表 协同和分支 分布式的版本控制 冲突和合并 分支 通常只在本地仓库进行 rebase 操作，远程仓库不进行 rebase 操作 合并特定提交到分支上面来 回顾 Git命</description>
-    </item>
-    
-    <item>
-      <title>关于</title>
-      <link>https://alphapenng.github.io/about-hugo/</link>
-      <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://alphapenng.github.io/about-hugo/</guid>
-      <description>一个普通人，爱折腾，不爱社交，随便写写，你也就随便看看。</description>
     </item>
     
   </channel>
