@@ -15,49 +15,8 @@
 			<pubDate>Sat, 28 Aug 2021 19:15:47 +0800</pubDate>
 			
 			<guid>https://alphapenng.github.io/posts/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%92%8Cgit%E5%85%A5%E9%97%A8/</guid>
-			<description>.aspect-ratio { position: relative; width: 100%; height: 0; padding-bottom: 75%; } .aspect-ratio iframe { position: absolute; width: 100%; height: 100%; left: 0; top: 0; } 版本管理的需求 时间机器 方案对比 版本库 版本库-文件命名 SHA-1 如果文件内容是一样的，那它产生的 SHA-1 值一定是一样的 tree结构和暂存区 目录结构和对应关系 源代码和版本库的对应关系 暂存区 文件状态 快照链表 协同和分支 分布式的版本控制 冲突和合并 分支 通常只在本地仓库进行 rebase 操作，远程仓库不进行 rebase 操作 合并特定提交到分支上面来 回顾 Git命</description>
-			<content type="html"><![CDATA[<!DOCTYPE HTML>
-<html>
-
-  <head>
-    
-    <style type="text/css">
-      .aspect-ratio {
-        position: relative;
-        width: 100%;
-        height: 0;
-        padding-bottom: 75%;
-      }
-
-      .aspect-ratio iframe {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="aspect-ratio">
-      <iframe
-              src="https://player.bilibili.com/player.html?bvid=BV1sz4y197L8&page=1&high_quality=1&danmaku=0"
-              scrolling="no" 
-              border="0" 
-              frameborder="no" 
-              framespacing="0" 
-              allowfullscreen="true"
-              sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
-              >
-      </iframe>
-      
-      
-    </div>
-  </body>
-
-</html>
-<h2 id="版本管理的需求">版本管理的需求</h2>
+			<description>版本管理的需求 时间机器 方案对比 版本库 版本库-文件命名 SHA-1 如果文件内容是一样的，那它产生的 SHA-1 值一定是一样的 tree结构和暂存区 目录结构和对应关系 源代码和版本库的对应关系 暂存区 文件状态 快照链表 协同和分支 分布式的版本控制 冲突和合并 分支 通常只在本地仓库进行 rebase 操作，远程仓库不进行 rebase 操作 合并特定提交到分支上面来 回顾 Git命令实战</description>
+			<content type="html"><![CDATA[<h2 id="版本管理的需求">版本管理的需求</h2>
 <h3 id="时间机器">时间机器</h3>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwogm56nfj61g00nq0y102.jpg" alt="image-20210319143636709" style="zoom: 40%;" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoi8o0bjj60n20pcdic02.jpg" alt="image-20210319143720289" style="zoom:50%;" /></p>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoikyiydj61cu0peafh02.jpg" alt="image-20210319143844561" style="zoom: 40%;" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoity147j61bi0iejv602-20210828210903625.jpg" alt="image-20210319144100478" style="zoom:40%;" /></p>
