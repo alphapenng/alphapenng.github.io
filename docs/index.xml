@@ -35,5 +35,20 @@
       <description>一个普通人，爱折腾，不爱社交，随便写写，你也就随便看看。</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://alphapenng.github.io/posts/%E5%8D%8E%E4%B8%BA%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2%E8%AE%BE%E5%A4%87%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://alphapenng.github.io/posts/%E5%8D%8E%E4%B8%BA%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2%E8%AE%BE%E5%A4%87%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/</guid>
+      <description>华为路由交换设备命令手册  title: &amp;ldquo;华为路由交换设备命令手册&amp;rdquo; date: 2021-09-15T09:29:35+08:00 draft: false toc: true isCJKLanguage: true tags:
+ 技术 网络   概述  适用设备 本命令手册主要适用于华为 NE 路由器系列型号设备及 5700 交换机系列型号设备。 命令格式     序号 格式 意义     1 粗体 命令关键字，在命令中保持不变，原样照输，采用加粗字体表示   2 斜体 命令参数，在命令中以实际值进行替代，采用斜体字体表示   3 &amp;lt;&amp;gt; 命令必选参数，在输入命令时必须配置该参数   4 [] 命令可选参数，在输入命令时根据需要配置该参数   5 x | y | &amp;hellip; 表示从两个或多个选项中选取 1 个    路由器 名称 # 采用「X_Y_Z」的形式，路由器 X 为战区名称简写，Y 为节点名称简写，Z 为设备型号，如果 存在同型号的多台设备，按 A、B、C、D 的顺序进行编号，在型号后增加编号序列 &amp;lt;R&amp;gt;sys [R]sys DB_HJ_NE20-X3 接口 （1）环回接口（ Lookback ） 配置
+# 配置 OSPF 协议、BGP 协议、MPLS 的 LDP 协议时必须配置相关协议的路由器 ID，且统一 采用最小环回口地址作为路由器 ID [R]int loo0 [R-loo0]ip add 1.1.1.1 32 （2）GE 网口
+# 主要配置包括介质类型、接口自协商、接口速率、流控、单 / 双工模式等基本功能 # 接口缺省开启自协商功能，采用电口互连时，一般采用自协商方式互通 [R]int g0/0/0 [R-g0/0/0]port-type copper [R-g0/0/0]ip add 10.0.0.1 24 # 采用光口互连时，一般要求关闭接口自协商功能，配置固定速率互通 [R]int g0/0/1 [R-g0/0/1]port-type fiber-1000 [R-g0/0/1]undo negotiation auto [R-g0/0/1]speed 1000 [R-g0/0/1]ip add 10.0.0.2 24 （3）10GE 网口
+# 10GE 以太网接口可配置为广域网模式或局域网模式 [R]int g5/0/0 [R-g5/0/0]ip add 10.1.1.1 24 [R-g5/0/0]set transfer-mode wan （4）E1 接口
+ AR 系列路由器 E1-F 接口配置方式    E1-F 接口有两种工作方式，非成帧方式和成帧方式（建议使用非成帧方式）
+ 当 E1-F 接口工作于非成帧方式时，它相当于一个不分时隙、数据带宽为 2048Kbit/s 的接口，其逻辑特性与同步串口相同，支持 PPP、HDLC 和 FR 数据链路层协议，支持 IP 网络协议 当 E1-F 接口工作于成帧方式时，线路分为 32 个时隙，对应编号为 0-31。其中 0 时隙用于传输同步信息，其余时隙可以被任意捆绑成一个通道。E1-F 接口的带宽为 n*64Kbit/s （n是指捆绑的时隙数，最大取值为 31），其逻辑特性与同步串口相同，支持 PPP、HDLC 和 FR 数据链路层协议，支持 IP 网络协议。    E1-F 接口支持的时钟模式有两种：</description>
+    </item>
+    
   </channel>
 </rss>
