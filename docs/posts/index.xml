@@ -6,607 +6,17 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>本文采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议进行许可，转载请注明 出处链接。</copyright>
-		<lastBuildDate>Thu, 09 Sep 2021 16:18:18 +0800</lastBuildDate>
+		<lastBuildDate>Wed, 15 Sep 2021 09:29:35 +0800</lastBuildDate>
 		<atom:link href="https://alphapenng.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>Git 学习笔记</title>
-			<link>https://alphapenng.github.io/posts/git-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-			<pubDate>Thu, 09 Sep 2021 16:18:18 +0800</pubDate>
-			
-			<guid>https://alphapenng.github.io/posts/git-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-			<description>Git 基本原理介绍 参考来自 Git 基本原理介绍 | Escape 学习 笔记 参考来自 我的 Git 学习笔记 | Escape 编号 专用名词 对应解释 相关命令 1 Workspace 工作区 add 2 Index/Stage 暂存区 commit 3 Repository 本地仓库 push、checkout 4 Remote 远程仓库 fetch、clone、pull Git 增删改查 参考来自 常用 Git 命令清单 $ cd learngit $ git init # 初始化Git仓库 ** create readme.txt ** echo &amp;quot;line 1 &amp;quot;&amp;gt;&amp;gt; readme.txt $ git add readme.txt # 添加到暂存空间 $ git commit -m &amp;quot;first commit&amp;quot; # 提交加备注信息 ** echo &amp;quot;error line 2&amp;quot; &amp;gt;&amp;gt; readme.txt $ git add</description>
-			<content type="html"><![CDATA[<h2 id="git-基本原理介绍">Git 基本原理介绍</h2>
-<blockquote>
-<p>参考来自 <a href="https://www.escapelife.site/posts/da89563c.html" target="_blank" rel="noopener">Git 基本原理介绍 | Escape</a>
-</p>
-</blockquote>
-<h2 id="学习-笔记">学习 笔记</h2>
-<blockquote>
-<p>参考来自 <a href="https://www.escapelife.site/posts/8f4661c4.html" target="_blank" rel="noopener">我的 Git 学习笔记 | Escape</a>
-</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>编号</th>
-<th>专用名词</th>
-<th style="text-align:left">对应解释</th>
-<th style="text-align:left">相关命令</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Workspace</td>
-<td style="text-align:left">工作区</td>
-<td style="text-align:left">add</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Index/Stage</td>
-<td style="text-align:left">暂存区</td>
-<td style="text-align:left">commit</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Repository</td>
-<td style="text-align:left">本地仓库</td>
-<td style="text-align:left">push、checkout</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Remote</td>
-<td style="text-align:left">远程仓库</td>
-<td style="text-align:left">fetch、clone、pull</td>
-</tr>
-</tbody>
-</table>
-<p><p class="md__image">
-  <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_09_12_%e6%88%91%e7%9a%84Git%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b01.png"
-    alt="文件的生命周期状态"  />
-</p>
-</p>
-<p><p class="md__image">
-  <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_09_12_%e6%88%91%e7%9a%84Git%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b02.png"
-    alt="文件的生命周期状态"  />
-</p>
-</p>
-<ol>
-<li>Git 增删改查</li>
-</ol>
-<blockquote>
-<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
-</p>
-</blockquote>
-<pre><code>$ cd learngit
-$ git init  # 初始化Git仓库
-** create readme.txt
-** echo &quot;line 1 &quot;&gt;&gt; readme.txt
-
-$ git add readme.txt            # 添加到暂存空间
-$ git commit -m &quot;first commit&quot;  # 提交加备注信息
-** echo &quot;error line 2&quot; &gt;&gt; readme.txt
-
-$ git add readme.txt
-$ git status  # 查看状态
-** have a change.
-
-$ git reset HEAD readme.txt  # 将暂存空间内容撤销
-$ git checkout readme.txt    # 撤销工作空间内容
-** echo &quot;line2&quot; &gt;&gt; readme.txt
-$ git add readme.txt
-$ git commit -m &quot;commit line 2 &quot;
-
-$ git reset --hard HEAD^    # 回退为上个版本(删除修改)
-$ git reset --hard (gitID)  # 回退为指定版本(删除修改)
-$ git reset --soft (gitID)  # 回退为指定版本(不删除回退文件的修改)
-$ git log                   # 查看当前版本及之前版本的id号
-</code></pre><blockquote>
-<p>参考来自 <a href="https://oschina.gitee.io/learn-git-branching/" target="_blank" rel="noopener">learn-git-branching</a>
-</p>
-</blockquote>
-<pre><code># Git 仓库创建
-$ git init                 # 将当前目录设为Git代码库
-$ git init [project-name]  # 新建并将其设为Git代码库
-$ git clone [url]          # 通过连接下载一个已有项目
-
-# Git增加文件
-$ git add [file1] [file2]  # 添加指定文件到暂存区
-$ git add [dir]            # 添加指定目录到暂存区
-$ git add .                # 添加当前所有文件到暂存区
-$ git add -p               # 添加每个变化前都要求确认
-
-# Git删除文件
-$ git rm [file1] [file2]  # 删除工作区文件并且将这次删除放入暂存区
-$ git rm --cached [file]  # 停止追踪指定文件但该文件会保留在工作区
-$ git mv [file-original] [file-renamed]
-
-# Git代码提交
-$ git commit -m [message]             # 提交暂存区到仓库区
-$ git commit -a                       # 提交工作区自上次commit之后的变化直接到仓库区
-$ git commit -v                       # 提交时显示所有diff信息
-$ git commit --amend -m [message]     # 使用一次新的commit替代上一次提交
-$ git commit --amend [file1] [file2]  # 重做上一次commit并包括指定文件的新变化
-
-# Git撤销操作
-$ git checkout .                # 恢复暂存区的所有文件到工作区
-$ git checkout [file]           # 恢复暂存区的指定文件到工作区
-$ git checkout [commit] [file]  # 恢复某个commit的指定文件到暂存区和工作区
-
-# Git重置操作
-$ git reset [file]           # 重置暂存区的指定文件；与上一次commit保持一致但工作区不变
-$ git reset --hard           # 重置暂存区与工作区文件；与上一次commit保持一致；谨慎使用
-$ git reset [commit]         # 重置当前分支的指针为指定commit；同时重置暂存区但工作区不变
-$ git reset --hard [commit]  # 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区
-$ git reset --keep [commit]  # 重置当前HEAD为指定commit，但保持暂存区和工作区不变
-
-# 新建一个commit，用来撤销指定commit
-# 后者的所有变化都将被前者抵消并且应用到当前分支
-$ git revert [commit]
-</code></pre><ol start="2">
-<li>Git 远程仓库</li>
-</ol>
-<blockquote>
-<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
-</p>
-</blockquote>
-<pre><code># 注册github.com并创建本机的ssh-key
-$ ssh-keygen -t rsa -C &quot;123456789@qq.com&quot;
-
-# 添加ssh-key到秘钥管理里面并关联远程仓库
-$ git remote add origin git@github.com:xxx/learngit.git
-
-# 如果远程仓库已经存在内容需要先pull下面，之后再提交
-$ git pull origin master
-
-# 将本地库push到远程仓库，第一次需要加u关联，之后可以不加
-$ git push -u origin master
-
-# 仓库克隆
-$ git clone git@github.com:xxx/gitkills.git
-</code></pre><blockquote>
-<p>参考来自 <a href="https://oschina.gitee.io/learn-git-branching/" target="_blank" rel="noopener">learn-git-branching</a>
-</p>
-</blockquote>
-<pre><code># Git远程分支推送
-$ git fetch [remote]          # 下载远程仓库的所有变动
-$ git pull [remote] [branch]  # 取回远程仓库的变化，并与本地分支合并
-$ git push [remote] [branch]  # 上传本地指定分支到远程仓库
-$ git push [remote] --force   # 强行推送当前分支到远程仓库，即使有冲突
-$ git push [remote] --all     # 推送所有分支到远程仓库
-
-# Git远程同分支查看
-$ git remote -v                     # 显示所有远程仓库
-$ git remote show [remote]          # 显示某个远程仓库的信息
-$ git remote add [shortname] [url]  # 增加一个新的远程仓库并命名
-</code></pre><ol start="3">
-<li>Git 分支管理</li>
-</ol>
-<blockquote>
-<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
-</p>
-</blockquote>
-<ul>
-<li>在工作区未提交的内容，所有分支都可以看到</li>
-<li>提交之后的内容在对应的分支内，切换只能在对应的分支内看到</li>
-</ul>
-<pre><code># 查看分支列表，其中*为当前分支
-git branch
-
-# 创建分支
-git branch &lt;name&gt;
-
-# 切换分支
-git checkout &lt;name&gt;
-
-# 创建并切换分支
-git checkout -b &lt;name&gt;
-
-# 合并某分支到当前分支
-git merge &lt;name&gt;
-
-# 删除分支
-git branch -d &lt;name&gt;
-
-# 强行删除分支
-git branch -D &lt;name&gt;
-</code></pre><blockquote>
-<p>参考来自 <a href="https://oschina.gitee.io/learn-git-branching/" target="_blank" rel="noopener">learn-git-branching</a>
-</p>
-</blockquote>
-<pre><code># Git查看分支
-$ git branch     # 列出所有本地分支
-$ git branch -r  # 列出所有远程分支
-$ git branch -a  # 列出所有本地分支和远程分支
-
-# Git分支切换
-$ git branch [branch-name]     # 新建一个分支但停留在当前分支
-$ git checkout -b [branch]     # 新建一个分支并切换到该分支
-$ git checkout [branch-name]   # 切换到指定分支并更新工作区
-$ git checkout -               # 切换到上一个分支
-$ git branch -d [branch-name]  # 删除分支
-
-# Git分支删除
-$ git push origin --delete [branch-name]  # 删除远程分支
-$ git branch -dr [remote/branch]          # 删除远程分支
-
-# 建立追踪关系，在现有分支与指定的远程分支之间
-$ git branch --set-upstream [branch] [remote-branch]
-</code></pre><ol start="4">
-<li>Git 冲突处理</li>
-</ol>
-<blockquote>
-<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
-</p>
-</blockquote>
-<ul>
-<li>合并时显示分支冲突先 <code>merge</code> 后修改 <code>&lt;&lt;&lt;&lt;分支1</code>、<code>&lt;&lt;&lt;分支2</code> 之间的冲突内容，然后再提交。当前分支会比被合并的分支，多一次 commit 的提交记录。</li>
-</ul>
-<pre><code># 合并指定分支到当前分支
-# 禁用Fast forward功能，不删除分支且合并后保留分支
-git merge --no-ff [branch]
-
-# 选择一个commit并合并进当前分支
-$ git cherry-pick [commit]
-</code></pre><ol start="5">
-<li>Git 比对日志</li>
-</ol>
-<blockquote>
-<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
-</p>
-</blockquote>
-<pre><code># 查看分支情况
-git log --graph --pretty=oneline --abbrev-commit
-git log --graph --decorate --pretty=oneline --abbrev-commit --all
-git log --pretty=fsormat:'%s %C(bold blue)(%an)%Creset' --abbrev-commit
-git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit
-</code></pre><blockquote>
-<p>参考来自 <a href="https://oschina.gitee.io/learn-git-branching/" target="_blank" rel="noopener">learn-git-branching</a>
-</p>
-</blockquote>
-<pre><code># Git日志格式
-
-$ git log                        # 显示当前分支的版本历史
-$ git log --stat                 # 显示commit历史及每次commit变更的文件
-$ git log -5 --pretty --oneline  # 显示过去5次提交
-$ git reflog                     # 显示当前分支的最近几次提交
-$ git shortlog -sn               # 显示所有提交过的用户，按提交次数排序
-
-# 显示某个commit之后的所有变动，每个commit占据一行
-$ git log [tag] HEAD --pretty=format:%s
-
-# 显示某个commit之后的所有变动，其&quot;提交说明&quot;必须符合搜索条件
-$ git log [tag] HEAD --grep feature
-
-# 显示某个文件的版本历史，包括文件改名
-$ git log --follow [file]
-$ git whatchanged [file]
-
-# Git高级查询
-$ git blame [file]                     # 显示指定文件是什么人在什么时间修改过
-$ git log -p [file]                    # 显示指定文件相关的每一次diff
-$ git log -S [keyword]                 # 根据关键词搜索提交历史
-$ git diff --shortstat &quot;@{0 day ago}&quot;  # 显示今天你写了多少行代码
-
-# Git 差异对比
-$ git diff  # 显示暂存区和工作区的差异
-$ git diff --cached [file]  # 显示暂存区和上一个commit的差异
-$ git diff HEAD  # 显示工作区与当前分支最新commit之间的差异
-$ git diff [first-branch]...[second-branch]  # 显示两次提交之间的差异
-
-# Git显示内容
-$ git show [commit]              # 显示某次提交的元数据和内容变化
-$ git show --name-only [commit]  # 显示某次提交发生变化的文件
-$ git show [commit]:[filename]   # 显示某次提交时某个文件的内容
-</code></pre><ol start="6">
-<li>Git 内容存储</li>
-</ol>
-<blockquote>
-<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
-</p>
-</blockquote>
-<ul>
-<li>正在 dev 分支工作时，需要修改 bug 并提交。应该先把 dev 当前工作区 stash 储藏起来，修改完 bug 提交后在使用 git stash pop 恢复 dev 的内容到工作区。</li>
-</ul>
-<pre><code># 储藏当前工作区
-git stash
-
-# 查看储藏区
-git stash list
-
-# 恢复指定内容到工作区，不在stash内删除
-# 其中的stashid可以通过git stash list查询
-git stash apply &lt;stashid&gt;
-
-# 删除储藏区
-git stash drop &lt;stashid&gt;
-
-# 恢复stash的内容到工作区，并在stash内删除
-git stash pop
-</code></pre><ol start="7">
-<li>Git 标签管理</li>
-</ol>
-<blockquote>
-<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
-</p>
-</blockquote>
-<ul>
-<li>标签基本都是发布版本的时候使用的，所以平常很少使用，了解即可。</li>
-</ul>
-<pre><code># 新建标签，默认为在HEAD上，也可以指定一个commit id号
-git tag &lt;name&gt;
-
-# 指定标签信息
-git tag -a &lt;tagname&gt; -m &quot;blablablabla&quot;
-
-# 使用PGP签名标签
-git tag -s &lt;tagname&gt; -m &quot;blablablabla&quot;
-
-# 查看所有标签
-git tag
-
-# 查看指定tag的详细内容
-git show &lt;tagname&gt;
-
-# 删除tag标签
-git tag -d &lt;tagname&gt;
-
-# 推送指定标签到远程
-git push origin &lt;tagname&gt;
-
-# 推送所有标签到远程
-git push origin --tags
-
-# 从远程删除标签
-git push origin :refs/tags/&lt;tagname&gt;
-</code></pre><ol start="8">
-<li>Git 配置管理</li>
-</ol>
-<blockquote>
-<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
-</p>
-</blockquote>
-<ul>
-<li>主要配置日常使用工具和提交记录相关的配置，需要注意的是，区分全局和本地配置。</li>
-</ul>
-<pre><code># 列出配置项
-$ git config --list
-$ git config --global --list
-
-# 获取配置项
-$ git config user.name &quot;escape&quot;
-$ git config --global user.name &quot;escape&quot;
-$ git config user.email &quot;escapelife@gmail.com&quot;
-$ git config --global user.email &quot;escapelife@gmail.com&quot;
-
-# 添加配置项
-$ git config -–add site.name yiibai
-$ git config --global -–add site.name yiibai
-
-# 删除配置项
-$ git config -–unset site.name
-$ git config --global -–unset site.name
-
-# 获取帮助
-$ git help &lt;verb&gt;
-$ git help config
-
-# 配置全局默认编辑器
-$ git config --global core.editor vim
-$ git config --global core.editor emacs
-
-# 配置比较工具
-$ git config --global merge.tool vimdiff
-
-# 全局代理配置
-$ git config --global https.proxy http://127.0.0.1:1080
-$ git config --global https.proxy https://127.0.0.1:1080
-
-# 全局取消代理配置
-$ git config --global --unset http.proxy
-$ git config --global --unset https.proxy
-</code></pre><ol start="9">
-<li>Git  其他操作</li>
-</ol>
-<blockquote>
-<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
-</p>
-</blockquote>
-<pre><code># 生成发布压缩包
-$ git archive
-</code></pre><ol start="10">
-<li>快捷键总结</li>
-</ol>
-<blockquote>
-<p>OpenSource：总结的快捷键使用文档！</p>
-</blockquote>
-<p><p class="md__image">
-  <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_09_12_GitCheatSheet.png"
-    alt="Git Cheat Sheet"  />
-</p>
-</p>
-<h2 id="git-常用命令实战">Git 常用命令实战</h2>
-<blockquote>
-<p>参考来自 <a href="https://01.ftqq.com/2021/08/21/git-course/" target="_blank" rel="noopener">Git 基础课</a>
-</p>
-</blockquote>
-<ol>
-<li><code>gitjk</code></li>
-<li>使用 git 初始化命令
-<code>git init</code></li>
-<li>新建一个文件，把它添加到 git 里边
-<code>echo &quot;make git great&quot; &gt; a.txt &amp;&amp; git add a.txt</code></li>
-<li>将文件移除暂存区
-<code>git reset HEAD -- a.txt</code></li>
-<li>查看 git 仓库
-<code>cd .git &amp;&amp; ls -la</code>
-<code>cd objects &amp;&amp; ls -la</code></li>
-<li>通过 git cat-file 命令查看文件内容
-<code>git cat-file -p 61ac375fc5565c8a763d942dc599fd34128bdb37</code></li>
-<li>查看 index 暂存区
-<code>cd ../ &amp;&amp; git ls-files --stage</code></li>
-<li>查看 HEAD 文件
-<code>cat HEAD</code>
-提示：引用文件不存在，因为还没有 commit</li>
-<li>通过 commit 命令提交内容
-<code>git commit -m 'first version'</code>
-提示：回过头来看 HEAD 的引用</li>
-<li>通过 git status 查看本地文件修改和暂存区的情况
-<code>git status</code></li>
-<li>修改 b.txt
-<code>echo &quot;b&quot; &gt; b.txt</code></li>
-<li>创建新分支
-<code>git branch name</code></li>
-<li>切换到某分支
-<code>git checkout branch</code>
-<code>git branch dev &amp;&amp; git checkout dev</code></li>
-<li>编辑 a.txt 添加 make dev great again</li>
-<li>将 a.txt 通过 add 加入暂存区，再通过 commit 放入仓库
-<code>git add a.txt &amp;&amp; git commit -m 'dev'</code></li>
-<li>checkout 回 master，再创建一个 ops 分支
-<code>git checkout master &amp;&amp; git branch ops &amp;&amp; git checkout ops</code></li>
-<li>编辑 a.txt，添加 make ops great again
-<code>git add a.txt &amp;&amp; git commit -m 'ops'</code></li>
-<li>开始合并分支 git merge</li>
-<li>checkout 回 master，然后运行 merge 命令
-<code>git checkout master &amp;&amp; git merge dev</code></li>
-<li>带冲突的分支合并</li>
-<li>checkout 回 dev
-<code>git checkout dev</code></li>
-<li>修改 a.txt
-将 make dev great again 从第一行换到最后一行</li>
-<li>提交修改
-<code>git add a.txt &amp;&amp; git commit -m 'update a.txt'</code></li>
-<li>再次合并
-<code>git checkout master &amp;&amp; git merge dev &amp;&amp; git merge ops</code></li>
-<li>合并失败后
-<ul>
-<li>放弃合并
-<code>git merge --abort</code></li>
-<li>手工合并冲突
-打开 a.txt</li>
-<li>再次提交
-<code>git add a.txt &amp;&amp; git commit -m 'merged'</code></li>
-</ul>
-</li>
-<li>通过 git log 查看日志
-<code>git log</code></li>
-<li>通过 checkout sha1，可以回到历史
-<code>checkout -b 可以创建一个全新的分支</code></li>
-<li>远程仓库
-<ul>
-<li>gitlab 创建仓库</li>
-<li>git clone / git remote add</li>
-<li>git push</li>
-<li>再改用 github</li>
-<li>git remote</li>
-<li>git remote show <name></li>
-<li>git remote remove <name></li>
-<li>git remote add origin url</li>
-<li>git push</li>
-</ul>
-</li>
-<li>储藏区
-<ul>
-<li>往 a.txt 写入字符串
-<code>echo &quot;Good&quot; &gt; a.txt &amp;&amp; git add a.txt &amp;&amp; git commit -m 'init2'</code>
-<code>git stash</code>
-<code>git stash apply</code>
-<code>git stash list</code>
-<code>git stash list</code>
-<code>git stash show / drop / clear</code></li>
-</ul>
-</li>
-</ol>
-]]></content>
-		</item>
-		
-		<item>
-			<title>版本管理和Git入门</title>
-			<link>https://alphapenng.github.io/posts/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%92%8Cgit%E5%85%A5%E9%97%A8/</link>
-			<pubDate>Sat, 28 Aug 2021 19:15:47 +0800</pubDate>
-			
-			<guid>https://alphapenng.github.io/posts/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%92%8Cgit%E5%85%A5%E9%97%A8/</guid>
-			<description>说明 此版截图是我在方糖出品的免费课「Git 基础课」上做的学习摘要，仅供个人学习 Git 参考使用，完整的课程还请移步课程链接-Git 基础课 学习 版本管理的需求 时间机器 方案对比 版本库 版本库-文件命名 SHA-1 如果文件内容是一样的，那它产生的 SHA-1 值一定是一样的 tree结构和暂存区 目录结构和对应关系 源代码和版本库的对应关系 暂存区 文件状态 快照链表 协同和分支 分布式的版本控制 冲突和合并 分支</description>
-			<content type="html"><![CDATA[<h2 id="说明">说明</h2>
-<p><strong>此版截图是我在方糖出品的免费课「Git 基础课」上做的学习摘要，仅供个人学习 Git 参考使用，完整的课程还请移步课程链接-<a href="https://01.ftqq.com/2021/08/21/git-course/" target="_blank" rel="noopener">Git 基础课</a>
-学习</strong></p>
-<h2 id="版本管理的需求">版本管理的需求</h2>
-<h3 id="时间机器">时间机器</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwogm56nfj61g00nq0y102.jpg" alt="image-20210319143636709"/><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoi8o0bjj60n20pcdic02.jpg" alt="image-20210319143720289" width=50%/></p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoikyiydj61cu0peafh02.jpg" alt="image-20210319143844561" /></p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoity147j61bi0iejv602-20210828210903625.jpg" alt="image-20210319144100478" /></p>
-<h3 id="方案对比">方案对比</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoj5sln8j61gs0ly77m02.jpg" alt="image-20210319144247197" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwojl19udj61ka0ncgpm02.jpg" alt="image-20210319144501889" /></p>
-<h3 id="版本库">版本库</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoju4lixj61fu0pm14t02.jpg" alt="image-20210319151125298" /></p>
-<h3 id="版本库-文件命名">版本库-文件命名</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwok4mn7oj61jw0jugqm02.jpg" alt="image-20210319151455436" /></p>
-<h3 id="sha-1">SHA-1</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwok9tnhsj618s0leact02.jpg" alt="image-20210319151603092" /></p>
-<p><strong>如果文件内容是一样的，那它产生的 SHA-1 值一定是一样的</strong></p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwokky20bj60xs0qidkg02.jpg" alt="image-20210319151908760" width=60%/><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwokqrbs6j60xu0kowil02.jpg" alt="image-20210319152053547" width=60% /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwokz8r8qj60x80jsjvb02.jpg" width=60% /></p>
-<h2 id="tree结构和暂存区">tree结构和暂存区</h2>
-<h3 id="目录结构和对应关系">目录结构和对应关系</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwolafe0cj61cw0msgo802.jpg" alt="image-20210319153027499" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwolj0lnxj61k00q442302.jpg" alt="image-20210319153119228" /></p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwon96o70j61oi0r0k3d02.jpg" alt="image-20210319153245165" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwonfposmj61h80pawqz02.jpg" alt="image-20210319153356728" /></p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwonu4789j61ki0okgqt02.jpg" alt="image-20210319153514004" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoo1ftmfj61k20wyah802.jpg" alt="image-20210319153804470" /></p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoow426uj61g40zsjzv02.jpg" alt="image-20210319154016153" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoqvev6wj612c12mn9k02.jpg" alt="image-20210319154204303" /></p>
-<h3 id="源代码和版本库的对应关系">源代码和版本库的对应关系</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtworkhdazj61co0mgact02.jpg" alt="image-20210319154428244" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtworuphcbj61cc0n677702.jpg" alt="image-20210319154533118" /></p>
-<h3 id="暂存区">暂存区</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwossyeitj61jo0ngn1202.jpg" alt="image-20210319154648154" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwot2noemj61jg0mkdjv02.jpg" alt="image-20210319154748607" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwouiws9jj61k20nwn2y02.jpg" alt="image-20210319155246670" /></p>
-<h3 id="文件状态">文件状态</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwov024uhj61d20qan2902.jpg" alt="image-20210319154943171" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwougz9evj61e60q8gqw02.jpg" alt="image-20210319155116565" /></p>
-<h3 id="快照链表">快照链表</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwounjzl7j61ee0hun0b02.jpg" alt="image-20210319155452910" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwouus6h9j61dq0s8afq02.jpg" alt="image-20210319155559690" /></p>
-<h2 id="协同和分支">协同和分支</h2>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwovj28rbj618i0nygpz02.jpg" alt="image-20210319155813823" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp0kxifjj61940p2gqp02.jpg" alt="image-20210319160631844" /></p>
-<h3 id="分布式的版本控制">分布式的版本控制</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp0p4kg9j61by0pmn2902.jpg" alt="image-20210319160811835" /></p>
-<h3 id="冲突和合并">冲突和合并</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp1517isj615q0no0wb02.jpg" alt="image-20210319160859570" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp0wqhv6j616k0rcwjr02.jpg" alt="image-20210319160930326" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp1gbbrdj619i0nu43002-20210828211717113.jpg" alt="image-20210319161009536" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp1vthltj61680reafl02-20210828214441447-20210828214522003.jpg" alt="image-20210319161104284" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/image-20210319161209570.png" alt="image-20210319161104284" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp2tfr35j61fe0nodk702.jpg" alt="image-20210319161243953" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp32nk1oj61k40nqdk702.jpg" alt="image-20210319161403672" /></p>
-<h3 id="分支">分支</h3>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp3h0h4ij61ho0pen1f02.jpg" alt="image-20210319161503923" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp3n8v2nj61i60teqap02.jpg" alt="image-20210319161556465" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp410rt7j61ie0t246l02.jpg" alt="image-20210319161754411" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp4jpiivj61im0t8tgw02.jpg" alt="image-20210319161832475" /></p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp4wtdmxj61fm0u6n3a02.jpg" alt="image-20210319161946816" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp52nnyyj61gy0ukn4q02-20210828211918200.jpg" alt="image-20210319162025963" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp9b79k5j61j60zugqj02.jpg" alt="image-20210319162148930" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp9273nnj61ng0ycti002.jpg" alt="image-20210319162236629" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp9ocxvtj61oi0yk48102.jpg" alt="image-20210319162320886" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpa22gbij61bi0xa7b102.jpg" alt="image-20210319162458083" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpbityn7j615m0wu78g02.jpg" alt="image-20210319163330164" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpbrus87j61la0x0qc702.jpg" alt="image-20210319163421543" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpbxhywrj61ic0wyagz02.jpg" alt="image-20210319163605030" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpclx34tj61j80won5402-20210828212118136.jpg" alt="image-20210319163639557" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpdgw03vj61io0wwq7f02.jpg" alt="image-20210319163741771" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpdudqm5j61ii0yoaiy02.jpg" alt="image-20210319163918082" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpec50k8j61iw0yodpk02.jpg" alt="image-20210319164037758" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpeo163ij61ow0xu43s02.jpg" alt="image-20210319164132813" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpf71c4rj61oq0xggsj02.jpg" alt="image-20210319164233884" /></p>
-<p><strong>通常只在本地仓库进行 rebase 操作，远程仓库不进行 rebase 操作</strong></p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpfizci4j61n20xc13402.jpg" alt="image-20210319164540477" /></p>
-<p><strong>合并特定提交到分支上面来</strong></p>
-<h2 id="回顾">回顾</h2>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpfmbxayj61g00duwiz02.jpg" alt="image-20210319164952744" /></p>
-<h2 id="git命令实战">Git命令实战</h2>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpfpusauj60yq13811l02.jpg" alt="image-20210319165758186" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpfuglifj60yk11gdop02.jpg" alt="image-20210319190409249" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpg3vng8j60yw12s7ca02.jpg" alt="image-20210319191059786" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpgfv8u1j60yk0wyaex02.jpg" alt="image-20210319192814117" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpgoowl4j60yy11g1kx02.jpg" alt="image-20210319165855297" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpgx2txhj60ys1204qp02.jpg" alt="image-20210319170416091" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwph3suetj60yu12g4qp02.jpg" alt="image-20210319170732546" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwphdy7f4j60z012a4qp02-20210828212354905.jpg" alt="image-20210319171524293" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpi3q949j60z011ygyn02.jpg" alt="image-20210319191158374" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpivkpxoj622g12wkcx02.jpg" alt="image-20210319191715690" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpjb94rmj60z40pqqcw02.jpg" alt="image-20210319192150779" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpj8cx0rj622i0xeb2902.jpg" alt="image-20210319192616946" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpjhqtg1j60y811i1kx02.jpg" alt="image-20210319193330075" /></p>
-]]></content>
-		</item>
-		
-		<item>
-			<title></title>
+			<title>华为路由交换设备命令手册</title>
 			<link>https://alphapenng.github.io/posts/%E5%8D%8E%E4%B8%BA%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2%E8%AE%BE%E5%A4%87%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/</link>
-			<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+			<pubDate>Wed, 15 Sep 2021 09:29:35 +0800</pubDate>
 			
 			<guid>https://alphapenng.github.io/posts/%E5%8D%8E%E4%B8%BA%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2%E8%AE%BE%E5%A4%87%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/</guid>
-			<description>华为路由交换设备命令手册  title: &amp;ldquo;华为路由交换设备命令手册&amp;rdquo; date: 2021-09-15T09:29:35+08:00 draft: false toc: true isCJKLanguage: true tags:
- 技术 网络   概述  适用设备 本命令手册主要适用于华为 NE 路由器系列型号设备及 5700 交换机系列型号设备。 命令格式     序号 格式 意义     1 粗体 命令关键字，在命令中保持不变，原样照输，采用加粗字体表示   2 斜体 命令参数，在命令中以实际值进行替代，采用斜体字体表示   3 &amp;lt;&amp;gt; 命令必选参数，在输入命令时必须配置该参数   4 [] 命令可选参数，在输入命令时根据需要配置该参数   5 x | y | &amp;hellip; 表示从两个或多个选项中选取 1 个    路由器 名称 # 采用「X_Y_Z」的形式，路由器 X 为战区名称简写，Y 为节点名称简写，Z 为设备型号，如果 存在同型号的多台设备，按 A、B、C、D 的顺序进行编号，在型号后增加编号序列 &amp;lt;R&amp;gt;sys [R]sys DB_HJ_NE20-X3 接口 （1）环回接口（ Lookback ） 配置
-# 配置 OSPF 协议、BGP 协议、MPLS 的 LDP 协议时必须配置相关协议的路由器 ID，且统一 采用最小环回口地址作为路由器 ID [R]int loo0 [R-loo0]ip add 1.1.1.1 32 （2）GE 网口
-# 主要配置包括介质类型、接口自协商、接口速率、流控、单 / 双工模式等基本功能 # 接口缺省开启自协商功能，采用电口互连时，一般采用自协商方式互通 [R]int g0/0/0 [R-g0/0/0]port-type copper [R-g0/0/0]ip add 10.0.0.1 24 # 采用光口互连时，一般要求关闭接口自协商功能，配置固定速率互通 [R]int g0/0/1 [R-g0/0/1]port-type fiber-1000 [R-g0/0/1]undo negotiation auto [R-g0/0/1]speed 1000 [R-g0/0/1]ip add 10.0.0.2 24 （3）10GE 网口
-# 10GE 以太网接口可配置为广域网模式或局域网模式 [R]int g5/0/0 [R-g5/0/0]ip add 10.1.1.1 24 [R-g5/0/0]set transfer-mode wan （4）E1 接口
- AR 系列路由器 E1-F 接口配置方式    E1-F 接口有两种工作方式，非成帧方式和成帧方式（建议使用非成帧方式）
- 当 E1-F 接口工作于非成帧方式时，它相当于一个不分时隙、数据带宽为 2048Kbit/s 的接口，其逻辑特性与同步串口相同，支持 PPP、HDLC 和 FR 数据链路层协议，支持 IP 网络协议 当 E1-F 接口工作于成帧方式时，线路分为 32 个时隙，对应编号为 0-31。其中 0 时隙用于传输同步信息，其余时隙可以被任意捆绑成一个通道。E1-F 接口的带宽为 n*64Kbit/s （n是指捆绑的时隙数，最大取值为 31），其逻辑特性与同步串口相同，支持 PPP、HDLC 和 FR 数据链路层协议，支持 IP 网络协议。    E1-F 接口支持的时钟模式有两种：</description>
-			<content type="html"><![CDATA[<h1 id="华为路由交换设备命令手册">华为路由交换设备命令手册</h1>
-<hr>
-<p>title: &ldquo;华为路由交换设备命令手册&rdquo;
-date: 2021-09-15T09:29:35+08:00
-draft: false
-toc: true
-isCJKLanguage: true
-tags:</p>
-<ul>
-<li>技术</li>
-<li>网络</li>
-</ul>
-<hr>
-<h2 id="概述">概述</h2>
+			<description>概述 适用设备 本命令手册主要适用于华为 NE 路由器系列型号设备及 5700 交换机系列型号设备。 命令格式 序号 格式 意义 1 粗体 命令关键字，在命令中保持不变，原样照输，采用加粗字体表示 2 斜体 命令参数，在命令中以实际值进行替代，采用斜体字体表示 3 &amp;lt;&amp;gt; 命令必选参数，在输入命令时必须配置该参数 4 [] 命令可选参数，在输入命令时根据需要配置该参数 5 x | y | &amp;hellip; 表示从两个或多个选项中选取 1 个 路由器</description>
+			<content type="html"><![CDATA[<h2 id="概述">概述</h2>
 <ul>
 <li>适用设备
 本命令手册主要适用于华为 NE 路由器系列型号设备及 5700 交换机系列型号设备。</li>
@@ -1498,6 +908,577 @@ Pair D state: Ok
 </p>
 </li>
 </ol>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Git 学习笔记</title>
+			<link>https://alphapenng.github.io/posts/git-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+			<pubDate>Thu, 09 Sep 2021 16:18:18 +0800</pubDate>
+			
+			<guid>https://alphapenng.github.io/posts/git-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+			<description>Git 基本原理介绍 参考来自 Git 基本原理介绍 | Escape 学习 笔记 参考来自 我的 Git 学习笔记 | Escape 编号 专用名词 对应解释 相关命令 1 Workspace 工作区 add 2 Index/Stage 暂存区 commit 3 Repository 本地仓库 push、checkout 4 Remote 远程仓库 fetch、clone、pull Git 增删改查 参考来自 常用 Git 命令清单 $ cd learngit $ git init # 初始化Git仓库 ** create readme.txt ** echo &amp;quot;line 1 &amp;quot;&amp;gt;&amp;gt; readme.txt $ git add readme.txt # 添加到暂存空间 $ git commit -m &amp;quot;first commit&amp;quot; # 提交加备注信息 ** echo &amp;quot;error line 2&amp;quot; &amp;gt;&amp;gt; readme.txt $ git add</description>
+			<content type="html"><![CDATA[<h2 id="git-基本原理介绍">Git 基本原理介绍</h2>
+<blockquote>
+<p>参考来自 <a href="https://www.escapelife.site/posts/da89563c.html" target="_blank" rel="noopener">Git 基本原理介绍 | Escape</a>
+</p>
+</blockquote>
+<h2 id="学习-笔记">学习 笔记</h2>
+<blockquote>
+<p>参考来自 <a href="https://www.escapelife.site/posts/8f4661c4.html" target="_blank" rel="noopener">我的 Git 学习笔记 | Escape</a>
+</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>专用名词</th>
+<th style="text-align:left">对应解释</th>
+<th style="text-align:left">相关命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Workspace</td>
+<td style="text-align:left">工作区</td>
+<td style="text-align:left">add</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Index/Stage</td>
+<td style="text-align:left">暂存区</td>
+<td style="text-align:left">commit</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Repository</td>
+<td style="text-align:left">本地仓库</td>
+<td style="text-align:left">push、checkout</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Remote</td>
+<td style="text-align:left">远程仓库</td>
+<td style="text-align:left">fetch、clone、pull</td>
+</tr>
+</tbody>
+</table>
+<p><p class="md__image">
+  <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_09_12_%e6%88%91%e7%9a%84Git%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b01.png"
+    alt="文件的生命周期状态"  />
+</p>
+</p>
+<p><p class="md__image">
+  <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_09_12_%e6%88%91%e7%9a%84Git%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b02.png"
+    alt="文件的生命周期状态"  />
+</p>
+</p>
+<ol>
+<li>Git 增删改查</li>
+</ol>
+<blockquote>
+<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
+</p>
+</blockquote>
+<pre><code>$ cd learngit
+$ git init  # 初始化Git仓库
+** create readme.txt
+** echo &quot;line 1 &quot;&gt;&gt; readme.txt
+
+$ git add readme.txt            # 添加到暂存空间
+$ git commit -m &quot;first commit&quot;  # 提交加备注信息
+** echo &quot;error line 2&quot; &gt;&gt; readme.txt
+
+$ git add readme.txt
+$ git status  # 查看状态
+** have a change.
+
+$ git reset HEAD readme.txt  # 将暂存空间内容撤销
+$ git checkout readme.txt    # 撤销工作空间内容
+** echo &quot;line2&quot; &gt;&gt; readme.txt
+$ git add readme.txt
+$ git commit -m &quot;commit line 2 &quot;
+
+$ git reset --hard HEAD^    # 回退为上个版本(删除修改)
+$ git reset --hard (gitID)  # 回退为指定版本(删除修改)
+$ git reset --soft (gitID)  # 回退为指定版本(不删除回退文件的修改)
+$ git log                   # 查看当前版本及之前版本的id号
+</code></pre><blockquote>
+<p>参考来自 <a href="https://oschina.gitee.io/learn-git-branching/" target="_blank" rel="noopener">learn-git-branching</a>
+</p>
+</blockquote>
+<pre><code># Git 仓库创建
+$ git init                 # 将当前目录设为Git代码库
+$ git init [project-name]  # 新建并将其设为Git代码库
+$ git clone [url]          # 通过连接下载一个已有项目
+
+# Git增加文件
+$ git add [file1] [file2]  # 添加指定文件到暂存区
+$ git add [dir]            # 添加指定目录到暂存区
+$ git add .                # 添加当前所有文件到暂存区
+$ git add -p               # 添加每个变化前都要求确认
+
+# Git删除文件
+$ git rm [file1] [file2]  # 删除工作区文件并且将这次删除放入暂存区
+$ git rm --cached [file]  # 停止追踪指定文件但该文件会保留在工作区
+$ git mv [file-original] [file-renamed]
+
+# Git代码提交
+$ git commit -m [message]             # 提交暂存区到仓库区
+$ git commit -a                       # 提交工作区自上次commit之后的变化直接到仓库区
+$ git commit -v                       # 提交时显示所有diff信息
+$ git commit --amend -m [message]     # 使用一次新的commit替代上一次提交
+$ git commit --amend [file1] [file2]  # 重做上一次commit并包括指定文件的新变化
+
+# Git撤销操作
+$ git checkout .                # 恢复暂存区的所有文件到工作区
+$ git checkout [file]           # 恢复暂存区的指定文件到工作区
+$ git checkout [commit] [file]  # 恢复某个commit的指定文件到暂存区和工作区
+
+# Git重置操作
+$ git reset [file]           # 重置暂存区的指定文件；与上一次commit保持一致但工作区不变
+$ git reset --hard           # 重置暂存区与工作区文件；与上一次commit保持一致；谨慎使用
+$ git reset [commit]         # 重置当前分支的指针为指定commit；同时重置暂存区但工作区不变
+$ git reset --hard [commit]  # 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区
+$ git reset --keep [commit]  # 重置当前HEAD为指定commit，但保持暂存区和工作区不变
+
+# 新建一个commit，用来撤销指定commit
+# 后者的所有变化都将被前者抵消并且应用到当前分支
+$ git revert [commit]
+</code></pre><ol start="2">
+<li>Git 远程仓库</li>
+</ol>
+<blockquote>
+<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
+</p>
+</blockquote>
+<pre><code># 注册github.com并创建本机的ssh-key
+$ ssh-keygen -t rsa -C &quot;123456789@qq.com&quot;
+
+# 添加ssh-key到秘钥管理里面并关联远程仓库
+$ git remote add origin git@github.com:xxx/learngit.git
+
+# 如果远程仓库已经存在内容需要先pull下面，之后再提交
+$ git pull origin master
+
+# 将本地库push到远程仓库，第一次需要加u关联，之后可以不加
+$ git push -u origin master
+
+# 仓库克隆
+$ git clone git@github.com:xxx/gitkills.git
+</code></pre><blockquote>
+<p>参考来自 <a href="https://oschina.gitee.io/learn-git-branching/" target="_blank" rel="noopener">learn-git-branching</a>
+</p>
+</blockquote>
+<pre><code># Git远程分支推送
+$ git fetch [remote]          # 下载远程仓库的所有变动
+$ git pull [remote] [branch]  # 取回远程仓库的变化，并与本地分支合并
+$ git push [remote] [branch]  # 上传本地指定分支到远程仓库
+$ git push [remote] --force   # 强行推送当前分支到远程仓库，即使有冲突
+$ git push [remote] --all     # 推送所有分支到远程仓库
+
+# Git远程同分支查看
+$ git remote -v                     # 显示所有远程仓库
+$ git remote show [remote]          # 显示某个远程仓库的信息
+$ git remote add [shortname] [url]  # 增加一个新的远程仓库并命名
+</code></pre><ol start="3">
+<li>Git 分支管理</li>
+</ol>
+<blockquote>
+<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
+</p>
+</blockquote>
+<ul>
+<li>在工作区未提交的内容，所有分支都可以看到</li>
+<li>提交之后的内容在对应的分支内，切换只能在对应的分支内看到</li>
+</ul>
+<pre><code># 查看分支列表，其中*为当前分支
+git branch
+
+# 创建分支
+git branch &lt;name&gt;
+
+# 切换分支
+git checkout &lt;name&gt;
+
+# 创建并切换分支
+git checkout -b &lt;name&gt;
+
+# 合并某分支到当前分支
+git merge &lt;name&gt;
+
+# 删除分支
+git branch -d &lt;name&gt;
+
+# 强行删除分支
+git branch -D &lt;name&gt;
+</code></pre><blockquote>
+<p>参考来自 <a href="https://oschina.gitee.io/learn-git-branching/" target="_blank" rel="noopener">learn-git-branching</a>
+</p>
+</blockquote>
+<pre><code># Git查看分支
+$ git branch     # 列出所有本地分支
+$ git branch -r  # 列出所有远程分支
+$ git branch -a  # 列出所有本地分支和远程分支
+
+# Git分支切换
+$ git branch [branch-name]     # 新建一个分支但停留在当前分支
+$ git checkout -b [branch]     # 新建一个分支并切换到该分支
+$ git checkout [branch-name]   # 切换到指定分支并更新工作区
+$ git checkout -               # 切换到上一个分支
+$ git branch -d [branch-name]  # 删除分支
+
+# Git分支删除
+$ git push origin --delete [branch-name]  # 删除远程分支
+$ git branch -dr [remote/branch]          # 删除远程分支
+
+# 建立追踪关系，在现有分支与指定的远程分支之间
+$ git branch --set-upstream [branch] [remote-branch]
+</code></pre><ol start="4">
+<li>Git 冲突处理</li>
+</ol>
+<blockquote>
+<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
+</p>
+</blockquote>
+<ul>
+<li>合并时显示分支冲突先 <code>merge</code> 后修改 <code>&lt;&lt;&lt;&lt;分支1</code>、<code>&lt;&lt;&lt;分支2</code> 之间的冲突内容，然后再提交。当前分支会比被合并的分支，多一次 commit 的提交记录。</li>
+</ul>
+<pre><code># 合并指定分支到当前分支
+# 禁用Fast forward功能，不删除分支且合并后保留分支
+git merge --no-ff [branch]
+
+# 选择一个commit并合并进当前分支
+$ git cherry-pick [commit]
+</code></pre><ol start="5">
+<li>Git 比对日志</li>
+</ol>
+<blockquote>
+<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
+</p>
+</blockquote>
+<pre><code># 查看分支情况
+git log --graph --pretty=oneline --abbrev-commit
+git log --graph --decorate --pretty=oneline --abbrev-commit --all
+git log --pretty=fsormat:'%s %C(bold blue)(%an)%Creset' --abbrev-commit
+git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit
+</code></pre><blockquote>
+<p>参考来自 <a href="https://oschina.gitee.io/learn-git-branching/" target="_blank" rel="noopener">learn-git-branching</a>
+</p>
+</blockquote>
+<pre><code># Git日志格式
+
+$ git log                        # 显示当前分支的版本历史
+$ git log --stat                 # 显示commit历史及每次commit变更的文件
+$ git log -5 --pretty --oneline  # 显示过去5次提交
+$ git reflog                     # 显示当前分支的最近几次提交
+$ git shortlog -sn               # 显示所有提交过的用户，按提交次数排序
+
+# 显示某个commit之后的所有变动，每个commit占据一行
+$ git log [tag] HEAD --pretty=format:%s
+
+# 显示某个commit之后的所有变动，其&quot;提交说明&quot;必须符合搜索条件
+$ git log [tag] HEAD --grep feature
+
+# 显示某个文件的版本历史，包括文件改名
+$ git log --follow [file]
+$ git whatchanged [file]
+
+# Git高级查询
+$ git blame [file]                     # 显示指定文件是什么人在什么时间修改过
+$ git log -p [file]                    # 显示指定文件相关的每一次diff
+$ git log -S [keyword]                 # 根据关键词搜索提交历史
+$ git diff --shortstat &quot;@{0 day ago}&quot;  # 显示今天你写了多少行代码
+
+# Git 差异对比
+$ git diff  # 显示暂存区和工作区的差异
+$ git diff --cached [file]  # 显示暂存区和上一个commit的差异
+$ git diff HEAD  # 显示工作区与当前分支最新commit之间的差异
+$ git diff [first-branch]...[second-branch]  # 显示两次提交之间的差异
+
+# Git显示内容
+$ git show [commit]              # 显示某次提交的元数据和内容变化
+$ git show --name-only [commit]  # 显示某次提交发生变化的文件
+$ git show [commit]:[filename]   # 显示某次提交时某个文件的内容
+</code></pre><ol start="6">
+<li>Git 内容存储</li>
+</ol>
+<blockquote>
+<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
+</p>
+</blockquote>
+<ul>
+<li>正在 dev 分支工作时，需要修改 bug 并提交。应该先把 dev 当前工作区 stash 储藏起来，修改完 bug 提交后在使用 git stash pop 恢复 dev 的内容到工作区。</li>
+</ul>
+<pre><code># 储藏当前工作区
+git stash
+
+# 查看储藏区
+git stash list
+
+# 恢复指定内容到工作区，不在stash内删除
+# 其中的stashid可以通过git stash list查询
+git stash apply &lt;stashid&gt;
+
+# 删除储藏区
+git stash drop &lt;stashid&gt;
+
+# 恢复stash的内容到工作区，并在stash内删除
+git stash pop
+</code></pre><ol start="7">
+<li>Git 标签管理</li>
+</ol>
+<blockquote>
+<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
+</p>
+</blockquote>
+<ul>
+<li>标签基本都是发布版本的时候使用的，所以平常很少使用，了解即可。</li>
+</ul>
+<pre><code># 新建标签，默认为在HEAD上，也可以指定一个commit id号
+git tag &lt;name&gt;
+
+# 指定标签信息
+git tag -a &lt;tagname&gt; -m &quot;blablablabla&quot;
+
+# 使用PGP签名标签
+git tag -s &lt;tagname&gt; -m &quot;blablablabla&quot;
+
+# 查看所有标签
+git tag
+
+# 查看指定tag的详细内容
+git show &lt;tagname&gt;
+
+# 删除tag标签
+git tag -d &lt;tagname&gt;
+
+# 推送指定标签到远程
+git push origin &lt;tagname&gt;
+
+# 推送所有标签到远程
+git push origin --tags
+
+# 从远程删除标签
+git push origin :refs/tags/&lt;tagname&gt;
+</code></pre><ol start="8">
+<li>Git 配置管理</li>
+</ol>
+<blockquote>
+<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
+</p>
+</blockquote>
+<ul>
+<li>主要配置日常使用工具和提交记录相关的配置，需要注意的是，区分全局和本地配置。</li>
+</ul>
+<pre><code># 列出配置项
+$ git config --list
+$ git config --global --list
+
+# 获取配置项
+$ git config user.name &quot;escape&quot;
+$ git config --global user.name &quot;escape&quot;
+$ git config user.email &quot;escapelife@gmail.com&quot;
+$ git config --global user.email &quot;escapelife@gmail.com&quot;
+
+# 添加配置项
+$ git config -–add site.name yiibai
+$ git config --global -–add site.name yiibai
+
+# 删除配置项
+$ git config -–unset site.name
+$ git config --global -–unset site.name
+
+# 获取帮助
+$ git help &lt;verb&gt;
+$ git help config
+
+# 配置全局默认编辑器
+$ git config --global core.editor vim
+$ git config --global core.editor emacs
+
+# 配置比较工具
+$ git config --global merge.tool vimdiff
+
+# 全局代理配置
+$ git config --global https.proxy http://127.0.0.1:1080
+$ git config --global https.proxy https://127.0.0.1:1080
+
+# 全局取消代理配置
+$ git config --global --unset http.proxy
+$ git config --global --unset https.proxy
+</code></pre><ol start="9">
+<li>Git  其他操作</li>
+</ol>
+<blockquote>
+<p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a>
+</p>
+</blockquote>
+<pre><code># 生成发布压缩包
+$ git archive
+</code></pre><ol start="10">
+<li>快捷键总结</li>
+</ol>
+<blockquote>
+<p>OpenSource：总结的快捷键使用文档！</p>
+</blockquote>
+<p><p class="md__image">
+  <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_09_12_GitCheatSheet.png"
+    alt="Git Cheat Sheet"  />
+</p>
+</p>
+<h2 id="git-常用命令实战">Git 常用命令实战</h2>
+<blockquote>
+<p>参考来自 <a href="https://01.ftqq.com/2021/08/21/git-course/" target="_blank" rel="noopener">Git 基础课</a>
+</p>
+</blockquote>
+<ol>
+<li><code>gitjk</code></li>
+<li>使用 git 初始化命令
+<code>git init</code></li>
+<li>新建一个文件，把它添加到 git 里边
+<code>echo &quot;make git great&quot; &gt; a.txt &amp;&amp; git add a.txt</code></li>
+<li>将文件移除暂存区
+<code>git reset HEAD -- a.txt</code></li>
+<li>查看 git 仓库
+<code>cd .git &amp;&amp; ls -la</code>
+<code>cd objects &amp;&amp; ls -la</code></li>
+<li>通过 git cat-file 命令查看文件内容
+<code>git cat-file -p 61ac375fc5565c8a763d942dc599fd34128bdb37</code></li>
+<li>查看 index 暂存区
+<code>cd ../ &amp;&amp; git ls-files --stage</code></li>
+<li>查看 HEAD 文件
+<code>cat HEAD</code>
+提示：引用文件不存在，因为还没有 commit</li>
+<li>通过 commit 命令提交内容
+<code>git commit -m 'first version'</code>
+提示：回过头来看 HEAD 的引用</li>
+<li>通过 git status 查看本地文件修改和暂存区的情况
+<code>git status</code></li>
+<li>修改 b.txt
+<code>echo &quot;b&quot; &gt; b.txt</code></li>
+<li>创建新分支
+<code>git branch name</code></li>
+<li>切换到某分支
+<code>git checkout branch</code>
+<code>git branch dev &amp;&amp; git checkout dev</code></li>
+<li>编辑 a.txt 添加 make dev great again</li>
+<li>将 a.txt 通过 add 加入暂存区，再通过 commit 放入仓库
+<code>git add a.txt &amp;&amp; git commit -m 'dev'</code></li>
+<li>checkout 回 master，再创建一个 ops 分支
+<code>git checkout master &amp;&amp; git branch ops &amp;&amp; git checkout ops</code></li>
+<li>编辑 a.txt，添加 make ops great again
+<code>git add a.txt &amp;&amp; git commit -m 'ops'</code></li>
+<li>开始合并分支 git merge</li>
+<li>checkout 回 master，然后运行 merge 命令
+<code>git checkout master &amp;&amp; git merge dev</code></li>
+<li>带冲突的分支合并</li>
+<li>checkout 回 dev
+<code>git checkout dev</code></li>
+<li>修改 a.txt
+将 make dev great again 从第一行换到最后一行</li>
+<li>提交修改
+<code>git add a.txt &amp;&amp; git commit -m 'update a.txt'</code></li>
+<li>再次合并
+<code>git checkout master &amp;&amp; git merge dev &amp;&amp; git merge ops</code></li>
+<li>合并失败后
+<ul>
+<li>放弃合并
+<code>git merge --abort</code></li>
+<li>手工合并冲突
+打开 a.txt</li>
+<li>再次提交
+<code>git add a.txt &amp;&amp; git commit -m 'merged'</code></li>
+</ul>
+</li>
+<li>通过 git log 查看日志
+<code>git log</code></li>
+<li>通过 checkout sha1，可以回到历史
+<code>checkout -b 可以创建一个全新的分支</code></li>
+<li>远程仓库
+<ul>
+<li>gitlab 创建仓库</li>
+<li>git clone / git remote add</li>
+<li>git push</li>
+<li>再改用 github</li>
+<li>git remote</li>
+<li>git remote show <name></li>
+<li>git remote remove <name></li>
+<li>git remote add origin url</li>
+<li>git push</li>
+</ul>
+</li>
+<li>储藏区
+<ul>
+<li>往 a.txt 写入字符串
+<code>echo &quot;Good&quot; &gt; a.txt &amp;&amp; git add a.txt &amp;&amp; git commit -m 'init2'</code>
+<code>git stash</code>
+<code>git stash apply</code>
+<code>git stash list</code>
+<code>git stash list</code>
+<code>git stash show / drop / clear</code></li>
+</ul>
+</li>
+</ol>
+]]></content>
+		</item>
+		
+		<item>
+			<title>版本管理和Git入门</title>
+			<link>https://alphapenng.github.io/posts/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%92%8Cgit%E5%85%A5%E9%97%A8/</link>
+			<pubDate>Sat, 28 Aug 2021 19:15:47 +0800</pubDate>
+			
+			<guid>https://alphapenng.github.io/posts/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%92%8Cgit%E5%85%A5%E9%97%A8/</guid>
+			<description>说明 此版截图是我在方糖出品的免费课「Git 基础课」上做的学习摘要，仅供个人学习 Git 参考使用，完整的课程还请移步课程链接-Git 基础课 学习 版本管理的需求 时间机器 方案对比 版本库 版本库-文件命名 SHA-1 如果文件内容是一样的，那它产生的 SHA-1 值一定是一样的 tree结构和暂存区 目录结构和对应关系 源代码和版本库的对应关系 暂存区 文件状态 快照链表 协同和分支 分布式的版本控制 冲突和合并 分支</description>
+			<content type="html"><![CDATA[<h2 id="说明">说明</h2>
+<p><strong>此版截图是我在方糖出品的免费课「Git 基础课」上做的学习摘要，仅供个人学习 Git 参考使用，完整的课程还请移步课程链接-<a href="https://01.ftqq.com/2021/08/21/git-course/" target="_blank" rel="noopener">Git 基础课</a>
+学习</strong></p>
+<h2 id="版本管理的需求">版本管理的需求</h2>
+<h3 id="时间机器">时间机器</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwogm56nfj61g00nq0y102.jpg" alt="image-20210319143636709"/><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoi8o0bjj60n20pcdic02.jpg" alt="image-20210319143720289" width=50%/></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoikyiydj61cu0peafh02.jpg" alt="image-20210319143844561" /></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoity147j61bi0iejv602-20210828210903625.jpg" alt="image-20210319144100478" /></p>
+<h3 id="方案对比">方案对比</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoj5sln8j61gs0ly77m02.jpg" alt="image-20210319144247197" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwojl19udj61ka0ncgpm02.jpg" alt="image-20210319144501889" /></p>
+<h3 id="版本库">版本库</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoju4lixj61fu0pm14t02.jpg" alt="image-20210319151125298" /></p>
+<h3 id="版本库-文件命名">版本库-文件命名</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwok4mn7oj61jw0jugqm02.jpg" alt="image-20210319151455436" /></p>
+<h3 id="sha-1">SHA-1</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwok9tnhsj618s0leact02.jpg" alt="image-20210319151603092" /></p>
+<p><strong>如果文件内容是一样的，那它产生的 SHA-1 值一定是一样的</strong></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwokky20bj60xs0qidkg02.jpg" alt="image-20210319151908760" width=60%/><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwokqrbs6j60xu0kowil02.jpg" alt="image-20210319152053547" width=60% /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwokz8r8qj60x80jsjvb02.jpg" width=60% /></p>
+<h2 id="tree结构和暂存区">tree结构和暂存区</h2>
+<h3 id="目录结构和对应关系">目录结构和对应关系</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwolafe0cj61cw0msgo802.jpg" alt="image-20210319153027499" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwolj0lnxj61k00q442302.jpg" alt="image-20210319153119228" /></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwon96o70j61oi0r0k3d02.jpg" alt="image-20210319153245165" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwonfposmj61h80pawqz02.jpg" alt="image-20210319153356728" /></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwonu4789j61ki0okgqt02.jpg" alt="image-20210319153514004" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoo1ftmfj61k20wyah802.jpg" alt="image-20210319153804470" /></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoow426uj61g40zsjzv02.jpg" alt="image-20210319154016153" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwoqvev6wj612c12mn9k02.jpg" alt="image-20210319154204303" /></p>
+<h3 id="源代码和版本库的对应关系">源代码和版本库的对应关系</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtworkhdazj61co0mgact02.jpg" alt="image-20210319154428244" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtworuphcbj61cc0n677702.jpg" alt="image-20210319154533118" /></p>
+<h3 id="暂存区">暂存区</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwossyeitj61jo0ngn1202.jpg" alt="image-20210319154648154" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwot2noemj61jg0mkdjv02.jpg" alt="image-20210319154748607" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwouiws9jj61k20nwn2y02.jpg" alt="image-20210319155246670" /></p>
+<h3 id="文件状态">文件状态</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwov024uhj61d20qan2902.jpg" alt="image-20210319154943171" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwougz9evj61e60q8gqw02.jpg" alt="image-20210319155116565" /></p>
+<h3 id="快照链表">快照链表</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwounjzl7j61ee0hun0b02.jpg" alt="image-20210319155452910" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwouus6h9j61dq0s8afq02.jpg" alt="image-20210319155559690" /></p>
+<h2 id="协同和分支">协同和分支</h2>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwovj28rbj618i0nygpz02.jpg" alt="image-20210319155813823" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp0kxifjj61940p2gqp02.jpg" alt="image-20210319160631844" /></p>
+<h3 id="分布式的版本控制">分布式的版本控制</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp0p4kg9j61by0pmn2902.jpg" alt="image-20210319160811835" /></p>
+<h3 id="冲突和合并">冲突和合并</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp1517isj615q0no0wb02.jpg" alt="image-20210319160859570" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp0wqhv6j616k0rcwjr02.jpg" alt="image-20210319160930326" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp1gbbrdj619i0nu43002-20210828211717113.jpg" alt="image-20210319161009536" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp1vthltj61680reafl02-20210828214441447-20210828214522003.jpg" alt="image-20210319161104284" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/image-20210319161209570.png" alt="image-20210319161104284" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp2tfr35j61fe0nodk702.jpg" alt="image-20210319161243953" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp32nk1oj61k40nqdk702.jpg" alt="image-20210319161403672" /></p>
+<h3 id="分支">分支</h3>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp3h0h4ij61ho0pen1f02.jpg" alt="image-20210319161503923" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp3n8v2nj61i60teqap02.jpg" alt="image-20210319161556465" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp410rt7j61ie0t246l02.jpg" alt="image-20210319161754411" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp4jpiivj61im0t8tgw02.jpg" alt="image-20210319161832475" /></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp4wtdmxj61fm0u6n3a02.jpg" alt="image-20210319161946816" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp52nnyyj61gy0ukn4q02-20210828211918200.jpg" alt="image-20210319162025963" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp9b79k5j61j60zugqj02.jpg" alt="image-20210319162148930" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp9273nnj61ng0ycti002.jpg" alt="image-20210319162236629" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwp9ocxvtj61oi0yk48102.jpg" alt="image-20210319162320886" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpa22gbij61bi0xa7b102.jpg" alt="image-20210319162458083" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpbityn7j615m0wu78g02.jpg" alt="image-20210319163330164" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpbrus87j61la0x0qc702.jpg" alt="image-20210319163421543" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpbxhywrj61ic0wyagz02.jpg" alt="image-20210319163605030" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpclx34tj61j80won5402-20210828212118136.jpg" alt="image-20210319163639557" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpdgw03vj61io0wwq7f02.jpg" alt="image-20210319163741771" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpdudqm5j61ii0yoaiy02.jpg" alt="image-20210319163918082" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpec50k8j61iw0yodpk02.jpg" alt="image-20210319164037758" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpeo163ij61ow0xu43s02.jpg" alt="image-20210319164132813" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpf71c4rj61oq0xggsj02.jpg" alt="image-20210319164233884" /></p>
+<p><strong>通常只在本地仓库进行 rebase 操作，远程仓库不进行 rebase 操作</strong></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpfizci4j61n20xc13402.jpg" alt="image-20210319164540477" /></p>
+<p><strong>合并特定提交到分支上面来</strong></p>
+<h2 id="回顾">回顾</h2>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpfmbxayj61g00duwiz02.jpg" alt="image-20210319164952744" /></p>
+<h2 id="git命令实战">Git命令实战</h2>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpfpusauj60yq13811l02.jpg" alt="image-20210319165758186" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpfuglifj60yk11gdop02.jpg" alt="image-20210319190409249" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpg3vng8j60yw12s7ca02.jpg" alt="image-20210319191059786" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpgfv8u1j60yk0wyaex02.jpg" alt="image-20210319192814117" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpgoowl4j60yy11g1kx02.jpg" alt="image-20210319165855297" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpgx2txhj60ys1204qp02.jpg" alt="image-20210319170416091" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwph3suetj60yu12g4qp02.jpg" alt="image-20210319170732546" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwphdy7f4j60z012a4qp02-20210828212354905.jpg" alt="image-20210319171524293" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpi3q949j60z011ygyn02.jpg" alt="image-20210319191158374" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpivkpxoj622g12wkcx02.jpg" alt="image-20210319191715690" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpjb94rmj60z40pqqcw02.jpg" alt="image-20210319192150779" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpj8cx0rj622i0xeb2902.jpg" alt="image-20210319192616946" /><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/006x9NuVly1gtwpjhqtg1j60y811i1kx02.jpg" alt="image-20210319193330075" /></p>
 ]]></content>
 		</item>
 		
