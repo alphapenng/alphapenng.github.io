@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>本文采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议进行许可，转载请注明 出处链接。</copyright>
-    <lastBuildDate>Wed, 15 Sep 2021 09:29:35 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/tags/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Oct 2021 10:53:35 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/tags/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux Networking Tools</title>
+      <link>https://alphapenng.github.io/posts/linux-networking-tools/</link>
+      <pubDate>Sun, 10 Oct 2021 10:53:35 +0800</pubDate>
+      
+      <guid>https://alphapenng.github.io/posts/linux-networking-tools/</guid>
+      <description>Linux Networking Tools ss nmap ping &amp;amp; traceroute ethtool dig netcat socat tcpdump top wireshark ss ss command is a tool that is used for displaying network socket related information on a Linux system. ss 命令是一个用于在 Linux 系统上显示网络套接字相关信息的工具。 nmap Nmap is short for Network Mapper. It is an open-source Linux cmd-line tool that is used to scan IPs &amp;amp; ports in a nw &amp;amp; to detect installed apps. Nmap allows nw admins to find which devices r running on their nw, discover open ports &amp;amp; services, and detect vulnerabilities. Nmap 是网络映射器的缩写。它是一个开源 Linux cmd-line 工具，用于扫描网络中的 IP 和端口并检测已安装的应用程序。 Nmap 允许网络管理员找到哪些设备在他们的网络上</description>
+    </item>
+    
     <item>
       <title>华为路由交换设备命令手册</title>
       <link>https://alphapenng.github.io/posts/%E5%8D%8E%E4%B8%BA%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2%E8%AE%BE%E5%A4%87%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/</link>
