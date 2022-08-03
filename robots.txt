@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://alphapenng.github.io/sitemap.xml

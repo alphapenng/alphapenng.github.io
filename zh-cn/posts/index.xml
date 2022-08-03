@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 寂寞留白</title>
+    <link>https://alphapenng.github.io/zh-cn/posts/</link>
+    <description>Recent content in Posts on 寂寞留白</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 02 Aug 2022 22:40:50 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/zh-cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Everything You Need to Know About Virtualization VMs Containers Pods Clusters</title>
+      <link>https://alphapenng.github.io/zh-cn/2022/08/02/everything-you-need-to-know-about-virtualization-vms-containers-pods-clusters/</link>
+      <pubDate>Tue, 02 Aug 2022 22:40:50 +0800</pubDate>
+      
+      <guid>https://alphapenng.github.io/zh-cn/2022/08/02/everything-you-need-to-know-about-virtualization-vms-containers-pods-clusters/</guid>
+      <description>What is Virtualization? Virtualization is the act of dividing shared computational resources: CPU, RAM, Disk, and Networking into isolated resources that are unaware of the original shared scope. 虚拟化是将共享计算资源：CPU、RAM、磁盘和网络划分为不知道原始共享范围的孤立资源</description>
+    </item>
+    
+  </channel>
+</rss>
