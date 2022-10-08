@@ -259,14 +259,14 @@ fw_setenv flag_boot_rootfs 0
 完成后重启路由器即可！
 ⚠️ 此处要特别注意，由于我们刚刚修改了分区表，所以一定进行断电重启。⚠️ 重启完成后我们打开浏览器输入 <code>192.168.31.1</code>，即可打开小米路由器官方固件的初始化页面。到此为止，刷回官方固件的操作就完成了。</p>
 <h3 id="uboot-刷机原理">Uboot 刷机原理</h3>
-<p>如果扩容刷机的分区容量依然无法满足需求，那么你可以考虑 Uboot 刷机！Uboot 刷机属于扩容刷机的一种，同样涉及修改分区表，所以我们同样先要刷入 OP 系统，在 OP 系统下才能进行 uboot 刷机的相关操作。刷入 OP 系统的方法使用刷入临时 OP 的方法即可。</p>
+<p>如果扩容刷机的分区容量依然无法满足需求，那么你可以考虑 Uboot 刷机！⚠️ <strong>Uboot 刷机属于扩容刷机的一种，同样涉及修改分区表，所以我们同样先要<a href="#%E6%89%A9%E5%AE%B9%E5%88%B7%E6%9C%BA%E5%AE%9E%E6%93%8D">刷入 OP 系统</a>，在 OP 系统下才能进行 uboot 刷机的相关操作。</strong> ⚠️ 刷入 OP 系统的方法使用刷入临时 OP 的方法即可。</p>
 <p>Uboot 刷机操作分为两步：</p>
 <ul>
 <li>合并分区</li>
 <li>刷入引导程序</li>
 </ul>
-<p>合并分区通过将扩容分区表刷入到 mtd1 分区，从而把 12、13、14 分区进行合并，合并后的系统分区可达 <code>104 兆</code>，这已经是 AX6 128 兆闪存的极限了。</p>
-<p>刷入引导程序是在 mtd7 分区刷入改版的 uboot 引导程序替换官方 uboot 引导程序。</p>
+<p><code>合并分区通过将扩容分区表刷入到 mtd1 分区，从而把 12、13、14 分区进行合并，合并后的系统分区可达 104 兆，这已经是 AX6 128 兆闪存的极限了。</code></p>
+<p><code>刷入引导程序是在 mtd7 分区刷入改版的 uboot 引导程序替换官方 uboot 引导程序。</code></p>
 <p>刷入改版引导程序有两点好处：</p>
 <ul>
 <li>第一点 改版引导程序具有图形化界面，<code>可以让我们在 web 端实现刷机操作</code>，相比前面讲解的命令行刷机方式，大大简化了刷机步骤！</li>
@@ -277,18 +277,27 @@ fw_setenv flag_boot_rootfs 0
 <li>经过实验目前只能通过 ttl 的方式刷回官方固件。对于小白用户来说并不友好，希望未来会有更简便的刷回官方固件的方法。</li>
 </ul>
 <h3 id="uboot-刷机实操谨慎尝试">Uboot 刷机实操（谨慎尝试）</h3>
-<p><a href="https://mianbaoduo.com/o/anyun/work">刷机文件购买链接</a></p>
-<p>首先上传要刷入的文件，打开 <code>winscp</code>，文件协议选择 <code>scp</code>，主机名为 <code>192.168.1.1</code>，用户名 <code>root</code>，密码为空，成功登录后在路由器系统选择 <code>tmp</code> 文件夹，在 windows 系统中选择扩容分区表文件和改版 uboot 文件进行上传。</p>
+<p><a href="https://op.supes.top/tools/AX6%E5%88%B7%E6%9C%BA.zip">扩容分区表文件和 uboot 文件下载链接</a>
+<a href="https://supes.top/?target=ipq807x%2Fgeneric&amp;id=redmi_ax6">openwrt 固件下载链接</a></p>
+<p>首先上传要刷入的文件，打开 <code>winscp</code>，文件协议选择 <code>scp</code>，主机名为 <code>192.168.1.1</code>，用户名 <code>root</code>，密码为空，成功登录后在路由器系统选择 <code>tmp</code> 文件夹，在 windows 系统中选择扩容分区表文件 <code>ax6-uboot-mibib.bin</code> 和改版 uboot 文件 <code>ax6-uboot.bin</code> 进行上传。</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_08_ZAl9xq.png" alt="上传分区表文件和 uboot 文件"></p>
 <p>上传完毕后，打开 cmd 登录 ssh，输入下面两行命令，</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mtd erase /dev/mtd1
-</span></span><span class="line"><span class="cl">mtd write /tmp/ax6-mibib.bin /dev/mtd1
+</span></span><span class="line"><span class="cl">mtd write /tmp/ax6-uboot-mibib.bin /dev/mtd1
 </span></span></code></pre></div><p>擦除 <code>mtd1</code> 分区，再写入刚上传的扩容分区表文件。完成后再输入下面两行命令，</p>
 <pre tabindex="0"><code>mtd erase /dev/mtd7
-mtd write /tmp/uboot-redmi-ax6.bin /dev/mtd7
-</code></pre><p>擦除 <code>mtd7</code> 分区并写入刚上传的改版 uboot 引导程序。⚠️ 我们刚刚修改了分区表，写入完成后一定要记得断电重启！⚠️</p>
-<p>由于我们把两个系统分区和 overlay 分区进行了合并，当前路由器中是没有安装系统的，所以我们先要登录改版 uboot 的图形化界面刷入 OP 固件。启动 uboot 图形化界面的方式很简单，使用网线将电脑与路由器相连后先按住 <code>reset</code> 按钮再接通电源，大概五秒钟后松开 <code>reset</code> 按钮即可。图形化界面的登录地址为 <code>192.168.1.1</code>，所以我们要在网络设置中，将连接 ax6 的网卡 ip 地址设置为<code>192.168.1</code> 网段的任一地址。修改完成后，打开浏览器输入 <code>192.168.1.1</code> 即可进入 uboot 图形化界面。点击选择文件，在电脑中选取我们要刷入的 OP 固件后，点击 <code>update firmware</code> 即可刷入固件。刷入完成后路由器会自动重启。等待过程中，我们先把 ip 地址改回自动获取。如果您刷入的是附件中提供的 op 固件，重启成功后，在浏览器中输入 <code>192.168.1.1</code> 即可打开 OP 登录页面。uboot 刷机的所有操作就完成了。</p>
+mtd write /tmp/ax6-uboot.bin /dev/mtd7
+</code></pre><p>擦除 <code>mtd7</code> 分区并写入刚上传的改版 uboot 引导程序。</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_08_xUmHpO.png" alt="写入扩容分区表文件和 uboot 引导程序"></p>
+<p>⚠️ 我们刚刚修改了分区表，写入完成后一定要记得断电重启！⚠️</p>
+<p>由于我们把两个系统分区和 overlay 分区进行了合并，当前路由器中是没有安装系统的，所以我们先要登录改版 uboot 的图形化界面刷入 OP 固件。启动 uboot 图形化界面的方式很简单，使用网线将电脑与路由器相连后先按住 <code>reset</code> 按钮再接通电源，大概五秒钟后看到指示灯变黄后松开 <code>reset</code> 按钮即可。图形化界面的登录地址为 <code>192.168.1.1</code>，所以我们要在网络设置中，将连接 ax6 的网卡 ip 地址设置为<code>192.168.1</code> 网段的任一地址。修改完成后，打开浏览器输入 <code>192.168.1.1</code> 即可进入 uboot 图形化界面。点击选择文件，在电脑中选取我们要刷入的 OP 固件后，点击 <code>update firmware</code> 即可刷入固件。
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_08_ZaJimN.png" alt="刷入底包">
+刷入完成后路由器会自动重启。等待过程中，我们先把 ip 地址改回自动获取。依据刷入的 op 固件，重启成功后，在浏览器中输入 op 后台的登录地址即可打开 op 登录页面，如果是刷入我提供的 openwrt 固件，登录地址为 <code>10.0.0.1</code>，初始密码为：<code>root</code>。进入登录页面，选择<code>系统</code>菜单下的<code>备份/升级</code>选项，打开页面，点击<code>刷写固件</code>按钮，选择以 <code>sysupgrade</code>结尾的文件，点击<code>上传</code>，去掉<code>保持设置并保留当前配置</code>选项前的勾，点击<code>继续</code>， 开始刷入，路由器会自动重启。
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_08_VAPbWW.png" alt="刷入正式固件1️⃣">
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_08_srHEPi.png" alt="刷入正式固件2️⃣">
+等待路由器自动重启完成，蓝灯常亮后，会自动跳转到后台登录界面，或者手动输入后台地址，至此 uboot 刷机的所有操作就完成了。</p>
 <h3 id="总结">总结</h3>
-<p>红米 AX6 基本就这些刷机方法，得益于红米 AX6 超强的 CPU + NPU 组合，跑代理速度是真不错。ShellClash 这种方案虽然没有图形化 UI 操作方便，但好在不需要刷麻烦也不稳定的 openwrt 固件，直接小米官方固件也能享受到网络「加速」的福利。所以推荐部署 ShellClash 方案。如果你还有其他更多的需求，那还是得安装 openwrt。</p>
+<p>红米 AX6 基本就这些刷机方法，得益于红米 AX6 超强的 CPU + NPU 组合，跑代理速度是真不错。ShellClash 这种方案虽然没有图形化 UI 操作方便，但好在不需要刷麻烦也不稳定的 openwrt 固件，直接小米官方固件也能享受到网络「加速」的福利。所以推荐部署 ShellClash 方案。如果你还有其他更多的需求，那还是得安装 openwrt，推荐扩容刷机里的 uboot 刷机方案，虽然操作有一定风险变砖，但好在刷完以后有图形化界面可供使用，大大降低了再次刷机的难度。</p>
 <p>红米 AX6 目前解锁 SSH 稍微有点麻烦，不过胜在性价比高。如果你动手能力强，喜欢折腾，我还是更推荐你购买 AX6， 如果想省点精力也可以看看其他的小米路由器，解锁 SSH 没有 AX6 复杂，性价比也都不错。</p>
 ]]></content:encoded></item><item><title>你真的清楚流程图规范吗？</title><link>https://alphapenng.github.io/zh-cn/2022/08/03/%E4%BD%A0%E7%9C%9F%E7%9A%84%E6%B8%85%E6%A5%9A%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%84%E8%8C%83%E5%90%97/</link><pubDate>Wed, 03 Aug 2022 11:07:44 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/08/03/%E4%BD%A0%E7%9C%9F%E7%9A%84%E6%B8%85%E6%A5%9A%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%84%E8%8C%83%E5%90%97/</guid><description>流程图作为一种表达算法和思路最好的方法，一直在我们的生活中扮演着重要的角色。但是很多人画流程图都是大概一画，并没有按照流程图规范来画。难道流</description><content:encoded><![CDATA[<p>流程图作为一种表达算法和思路最好的方法，一直在我们的生活中扮演着重要的角色。但是很多人画流程图都是大概一画，并没有按照流程图规范来画。难道流程图没有一个统一的规范吗？流程图当然有规范的画法，下面我来为大家介绍一些流程图规范。</p>
 <p>既然说起流程图规范，那不得不提的就是流程图的三大结构。在说三大结构之前，首先需要注意的就是流程图的符号要求。</p>
