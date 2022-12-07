@@ -1,30 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>寂寞留白</title><link>https://alphapenng.github.io/zh-cn/</link><description>Recent content on 寂寞留白</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 02 Dec 2022 21:14:34 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWrt开启802.11k-v-r协议实现手机在路由器之间无缝漫游</title><link>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</link><pubDate>Fri, 02 Dec 2022 21:14:34 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</guid><description>mesh 路由器基本概念 以一张脑图梳理一下 mesh 路由器的基本概念 MESH 路由器{.markmap} 自动组网 有线回程（最优方案） 无线回程 双频路由器（路由器间通信</description><content:encoded><![CDATA[<h2 id="mesh-路由器基本概念">mesh 路由器基本概念</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>寂寞留白</title><link>https://alphapenng.github.io/zh-cn/</link><description>Recent content on 寂寞留白</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 02 Dec 2022 21:14:34 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWrt开启802.11k-v-r协议实现手机在路由器之间无缝漫游</title><link>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</link><pubDate>Fri, 02 Dec 2022 21:14:34 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</guid><description>mesh 路由器基本概念 以一张脑图梳理一下 mesh 路由器的基本概念 ⚠️ 802.11k/v/r 这三个协议必须是路由器和设备同时支持才可以起作用 ⚠️ 设备这方面我们基本不用太担心,</description><content:encoded><![CDATA[<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_epB5YQ.png" alt="toc"></p>
+<h2 id="mesh-路由器基本概念">mesh 路由器基本概念</h2>
 <p><code>以一张脑图梳理一下 mesh 路由器的基本概念</code></p>
-<ul>
-<li>MESH 路由器{.markmap}
-<ul>
-<li>自动组网
-<ul>
-<li>有线回程（最优方案）</li>
-<li>无线回程
-<ul>
-<li>双频路由器（路由器间通信和接入设备共用一个 5G 频段</li>
-<li>三频路由器（单独一个 5G 频段用于路由器间通信）</li>
-</ul>
-</li>
-<li>节点之间可组成网状网络</li>
-</ul>
-</li>
-<li>无缝漫游
-<ul>
-<li>802.11k 协议 快速选择漫游 AP</li>
-<li>802.11v 协议 让节点负载均衡（触发漫游）</li>
-<li>802.11r 协议 减少客户端切换节点的等待时间</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_OwGgb3.png" alt="mesh"></p>
 <p>⚠️ <strong>802.11k/v/r 这三个协议必须是路由器和设备同时支持才可以起作用</strong> ⚠️</p>
 <ul>
 <li>
@@ -34,7 +11,7 @@
 <p>另一方面不是必须 802.11k/v/r 这三个协议同时支持才能达到无缝漫游的效果，事实上现在大部分的 mesh 路由器都只支持 K 和 V 这两个协议</p>
 </li>
 </ul>
-<h2 id="openwrt-配置-80211kvr-协议实现无缝漫游">Openwrt 配置 802.11k/v/r 协议实现无缝漫游</h2>
+<h2 id="openwrt-配置-80211kvr-协议实现无缝漫游">OpenWrt 配置 802.11k/v/r 协议实现无缝漫游</h2>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_04_IXO0rh.png" alt="进入lan口修改页面"></p>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_04_ZQPakc.png" alt="修改IP地址"></p>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_04_wVqsxW.png" alt="修改dhcp设置"></p>
@@ -67,15 +44,7 @@
 <p>可根据使用需求单独设置信道，发射功率等参数，保证了组网的灵活性</p>
 </li>
 </ol>
-]]></content:encoded></item><item><title>EPON 上行 E8 C 家庭网关（烽火 HG220GS） telecomadmin 密码获取及桥接设置</title><link>https://alphapenng.github.io/zh-cn/2022/11/21/epon-%E4%B8%8A%E8%A1%8C-e8-c-%E5%AE%B6%E5%BA%AD%E7%BD%91%E5%85%B3%E7%83%BD%E7%81%AB-hg220gs-telecomadmin-%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96%E5%8F%8A%E6%A1%A5%E6%8E%A5%E8%AE%BE%E7%BD%AE/</link><pubDate>Mon, 21 Nov 2022 21:04:54 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/11/21/epon-%E4%B8%8A%E8%A1%8C-e8-c-%E5%AE%B6%E5%BA%AD%E7%BD%91%E5%85%B3%E7%83%BD%E7%81%AB-hg220gs-telecomadmin-%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96%E5%8F%8A%E6%A1%A5%E6%8E%A5%E8%AE%BE%E7%BD%AE/</guid><description>EPON 上行 E8 C 家庭网关（烽火 HG220GS） telecomadmin 密码获取及桥接设置{.markmap} 获取 telecomadmin 账户密码 将光猫设置为桥接模式 主路由（Openwrt）设</description><content:encoded><![CDATA[<ul>
-<li>EPON 上行 E8 C 家庭网关（烽火 HG220GS） telecomadmin 密码获取及桥接设置{.markmap}
-<ul>
-<li>获取 <code>telecomadmin</code> 账户密码</li>
-<li>将光猫设置为桥接模式</li>
-<li>主路由（Openwrt）设置拨号上网</li>
-</ul>
-</li>
-</ul>
+]]></content:encoded></item><item><title>EPON 上行 E8 C 家庭网关（烽火 HG220GS） telecomadmin 密码获取及桥接设置</title><link>https://alphapenng.github.io/zh-cn/2022/11/21/epon-%E4%B8%8A%E8%A1%8C-e8-c-%E5%AE%B6%E5%BA%AD%E7%BD%91%E5%85%B3%E7%83%BD%E7%81%AB-hg220gs-telecomadmin-%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96%E5%8F%8A%E6%A1%A5%E6%8E%A5%E8%AE%BE%E7%BD%AE/</link><pubDate>Mon, 21 Nov 2022 21:04:54 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/11/21/epon-%E4%B8%8A%E8%A1%8C-e8-c-%E5%AE%B6%E5%BA%AD%E7%BD%91%E5%85%B3%E7%83%BD%E7%81%AB-hg220gs-telecomadmin-%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96%E5%8F%8A%E6%A1%A5%E6%8E%A5%E8%AE%BE%E7%BD%AE/</guid><description>获取 telecomadmin 账户密码 以默认配置账号密码登录光猫后台管理页面 这里以默认配置地址为例，登录 http://192.168.1.1，输入默认配置账号密码，</description><content:encoded><![CDATA[<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_0SVVIk.png" alt="toc"></p>
 <h2 id="获取-telecomadmin-账户密码">获取 <code>telecomadmin</code> 账户密码</h2>
 <ol>
 <li>
@@ -130,7 +99,9 @@
 <p>更改完后，点击“保存/应用”按钮，重启路由器。</p>
 </li>
 <li>
-<p>关闭光猫 dhcp 服务</p>
+<p>关闭光猫 dhcp 服务(可选，如果影响路由器可以选择关闭)</p>
+<p>⚠️ <strong>关闭之前请先截屏备份，日后需要开启时再恢复设置</strong> ⚠️</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_1ZUI1B.png" alt="截屏备份dhcp服务"></p>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_05_6eFkIc.png" alt="关闭光猫dhcp服务"></p>
 </li>
 <li>
