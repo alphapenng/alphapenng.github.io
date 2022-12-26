@@ -126,6 +126,241 @@
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_05_ahHfTC.png" alt="保存并应用"></p>
 </li>
 </ol>
+]]></content:encoded></item><item><title>Tailscale 异地组网实践：Headscale 的部署方法和使用</title><link>https://alphapenng.github.io/zh-cn/2022/10/10/tailscale-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E5%AE%9E%E8%B7%B5headscale-%E7%9A%84%E9%83%A8%E7%BD%B2%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8/</link><pubDate>Mon, 10 Oct 2022 22:56:20 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/10/10/tailscale-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E5%AE%9E%E8%B7%B5headscale-%E7%9A%84%E9%83%A8%E7%BD%B2%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8/</guid><description>此篇文章是参考了 👨‍💻云原生实验室关于WireGuard 的Tailscale 基础教程：Headscale 的部署方法和使用教程，再根据自己的异</description><content:encoded><![CDATA[<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221226163600_ha9Q2A.png" alt="toc"></p>
+<p>此篇文章是参考了 👨‍💻<a href="https://icloudnative.io/">云原生实验室</a>关于<code>WireGuard</code> 的<a href="https://icloudnative.io/posts/how-to-set-up-or-migrate-headscale">Tailscale 基础教程：Headscale 的部署方法和使用教程</a>，再根据自己的异地组网需求，在搭建自己的家庭网络后总结记录而成，也给喜欢折腾并且有同样需求的朋友提供一个参考。</p>
+<h2 id="前言">前言</h2>
+<p>为了满足在任何地点都能访问家庭网络，并且要求网络稳定，带宽和延时在合理的范围内，在斟酌众多内网穿透技术后，觉得还是通过 VPN 协议来组建大内网比较靠谱。至于该选择哪种 VPN， 在比较了各种 VPN 协议之间的优劣后，最终决定使用 WireGuard 协议来组建。</p>
+<h2 id="为什么选择-wireguard">为什么选择 WireGuard</h2>
+<p>WireGuard 相比于传统 VPN 的核心优势是没有 VPN 网关，所有节点之间都可以点对点（P2P）连接，通过 WireGuard 既可以搭建依靠中继服务器为中心的星型网络结构，也可以通过所有节点的点对点连接组建全互联模式（full mesh）。这里就不展开具体细节，想深入的话可以参考这篇文章<a href="https://icloudnative.io/posts/wireguard-full-mesh/#1-%e5%85%a8%e4%ba%92%e8%81%94%e6%a8%a1%e5%bc%8f%e6%9e%b6%e6%9e%84%e4%b8%8e%e9%85%8d%e7%bd%ae">Wireguard 全互联模式（full mesh）配置指南</a>。</p>
+<p>WireGuard 本身只是一个内核级别的模块，只是一个数据平面，至于上层的更高级的功能（比如秘钥交换机制，UDP 打洞，ACL 等），需要通过用户空间的应用来实现。</p>
+<p>下面就轮到 Tailscale 登场了。</p>
+<h2 id="tailscale-是什么">Tailscale 是什么</h2>
+<p>Tailscale 是一种基于 WireGuard 的虚拟组网工具，是在用户态实现了 WireGuard 协议，它在功能和易用性上绝对是完爆其他工具：</p>
+<ol>
+<li>
+<p>开箱即用</p>
+<ul>
+<li>无需配置防火墙</li>
+<li>没有额外的配置</li>
+</ul>
+</li>
+<li>
+<p>高安全性 / 私密性</p>
+<ul>
+<li>自动密钥轮换</li>
+<li>点对点连接</li>
+<li>支持用户审查端到端的访问记录</li>
+</ul>
+</li>
+<li>
+<p>在原有的 ICE、STUN 等 UDP 协议外，实现了 DERP TCP 协议来实现 NAT 穿透</p>
+</li>
+<li>
+<p>基于公网的控制服务器下发 ACL 和配置，实现节点动态更新</p>
+</li>
+<li>
+<p>通过第三方（如 Google） SSO 服务生成用户和私钥，实现身份认证</p>
+</li>
+</ol>
+<p>简而言之，我们可以将 Tailscale 看成是更为易用、功能更完善的 WireGuard。</p>
+<h2 id="headscale-是什么">Headscale 是什么</h2>
+<p>Tailscale 的控制服务器是不开源的，而且对免费用户有诸多限制。好在目前有一款开源的实现叫 <a href="https://github.com/juanfont/headscale">Headscale</a>，这也是唯一的一款，希望能发展壮大。</p>
+<p>Headscale 由欧洲航天局的 Juan Font 使用 Go 语言开发，在 BSD 许可下发布，实现了 Tailscale 控制服务器的所有主要功能，可以部署在企业内部，没有任何设备数量的限制，且所有的网络流量都由自己控制。</p>
+<p>目前 Headscale 还没有可视化界面，期待后续更新吧。</p>
+<h2 id="headscale-部署">Headscale 部署</h2>
+<p>Headscale 部署很简单，推荐直接在 Linux 主机上安装。</p>
+<blockquote>
+<p>💁 理论上来说只要你的 Headscale 服务可以暴露到公网出口就行，但最好不要有 NAT，所以推荐将 Headscale 部署在有公网 IP 的云主机上。</p>
+</blockquote>
+<p>首先需要到其 GitHub 仓库的 Release 页面下载最新版的二进制文件。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget --output-document<span class="o">=</span>/usr/local/bin/headscale <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>   https://github.com/juanfont/headscale/releases/download/v&lt;HEADSCALE VERSION&gt;/headscale_&lt;HEADSCALE VERSION&gt;_linux_&lt;ARCH&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">chmod +x /usr/local/bin/headscale
+</span></span></code></pre></div><p>创建配置目录：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p /etc/headscale
+</span></span></code></pre></div><p>创建目录用来存储数据与证书：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p /var/lib/headscale
+</span></span></code></pre></div><p>创建空的 SQLite 数据库文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">touch /var/lib/headscale/db.sqlite
+</span></span></code></pre></div><p>创建 Headscale 配置文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://github.com/juanfont/headscale/raw/main/config-example.yaml -O /etc/headscale/config.yaml
+</span></span></code></pre></div><ul>
+<li>修改配置文件，将 <code>server_url</code> 改为公网 IP 或域名。💁 <strong>如果是国内服务器，域名必须要备案。</strong> 没有域名就直接用公网 IP 。
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225214651_Xnip2022-12-25_16-35-00.jpg" alt="server_url"></li>
+<li>修改监听地址，在所有 ip 上监听
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225214825_Xnip2022-12-25_16-35-09.jpg" alt="listen_addr"></li>
+<li>修改 grpc 监听地址，在所有 ip 上监听
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225215212_Xnip2022-12-25_21-30-45.jpg" alt="grpc_listen_addr"></li>
+<li>修改 private_key 存储路径
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225215346_Xnip2022-12-25_21-30-56.jpg" alt="private_key_path"></li>
+<li>修改 noise_private_key 存储路径
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225215500_Xnip2022-12-25_21-31-16.jpg" alt="noise_private_key"></li>
+<li>可自定义私有网段，也可同时开启 IPv4 和 IPv6
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225215830_Xnip2022-12-25_21-31-32.jpg" alt="ip_prefixes"></li>
+<li>修改数据库存储路径
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225220137_Xnip2022-12-25_21-32-06.jpg" alt="db_path"></li>
+<li>如果暂时用不到 DNS 功能，可以先将 <code>magic_dns</code> 设为 false
+![magic_dns](https://alphapen ng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225220319_Xnip2022-12-25_21-32-22.jpg)</li>
+<li>修改 <code>unix_socket</code>的路径
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225220427_Xnip2022-12-25_21-32-29.jpg" alt="unix_socket"></li>
+</ul>
+<p>创建 SystemD service 配置文件：</p>
+<pre tabindex="0"><code># /etc/systemd/system/headscale.service
+[Unit]
+Description=headscale controller
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+User=headscale
+Group=headscale
+ExecStart=/usr/local/bin/headscale serve
+Restart=always
+RestartSec=5
+
+# Optional security enhancements
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/headscale /var/run/headscale
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+RuntimeDirectory=headscale
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>创建 headscale 用户：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">useradd headscale -d /home/headscale -m
+</span></span></code></pre></div><p>修改 /var/lib/headscale 目录的 owner：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chown -R headscale:headscale /var/lib/headscale
+</span></span></code></pre></div><p>Reload SystemD 以加载新的配置文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl daemon-reload
+</span></span></code></pre></div><p>启动 Headscale 服务并设置开机自启：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> --now headscale
+</span></span></code></pre></div><p>查看运行状态：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl status headscale
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225221236_g71Quo.png" alt="headscale_status"></p>
+<p>查看占用端口：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ss -tulnp<span class="p">|</span>grep headscale
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225221452_b2Ve6p.png" alt="headscale_port"></p>
+<p>Tailscale 中有一个概念叫 tailnet，你可以理解成租户，租户与租户之间是相互隔离的，详情见 Tailscale 的官方文档： <a href="https://tailscale.com/kb/1136/tailnet/">What is a tailnet</a>。Headscale 也有类似的实现叫 namespace，即命名空间。我们需要先创建一个 namespace，以便后续客户端接入，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">headscale namespaces create default
+</span></span></code></pre></div><p>查看命名空间：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">headscale namespaces list
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225222030_3ZXzRp.png" alt="headscale_namespace"></p>
+<h2 id="tailscale-客户端接入">Tailscale 客户端接入</h2>
+<h3 id="macos">macOS</h3>
+<p>macOS 有 3 种安装方法：</p>
+<ol>
+<li>直接通过应用商店安装，地址： <a href="https://apps.apple.com/ca/app/tailscale/id1475387142">https://apps.apple.com/ca/app/tailscale/id1475387142</a>。前提是你需要一个美区 ID。</li>
+<li>下载<a href="https://pkgs.tailscale.com/stable/#macos">安装包</a>直接安装，绕过应用商店。</li>
+<li>安装开源的命令行工具 <code>tailscale</code> 和 <code>tailscaled</code>。相关链接： <a href="https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS">https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS</a>。</li>
+</ol>
+<p>这三种安装包的核心数据包处理代码是相同的，唯一的区别在于在于打包方式以及与系统的交互方式。</p>
+<p>这里我直接通过第 2 种方式下载安装包进行安装。安装完应用后还需要做一些操作，才能让 Tailscale 使用 Headscale 作为控制服务器。当然，Headscale 已经给我们提供了详细的操作步骤，你只需要在浏览器中打开 URL：<code>http://&lt;HEADSCALE_PUB_IP&gt;:8080/apple</code>，其中<code>&lt;HEADSCALE_PUB_IP&gt;</code>就是你部署 Headscale 的公网 ip，便会出现如下的界面：</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225224403_E9Y7VH.png" alt="Img"></p>
+<p>修改完成后重启 Tailscale 客户端，在 macOS 顶部状态栏中找到 Tailscale 并点击，然后再点击 <code>Log in</code>。</p>
+<p>然后立马就会跳转到浏览器并打开一个页面。</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225230100_Xnip2022-12-25_23-00-48.jpg" alt="machine_registration"></p>
+<p>将红色框内的命令复制粘贴到 headscale 所在机器的终端中，并将 NAMESPACE 替换为前面所创建的 namespace。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">headscale -n default nodes register --key nodekey:xxxxxx
+</span></span></code></pre></div><p>注册成功，查看注册的节点：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">headscale nodes list
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225231053_SOSmsv.png" alt="nodes_list"></p>
+<p>回到 macOS，测试是否能 ping 通对端节点：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ping 10.1.0.2
+</span></span></code></pre></div><p>也可以使用 Tailscale CLI 来测试：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/Applications/Tailscale.app/Contents/MacOS/Tailscale ping 10.1.0.2
+</span></span></code></pre></div><h3 id="openwrt">OpenWrt</h3>
+<p>OpenWrt 安装方法参考 <a href="https://github.com/adyanth/openwrt-tailscale-enabler">https://github.com/adyanth/openwrt-tailscale-enabler</a></p>
+<ol>
+<li>
+<p>下载安装包 <a href="https://github.com/adyanth/openwrt-tailscale-enabler/releases"><code>openwrt-tailscale-enabler-&lt;tag&gt;.tgz</code></a></p>
+</li>
+<li>
+<p>通过 scp 命令将安装包拷贝至 openwrt 的 <code>/tmp</code> 目录下</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scp -O openwrt-tailscale-enabler-v1.34.1-f5576b5-autoupdate.tgz root@&lt;openwrt_ip&gt;:/tmp
+</span></span></code></pre></div></li>
+<li>
+<p>解压安装包</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar x -zvC / -f openwrt-tailscale-enabler-&lt;tag&gt;.tgz
+</span></span></code></pre></div></li>
+<li>
+<p>预安装软件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">opkg update
+</span></span><span class="line"><span class="cl">opkg install libustream-openssl ca-bundle kmod-tun
+</span></span></code></pre></div></li>
+<li>
+<p>运行 tailscale 初始化</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/etc/init.d/tailscale start
+</span></span><span class="line"><span class="cl">tailscale up --login-server<span class="o">=</span>&lt;headscale_ip&gt;:8080 --accept-routes<span class="o">=</span><span class="nb">true</span> --accept-dns<span class="o">=</span><span class="nb">false</span>
+</span></span></code></pre></div></li>
+<li>
+<p>复制生成的 URL，并在浏览器中打开</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221226073524_3iszn6.png" alt="register_url"></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225230100_Xnip2022-12-25_23-00-48.jpg" alt="machine_registration"></p>
+</li>
+<li>
+<p>将红色框内的命令复制粘贴到 headscale 所在机器的终端中，并将 NAMESPACE 替换为前面所创建的 namespace。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">headscale -n default nodes register --key nodekey:xxxxxx
+</span></span></code></pre></div><p>注册成功，查看注册的节点：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">headscale nodes list
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225231053_SOSmsv.png" alt="nodes_list"></p>
+<p>回到 openwrt，可以看到 Tailscale 会自动创建相关的路由表和 iptables 规则。路由表可通过以下命令查看：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ip route show table <span class="m">52</span>
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221226081250_FLxN5g.png" alt="route_table"></p>
+<p>查看 iptables 规则：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">iptables -S
+</span></span></code></pre></div><p>测试是否能 ping 通对端节点：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ping 10.1.0.1
+</span></span></code></pre></div><p>也可以使用 tailscale cli 来测试：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tailscale ping 10.1.0.1
+</span></span></code></pre></div></li>
+<li>
+<p>设置 tailscale 开机自启动</p>
+<pre><code>```bash
+/etc/init.d/tailscale enable
+```
+</code></pre>
+<p>查看是否设置成功</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls /etc/rc.d/S*tailscale*
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221226084534_1PGL1X.png" alt="tailscale_boot"></p>
+</li>
+<li>
+<p>以后升级 tailscale，只需从<a href="https://pkgs.tailscale.com/stable/#static">这里</a>下载最新的安装包，下载的包名是类似 <code>1.2.10_mips</code> 这种结构，然后替换掉 <code>/usr/bin/tailscale</code> 和 <code>/usr/bin/tailscaled</code> 相同路径下的二进制文件。</p>
+</li>
+</ol>
+<h2 id="打通局域网">打通局域网</h2>
+<p>到目前为止我们只是打造了一个点对点的 Mesh 网络，各个节点之间都可以通过 WireGuard 的私有网络 IP 进行直连。我们还可以通过适当的配置让每个节点都能访问其他节点的局域网 IP。这个使用场景就比较多了，你可以直接访问家庭内网的 NAS，或者内网的任何一个服务，更高级的玩家可以使用这个方法来访问云上 Kubernetes 集群的 Pod IP 和 Service IP。</p>
+<p>我们以安装了 tailscale 客户端的 OpenWrt 为例，我们希望其他 tailscale 客户端可以直接通过 OpenWrt 路由器的局域网 IP（例如 10.0.1.0/24） 访问 OpenWrt 内网的任何一台设备。</p>
+<ol>
+<li>
+<p>配置方法很简单，首先需要设置 IPv4 与 IPv6 路由转发：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;net.ipv4.ip_forward = 1&#39;</span> <span class="p">|</span> tee /etc/sysctl.d/ipforwarding.conf
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;net.ipv6.conf.all.forwarding = 1&#39;</span> <span class="p">|</span> tee -a /etc/sysctl.d/ipforwarding.conf
+</span></span><span class="line"><span class="cl">sysctl -p /etc/sysctl.d/ipforwarding.conf
+</span></span></code></pre></div></li>
+<li>
+<p>客户端修改注册节点的命令，在原来命令的基础上加上参数 &ndash;advertise-routes=10.0.1.0/24，告诉 Headscale 服务器 “我这个节点可以转发这些地址的路由”。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tailscale up --login-server<span class="o">=</span>http://&lt;HEADSCALE_PUB_IP&gt;:8080 --accept-routes<span class="o">=</span><span class="nb">true</span> --accept-dns<span class="o">=</span><span class="nb">false</span> --advertise-routes<span class="o">=</span>10.0.1.0/24 --reset
+</span></span></code></pre></div></li>
+<li>
+<p>在 Headscale 端查看路由，可以看到相关路由是关闭的。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">headscale nodes list
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221226142834_C68va1.png" alt="node_id"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查看 id 为 2 的节点的路由，也就是 openwrt 的路由</span>
+</span></span><span class="line"><span class="cl">headscale routes list -i <span class="m">2</span>
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221226155628_P9rA66.png" alt="route_list"></p>
+<p>开启路由：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">headscale routes <span class="nb">enable</span>  -r <span class="m">1</span>
+</span></span></code></pre></div><p>其他 tailscale 节点查看路由结果：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ip route show table 52<span class="p">|</span>grep <span class="s2">&#34;10.0.1.0/24&#34;</span>
+</span></span></code></pre></div></li>
+</ol>
+<p>其他节点启动时需要增加 <code>--accept-routes=true</code> 选项来声明 “我接受外部其他节点发布的路由”。</p>
+<p>现在你在任何一个 tailscale 客户端所在的节点都可以 ping 通 openwrt 路由器所在内网的机器了。</p>
 ]]></content:encoded></item><item><title>红米 AX6 解锁 SSH 安装 ShellClash 及刷机 Openwrt 教程</title><link>https://alphapenng.github.io/zh-cn/2022/10/06/%E7%BA%A2%E7%B1%B3-ax6-%E8%A7%A3%E9%94%81-ssh-%E5%88%B7%E6%9C%BA-openwrt-%E6%95%99%E7%A8%8B/</link><pubDate>Thu, 06 Oct 2022 08:13:14 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/10/06/%E7%BA%A2%E7%B1%B3-ax6-%E8%A7%A3%E9%94%81-ssh-%E5%88%B7%E6%9C%BA-openwrt-%E6%95%99%E7%A8%8B/</guid><description>红米 AX6 和小米 AX3600 配置基本相同，只是缺少一根智能家居的天线，性价比高的离谱，刷机做软路由转发流量毫无压力，为了在有限的预算内提升家庭网络的体验，</description><content:encoded><![CDATA[<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_09_mindmap-1665311313490.png" alt="toc"></p>
 <p>红米 AX6 和小米 AX3600 配置基本相同，只是缺少一根智能家居的天线，性价比高的离谱，刷机做软路由转发流量毫无压力，为了在有限的预算内提升家庭网络的体验，前段时间在闲鱼 300 掏了一台红米 AX6，趁着假期跟着别人的教程折腾了一遍所有的刷机方法，也踩了不少坑，记录下来给自己也给别人有个参考，折腾了一遍之后，本人还是采用了直接安装 ShellClash 的方案，目前也就代理流量一个需求，考虑未来可能会根据需求再刷 openwrt。小米路由器目前解锁刷机的方案都已经比较模式了，网上的教程也很多，把它作为家中的主路由刷机再跑软路由是不错的，能够和 AX1800 组 mesh，覆盖和性能都不是问题。</p>
 <blockquote>
