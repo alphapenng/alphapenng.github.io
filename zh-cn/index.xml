@@ -137,30 +137,22 @@
 <h2 id="tailscale-是什么">Tailscale 是什么</h2>
 <p>Tailscale 是一种基于 WireGuard 的虚拟组网工具，是在用户态实现了 WireGuard 协议，它在功能和易用性上绝对是完爆其他工具：</p>
 <ol>
-<li>
-<p>开箱即用</p>
+<li>开箱即用
 <ul>
 <li>无需配置防火墙</li>
 <li>没有额外的配置</li>
 </ul>
 </li>
-<li>
-<p>高安全性 / 私密性</p>
+<li>高安全性 / 私密性
 <ul>
 <li>自动密钥轮换</li>
 <li>点对点连接</li>
 <li>支持用户审查端到端的访问记录</li>
 </ul>
 </li>
-<li>
-<p>在原有的 ICE、STUN 等 UDP 协议外，实现了 DERP TCP 协议来实现 NAT 穿透</p>
-</li>
-<li>
-<p>基于公网的控制服务器下发 ACL 和配置，实现节点动态更新</p>
-</li>
-<li>
-<p>通过第三方（如 Google） SSO 服务生成用户和私钥，实现身份认证</p>
-</li>
+<li>在原有的 ICE、STUN 等 UDP 协议外，实现了 DERP TCP 协议来实现 NAT 穿透</li>
+<li>基于公网的控制服务器下发 ACL 和配置，实现节点动态更新</li>
+<li>通过第三方（如 Google） SSO 服务生成用户和私钥，实现身份认证</li>
 </ol>
 <p>简而言之，我们可以将 Tailscale 看成是更为易用、功能更完善的 WireGuard。</p>
 <h2 id="headscale-是什么">Headscale 是什么</h2>
@@ -201,7 +193,7 @@
 <li>修改数据库存储路径
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225220137_Xnip2022-12-25_21-32-06.jpg" alt="db_path"></li>
 <li>如果暂时用不到 DNS 功能，可以先将 <code>magic_dns</code> 设为 false
-![magic_dns](https://alphapen ng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225220319_Xnip2022-12-25_21-32-22.jpg)</li>
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225220319_Xnip2022-12-25_21-32-22.jpg" alt="magic_dns"></li>
 <li>修改 <code>unix_socket</code>的路径
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225220427_Xnip2022-12-25_21-32-29.jpg" alt="unix_socket"></li>
 </ul>
@@ -320,11 +312,8 @@ WantedBy=multi-user.target
 </span></span></code></pre></div></li>
 <li>
 <p>设置 tailscale 开机自启动</p>
-<pre><code>```bash
-/etc/init.d/tailscale enable
-```
-</code></pre>
-<p>查看是否设置成功</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/etc/init.d/tailscale <span class="nb">enable</span>
+</span></span></code></pre></div><p>查看是否设置成功</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls /etc/rc.d/S*tailscale*
 </span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221226084534_1PGL1X.png" alt="tailscale_boot"></p>
 </li>
