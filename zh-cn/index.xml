@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>寂寞留白</title><link>https://alphapenng.github.io/zh-cn/</link><description>Recent content on 寂寞留白</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 26 Dec 2022 18:38:29 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Go 语言学习笔记</title><link>https://alphapenng.github.io/zh-cn/2022/12/26/go-%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link><pubDate>Mon, 26 Dec 2022 18:38:29 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/26/go-%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid><description/><content:encoded></content:encoded></item><item><title>OpenWrt开启802.11k-v-r协议实现手机在路由器之间无缝漫游</title><link>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</link><pubDate>Fri, 02 Dec 2022 21:14:34 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</guid><description>mesh 路由器基本概念 以一张脑图梳理一下 mesh 路由器的基本概念 ⚠️ 802.11k/v/r 这三个协议必须是路由器和设备同时支持才可以起作用 ⚠️ 设备这方面我们基本不用太担心,</description><content:encoded><![CDATA[<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_epB5YQ.png" alt="toc"></p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>寂寞留白</title><link>https://alphapenng.github.io/zh-cn/</link><description>Recent content on 寂寞留白</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 02 Dec 2022 21:14:34 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWrt开启802.11k-v-r协议实现手机在路由器之间无缝漫游</title><link>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</link><pubDate>Fri, 02 Dec 2022 21:14:34 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</guid><description>mesh 路由器基本概念 以一张脑图梳理一下 mesh 路由器的基本概念 ⚠️ 802.11k/v/r 这三个协议必须是路由器和设备同时支持才可以起作用 ⚠️ 设备这方面我们基本不用太担心,</description><content:encoded><![CDATA[<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_epB5YQ.png" alt="toc"></p>
 <h2 id="mesh-路由器基本概念">mesh 路由器基本概念</h2>
 <p><code>以一张脑图梳理一下 mesh 路由器的基本概念</code></p>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_OwGgb3.png" alt="mesh"></p>
@@ -58,9 +58,9 @@
 </li>
 <li>
 <p>访问 <a href="http://192.168.1.1">http://192.168.1.1</a> ，输入隐藏账号密码登陆</p>
-<pre tabindex="0"><code>账号：fiberhomehg2x0
-密码：hg2x0
-</code></pre><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_11_22_16mIRi.png" alt="隐藏账号密码登录"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">账号：fiberhomehg2x0
+</span></span><span class="line"><span class="cl">密码：hg2x0
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_11_22_16mIRi.png" alt="隐藏账号密码登录"></p>
 </li>
 <li>
 <p>打开 <a href="http://192.168.1.1/backupsettings.html">http://192.168.1.1/backupsettings.html</a> 备份配置文件 <code>backupsettings.conf</code></p>
@@ -198,32 +198,32 @@
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225220427_Xnip2022-12-25_21-32-29.jpg" alt="unix_socket"></li>
 </ul>
 <p>创建 SystemD service 配置文件：</p>
-<pre tabindex="0"><code># /etc/systemd/system/headscale.service
-[Unit]
-Description=headscale controller
-After=syslog.target
-After=network.target
-
-[Service]
-Type=simple
-User=headscale
-Group=headscale
-ExecStart=/usr/local/bin/headscale serve
-Restart=always
-RestartSec=5
-
-# Optional security enhancements
-NoNewPrivileges=yes
-PrivateTmp=yes
-ProtectSystem=strict
-ProtectHome=yes
-ReadWritePaths=/var/lib/headscale /var/run/headscale
-AmbientCapabilities=CAP_NET_BIND_SERVICE
-RuntimeDirectory=headscale
-
-[Install]
-WantedBy=multi-user.target
-</code></pre><p>创建 headscale 用户：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># /etc/systemd/system/headscale.service</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Unit<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Description</span><span class="o">=</span>headscale controller
+</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>syslog.target
+</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>network.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Type</span><span class="o">=</span>simple
+</span></span><span class="line"><span class="cl"><span class="nv">User</span><span class="o">=</span>headscale
+</span></span><span class="line"><span class="cl"><span class="nv">Group</span><span class="o">=</span>headscale
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/usr/local/bin/headscale serve
+</span></span><span class="line"><span class="cl"><span class="nv">Restart</span><span class="o">=</span>always
+</span></span><span class="line"><span class="cl"><span class="nv">RestartSec</span><span class="o">=</span><span class="m">5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Optional security enhancements</span>
+</span></span><span class="line"><span class="cl"><span class="nv">NoNewPrivileges</span><span class="o">=</span>yes
+</span></span><span class="line"><span class="cl"><span class="nv">PrivateTmp</span><span class="o">=</span>yes
+</span></span><span class="line"><span class="cl"><span class="nv">ProtectSystem</span><span class="o">=</span>strict
+</span></span><span class="line"><span class="cl"><span class="nv">ProtectHome</span><span class="o">=</span>yes
+</span></span><span class="line"><span class="cl"><span class="nv">ReadWritePaths</span><span class="o">=</span>/var/lib/headscale /var/run/headscale
+</span></span><span class="line"><span class="cl"><span class="nv">AmbientCapabilities</span><span class="o">=</span>CAP_NET_BIND_SERVICE
+</span></span><span class="line"><span class="cl"><span class="nv">RuntimeDirectory</span><span class="o">=</span>headscale
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Install<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</span></span></code></pre></div><p>创建 headscale 用户：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">useradd headscale -d /home/headscale -m
 </span></span></code></pre></div><p>修改 /var/lib/headscale 目录的 owner：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chown -R headscale:headscale /var/lib/headscale
@@ -421,7 +421,7 @@ WantedBy=multi-user.target
 <li>解锁 SSH</li>
 </ol>
 <h3 id="1-降级固件">1 降级固件</h3>
-<p>AX6 可解锁 SSH 的固件版本为 <code>1.0.16</code>或<code>1.0.18</code>。我们以<code>1.0.18</code>为例。降级固件操作步骤很简单，登录 AX6 的后台，点击右上角的<code>系统状态</code>，点击<code>系统升级</code>，<code>选择固件</code>，系统建议选择<code>清除当前所有用户配置</code>，点击确定即可刷新固件，⚠️ 重启后初始化设置请务必取消勾选路由空闲时为您自动升级固件版本 ⚠️，除非你进行了 <code>SSH 固化</code>操作，具体操作见<a href="#5-%E5%9B%BA%E5%8C%96-ssh-%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89">后文介绍</a>。
+<p>AX6 可解锁 SSH 的固件版本为 <code>1.0.16</code>或<code>1.0.18</code>。我们以<code>1.0.18</code>为例。降级固件操作步骤很简单，登录 AX6 的后台，点击右上角的<code>系统状态</code>，点击<code>系统升级</code>，<code>选择固件</code>，系统建议选择<code>清除当前所有用户配置</code>，点击确定即可刷新固件，⚠️ 重启后初始化设置请务必取消勾选路由空闲时为您自动升级固件版本 ⚠️，除非你进行了 <code>SSH 固化</code>操作，具体操作见<a href="#5-%E5%9B%BA%E5%8C%96-ssh-%E5%8F%AF%E9%80%89">后文介绍</a>。
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_05_hGCnSV.png" alt="登录 AX6 后台">
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_05_h6hwUP.png" alt="点击系统状态">
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_05_vy8KGX.png" alt="点击手动升级">
@@ -468,7 +468,7 @@ WantedBy=multi-user.target
 <p>链接成功后进行备份</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir /tmp/syslogbackup/
 </span></span><span class="line"><span class="cl">dd <span class="k">if</span><span class="o">=</span>/dev/mtd9 <span class="nv">of</span><span class="o">=</span>/tmp/syslogbackup/mtd9
-</span></span></code></pre></div><p>浏览器请求该地址下载备份 http://192.168.31.1/backup/log/mtd9</p>
+</span></span></code></pre></div><p>浏览器请求该地址下载备份 <a href="http://192.168.31.1/backup/log/mtd9">http://192.168.31.1/backup/log/mtd9</a></p>
 <h3 id="5-固化-ssh-可选">5 固化 SSH （可选）</h3>
 <p>默认情况下，当路由器恢复出厂设置或者升级后，相关权限将会丢失，因此我们需要额外的操作以保留它们通过 SSH 连接 AX6。在电脑上将下载好的<a href="https://github.com/shell-script/unlock-redmi-ax3000/archive/refs/heads/master.zip">脚本</a>上传到红米 AX6，可以通过命令行操作，在 Windows 电脑上打开终端，切换到脚本所在目录，输入以下命令</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scp ax3000.sh root@192.168.31.1:/etc/ax3000.sh
@@ -521,7 +521,7 @@ WantedBy=multi-user.target
 <p>再按 1 选择立即开启 Clash 的服务即可。</p>
 </li>
 <li>
-<p>启动后你可以通过 http://192.168.31.1:9999/ui ，进行节点的切换和规则的选择。当然你再按 4 选择开机启动也可以。</p>
+<p>启动后你可以通过 <a href="http://192.168.31.1:9999/ui">http://192.168.31.1:9999/ui</a> ，进行节点的切换和规则的选择。当然你再按 4 选择开机启动也可以。</p>
 </li>
 </ul>
 <h2 id="不扩容刷入-openwrt-固件">不扩容刷入 openwrt 固件</h2>
@@ -529,20 +529,20 @@ WantedBy=multi-user.target
 <p>在刷入固件之前，我们先来查看一下当前系统使用的分区，也就是我们降级固件时刷入的 1.0.18 版本固件所在分区。输入这条命令 <code>nvram get flag_last_success</code> 即可查看当前分区，<code>如果返回数字 0，表示当前系统分区为 mtd12</code>，<code>返回数字 1，则表示当前系统分区为 mtd13</code>。我们点击回车来看一下结果。返回的是数字 0！
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_gpePCp.png" alt="查看当前分区">
 这里有一点需要说明一下，以下刷机操作及切换分区的步骤，<code>仅针对当前分区的查询结果返回数字 0 的情况</code>，如果你的查询结果返回 1，刷机操作的相关语句会稍有区别，请到附件的步骤详解中查看，不再单作演示了。返回数字 0，也就是当前系统使用分区为 12 分区，同时也意味着降级前的 1.1.4 版本官方固件在 13 分区。我们的理想方式是<code>保留 13 分区的固件将 OP 刷入到 12 分区替换 1.0.18 版固件</code>。实现新版官方固件和 OP 双系统并存。但由于 12 分区正在使用，无法刷入固件。所以我们先要手动切换系统分区。输入这四条命令，</p>
-<pre tabindex="0"><code>nvram set flag_last_success=1
-nvram set flag_boot_rootfs=1
-nvram commit
-reboot
-</code></pre><p>切换系统分区为 13 分区并提交修改重启路由器。重启完成后我们可以看到固件版本为 1.1.4，已经切换为 13 分区。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nvram <span class="nb">set</span> <span class="nv">flag_last_success</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">nvram <span class="nb">set</span> <span class="nv">flag_boot_rootfs</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">nvram commit
+</span></span><span class="line"><span class="cl">reboot
+</span></span></code></pre></div><p>切换系统分区为 13 分区并提交修改重启路由器。重启完成后我们可以看到固件版本为 1.1.4，已经切换为 13 分区。
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_XHOxio.png" alt="切换固件版本">
 下面就可以将要刷入的 OP 固件上传到路由器了，打开 <code>winscp</code>，文件协议选择 <code>scp</code>，输入 AX6 的 IP 地址 <code>192.168.31.1</code> ，用户名为 <code>root</code>，密码 <code>SSH 密码</code>。登录后在右侧路由器的文件系统中选择 <code>/tmp</code> 文件夹，左侧电脑的文件系统中选择要上传的 <code>openwrt 固件</code>，<a href="https://pan.baidu.com/s/1zBtzdk1ERG4SYeTHu-b2lw">下载链接</a>，提取码为：<code>2333</code>。我们上传 <code>factory 结尾的固件</code>即可，<code>sysupgrade</code> 为升级固件，一般可在页面端进行升级。
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_PnWBZt.png" alt="上传固件">
 刷新固件操作很简单。登录 ssh 后，输入这条命令 <code>ubiformat /dev/mtd12 -y -f /tmp/openwrt-ipq807x-generic-redmi_ax6-squas hfs-nand-factory.ubi</code> 即可将上传的固件刷入到 12 分区。之后我们输入下面四条命令，</p>
-<pre tabindex="0"><code>nvram set flag_last_success=0
-nvram set flag_boot_rootfs=0
-nvram commit
-reboot
-</code></pre><p>切换启动分区为 12 分区并提交重启。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nvram <span class="nb">set</span> <span class="nv">flag_last_success</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl">nvram <span class="nb">set</span> <span class="nv">flag_boot_rootfs</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl">nvram commit
+</span></span><span class="line"><span class="cl">reboot
+</span></span></code></pre></div><p>切换启动分区为 12 分区并提交重启。
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_9nfywQ.png" alt="刷新固件">
 重启完成后我们即可登录 OP 系统了。恩山固件默认的 ip 地址为 <code>192.168.123.1</code>，用户名为 <code>root</code>，密码默认为 <code>password</code>。进入系统后我们先进行一下系统升级，选择 <code>sysupgrade</code> 文件进行升级，
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_73zUA0.png" alt="系统升级">
@@ -550,10 +550,10 @@ reboot
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_Ogzy2c.png" alt="设置拨号上网">
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_vLLyAG.png" alt="设置 wifi">
 如果我们用 OP 系统不太顺手，可以随时切换回官方固件。打开终端，输入 openwrt 的 IP 地址 <code>192.168.123.1</code> ，用户名为 <code>root</code>，密码 <code>password</code> 登录 SSH 后，输入下面的三行命令即可。</p>
-<pre tabindex="0"><code>fw_setenv flag_last_success 1
-fw_setenv flag_boot_rootfs 1
-reboot
-</code></pre><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_WoG4ym.png" alt="切换官方固件">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">fw_setenv flag_last_success <span class="m">1</span>
+</span></span><span class="line"><span class="cl">fw_setenv flag_boot_rootfs <span class="m">1</span>
+</span></span><span class="line"><span class="cl">reboot
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_WoG4ym.png" alt="切换官方固件">
 切换回官方固件分区的命令和刚才切换到 OP 分区命令很像，但又有所区别！这是由于当前所使用的系统不同导致的，<code>openwrt 切换到小米固件时，使用 fw_setenv</code>，<code>从小米固件切换回 openwrt 固件时使用 nvram set</code>！⚠️ 还有一点需要注意，使用官方固件时，如果未来还想使用 OP 系统，一定关闭自动升级功能，自动升级后会覆盖 OP 系统的分区。⚠️</p>
 <h2 id="扩容刷入-openwrt-固件">扩容刷入 openwrt 固件</h2>
 <h3 id="扩容刷机原理">扩容刷机原理</h3>
@@ -568,10 +568,10 @@ reboot
 <p>首先我们先要刷入临时 OP 固件。刷 OP 固件第一步就是解锁 SSH，有关解锁 SSH 的操作步骤，请阅读<a href="#%E8%A7%A3%E9%94%81-ssh">解锁 SSH</a> 部分。刷机前我们先要将临时 OP 固件上传到路由器的 tmp 文件夹，打开 <code>winscp</code>，文件协议选择 <code>scp</code>，主机名输入小米路由器 ip 地址 <code>192.168.31.1</code>，用户名为 <code>root</code>，密码为<code>解锁 SSH 获取的密码</code>。登录后我们在右侧的路由器文件系统中选择 <code>/tmp</code> 目录，在左侧 windows 文件系统中，选择要上传的临时 OP 固件进行上传。
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_98JaAN.png" alt="上传临时 op 固件">
 上传完毕后，我们打开 cmd，输入<code>ssh root@192.168.31.1</code>这行命令登录 SSH，密码为解锁 SSH 获取的密码，登录完成后输入以下两行命令，</p>
-<pre tabindex="0"><code>nvram set flag_last_success=0
-nvram set flag_boot_rootfs=0
-nvram commit
-</code></pre><p>其中数字 0 代表 12 分区，
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nvram <span class="nb">set</span> <span class="nv">flag_last_success</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl">nvram <span class="nb">set</span> <span class="nv">flag_boot_rootfs</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl">nvram commit
+</span></span></code></pre></div><p>其中数字 0 代表 12 分区，
 这两行命令的含义为<code>下次启动时将 12 分区作为系统分区</code>，也就是从 12 分区启动。设置好启动分区了，我们输入这行命令 <code>mtd write /tmp/xiaomimtd12.bin rootfs</code>，将上传的临时 op 固件刷入到 <code>12 分区</code>。完成后输入 <code>reboot</code> 重启路由器。
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_aWIvXG.png" alt="刷入临时 op 固件">
 稍等片刻后在浏览器中输入临时 OP 固件的默认登录地址 <code>192.168.1.1</code>，如果正常打开登录页面表示系统启动完毕。⚠️ 不要通过路由器指示灯判断是否启动完毕，刷入临时 op 固件后指示灯一直处于熄灭状态。⚠️ 临时 op 固件启动完成后，我们就可以进行合并分区的操作了，我们先把合并分区需要用到的分区表文件上传到路由器的 <code>tmp</code> 文件夹，打开 <code>winscp</code>，文件协议选择 <code>scp</code>，ip 地址输入临时 op 固件的默认地址 <code>192.168.1.1</code>，默认密码为空。登录成功后，在路由器文件系统选择 <code>tmp</code> 目录，在 windows 系统中选择<code>扩容使用的分区表文件</code>并将其上传。
@@ -604,9 +604,9 @@ nvram commit
 <p>我们先打开 <code>winscp</code>，文件协议选择 <code>SCP</code>，地址为我们刷入 op 固件的登录地址 <code>192.168.1.1</code>，用户名 <code>root</code>，密码为空。登陆成功后，在路由器的文件系统中选择 <code>tmp</code> 文件夹，在 windows 的系统中上传 ax6 的官方固件以及官方分区文件。
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_GyzJPQ.png" alt="上传 ax6 官方固件和官方分区文件">
 上传完毕后我们登录 ssh <code>ssh root@192.168.1.1</code> 进行刷机操作，如果出现公钥报错，如法炮制，删除 .ssh 文件夹后从重新进行登录。登录完成后，输入这条命令 <code>ubiformat /dev/mtd12 -y -f /tmp/AX6_1.1.4.ubi</code> 将刚刚上传的官方固件刷入到 12 分区。之后输入这条命令 <code>mtd write /tmp/ybmibib.bin /dev/mtd1</code>，将分区表文件刷入 1 分区。操作完成后，输入下面两条命令，</p>
-<pre tabindex="0"><code>fw_setenv flag_last_success 0
-fw_setenv flag_boot_rootfs 0
-</code></pre><p>将启动分区改为 12 分区。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">fw_setenv flag_last_success <span class="m">0</span>
+</span></span><span class="line"><span class="cl">fw_setenv flag_boot_rootfs <span class="m">0</span>
+</span></span></code></pre></div><p>将启动分区改为 12 分区。
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_06_zbXJRR.png" alt="刷回官方固件">
 完成后重启路由器即可！
 ⚠️ 此处要特别注意，由于我们刚刚修改了分区表，所以一定进行断电重启。⚠️ 重启完成后我们打开浏览器输入 <code>192.168.31.1</code>，即可打开小米路由器官方固件的初始化页面。到此为止，刷回官方固件的操作就完成了。</p>
@@ -637,9 +637,9 @@ fw_setenv flag_boot_rootfs 0
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mtd erase /dev/mtd1
 </span></span><span class="line"><span class="cl">mtd write /tmp/ax6-uboot-mibib.bin /dev/mtd1
 </span></span></code></pre></div><p>擦除 <code>mtd1</code> 分区，再写入刚上传的扩容分区表文件。完成后再输入下面两行命令，</p>
-<pre tabindex="0"><code>mtd erase /dev/mtd7
-mtd write /tmp/ax6-uboot.bin /dev/mtd7
-</code></pre><p>擦除 <code>mtd7</code> 分区并写入刚上传的改版 uboot 引导程序。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mtd erase /dev/mtd7
+</span></span><span class="line"><span class="cl">mtd write /tmp/ax6-uboot.bin /dev/mtd7
+</span></span></code></pre></div><p>擦除 <code>mtd7</code> 分区并写入刚上传的改版 uboot 引导程序。</p>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_10_08_xUmHpO.png" alt="写入扩容分区表文件和 uboot 引导程序"></p>
 <p>⚠️ 我们刚刚修改了分区表，写入完成后一定要记得断电重启！⚠️</p>
 <p>由于我们把两个系统分区和 overlay 分区进行了合并，当前路由器中是没有安装系统的，所以我们先要登录改版 uboot 的图形化界面刷入 OP 固件。启动 uboot 图形化界面的方式很简单，使用网线将电脑与路由器相连后先按住 <code>reset</code> 按钮再接通电源，大概五秒钟后看到指示灯变黄后松开 <code>reset</code> 按钮即可。图形化界面的登录地址为 <code>192.168.1.1</code>，所以我们要在网络设置中，将连接 ax6 的网卡 ip 地址设置为<code>192.168.1</code> 网段的任一地址。修改完成后，打开浏览器输入 <code>192.168.1.1</code> 即可进入 uboot 图形化界面。点击选择文件，在电脑中选取我们要刷入的 OP 固件后，点击 <code>update firmware</code> 即可刷入固件。
@@ -653,19 +653,19 @@ mtd write /tmp/ax6-uboot.bin /dev/mtd7
 <p>红米 AX6 目前解锁 SSH 稍微有点麻烦，不过胜在性价比高。如果你动手能力强，喜欢折腾，我还是更推荐你购买 AX6， 如果想省点精力也可以看看其他的小米路由器，解锁 SSH 没有 AX6 复杂，性价比也都不错。</p>
 ]]></content:encoded></item><item><title>你真的清楚流程图规范吗？</title><link>https://alphapenng.github.io/zh-cn/2022/08/03/%E4%BD%A0%E7%9C%9F%E7%9A%84%E6%B8%85%E6%A5%9A%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%84%E8%8C%83%E5%90%97/</link><pubDate>Wed, 03 Aug 2022 11:07:44 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/08/03/%E4%BD%A0%E7%9C%9F%E7%9A%84%E6%B8%85%E6%A5%9A%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%84%E8%8C%83%E5%90%97/</guid><description>流程图作为一种表达算法和思路最好的方法，一直在我们的生活中扮演着重要的角色。但是很多人画流程图都是大概一画，并没有按照流程图规范来画。难道流</description><content:encoded><![CDATA[<p>流程图作为一种表达算法和思路最好的方法，一直在我们的生活中扮演着重要的角色。但是很多人画流程图都是大概一画，并没有按照流程图规范来画。难道流程图没有一个统一的规范吗？流程图当然有规范的画法，下面我来为大家介绍一些流程图规范。</p>
 <p>既然说起流程图规范，那不得不提的就是流程图的三大结构。在说三大结构之前，首先需要注意的就是流程图的符号要求。</p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_11_17_5vn0wT.jpg" alt=""></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_11_17_5vn0wT.jpg" alt="1"></p>
 <p>如上图所示，这些就是流程图设计中比较常用的一些形状。它们都有特定的含义，所以不能乱用。在流程图规范中，流程图的符号使用是最容易出错的。下面我为大家找到一张图片，可以清晰的说明每个符号是干什么的：</p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_11_17_3321ZS.jpg" alt=""></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_11_17_3321ZS.jpg" alt="2"></p>
 <p>流程图规范需要注意三大结构，这三大结构分别为顺序结构、选择结构和循环结构，这三个结构构成了流程执行的全过程。首先是顺序结构：</p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_11_17_drmF7b.jpg" alt=""></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_11_17_drmF7b.jpg" alt="3"></p>
 <p>正如上图所示，流程图是需要按照顺序来设计的，这是最简单的基本结构，很容易理解，但也是流程图的核心。</p>
 <p>第二点要注意的是选择结构，选择结构又称分支结构，选择结构用于判断给定的条件，根据判断的结果判断某些条件，根据判断的结果来控制程序的流程。</p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_11_17_IVJeaa.jpg" alt=""></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_11_17_IVJeaa.jpg" alt="4"></p>
 <p>上图就很好的展现出了选择结构的运算原理，选择结构的运用也是流程图规范中不可忽视的一点。</p>
 <p>最后一点是循环结构，循环结构又可以分为当型结构和直到型结构。</p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_11_17_kFj8sq.jpg" alt=""></p>
-<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_11_17_LBiUql.jpg" alt=""></p>
-<p>上图就是这两种结构的具体步骤展示。循环结构可以看成是一个条件判断条件和一个向回转向条件的组合，循环结构的包括三个要素：循环变量、循环体和循环终止条件。最终结果由输入的条件决定。这就是流程图规范中的三大结构。</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_11_17_kFj8sq.jpg" alt="5"></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_11_17_LBiUql.jpg" alt="6"></p>
+<p>上图就是这两种结构的具体步骤展示。循环结构可以看成是一个条件判断条件和一个向回转向条件的组合，循环结构的包括三个要素：循环变量、循环体和循环终止条件。最终结果由输入的条件决定。这就是流程图规范中的三大结构</p>
 ]]></content:encoded></item><item><title>华为路由交换设备命令手册</title><link>https://alphapenng.github.io/zh-cn/2022/08/03/%E5%8D%8E%E4%B8%BA%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2%E8%AE%BE%E5%A4%87%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/</link><pubDate>Wed, 03 Aug 2022 10:56:52 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/08/03/%E5%8D%8E%E4%B8%BA%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2%E8%AE%BE%E5%A4%87%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/</guid><description>概述 适用设备 本命令手册主要适用于华为 NE 路由器系列型号设备及 5700 交换机系列型号设备。 命令格式 序号 格式 意义 1 粗体 命令关键字，在命令中保持不变，原样</description><content:encoded><![CDATA[<h2 id="概述">概述</h2>
 <ul>
 <li>适用设备
@@ -710,37 +710,37 @@ mtd write /tmp/ax6-uboot.bin /dev/mtd7
 </table>
 <h2 id="路由器">路由器</h2>
 <h3 id="名称">名称</h3>
-<pre tabindex="0"><code># 采用「X_Y_Z」的形式，路由器 X 为战区名称简写，Y 为节点名称简写，Z 为设备型号，如果
-存在同型号的多台设备，按 A、B、C、D 的顺序进行编号，在型号后增加编号序列
-&lt;R&gt;sys
-[R]sys DB_HJ_NE20-X3
-</code></pre><h3 id="接口">接口</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 采用「X_Y_Z」的形式，路由器 X 为战区名称简写，Y 为节点名称简写，Z 为设备型号，如果
+</span></span><span class="line"><span class="cl">存在同型号的多台设备，按 A、B、C、D 的顺序进行编号，在型号后增加编号序列
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span>R<span class="p">&gt;</span>sys
+</span></span><span class="line"><span class="cl">[R]sys DB_HJ_NE20-X3
+</span></span></code></pre></div><h3 id="接口">接口</h3>
 <p>（1）环回接口（ Lookback ） 配置</p>
-<pre tabindex="0"><code># 配置 OSPF 协议、BGP 协议、MPLS 的 LDP 协议时必须配置相关协议的路由器 ID，且统一
-采用最小环回口地址作为路由器 ID
-[R]int loo0
-[R-loo0]ip add 1.1.1.1 32
-</code></pre><p>（2）GE 网口</p>
-<pre tabindex="0"><code># 主要配置包括介质类型、接口自协商、接口速率、流控、单 / 双工模式等基本功能
-# 接口缺省开启自协商功能，采用电口互连时，一般采用自协商方式互通
-[R]int g0/0/0
-[R-g0/0/0]port-type copper
-[R-g0/0/0]ip add 10.0.0.1 24
-# 采用光口互连时，一般要求关闭接口自协商功能，配置固定速率互通
-[R]int g0/0/1
-[R-g0/0/1]port-type fiber-1000
-[R-g0/0/1]undo negotiation auto
-[R-g0/0/1]speed 1000
-[R-g0/0/1]ip add 10.0.0.2 24
-</code></pre><p>（3）10GE 网口</p>
-<pre tabindex="0"><code># 10GE 以太网接口可配置为广域网模式或局域网模式
-[R]int g5/0/0
-[R-g5/0/0]ip add 10.1.1.1 24
-[R-g5/0/0]set transfer-mode wan
-</code></pre><p>（4）E1 接口</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 配置 OSPF 协议、BGP 协议、MPLS 的 LDP 协议时必须配置相关协议的路由器 ID，且统一
+</span></span><span class="line"><span class="cl">采用最小环回口地址作为路由器 ID
+</span></span><span class="line"><span class="cl">[R]int loo0
+</span></span><span class="line"><span class="cl">[R-loo0]ip add 1.1.1.1 32
+</span></span></code></pre></div><p>（2）GE 网口</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 主要配置包括介质类型、接口自协商、接口速率、流控、单 / 双工模式等基本功能
+</span></span><span class="line"><span class="cl"># 接口缺省开启自协商功能，采用电口互连时，一般采用自协商方式互通
+</span></span><span class="line"><span class="cl">[R]int g0/0/0
+</span></span><span class="line"><span class="cl">[R-g0/0/0]port-type copper
+</span></span><span class="line"><span class="cl">[R-g0/0/0]ip add 10.0.0.1 24
+</span></span><span class="line"><span class="cl"># 采用光口互连时，一般要求关闭接口自协商功能，配置固定速率互通
+</span></span><span class="line"><span class="cl">[R]int g0/0/1
+</span></span><span class="line"><span class="cl">[R-g0/0/1]port-type fiber-1000
+</span></span><span class="line"><span class="cl">[R-g0/0/1]undo negotiation auto
+</span></span><span class="line"><span class="cl">[R-g0/0/1]speed 1000
+</span></span><span class="line"><span class="cl">[R-g0/0/1]ip add 10.0.0.2 24
+</span></span></code></pre></div><p>（3）10GE 网口</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 10GE 以太网接口可配置为广域网模式或局域网模式
+</span></span><span class="line"><span class="cl">[R]int g5/0/0
+</span></span><span class="line"><span class="cl">[R-g5/0/0]ip add 10.1.1.1 24
+</span></span><span class="line"><span class="cl">[R-g5/0/0]set transfer-mode wan
+</span></span></code></pre></div><p>（4）E1 接口</p>
 <ol>
-<li>AR 系列路由器 E1-F 接口配置方式</li>
-</ol>
+<li>
+<p>AR 系列路由器 E1-F 接口配置方式</p>
 <ul>
 <li>
 <p>E1-F 接口有两种工作方式，<strong>非成帧方式</strong>和<strong>成帧方式</strong>（建议使用非成帧方式）</p>
@@ -758,558 +758,556 @@ mtd write /tmp/ax6-uboot.bin /dev/mtd7
 </ul>
 </li>
 </ul>
-<pre tabindex="0"><code># AR 系列路由器基本配置
-[R]display device //查看 E1T1 接口卡的槽位号，是否在位以及状态是否正常
-[R]display workmode [slot 槽位 id ｜all] //查看 E1T1 接口卡的工作模式
-[R]set workmode slot &lt;slot-id&gt; e1-f //配置 E1T1 接口卡工作在 E1-F 模式，默认
-就是该模式
-[R]int s2/0/0
-[R-s2/0/0]fe1 unframed //配置为非成帧方式，默认成帧方式(要配）
-[R-s2/0/0]fe1 line-termination [75-ohm | 120-ohm] //配置E1-F 接口所连接的
-线缆类型，默认 120-ohm（不要配）
-[R-s2/0/0]fe1 clock [master | slave | system] //配置 E1-F 接口的时钟方式，
-默认为 slave（要配）
-[R-s2/0/0]crc [16 | 32 | none ] 配置接口的 CRC 校验模式，默认 16 位 CRC 校验，
-建议修改为 32 位（要配）
-# 多个 E1 接口捆绑
-[R]interface mp-group0/0/0
-[R-mp-group0/0/0]ip add 1.1.13.1 24
-[R-mp-group0/0/0]interface serial 2/0/0
-[R-serial2/0/0]ppp mp-group 0/0/0
-[R-serial2/0/0]interface serial 2/0/1
-[R-serial2/0/1]ppp mp-group 0/0/0
-</code></pre><ol start="2">
-<li>NE 系列路由器 CPOS 接口和 E1 接口配置方式</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># AR 系列路由器基本配置
+</span></span><span class="line"><span class="cl">[R]display device //查看 E1T1 接口卡的槽位号，是否在位以及状态是否正常
+</span></span><span class="line"><span class="cl">[R]display workmode [slot 槽位 id ｜all] //查看 E1T1 接口卡的工作模式
+</span></span><span class="line"><span class="cl">[R]set workmode slot <span class="p">&lt;</span>slot-id<span class="p">&gt;</span> e1-f //配置 E1T1 接口卡工作在 E1-F 模式，默认
+</span></span><span class="line"><span class="cl">就是该模式
+</span></span><span class="line"><span class="cl">[R]int s2/0/0
+</span></span><span class="line"><span class="cl">[R-s2/0/0]fe1 unframed //配置为非成帧方式，默认成帧方式(要配）
+</span></span><span class="line"><span class="cl">[R-s2/0/0]fe1 line-termination [75-ohm <span class="p">|</span> 120-ohm] //配置E1-F 接口所连接的
+</span></span><span class="line"><span class="cl">线缆类型，默认 120-ohm（不要配）
+</span></span><span class="line"><span class="cl">[R-s2/0/0]fe1 clock [master <span class="p">|</span> slave <span class="p">|</span> system] //配置 E1-F 接口的时钟方式，
+</span></span><span class="line"><span class="cl">默认为 slave（要配）
+</span></span><span class="line"><span class="cl">[R-s2/0/0]crc [16 <span class="p">|</span> 32 <span class="p">|</span> none ] 配置接口的 CRC 校验模式，默认 16 位 CRC 校验，
+</span></span><span class="line"><span class="cl">建议修改为 32 位（要配）
+</span></span><span class="line"><span class="cl"># 多个 E1 接口捆绑
+</span></span><span class="line"><span class="cl">[R]interface mp-group0/0/0
+</span></span><span class="line"><span class="cl">[R-mp-group0/0/0]ip add 1.1.13.1 24
+</span></span><span class="line"><span class="cl">[R-mp-group0/0/0]interface serial 2/0/0
+</span></span><span class="line"><span class="cl">[R-serial2/0/0]ppp mp-group 0/0/0
+</span></span><span class="line"><span class="cl">[R-serial2/0/0]interface serial 2/0/1
+</span></span><span class="line"><span class="cl">[R-serial2/0/1]ppp mp-group 0/0/0
+</span></span></code></pre></div></li>
+<li>
+<p>NE 系列路由器 CPOS 接口和 E1 接口配置方式</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># NE20E 路由器 CPOS 接口配置
+</span></span><span class="line"><span class="cl"># 将 CPOS 接口和其通道化出来的 E1 接口配置为主时钟模式
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span>NE210E<span class="p">&gt;</span>system-view
+</span></span><span class="line"><span class="cl">[NE210E]controller cpos 1/0/0
+</span></span><span class="line"><span class="cl">[NE210E-Cpos1/0/0]clock master
+</span></span><span class="line"><span class="cl">[NE210E-Cpos1/0/0]e1 1 unframed
+</span></span><span class="line"><span class="cl">[NE210E-Cpos1/0/0]e1 1 set clock master
+</span></span><span class="line"><span class="cl">[NE210E-Cpos1/0/0]e1 2 unframed
+</span></span><span class="line"><span class="cl">[NE210E-Cpos1/0/0]e1 2 set clock master
+</span></span><span class="line"><span class="cl"># 创建 Mp-group 接口，配置 IP 地址
+</span></span><span class="line"><span class="cl">[NE210E]interface mp-group 0/0/0
+</span></span><span class="line"><span class="cl">[NE210E-Mp-group0/0/0]ip address 10.1.1.1 30
+</span></span><span class="line"><span class="cl">[NE210E-Mp-group0/0/0]quit
+</span></span><span class="line"><span class="cl"># 将串口 Serial1/0/0/1:0 加入 Mp-group 接口
+</span></span><span class="line"><span class="cl">[NE210E]interface serial1/0/0/1:0
+</span></span><span class="line"><span class="cl">[NE210E-Serial1/0/0/1:0]link-protocol ppp
+</span></span><span class="line"><span class="cl">[NE210E-Serial1/0/0/1:0]ppp mp mp-group0/0/0
+</span></span><span class="line"><span class="cl">[NE210E-Serial1/0/0/1:0]quit
+</span></span><span class="line"><span class="cl"># 将串口 Serial1/0/0/2:0 加入 Mp-group 接口
+</span></span><span class="line"><span class="cl">[NE210E]interface serial1/0/0/2:0
+</span></span><span class="line"><span class="cl">[NE210E-Serial1/0/0/2:0]link-protocol ppp
+</span></span><span class="line"><span class="cl">[NE210E-Serial1/0/0/2:0]ppp mp mp-group0/0/0
+</span></span><span class="line"><span class="cl">[NE210E-Serial1/0/0/2:0]quit
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># NE20 路由器 E1 接口配置
+</span></span><span class="line"><span class="cl"># 配置 E1 接口的工作模式
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span>NE20<span class="p">&gt;</span>system-view
+</span></span><span class="line"><span class="cl">[NE20]controller e1 1/0/0
+</span></span><span class="line"><span class="cl">[NE20-E1 1/0/0]using e1
+</span></span><span class="line"><span class="cl">[NE20-E1 1/0/0]quit
+</span></span><span class="line"><span class="cl">[NE20]controller e1 1/0/1
+</span></span><span class="line"><span class="cl">[NE20-E1 1/0/1]using e1
+</span></span><span class="line"><span class="cl">[NE20-E1 1/0/1]quit
+</span></span><span class="line"><span class="cl"># 创建 Mp-group 接口，配置相应的 IP 地址
+</span></span><span class="line"><span class="cl">[NE20]interface mp-group 0/0/0
+</span></span><span class="line"><span class="cl">[NE20-mp-group0/0/0]ip address 10.1.1.2 30
+</span></span><span class="line"><span class="cl">[NE20-mp-group0/0/0]quit
+</span></span><span class="line"><span class="cl"># 配置 E1 接口通道化出来的 Serial 接口
+</span></span><span class="line"><span class="cl"># 配置串口 Serial1/0/0:0
+</span></span><span class="line"><span class="cl">[NE20]interface serial1/0/0:0
+</span></span><span class="line"><span class="cl">[NE20-Serial1/0/0:0]link-protocol ppp
+</span></span><span class="line"><span class="cl">[NE20-Serial1/0/0:0]ppp mp mp-group0/0/0
+</span></span><span class="line"><span class="cl">[NE20-Serial1/0/0:0]quit
+</span></span><span class="line"><span class="cl">[NE20]interface serial1/0/1:0
+</span></span><span class="line"><span class="cl">[NE20-Serial1/0/1:0]link-protocol ppp
+</span></span><span class="line"><span class="cl">[NE20-Serial1/0/1:0]ppp mp mp-group0/0/0
+</span></span><span class="line"><span class="cl">[NE20-Serial1/0/1:0]quit
+</span></span><span class="line"><span class="cl"># 验证配置
+</span></span><span class="line"><span class="cl">[NE20E]dis interface serial 1/0/0/1:0
+</span></span><span class="line"><span class="cl">[NE20E]dis interface mp-group 0/0/0
+</span></span><span class="line"><span class="cl">[NE20E]dis ppp mp
+</span></span></code></pre></div></li>
 </ol>
-<pre tabindex="0"><code># NE20E 路由器 CPOS 接口配置
-# 将 CPOS 接口和其通道化出来的 E1 接口配置为主时钟模式
-&lt;NE210E&gt;system-view
-[NE210E]controller cpos 1/0/0
-[NE210E-Cpos1/0/0]clock master
-[NE210E-Cpos1/0/0]e1 1 unframed
-[NE210E-Cpos1/0/0]e1 1 set clock master
-[NE210E-Cpos1/0/0]e1 2 unframed
-[NE210E-Cpos1/0/0]e1 2 set clock master
-# 创建 Mp-group 接口，配置 IP 地址
-[NE210E]interface mp-group 0/0/0
-[NE210E-Mp-group0/0/0]ip address 10.1.1.1 30
-[NE210E-Mp-group0/0/0]quit
-# 将串口 Serial1/0/0/1:0 加入 Mp-group 接口
-[NE210E]interface serial1/0/0/1:0
-[NE210E-Serial1/0/0/1:0]link-protocol ppp
-[NE210E-Serial1/0/0/1:0]ppp mp mp-group0/0/0
-[NE210E-Serial1/0/0/1:0]quit
-# 将串口 Serial1/0/0/2:0 加入 Mp-group 接口
-[NE210E]interface serial1/0/0/2:0
-[NE210E-Serial1/0/0/2:0]link-protocol ppp
-[NE210E-Serial1/0/0/2:0]ppp mp mp-group0/0/0
-[NE210E-Serial1/0/0/2:0]quit
-</code></pre><pre tabindex="0"><code># NE20 路由器 E1 接口配置
-# 配置 E1 接口的工作模式
-&lt;NE20&gt;system-view
-[NE20]controller e1 1/0/0
-[NE20-E1 1/0/0]using e1
-[NE20-E1 1/0/0]quit
-[NE20]controller e1 1/0/1
-[NE20-E1 1/0/1]using e1
-[NE20-E1 1/0/1]quit
-# 创建 Mp-group 接口，配置相应的 IP 地址
-[NE20]interface mp-group 0/0/0
-[NE20-mp-group0/0/0]ip address 10.1.1.2 30
-[NE20-mp-group0/0/0]quit
-# 配置 E1 接口通道化出来的 Serial 接口
-# 配置串口 Serial1/0/0:0
-[NE20]interface serial1/0/0:0
-[NE20-Serial1/0/0:0]link-protocol ppp
-[NE20-Serial1/0/0:0]ppp mp mp-group0/0/0
-[NE20-Serial1/0/0:0]quit
-[NE20]interface serial1/0/1:0
-[NE20-Serial1/0/1:0]link-protocol ppp
-[NE20-Serial1/0/1:0]ppp mp mp-group0/0/0
-[NE20-Serial1/0/1:0]quit
-# 验证配置
-[NE20E]dis interface serial 1/0/0/1:0
-[NE20E]dis interface mp-group 0/0/0
-[NE20E]dis ppp mp
-</code></pre><p>（5）Pos 口</p>
-<pre tabindex="0"><code>[R]int pos2/0/0
-[R-pos2/0/0]link-protocol [ppp | hdlc | fr] // 默认 ppp
-[R-pos2/0/0]crc [16 | 32] // 默认 32
-[R-pos2/0/0]clock [slave | master] // 默认 master，一般不需要更改
-[R-pos2/0/0]frame-format [sdh | sonet] // 默认 sdh，一般不需要更改
-[R-pos2/0/0]scramble // 默认加扰，可以使用 undo scramble 命令取消
-</code></pre><h3 id="认证">认证</h3>
+<p>（5）Pos 口</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]int pos2/0/0
+</span></span><span class="line"><span class="cl">[R-pos2/0/0]link-protocol [ppp <span class="p">|</span> hdlc <span class="p">|</span> fr] // 默认 ppp
+</span></span><span class="line"><span class="cl">[R-pos2/0/0]crc [16 <span class="p">|</span> 32] // 默认 32
+</span></span><span class="line"><span class="cl">[R-pos2/0/0]clock [slave <span class="p">|</span> master] // 默认 master，一般不需要更改
+</span></span><span class="line"><span class="cl">[R-pos2/0/0]frame-format [sdh <span class="p">|</span> sonet] // 默认 sdh，一般不需要更改
+</span></span><span class="line"><span class="cl">[R-pos2/0/0]scramble // 默认加扰，可以使用 undo scramble 命令取消
+</span></span></code></pre></div><h3 id="认证">认证</h3>
 <p>（1）串口登录密码认证</p>
-<pre tabindex="0"><code># 控制口登录密码认证
-[R]user-interface con 0
-[R-ui-console0]authentication-mode password
-[R-ui-console0]set authentication password cipher huawei@123
-</code></pre><p>（2）aaa 认证</p>
-<pre tabindex="0"><code># 控制口登录 aaa 认证
-[R]user-interface con 0
-[R-ui-con0]authentication-mode aaa
-[R]aaa
-[R-aaa]local-user admin123 password cipher huawei@123
-[R-aaa]local-user admin123 service-type terminal
-[R-aaa]local-user admin123 privilege level 15
-# 配置用户在 10 分钟内错误连接次数为 3 次，3 次输入错误密码，锁定用户并在 10 分钟后
-解锁
-[R-aaa]user-block failed-times 3 period 10
-</code></pre><pre tabindex="0"><code># 虚拟终端登录 aaa 认证
-[R]user-interface vty 0 4
-[R-ui-vty0-4]authentication-mode aaa
-[R-ui-vty0-4]protocol inbound all ( 允许 telnet 和 ssh 登录）
-[R]aaa
-# telnet 用户
-[R-aaa]local-user tel123 password cipher huawei@123
-[R-aaa]local-user tel123 privilege level 15
-[R-aaa]local-user tel123 service-type telnet
-# ftp 用户
-[R-aaa]local-user ftp123 password cipher huawei@123
-[R-aaa]local-user ftp123 privilege level 15
-[R-aaa]local-user ftp123 service-type ftp
-[R-aaa]local-user ftp123 ftp-directory flash:
-# stelnet 和 sftp 用户
-[R-aaa]local-user ssh123 password cipher huawei@123
-[R-aaa]local-user ssh123 privilege level 15
-[R-aaa]local-user ssh123 service-type ssh
-[R]ssh user ssh123 authentication-mode password
-[R]ssh user ssh123 service-type stelent sftp
-[R]ssh user ssh123 sftp-directory sftp
-# 开启相应服务器
-[R]telnet server enable
-[R]ftp server enable
-[R]stelnet server enable
-[R]sftp server enable
-# ssh 用户（包括 stelnet 和 sftp ) 生成本地密钥对
-[R]rsa local-key-pair create
-</code></pre><p>（3）链路认证（只有 PPP 协议需要配置）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 控制口登录密码认证
+</span></span><span class="line"><span class="cl">[R]user-interface con 0
+</span></span><span class="line"><span class="cl">[R-ui-console0]authentication-mode password
+</span></span><span class="line"><span class="cl">[R-ui-console0]set authentication password cipher huawei@123
+</span></span></code></pre></div><p>（2）aaa 认证</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 控制口登录 aaa 认证
+</span></span><span class="line"><span class="cl">[R]user-interface con 0
+</span></span><span class="line"><span class="cl">[R-ui-con0]authentication-mode aaa
+</span></span><span class="line"><span class="cl">[R]aaa
+</span></span><span class="line"><span class="cl">[R-aaa]local-user admin123 password cipher huawei@123
+</span></span><span class="line"><span class="cl">[R-aaa]local-user admin123 service-type terminal
+</span></span><span class="line"><span class="cl">[R-aaa]local-user admin123 privilege level 15
+</span></span><span class="line"><span class="cl"># 配置用户在 10 分钟内错误连接次数为 3 次，3 次输入错误密码，锁定用户并在 10 分钟后
+</span></span><span class="line"><span class="cl">解锁
+</span></span><span class="line"><span class="cl">[R-aaa]user-block failed-times 3 period 10
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 虚拟终端登录 aaa 认证
+</span></span><span class="line"><span class="cl">[R]user-interface vty 0 4
+</span></span><span class="line"><span class="cl">[R-ui-vty0-4]authentication-mode aaa
+</span></span><span class="line"><span class="cl">[R-ui-vty0-4]protocol inbound all ( 允许 telnet 和 ssh 登录）
+</span></span><span class="line"><span class="cl">[R]aaa
+</span></span><span class="line"><span class="cl"># telnet 用户
+</span></span><span class="line"><span class="cl">[R-aaa]local-user tel123 password cipher huawei@123
+</span></span><span class="line"><span class="cl">[R-aaa]local-user tel123 privilege level 15
+</span></span><span class="line"><span class="cl">[R-aaa]local-user tel123 service-type telnet
+</span></span><span class="line"><span class="cl"># ftp 用户
+</span></span><span class="line"><span class="cl">[R-aaa]local-user ftp123 password cipher huawei@123
+</span></span><span class="line"><span class="cl">[R-aaa]local-user ftp123 privilege level 15
+</span></span><span class="line"><span class="cl">[R-aaa]local-user ftp123 service-type ftp
+</span></span><span class="line"><span class="cl">[R-aaa]local-user ftp123 ftp-directory flash:
+</span></span><span class="line"><span class="cl"># stelnet 和 sftp 用户
+</span></span><span class="line"><span class="cl">[R-aaa]local-user ssh123 password cipher huawei@123
+</span></span><span class="line"><span class="cl">[R-aaa]local-user ssh123 privilege level 15
+</span></span><span class="line"><span class="cl">[R-aaa]local-user ssh123 service-type ssh
+</span></span><span class="line"><span class="cl">[R]ssh user ssh123 authentication-mode password
+</span></span><span class="line"><span class="cl">[R]ssh user ssh123 service-type stelent sftp
+</span></span><span class="line"><span class="cl">[R]ssh user ssh123 sftp-directory sftp
+</span></span><span class="line"><span class="cl"># 开启相应服务器
+</span></span><span class="line"><span class="cl">[R]telnet server enable
+</span></span><span class="line"><span class="cl">[R]ftp server enable
+</span></span><span class="line"><span class="cl">[R]stelnet server enable
+</span></span><span class="line"><span class="cl">[R]sftp server enable
+</span></span><span class="line"><span class="cl"># ssh 用户（包括 stelnet 和 sftp ) 生成本地密钥对
+</span></span><span class="line"><span class="cl">[R]rsa local-key-pair create
+</span></span></code></pre></div><p>（3）链路认证（只有 PPP 协议需要配置）</p>
 <ul>
 <li>PAP 认证(此为单项认证配置，双项认证要求路由器再添加对端的配置命令即可）</li>
 </ul>
-<pre tabindex="0"><code># 路由器 1
-[R1] aaa
-[R1-aaa]local-user admin1 password cipher huawei@123
-[R1-aaa]local-user admin1 service-type ppp
-[R1-aaa]quit
-[R1]int serial 1/0/0:0
-[R1-Serial1/0/0:0]ppp authentication-mode pap
-[R1-Serial1/0/0:0]quit
-# 路由器 2
-[R2]int serial1/0/1:0
-[R2-Serial1/0/1:0]ppp pap local-user admin1 password cipher huawei@123
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 路由器 1
+</span></span><span class="line"><span class="cl">[R1] aaa
+</span></span><span class="line"><span class="cl">[R1-aaa]local-user admin1 password cipher huawei@123
+</span></span><span class="line"><span class="cl">[R1-aaa]local-user admin1 service-type ppp
+</span></span><span class="line"><span class="cl">[R1-aaa]quit
+</span></span><span class="line"><span class="cl">[R1]int serial 1/0/0:0
+</span></span><span class="line"><span class="cl">[R1-Serial1/0/0:0]ppp authentication-mode pap
+</span></span><span class="line"><span class="cl">[R1-Serial1/0/0:0]quit
+</span></span><span class="line"><span class="cl"># 路由器 2
+</span></span><span class="line"><span class="cl">[R2]int serial1/0/1:0
+</span></span><span class="line"><span class="cl">[R2-Serial1/0/1:0]ppp pap local-user admin1 password cipher huawei@123
+</span></span></code></pre></div><ul>
 <li>CHAP 认证</li>
 </ul>
-<pre tabindex="0"><code># 路由器 1
-[R1]aaa
-[R1-aaa]local-user admin1 password cipher huawei@123
-[R1-aaa]local-user admin1 service-type ppp
-[R1-aaa]quit
-[R1]int pos2/0/1
-[R1-pos2/0/1]ppp authentication-mode chap
-[R1-pos2/0/1]q
-# 路由器 2
-[R2]int pos2/0/1
-[R2-pos2/0/1]ppp chap user admin1
-[R2-pos2/0/1]ppp chap password cipher huawei@123
-[R2-pos2/0/1]q
-</code></pre><h3 id="ospf">OSPF</h3>
-<pre tabindex="0"><code># 基本配置
-[R]ospf 1 router-id 1.1.1.1
-# 修改 OSPF 优先级（此参数建议谨慎修改，会影响全局路由）
-[R-ospf-1]preference 30
-# 修改 OSPF ASE 优先级（此参数建议谨慎修改，会影响全局路由）
-[R-ospf-1]preference ase 30
-# 修改 OSPF 协议计算路由参考带宽 10000Mbit/s
-[R-ospf-1]bandwidth-reference 10000
-# OSPF 区域配置
-[R-ospf-1]area 0
-# 配置OSPF 区域认证
-[R-ospf-1-area-0.0.0.0]authentication-mode md5 1 huawei
-# 宣告路由
-[R-ospf-1-area-0.0.0.0]network 1.1.1.1 0.0.0.0
-[R-ospf-1-area-0.0.0.0]network 5.1.2.4 0.0.0.3  
-[R-ospf-1-area-0.0.0.0]area 1
-[R-ospf-1-area-0.0.0.1]nssa //配置 OSPF nssa 区域
-# 在区域 1 中配置区域间路由聚合
-[R-ospf-1-area-0.0.0.1]network 20.0.1.0 0.0.0.255
-[R-ospf-1-area-0.0.0.1]network 20.0.2.0 0.0.0.255
-[R-ospf-1-area-0.0.0.1]network 20.0.3.0 0.0.0.255
-[R-ospf-1-area-0.0.0.1]abr-summary 20.0.0.0 255.255.252.0
-# 通过路由策略引入路由
-[R]acl 2000
-[R-acl-basic-2000]rule permit source 192.168.1.0 0.0.0.255
-[R-acl-basic-2000]route-policy rp1 permit node 1
-[R-route-policy]if-match acl 2000
-[R-route-policy]ospf 1
-[R-ospf-1]import-route direct route-policy rp1 
-#  OSPF 设置接口参数
-[R]int g0/0/0
-[R-g0/0/0]ospf authentication-mode md5 1 huawei //配置 OSPF 接口认证
-[R-g0/0/0]ospf cost 20000 //配置 OSPF 接口开销
-</code></pre><h3 id="bgp">BGP</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 路由器 1
+</span></span><span class="line"><span class="cl">[R1]aaa
+</span></span><span class="line"><span class="cl">[R1-aaa]local-user admin1 password cipher huawei@123
+</span></span><span class="line"><span class="cl">[R1-aaa]local-user admin1 service-type ppp
+</span></span><span class="line"><span class="cl">[R1-aaa]quit
+</span></span><span class="line"><span class="cl">[R1]int pos2/0/1
+</span></span><span class="line"><span class="cl">[R1-pos2/0/1]ppp authentication-mode chap
+</span></span><span class="line"><span class="cl">[R1-pos2/0/1]q
+</span></span><span class="line"><span class="cl"># 路由器 2
+</span></span><span class="line"><span class="cl">[R2]int pos2/0/1
+</span></span><span class="line"><span class="cl">[R2-pos2/0/1]ppp chap user admin1
+</span></span><span class="line"><span class="cl">[R2-pos2/0/1]ppp chap password cipher huawei@123
+</span></span><span class="line"><span class="cl">[R2-pos2/0/1]q
+</span></span></code></pre></div><h3 id="ospf">OSPF</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 基本配置
+</span></span><span class="line"><span class="cl">[R]ospf 1 router-id 1.1.1.1
+</span></span><span class="line"><span class="cl"># 修改 OSPF 优先级（此参数建议谨慎修改，会影响全局路由）
+</span></span><span class="line"><span class="cl">[R-ospf-1]preference 30
+</span></span><span class="line"><span class="cl"># 修改 OSPF ASE 优先级（此参数建议谨慎修改，会影响全局路由）
+</span></span><span class="line"><span class="cl">[R-ospf-1]preference ase 30
+</span></span><span class="line"><span class="cl"># 修改 OSPF 协议计算路由参考带宽 10000Mbit/s
+</span></span><span class="line"><span class="cl">[R-ospf-1]bandwidth-reference 10000
+</span></span><span class="line"><span class="cl"># OSPF 区域配置
+</span></span><span class="line"><span class="cl">[R-ospf-1]area 0
+</span></span><span class="line"><span class="cl"># 配置OSPF 区域认证
+</span></span><span class="line"><span class="cl">[R-ospf-1-area-0.0.0.0]authentication-mode md5 1 huawei
+</span></span><span class="line"><span class="cl"># 宣告路由
+</span></span><span class="line"><span class="cl">[R-ospf-1-area-0.0.0.0]network 1.1.1.1 0.0.0.0
+</span></span><span class="line"><span class="cl">[R-ospf-1-area-0.0.0.0]network 5.1.2.4 0.0.0.3  
+</span></span><span class="line"><span class="cl">[R-ospf-1-area-0.0.0.0]area 1
+</span></span><span class="line"><span class="cl">[R-ospf-1-area-0.0.0.1]nssa //配置 OSPF nssa 区域
+</span></span><span class="line"><span class="cl"># 在区域 1 中配置区域间路由聚合
+</span></span><span class="line"><span class="cl">[R-ospf-1-area-0.0.0.1]network 20.0.1.0 0.0.0.255
+</span></span><span class="line"><span class="cl">[R-ospf-1-area-0.0.0.1]network 20.0.2.0 0.0.0.255
+</span></span><span class="line"><span class="cl">[R-ospf-1-area-0.0.0.1]network 20.0.3.0 0.0.0.255
+</span></span><span class="line"><span class="cl">[R-ospf-1-area-0.0.0.1]abr-summary 20.0.0.0 255.255.252.0
+</span></span><span class="line"><span class="cl"># 通过路由策略引入路由
+</span></span><span class="line"><span class="cl">[R]acl 2000
+</span></span><span class="line"><span class="cl">[R-acl-basic-2000]rule permit source 192.168.1.0 0.0.0.255
+</span></span><span class="line"><span class="cl">[R-acl-basic-2000]route-policy rp1 permit node 1
+</span></span><span class="line"><span class="cl">[R-route-policy]if-match acl 2000
+</span></span><span class="line"><span class="cl">[R-route-policy]ospf 1
+</span></span><span class="line"><span class="cl">[R-ospf-1]import-route direct route-policy rp1 
+</span></span><span class="line"><span class="cl">#  OSPF 设置接口参数
+</span></span><span class="line"><span class="cl">[R]int g0/0/0
+</span></span><span class="line"><span class="cl">[R-g0/0/0]ospf authentication-mode md5 1 huawei //配置 OSPF 接口认证
+</span></span><span class="line"><span class="cl">[R-g0/0/0]ospf cost 20000 //配置 OSPF 接口开销
+</span></span></code></pre></div><h3 id="bgp">BGP</h3>
 <p>（1）BGP 基本配置</p>
-<pre tabindex="0"><code>[R]bgp 100
-# 修改 bgp 优先级，三个参数依次为 ebgp 外部路由协议优先级，ibgp 内部路由协议优先级
-以及 bgp 本地路由协议优先级——本地路由是指通过聚合命令（summary automatic 自动聚合
-和 aggregate 手动聚合）所聚合的路由
-[R-bgp]perference 10 100 255 // 此参数建议谨慎修改，会影响全局路由
-[R-bgp]undo synchronization // 关闭 bgp 同步
-[R-bgp]undo summary automatic // 关闭自动归纳功能（默认关闭）
-[R-bgp]router-id  6.0.0.11
-[R-bgp]compare-different-as-med // 只有在比较不同 AS 邻居路由器的 MED 属性时才
-开启
-[R-bgp]peer 1.1.1.5 as-number 1 // 指向 EBGP 邻居
-[R-bgp]peer 1.1.1.5 password cipher huawei@123 // 邻居认证
-[R-bgp]peer 5.192.0.12 as-number 11 // 指向 IBGP 邻居
-[R-bgp]peer 5.192.0.12 connect-interface loopback 0 // 指定用环回口建立 
-IBGP 邻居
-[R-bgp]peer 5.192.0.12 next-hop-local // 更改 IBGP 邻居获得的路由下一跳指向
-自己
-&lt;R&gt;reset bgp all // 重启 bgp 进程
-</code></pre><p>（2）BGP 业务路由引入</p>
-<pre tabindex="0"><code>[R]bgp 100
-[R-bgp]network 10.1.4.4 24
-# network 发布的路由，需要在路由表中有一条完全匹配的路由，否则无法发布，若无匹配路由，
-则需手动配置一条静态路由指向 null 0，如
-[R-bgp]network 6.0.0.0 8 
-[R-bgp]ip route-static 6.0.0.0 255.0.0.0 null 0
-</code></pre><h3 id="vpnmpls-vpn">VPN(MPLS VPN)</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]bgp 100
+</span></span><span class="line"><span class="cl"># 修改 bgp 优先级，三个参数依次为 ebgp 外部路由协议优先级，ibgp 内部路由协议优先级
+</span></span><span class="line"><span class="cl">以及 bgp 本地路由协议优先级——本地路由是指通过聚合命令（summary automatic 自动聚合
+</span></span><span class="line"><span class="cl">和 aggregate 手动聚合）所聚合的路由
+</span></span><span class="line"><span class="cl">[R-bgp]perference 10 100 255 // 此参数建议谨慎修改，会影响全局路由
+</span></span><span class="line"><span class="cl">[R-bgp]undo synchronization // 关闭 bgp 同步
+</span></span><span class="line"><span class="cl">[R-bgp]undo summary automatic // 关闭自动归纳功能（默认关闭）
+</span></span><span class="line"><span class="cl">[R-bgp]router-id  6.0.0.11
+</span></span><span class="line"><span class="cl">[R-bgp]compare-different-as-med // 只有在比较不同 AS 邻居路由器的 MED 属性时才
+</span></span><span class="line"><span class="cl">开启
+</span></span><span class="line"><span class="cl">[R-bgp]peer 1.1.1.5 as-number 1 // 指向 EBGP 邻居
+</span></span><span class="line"><span class="cl">[R-bgp]peer 1.1.1.5 password cipher huawei@123 // 邻居认证
+</span></span><span class="line"><span class="cl">[R-bgp]peer 5.192.0.12 as-number 11 // 指向 IBGP 邻居
+</span></span><span class="line"><span class="cl">[R-bgp]peer 5.192.0.12 connect-interface loopback 0 // 指定用环回口建立 
+</span></span><span class="line"><span class="cl">IBGP 邻居
+</span></span><span class="line"><span class="cl">[R-bgp]peer 5.192.0.12 next-hop-local // 更改 IBGP 邻居获得的路由下一跳指向
+</span></span><span class="line"><span class="cl">自己
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span>R<span class="p">&gt;</span>reset bgp all // 重启 bgp 进程
+</span></span></code></pre></div><p>（2）BGP 业务路由引入</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]bgp 100
+</span></span><span class="line"><span class="cl">[R-bgp]network 10.1.4.4 24
+</span></span><span class="line"><span class="cl"># network 发布的路由，需要在路由表中有一条完全匹配的路由，否则无法发布，若无匹配路由，
+</span></span><span class="line"><span class="cl">则需手动配置一条静态路由指向 null 0，如
+</span></span><span class="line"><span class="cl">[R-bgp]network 6.0.0.0 8 
+</span></span><span class="line"><span class="cl">[R-bgp]ip route-static 6.0.0.0 255.0.0.0 null 0
+</span></span></code></pre></div><h3 id="vpnmpls-vpn">VPN(MPLS VPN)</h3>
 <p>（1） MPLS 基本配置</p>
-<pre tabindex="0"><code>[R]mpls lsr-id loopback 0
-[R]mpls
-[R-mpls]mpls ldp
-[R-mpls-ldp]int pos 1/0/1
-[R-pos1/0/1]mpls
-[R-pos1/0/1]mpls ldp
-[R-pos1/0/1]mtu 1500 // 可选配
-[R-pos1/0/1]mpls mtu 1520 // 可选配
-</code></pre><p>（2）创建 VPN 实例并与接口进行绑定</p>
-<pre tabindex="0"><code>[R]ip vpn-instance vpna
-[R-vpn-instance-vpna]ipv4-family
-[R-vpn-instance-vpna-af-ipv4]route-distinguisher 300:1
-[R-vpn-instance-vpna-af-ipv4]vpn-target 100:1
-[R]int g2/0/0
-[R-g2/0/0]ip binding vpn-instance vpna
-[R-g2/0/0]ip add 192.168.31.1 24
-</code></pre><p>（3）配置路由协议实现 VPN 实例内路由互通</p>
-<pre tabindex="0"><code># OSPF 协议
-[R]ospf 2 vpn-instance vpna
-[R-ospf-2]area 0
-[R-ospf-2-area-0.0.0.0]network 192.168.31.0 0.0.0.255
-[R-ospf-2-area-0.0.0.0]import-route bgp  //如果bgp路由太大，请使用路由策略过滤
-想要引入的路由
-# 静态路由协议
-[R]ip route-static vpn-instance vpna 172.16.6.0 24 
-192.168.52.5
-</code></pre><p>（4）配置 MP-BGP</p>
-<pre tabindex="0"><code>[R]bgp 100
-[R-bgp]ipv4-family vpnv4
-[R-bgp-af-vpnv4]peer 12.0.0.2 enable
-[R-bgp-af-vpnv4]peer 12.0.0.2 advertise-community
-[R-bgp-af-vpnv4]quit
-[R-bgp]ipv4-family vpn-instance vpna
-[R-bgp-vpna]network 172.16.5.0 24 //宣告路由，用 network 和 import-route 
-命令都可以
-</code></pre><h3 id="组播">组播</h3>
-<pre tabindex="0"><code># 全局开启组播
-[R]multicast routing-enable
-# 接口加入组播
-[R-g0/0/0]int loo0
-[R-lo0]pim sm
-[R]int g0/0/0
-[R-g0/0/0]pim sm
-# 下游有接收组播组成员的接口还需开启 igmp
-[R-g0/0/0]igmp enable
-# 配置 rp（静态 rp 需在每台启用组播的设备上配置，动态 rp 配置一次即可）
-[R]acl number 2000
-[R-acl-basic-2000]rule permit source 225.0.0.0 0.255.255.255
-[R-acl-basic-2000]rule permit source 226.0.0.0 0.255.255.255
-[R-acl-basic-2000]rule permit source 227.0.0.0 0.255.255.255
-[R-acl-basic-2000]rule deny source any
-[R]pim 
-[R]c-bsr lo0 priority 100// 动态 rp 需配置候选 bsr，优先级越大越优先，默认为0
-# 使用 group-policy &lt;acl 编号 &gt; 命令配置 RP 允许接受的组播地址范围
-[R]c-rp lo0 group-policy 2000 priority 100 // 动态 rp 需配置候选 rp，优先级
-越小越优先，默认为 0 
-# 在 AS 边界路由器上配置阻断 Bootstrap 报文传递到对端 AS 中
-[R]int g0/0/0
-[R-g0/0/0]pim bsr-boundary
-# 配置各 AS 域内 rp 之间的 msdp（组播源发现协议）互通
-[R]msdp
-[R-msdp]peer 12.0.0.2 connect-interface g0/0/0
-# 缺省情况下，RP 收到的所有 SA 消息都转发给 MSDP 邻居，但对于那些只用于本自治系统
-使用的组播地址信息，可以使用 SA 过滤器对发送给 MSDP 邻居的 SA 消息进行过滤
-# 假设 AS 内部的组播地址为 231.0.0.0-238.0.0.0，则需对这些组播地址进行限制，而对
-全网范围的组播地址则不加限制
-[R]acl number 3000
-[R-acl-adv-3000]rule deny ip source any destination 231.0.0.0 0.255.255.255
-[R-acl-adv-3000]rule deny ip source any destination 232.0.0.0 0.255.255.255
-[R-acl-adv-3000]rule deny ip source any destination 233.0.0.0 0.255.255.255
-[R-acl-adv-3000]rule deny ip source any destination 234.0.0.0 0.255.255.255
-[R-acl-adv-3000]rule deny ip source any destination 235.0.0.0 0.255.255.255
-[R-acl-adv-3000]rule deny ip source any destination 236.0.0.0 0.255.255.255
-[R-acl-adv-3000]rule deny ip source any destination 237.0.0.0 0.255.255.255
-[R-acl-adv-3000]rule deny ip source any destination 238.0.0.0 0.255.255.255
-[R-acl-adv-3000]rule permit ip source any destination any
-[R]msdp
-[R-msdp]peer 12.0.0.2 sa-policy export acl 3000
-</code></pre><h3 id="配置文件备份">配置文件备份</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]mpls lsr-id loopback 0
+</span></span><span class="line"><span class="cl">[R]mpls
+</span></span><span class="line"><span class="cl">[R-mpls]mpls ldp
+</span></span><span class="line"><span class="cl">[R-mpls-ldp]int pos 1/0/1
+</span></span><span class="line"><span class="cl">[R-pos1/0/1]mpls
+</span></span><span class="line"><span class="cl">[R-pos1/0/1]mpls ldp
+</span></span><span class="line"><span class="cl">[R-pos1/0/1]mtu 1500 // 可选配
+</span></span><span class="line"><span class="cl">[R-pos1/0/1]mpls mtu 1520 // 可选配
+</span></span></code></pre></div><p>（2）创建 VPN 实例并与接口进行绑定</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]ip vpn-instance vpna
+</span></span><span class="line"><span class="cl">[R-vpn-instance-vpna]ipv4-family
+</span></span><span class="line"><span class="cl">[R-vpn-instance-vpna-af-ipv4]route-distinguisher 300:1
+</span></span><span class="line"><span class="cl">[R-vpn-instance-vpna-af-ipv4]vpn-target 100:1
+</span></span><span class="line"><span class="cl">[R]int g2/0/0
+</span></span><span class="line"><span class="cl">[R-g2/0/0]ip binding vpn-instance vpna
+</span></span><span class="line"><span class="cl">[R-g2/0/0]ip add 192.168.31.1 24
+</span></span></code></pre></div><p>（3）配置路由协议实现 VPN 实例内路由互通</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># OSPF 协议
+</span></span><span class="line"><span class="cl">[R]ospf 2 vpn-instance vpna
+</span></span><span class="line"><span class="cl">[R-ospf-2]area 0
+</span></span><span class="line"><span class="cl">[R-ospf-2-area-0.0.0.0]network 192.168.31.0 0.0.0.255
+</span></span><span class="line"><span class="cl">[R-ospf-2-area-0.0.0.0]import-route bgp  //如果bgp路由太大，请使用路由策略过滤
+</span></span><span class="line"><span class="cl">想要引入的路由
+</span></span><span class="line"><span class="cl"># 静态路由协议
+</span></span><span class="line"><span class="cl">[R]ip route-static vpn-instance vpna 172.16.6.0 24 
+</span></span><span class="line"><span class="cl">192.168.52.5
+</span></span></code></pre></div><p>（4）配置 MP-BGP</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]bgp 100
+</span></span><span class="line"><span class="cl">[R-bgp]ipv4-family vpnv4
+</span></span><span class="line"><span class="cl">[R-bgp-af-vpnv4]peer 12.0.0.2 enable
+</span></span><span class="line"><span class="cl">[R-bgp-af-vpnv4]peer 12.0.0.2 advertise-community
+</span></span><span class="line"><span class="cl">[R-bgp-af-vpnv4]quit
+</span></span><span class="line"><span class="cl">[R-bgp]ipv4-family vpn-instance vpna
+</span></span><span class="line"><span class="cl">[R-bgp-vpna]network 172.16.5.0 24 //宣告路由，用 network 和 import-route 
+</span></span><span class="line"><span class="cl">命令都可以
+</span></span></code></pre></div><h3 id="组播">组播</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 全局开启组播
+</span></span><span class="line"><span class="cl">[R]multicast routing-enable
+</span></span><span class="line"><span class="cl"># 接口加入组播
+</span></span><span class="line"><span class="cl">[R-g0/0/0]int loo0
+</span></span><span class="line"><span class="cl">[R-lo0]pim sm
+</span></span><span class="line"><span class="cl">[R]int g0/0/0
+</span></span><span class="line"><span class="cl">[R-g0/0/0]pim sm
+</span></span><span class="line"><span class="cl"># 下游有接收组播组成员的接口还需开启 igmp
+</span></span><span class="line"><span class="cl">[R-g0/0/0]igmp enable
+</span></span><span class="line"><span class="cl"># 配置 rp（静态 rp 需在每台启用组播的设备上配置，动态 rp 配置一次即可）
+</span></span><span class="line"><span class="cl">[R]acl number 2000
+</span></span><span class="line"><span class="cl">[R-acl-basic-2000]rule permit source 225.0.0.0 0.255.255.255
+</span></span><span class="line"><span class="cl">[R-acl-basic-2000]rule permit source 226.0.0.0 0.255.255.255
+</span></span><span class="line"><span class="cl">[R-acl-basic-2000]rule permit source 227.0.0.0 0.255.255.255
+</span></span><span class="line"><span class="cl">[R-acl-basic-2000]rule deny source any
+</span></span><span class="line"><span class="cl">[R]pim 
+</span></span><span class="line"><span class="cl">[R]c-bsr lo0 priority 100// 动态 rp 需配置候选 bsr，优先级越大越优先，默认为0
+</span></span><span class="line"><span class="cl"># 使用 group-policy <span class="p">&lt;</span>acl 编号 <span class="p">&gt;</span> 命令配置 RP 允许接受的组播地址范围
+</span></span><span class="line"><span class="cl">[R]c-rp lo0 group-policy 2000 priority 100 // 动态 rp 需配置候选 rp，优先级
+</span></span><span class="line"><span class="cl">越小越优先，默认为 0 
+</span></span><span class="line"><span class="cl"># 在 AS 边界路由器上配置阻断 Bootstrap 报文传递到对端 AS 中
+</span></span><span class="line"><span class="cl">[R]int g0/0/0
+</span></span><span class="line"><span class="cl">[R-g0/0/0]pim bsr-boundary
+</span></span><span class="line"><span class="cl"># 配置各 AS 域内 rp 之间的 msdp（组播源发现协议）互通
+</span></span><span class="line"><span class="cl">[R]msdp
+</span></span><span class="line"><span class="cl">[R-msdp]peer 12.0.0.2 connect-interface g0/0/0
+</span></span><span class="line"><span class="cl"># 缺省情况下，RP 收到的所有 SA 消息都转发给 MSDP 邻居，但对于那些只用于本自治系统
+</span></span><span class="line"><span class="cl">使用的组播地址信息，可以使用 SA 过滤器对发送给 MSDP 邻居的 SA 消息进行过滤
+</span></span><span class="line"><span class="cl"># 假设 AS 内部的组播地址为 231.0.0.0-238.0.0.0，则需对这些组播地址进行限制，而对
+</span></span><span class="line"><span class="cl">全网范围的组播地址则不加限制
+</span></span><span class="line"><span class="cl">[R]acl number 3000
+</span></span><span class="line"><span class="cl">[R-acl-adv-3000]rule deny ip source any destination 231.0.0.0 0.255.255.255
+</span></span><span class="line"><span class="cl">[R-acl-adv-3000]rule deny ip source any destination 232.0.0.0 0.255.255.255
+</span></span><span class="line"><span class="cl">[R-acl-adv-3000]rule deny ip source any destination 233.0.0.0 0.255.255.255
+</span></span><span class="line"><span class="cl">[R-acl-adv-3000]rule deny ip source any destination 234.0.0.0 0.255.255.255
+</span></span><span class="line"><span class="cl">[R-acl-adv-3000]rule deny ip source any destination 235.0.0.0 0.255.255.255
+</span></span><span class="line"><span class="cl">[R-acl-adv-3000]rule deny ip source any destination 236.0.0.0 0.255.255.255
+</span></span><span class="line"><span class="cl">[R-acl-adv-3000]rule deny ip source any destination 237.0.0.0 0.255.255.255
+</span></span><span class="line"><span class="cl">[R-acl-adv-3000]rule deny ip source any destination 238.0.0.0 0.255.255.255
+</span></span><span class="line"><span class="cl">[R-acl-adv-3000]rule permit ip source any destination any
+</span></span><span class="line"><span class="cl">[R]msdp
+</span></span><span class="line"><span class="cl">[R-msdp]peer 12.0.0.2 sa-policy export acl 3000
+</span></span></code></pre></div><h3 id="配置文件备份">配置文件备份</h3>
 <p>（1）复制粘贴方式
 （2）ftp 导出方式
 （3）sftp 导出方式</p>
 <h2 id="交换机">交换机</h2>
 <h3 id="名称-1">名称</h3>
-<pre tabindex="0"><code># 采用「X_Y_Z」的形式，交换机 X 为节点或指挥所名称简写，Y 为网络业务区名称简写，Z 为
-设备型号
-&lt;S&gt;sys
-[S]sys 401GC_CSFW_S5700 (401 工程传输服务区 S5700 交换机）
-</code></pre><h3 id="接口-1">接口</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 采用「X_Y_Z」的形式，交换机 X 为节点或指挥所名称简写，Y 为网络业务区名称简写，Z 为
+</span></span><span class="line"><span class="cl">设备型号
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span>S<span class="p">&gt;</span>sys
+</span></span><span class="line"><span class="cl">[S]sys 401GC_CSFW_S5700 (401 工程传输服务区 S5700 交换机）
+</span></span></code></pre></div><h3 id="接口-1">接口</h3>
 <p>（1）Vlanif 接口</p>
-<pre tabindex="0"><code>[S]int vlanif 1
-[S-vlanif1]ip add 10.1.1.1 255.255.255.0
-</code></pre><p>（2） Eth-trunk 接口</p>
-<pre tabindex="0"><code>[S]int eth-trunk 1
-[S-eth-trunk1]mode manual load-balance //默认即为手工负载分担模式，此条命令可以
-不配
-[S-eth-trunk1]trunkport g 0/0/1 to 0/0/3 //加入成员接口
-[S-eth-trunk1]quit
-# 或者在接口视图下加入 eth-trunk
-[S]interface g0/0/1
-[S-g0/0/1]eth-trunk 1
-</code></pre><h3 id="认证-1">认证</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[S]int vlanif 1
+</span></span><span class="line"><span class="cl">[S-vlanif1]ip add 10.1.1.1 255.255.255.0
+</span></span></code></pre></div><p>（2） Eth-trunk 接口</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[S]int eth-trunk 1
+</span></span><span class="line"><span class="cl">[S-eth-trunk1]mode manual load-balance //默认即为手工负载分担模式，此条命令可以
+</span></span><span class="line"><span class="cl">不配
+</span></span><span class="line"><span class="cl">[S-eth-trunk1]trunkport g 0/0/1 to 0/0/3 //加入成员接口
+</span></span><span class="line"><span class="cl">[S-eth-trunk1]quit
+</span></span><span class="line"><span class="cl"># 或者在接口视图下加入 eth-trunk
+</span></span><span class="line"><span class="cl">[S]interface g0/0/1
+</span></span><span class="line"><span class="cl">[S-g0/0/1]eth-trunk 1
+</span></span></code></pre></div><h3 id="认证-1">认证</h3>
 <p>参考路由器配置</p>
 <h3 id="stp">STP</h3>
 <p>（1）mstp</p>
-<pre tabindex="0"><code>[S]stp mode mstp
-# 生成树域配置
-[S]stp region-configuration
-[S-mst-region]region-name huawei
-[S-mst-region]revision-level 1
-# 配置实例绑定 vlan
-[S-mst-region]instance 1 vlan 10
-[S-mst-region]instance 2 vlan 20
-[S-mst-region]active region-configuration
-# 配置根桥和备份根桥
-# 方法一（推荐配置）
-[S]stp instance 1 root primary
-[S]stp instance 2 root secondary
-# 方法二
-[S]stp instance 1 priority 0
-[S]stp instance 2 priority 4096
-</code></pre><p><strong>交换机配置路由协议互通的三层 vlanif 接口所属 vlan 下的二层接口请关闭 STP 功能，以免端口被阻塞影响路由协议邻居建立</strong></p>
-<pre tabindex="0"><code>[S]int g0/0/3
-[S-g0/0/3]undo stp enable | stp disable //两条命令都可以，任选其一
-</code></pre><h3 id="vlan">VLAN</h3>
-<pre tabindex="0"><code># 创建 vlan
-[S]vlan batch 100 200 1000
-</code></pre><h3 id="trunk">TRUNK</h3>
-<pre tabindex="0"><code># 配置 trunk 口
-[S]int g0/0/1
-[S-g0/0/1]port link-type trunk
-[S-g0/0/1]port trunk allow-pass vlan all
-[S-g0/0/1]int g0/0/2
-[S-g0/0/2]port link-type trunk
-[S-g0/0/2]port trunk allow-pass vlan all
-# 配置 access 口
-[S-g0/0/2]int g0/0/3
-[S-g0/0/3]port link-type access
-[S-g0/0/3]port default vlan 10
-[S-g0/0/3]int g0/0/4
-[S-g0/0/4]port link-type access
-[S-g0/0/4]port default vlan 20
-</code></pre><h3 id="vrrp">VRRP</h3>
-<pre tabindex="0"><code># 在 vlanif 接口下配置
-[S]int vlanif 10
-[S-vlanif10]vrrp vrid 1 virtual-ip 192.168.1 254
-[S-vlanif10]vrrp vrid 1 priority 120 //设置 vrrp 优先级（默认 100，越高越优先）
-[S-vlanif10]vrrp vrid 1 preempt-mode timer delay 20 // 主虚拟路由器设置抢占
-延时为 20s
-</code></pre><h3 id="ospf-1">OSPF</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[S]stp mode mstp
+</span></span><span class="line"><span class="cl"># 生成树域配置
+</span></span><span class="line"><span class="cl">[S]stp region-configuration
+</span></span><span class="line"><span class="cl">[S-mst-region]region-name huawei
+</span></span><span class="line"><span class="cl">[S-mst-region]revision-level 1
+</span></span><span class="line"><span class="cl"># 配置实例绑定 vlan
+</span></span><span class="line"><span class="cl">[S-mst-region]instance 1 vlan 10
+</span></span><span class="line"><span class="cl">[S-mst-region]instance 2 vlan 20
+</span></span><span class="line"><span class="cl">[S-mst-region]active region-configuration
+</span></span><span class="line"><span class="cl"># 配置根桥和备份根桥
+</span></span><span class="line"><span class="cl"># 方法一（推荐配置）
+</span></span><span class="line"><span class="cl">[S]stp instance 1 root primary
+</span></span><span class="line"><span class="cl">[S]stp instance 2 root secondary
+</span></span><span class="line"><span class="cl"># 方法二
+</span></span><span class="line"><span class="cl">[S]stp instance 1 priority 0
+</span></span><span class="line"><span class="cl">[S]stp instance 2 priority 4096
+</span></span></code></pre></div><p>⚠️ <strong>交换机配置路由协议互通的三层 vlanif 接口所属 vlan 下的二层接口请关闭 STP 功能，以免端口被阻塞影响路由协议邻居建立</strong> ⚠️</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[S]int g0/0/3
+</span></span><span class="line"><span class="cl">[S-g0/0/3]undo stp enable <span class="p">|</span> stp disable //两条命令都可以，任选其一
+</span></span></code></pre></div><h3 id="vlan">VLAN</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 创建 vlan
+</span></span><span class="line"><span class="cl">[S]vlan batch 100 200 1000
+</span></span></code></pre></div><h3 id="trunk">TRUNK</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 配置 trunk 口
+</span></span><span class="line"><span class="cl">[S]int g0/0/1
+</span></span><span class="line"><span class="cl">[S-g0/0/1]port link-type trunk
+</span></span><span class="line"><span class="cl">[S-g0/0/1]port trunk allow-pass vlan all
+</span></span><span class="line"><span class="cl">[S-g0/0/1]int g0/0/2
+</span></span><span class="line"><span class="cl">[S-g0/0/2]port link-type trunk
+</span></span><span class="line"><span class="cl">[S-g0/0/2]port trunk allow-pass vlan all
+</span></span><span class="line"><span class="cl"># 配置 access 口
+</span></span><span class="line"><span class="cl">[S-g0/0/2]int g0/0/3
+</span></span><span class="line"><span class="cl">[S-g0/0/3]port link-type access
+</span></span><span class="line"><span class="cl">[S-g0/0/3]port default vlan 10
+</span></span><span class="line"><span class="cl">[S-g0/0/3]int g0/0/4
+</span></span><span class="line"><span class="cl">[S-g0/0/4]port link-type access
+</span></span><span class="line"><span class="cl">[S-g0/0/4]port default vlan 20
+</span></span></code></pre></div><h3 id="vrrp">VRRP</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 在 vlanif 接口下配置
+</span></span><span class="line"><span class="cl">[S]int vlanif 10
+</span></span><span class="line"><span class="cl">[S-vlanif10]vrrp vrid 1 virtual-ip 192.168.1 254
+</span></span><span class="line"><span class="cl">[S-vlanif10]vrrp vrid 1 priority 120 //设置 vrrp 优先级（默认 100，越高越优先）
+</span></span><span class="line"><span class="cl">[S-vlanif10]vrrp vrid 1 preempt-mode timer delay 20 // 主虚拟路由器设置抢占
+</span></span><span class="line"><span class="cl">延时为 20s
+</span></span></code></pre></div><h3 id="ospf-1">OSPF</h3>
 <p>三层交换机参考路由器配置</p>
 <h3 id="组播-1">组播</h3>
 <p>（1）三层交换机参考路由器配置
 （2）二层交换机需启用 igmp-snooping</p>
-<pre tabindex="0"><code># 全局启用 igmp-snooping
-[S]igmp-snooping enable
-# vlan 下启用 igmp-snooping
-[S]vlan 10
-[S-vlan10]igmp-snooping enable
-[S-vlan10]vlan 20
-[S-vlan20]igmp-snooping enable
-</code></pre><h3 id="配置文件备份-1">配置文件备份</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 全局启用 igmp-snooping
+</span></span><span class="line"><span class="cl">[S]igmp-snooping enable
+</span></span><span class="line"><span class="cl"># vlan 下启用 igmp-snooping
+</span></span><span class="line"><span class="cl">[S]vlan 10
+</span></span><span class="line"><span class="cl">[S-vlan10]igmp-snooping enable
+</span></span><span class="line"><span class="cl">[S-vlan10]vlan 20
+</span></span><span class="line"><span class="cl">[S-vlan20]igmp-snooping enable
+</span></span></code></pre></div><h3 id="配置文件备份-1">配置文件备份</h3>
 <p>参考路由器配置</p>
 <h2 id="访问控制">访问控制</h2>
 <h3 id="vlan-的隔离">VLAN 的隔离</h3>
 <p>（1）端口隔离</p>
-<pre tabindex="0"><code># 配置接口 g1/0/1 和 g1/0/2 的端口隔离功能，实现两个接口之间的二层数据隔离，
-三层数据互通
-[S]port-isolate mode l2
-[S]int g1/0/1
-[S-g1/0/1]port-isolate enable group 1
-[S-g1/0/1]int g1/0/2
-[S-g1/0/2]port-isolate enable group 1
-</code></pre><p>（2）Mux VLAN</p>
-<pre tabindex="0"><code># 创建 vlan
-[S]vlan batch 2 3 4
-[S]vlan 2
-# 配置该 vlan 为 mux vlan，即 principal vlan
-[S-vlan2]mux-vlan
-# 互通型 vlan
-[S-vlan2]subordinate group 3
-# 隔离型 vlan
-[S-vlan2]subordinate separate 4
-# 使能接口的 mux vlan 功能
-[S]int g0/0/1
-[S-g0/0/1]port link-type access
-[S-g0/0/1]port default vlan 3
-[S-g0/0/1]port mux-vlan enable vlan 3
-</code></pre><h3 id="acl-访问控制">ACL 访问控制</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 配置接口 g1/0/1 和 g1/0/2 的端口隔离功能，实现两个接口之间的二层数据隔离，
+</span></span><span class="line"><span class="cl">三层数据互通
+</span></span><span class="line"><span class="cl">[S]port-isolate mode l2
+</span></span><span class="line"><span class="cl">[S]int g1/0/1
+</span></span><span class="line"><span class="cl">[S-g1/0/1]port-isolate enable group 1
+</span></span><span class="line"><span class="cl">[S-g1/0/1]int g1/0/2
+</span></span><span class="line"><span class="cl">[S-g1/0/2]port-isolate enable group 1
+</span></span></code></pre></div><p>（2）Mux VLAN</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 创建 vlan
+</span></span><span class="line"><span class="cl">[S]vlan batch 2 3 4
+</span></span><span class="line"><span class="cl">[S]vlan 2
+</span></span><span class="line"><span class="cl"># 配置该 vlan 为 mux vlan，即 principal vlan
+</span></span><span class="line"><span class="cl">[S-vlan2]mux-vlan
+</span></span><span class="line"><span class="cl"># 互通型 vlan
+</span></span><span class="line"><span class="cl">[S-vlan2]subordinate group 3
+</span></span><span class="line"><span class="cl"># 隔离型 vlan
+</span></span><span class="line"><span class="cl">[S-vlan2]subordinate separate 4
+</span></span><span class="line"><span class="cl"># 使能接口的 mux vlan 功能
+</span></span><span class="line"><span class="cl">[S]int g0/0/1
+</span></span><span class="line"><span class="cl">[S-g0/0/1]port link-type access
+</span></span><span class="line"><span class="cl">[S-g0/0/1]port default vlan 3
+</span></span><span class="line"><span class="cl">[S-g0/0/1]port mux-vlan enable vlan 3
+</span></span></code></pre></div><h3 id="acl-访问控制">ACL 访问控制</h3>
 <p><strong>做流量过滤时，基本 ACL 离目的近，高级 ACL 离源进</strong>
 （1）traffice-filter 做流量过滤</p>
-<pre tabindex="0"><code># VLAN 下做 traffic-filter
-[S]acl 3000
-[S-acl-adv-3000]rule permit tcp destination 192.168.2.1 0 
-destination-port eq 21
-[S-acl-adv-3000]rule deny ip destination 192.168.2.0 
-0.0.0.255
-[S-acl-adv-3000]quit
-[S]traffic-filter vlan 10 inbound acl 3000
-# 接口视图下做 traffic-filter
-[S]acl 3001
-[S-acl-adv-3001]rule deny tcp source 192.168.1.1 0 
-destination 192.168.3.1 0 destination-port eq 21
-[S-acl-adv-30001]quit
-[S]int g0/0/3
-[S-g0/0/3]traffic-filter inbound acl 3001
-</code></pre><p>（2）traffic-policy 流策略做流量过滤（作为没有 traffic-filter 命令的备份）
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># VLAN 下做 traffic-filter
+</span></span><span class="line"><span class="cl">[S]acl 3000
+</span></span><span class="line"><span class="cl">[S-acl-adv-3000]rule permit tcp destination 192.168.2.1 0 
+</span></span><span class="line"><span class="cl">destination-port eq 21
+</span></span><span class="line"><span class="cl">[S-acl-adv-3000]rule deny ip destination 192.168.2.0 
+</span></span><span class="line"><span class="cl">0.0.0.255
+</span></span><span class="line"><span class="cl">[S-acl-adv-3000]quit
+</span></span><span class="line"><span class="cl">[S]traffic-filter vlan 10 inbound acl 3000
+</span></span><span class="line"><span class="cl"># 接口视图下做 traffic-filter
+</span></span><span class="line"><span class="cl">[S]acl 3001
+</span></span><span class="line"><span class="cl">[S-acl-adv-3001]rule deny tcp source 192.168.1.1 0 
+</span></span><span class="line"><span class="cl">destination 192.168.3.1 0 destination-port eq 21
+</span></span><span class="line"><span class="cl">[S-acl-adv-30001]quit
+</span></span><span class="line"><span class="cl">[S]int g0/0/3
+</span></span><span class="line"><span class="cl">[S-g0/0/3]traffic-filter inbound acl 3001
+</span></span></code></pre></div><p>（2）traffic-policy 流策略做流量过滤（作为没有 traffic-filter 命令的备份）
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_08_29_%E9%80%9A%E8%BF%87%E6%B5%81%E7%AD%96%E7%95%A5%E5%AE%9E%E7%8E%B0VLAN%E4%B8%89%E5%B1%82%E9%9A%94%E7%A6%BB.png" alt="通过流策略实现VLAN三层隔离"></p>
 <h2 id="接入控制">接入控制</h2>
 <h3 id="交换机上-ipmac端口绑定">交换机上 IP、MAC、端口绑定</h3>
-<pre tabindex="0"><code># 首先查看终端 mac 地址并复制
-[S]dis mac-address
-# 然后配置绑定
-[S] user-bind static ip-address 192.168.100.1 mac-address 5489-9885-723a 
-interface g0/0/1 
-# 最后在端口激活检查
-[s]int g0/0/1
-[S-g0/0/1]ip source check user-bind enable
-</code></pre><h2 id="流量采集">流量采集</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 首先查看终端 mac 地址并复制
+</span></span><span class="line"><span class="cl">[S]dis mac-address
+</span></span><span class="line"><span class="cl"># 然后配置绑定
+</span></span><span class="line"><span class="cl">[S] user-bind static ip-address 192.168.100.1 mac-address 5489-9885-723a 
+</span></span><span class="line"><span class="cl">interface g0/0/1 
+</span></span><span class="line"><span class="cl"># 最后在端口激活检查
+</span></span><span class="line"><span class="cl">[s]int g0/0/1
+</span></span><span class="line"><span class="cl">[S-g0/0/1]ip source check user-bind enable
+</span></span></code></pre></div><h2 id="流量采集">流量采集</h2>
 <h3 id="交换机镜像-wireshark-采集">交换机镜像 Wireshark 采集</h3>
 <p>（1）本地镜像配置</p>
-<pre tabindex="0"><code># 配置观察口
-[S]observe-port 1 int g0/0/24
-# 配置一个镜像口
-[S]interface g0/0/1
-[S-g0/0/1]port-mirroring to observe-port 1 [inbound（入向）| outbound（出向）
-| both（双向）]
-# 配置多个镜像口
-[S]interface range g0/0/1 to 0/0/23
-[S-range0/0/1-0/0/23]port-mirroring to observe-port 1 [inbound | outbound 
-| both]
-</code></pre><p>（2） Wireshark 采集
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 配置观察口
+</span></span><span class="line"><span class="cl">[S]observe-port 1 int g0/0/24
+</span></span><span class="line"><span class="cl"># 配置一个镜像口
+</span></span><span class="line"><span class="cl">[S]interface g0/0/1
+</span></span><span class="line"><span class="cl">[S-g0/0/1]port-mirroring to observe-port 1 [inbound（入向）<span class="p">|</span> outbound（出向）
+</span></span><span class="line"><span class="cl"><span class="p">|</span> both（双向）]
+</span></span><span class="line"><span class="cl"># 配置多个镜像口
+</span></span><span class="line"><span class="cl">[S]interface range g0/0/1 to 0/0/23
+</span></span><span class="line"><span class="cl">[S-range0/0/1-0/0/23]port-mirroring to observe-port 1 [inbound <span class="p">|</span> outbound 
+</span></span><span class="line"><span class="cl"><span class="p">|</span> both]
+</span></span></code></pre></div><p>（2） Wireshark 采集
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_08_29_Wireshark%E6%98%BE%E7%A4%BA%E8%BF%87%E6%BB%A4%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F.png" alt="Wireshark显示过滤器表达式"></p>
 <h2 id="维护与排障">维护与排障</h2>
 <ul>
 <li>配置之前先检查设备各硬件及板卡指示灯是否正常，有无告警；再确认路由器主管理板是哪块，防止插错管理口；线缆连接完毕后请检查相应端口指示灯是否点亮。</li>
 <li>NE20 系列路由器在用户视图下键入 sys 命令进入系统视图后，配置命令并不立即生效，如需生效需键入 commit 命令；如要在用户视图下进入系统配置立即生效模式，请键入 <code>system-view immediately</code></li>
 </ul>
-<pre tabindex="0"><code>&lt;R&gt;sys 
-[~R]sysna huawei //此条命令并不立即生效
-[~R]commit //执行 commit 才会生效
-&lt;R&gt;sys im //进入立即生效模式
-[R]sysna huawei //命令在键入后即生效
-</code></pre><ol>
-<li>配置信息查看</li>
-</ol>
-<pre tabindex="0"><code>[R]dis cur con [aaa | bgp | ...] //某项配置信息查看
-[R]dis cur | include &lt;关键字&gt; //按关键字查看配置信息
-</code></pre><ol start="2">
-<li>接口信息查看</li>
-</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"><span class="p">&lt;</span>R<span class="p">&gt;</span>sys 
+</span></span><span class="line"><span class="cl">[~R]sysna huawei //此条命令并不立即生效
+</span></span><span class="line"><span class="cl">[~R]commit //执行 commit 才会生效
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span>R<span class="p">&gt;</span>sys im //进入立即生效模式
+</span></span><span class="line"><span class="cl">[R]sysna huawei //命令在键入后即生效
+</span></span></code></pre></div><ol>
+<li>
+<p>配置信息查看</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]dis cur con [aaa <span class="p">|</span> bgp <span class="p">|</span> ...] //某项配置信息查看
+</span></span><span class="line"><span class="cl">[R]dis cur <span class="p">|</span> include <span class="p">&lt;</span>关键字<span class="p">&gt;</span> //按关键字查看配置信息
+</span></span></code></pre></div></li>
+<li>
+<p>接口信息查看</p>
 <p>（1）接口状态概要信息查看</p>
-<pre tabindex="0"><code>[R]dis interface brief
-</code></pre><p>（2）三层接口概要信息查看</p>
-<pre tabindex="0"><code>[R]dis ip interface brief
-</code></pre><p>（3）二层接口所属 VLAN 信息查看</p>
-<pre tabindex="0"><code>[R]dis port vlan
-</code></pre><p>（4）E1-F 接口</p>
-<pre tabindex="0"><code>[R]display fe1 serial 2/0/0 //查看 E1-F 接口的基本配置信息和告警情况
-[R]dis interface serial 2/0/0 //查看 E1-F 接口的状态及统计信息
-# 配置环回检测功能
-[R]int serial 2/0/0
-[R-serial2/0/0]fe1 loopback [local | payload | remote] //配置检测方式为本端、
-载荷和远端
-[R]display interface serial 2/0/0 //查看本端/对端设备的 Serial 接口的物理状态
-（current state）是否为 UP
-&lt;R&gt;reset counters interface serial 2/0/0 //清除 E1-F 接口生成的串口上的统计
-信息
-</code></pre><p>（5）<strong>Pos 接口物理层不 up</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]dis interface brief
+</span></span></code></pre></div><p>（2）三层接口概要信息查看</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]dis ip interface brief
+</span></span></code></pre></div><p>（3）二层接口所属 VLAN 信息查看</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]dis port vlan
+</span></span></code></pre></div><p>（4）E1-F 接口</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]display fe1 serial 2/0/0 //查看 E1-F 接口的基本配置信息和告警情况
+</span></span><span class="line"><span class="cl">[R]dis interface serial 2/0/0 //查看 E1-F 接口的状态及统计信息
+</span></span><span class="line"><span class="cl"># 配置环回检测功能
+</span></span><span class="line"><span class="cl">[R]int serial 2/0/0
+</span></span><span class="line"><span class="cl">[R-serial2/0/0]fe1 loopback [local <span class="p">|</span> payload <span class="p">|</span> remote] //配置检测方式为本端、
+</span></span><span class="line"><span class="cl">载荷和远端
+</span></span><span class="line"><span class="cl">[R]display interface serial 2/0/0 //查看本端/对端设备的 Serial 接口的物理状态
+</span></span><span class="line"><span class="cl">（current state）是否为 UP
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span>R<span class="p">&gt;</span>reset counters interface serial 2/0/0 //清除 E1-F 接口生成的串口上的统计
+</span></span><span class="line"><span class="cl">信息
+</span></span></code></pre></div><p>（5）<strong>Pos 接口物理层不 up</strong></p>
 <ul>
-<li>
-<p>检查对接的两侧设备接口上的光纤模块是否匹配</p>
-</li>
-<li>
-<p>检查故障端口做环回测试后是否 up</p>
-<ul>
+<li>检查对接的两侧设备接口上的光纤模块是否匹配</li>
+<li>检查故障端口做环回测试后是否 up</li>
 <li>做该环回的目的是<code>检查本端单板是否正常</code>，如果 loopback local 后仍然无法 up，则可以确定是本端接收单板的故障导致，尝试更换子卡。</li>
 </ul>
-<pre tabindex="0"><code>[HUAWEI-Pos0/1/0] loopback local
-[HUAWEI-Pos0/1/0] dlisplay this interface
-Pos0/1/0 current state: UP 备注：物理状态的显示结果
-Line protocol current state： DOWN
-Link quality grade:--
-Description:HUAWEI, Pos0/1/0 Interface
-Route Port, The Maximum Transmit Unit is 4470, Hold time
-Internet protocol processing: disabled
-Link layer protocol is PPP
-LCP initial
-The Vendor PN is FTLF8519P2BNL-HW
-The Vendor Name is FINISAR CORP.
-Port Bw: 2.5G, Transceiver max Bw:2.5G, Transceiver Mo
-WaveLength: 850nm, Transmission Distance: 500m
-Physical layer is Packet Over SDH
-Scramble enabled, clock master, CRC-32, loopback: local
-Flag J0 &#34;NetEngine  &#34;
-Flag J1 &#34;NetEngine  &#34; 
-Flag C2 22(0x16)
-Last physical up time: 2016-01-24 11:10:05
-Last physical down time: 2016-01-24 10:47:00
-Current System time: 2016-01-24 11:10:14
-</code></pre></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[HUAWEI-Pos0/1/0] loopback local
+</span></span><span class="line"><span class="cl">[HUAWEI-Pos0/1/0] dlisplay this interface
+</span></span><span class="line"><span class="cl">Pos0/1/0 current state: UP 备注：物理状态的显示结果
+</span></span><span class="line"><span class="cl">Line protocol current state： DOWN
+</span></span><span class="line"><span class="cl">Link quality grade:--
+</span></span><span class="line"><span class="cl">Description:HUAWEI, Pos0/1/0 Interface
+</span></span><span class="line"><span class="cl">Route Port, The Maximum Transmit Unit is 4470, Hold time
+</span></span><span class="line"><span class="cl">Internet protocol processing: disabled
+</span></span><span class="line"><span class="cl">Link layer protocol is PPP
+</span></span><span class="line"><span class="cl">LCP initial
+</span></span><span class="line"><span class="cl">The Vendor PN is FTLF8519P2BNL-HW
+</span></span><span class="line"><span class="cl">The Vendor Name is FINISAR CORP.
+</span></span><span class="line"><span class="cl">Port Bw: 2.5G, Transceiver max Bw:2.5G, Transceiver Mo
+</span></span><span class="line"><span class="cl">WaveLength: 850nm, Transmission Distance: 500m
+</span></span><span class="line"><span class="cl">Physical layer is Packet Over SDH
+</span></span><span class="line"><span class="cl">Scramble enabled, clock master, CRC-32, loopback: local
+</span></span><span class="line"><span class="cl">Flag J0 <span class="s2">&#34;NetEngine  &#34;</span>
+</span></span><span class="line"><span class="cl">Flag J1 <span class="s2">&#34;NetEngine  &#34;</span> 
+</span></span><span class="line"><span class="cl">Flag C2 22(0x16)
+</span></span><span class="line"><span class="cl">Last physical up time: 2016-01-24 11:10:05
+</span></span><span class="line"><span class="cl">Last physical down time: 2016-01-24 10:47:00
+</span></span><span class="line"><span class="cl">Current System time: 2016-01-24 11:10:14
+</span></span></code></pre></div><ul>
 <li>
 <p>检查接口上是否有联动 down 的告警</p>
 <ul>
-<li>检查接口上的 SDH 告警</li>
-</ul>
-<pre tabindex="0"><code>&lt;HUAWEl&gt; display pos interface pos0/1/0
-Pos0/1/0 current state:DOWN
-Line protocol current state:DOWN
-Physical layer is Packet Over SDH
-Scramble enabled, clock master, CRC-32, loopback: none
-Flag J0 &#34;NetEngine&#34;
-Flag J1 &#34;NetEngine&#34;
-Flag C2 22(0x16)
-SDH alarm: //备注：下面3行表示sdh告警，当前有LOS告警
-section layer: LOS
-line layer: none
-path layer: none
-SDH error: //备注：下面3行表示sdh误码
-section layer: B1 0
-line layer: B2 0 REI 0
-path layer: B3 0 REI 0
-# POS接口默认联动down的SDH告警是LOS/LOF/LAIS，很多设备还有再配置LRDI/PRDI联动down，
-可以通过查看接口上的配置确认。
-&lt;HUAWEI&gt; display current-configuration interface pos0/1/1
-#
-interface Pos0/1/1
-link-protocol hdlc
-undo shutdown
-transmission-alarm down lais lof los lrdi pais prdi 
-#
-return
-</code></pre><ul>
+<li>
+<p>检查接口上的 SDH 告警</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"><span class="p">&lt;</span>HUAWEl<span class="p">&gt;</span> display pos interface pos0/1/0
+</span></span><span class="line"><span class="cl">Pos0/1/0 current state:DOWN
+</span></span><span class="line"><span class="cl">Line protocol current state:DOWN
+</span></span><span class="line"><span class="cl">Physical layer is Packet Over SDH
+</span></span><span class="line"><span class="cl">Scramble enabled, clock master, CRC-32, loopback: none
+</span></span><span class="line"><span class="cl">Flag J0 <span class="s2">&#34;NetEngine&#34;</span>
+</span></span><span class="line"><span class="cl">Flag J1 <span class="s2">&#34;NetEngine&#34;</span>
+</span></span><span class="line"><span class="cl">Flag C2 22(0x16)
+</span></span><span class="line"><span class="cl">SDH alarm: //备注：下面3行表示sdh告警，当前有LOS告警
+</span></span><span class="line"><span class="cl">section layer: LOS
+</span></span><span class="line"><span class="cl">line layer: none
+</span></span><span class="line"><span class="cl"><span class="k">path</span> layer: none
+</span></span><span class="line"><span class="cl">SDH error: //备注：下面3行表示sdh误码
+</span></span><span class="line"><span class="cl">section layer: B1 0
+</span></span><span class="line"><span class="cl">line layer: B2 0 REI 0
+</span></span><span class="line"><span class="cl"><span class="k">path</span> layer: B3 0 REI 0
+</span></span><span class="line"><span class="cl"># POS接口默认联动down的SDH告警是LOS/LOF/LAIS，很多设备还有再配置LRDI/PRDI联动down，
+</span></span><span class="line"><span class="cl">可以通过查看接口上的配置确认。
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span>HUAWEI<span class="p">&gt;</span> display current-configuration interface pos0/1/1
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl">interface Pos0/1/1
+</span></span><span class="line"><span class="cl">link-protocol hdlc
+</span></span><span class="line"><span class="cl">undo shutdown
+</span></span><span class="line"><span class="cl">transmission-alarm down lais lof los lrdi pais prdi 
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl">return
+</span></span></code></pre></div></li>
 <li>
 <p>按照以上步骤中命令行回显的 SDH 告警，分别进行检查。
 <strong>LOS告警可能的故障原因：</strong></p>
@@ -1343,138 +1341,140 @@ return
 环回后，先观察端口上的接收光功率是否在正常范围内，然后查看SDH告警是否消失，物理状态是否up。如果up，则说明是传输问题，如果不up，说明是本端故障，可以尝试更换光模块。
 查询接口光模块传输距离，光功率及光功率门限的命令：</li>
 </ul>
-<pre tabindex="0"><code>&lt;HUAWEl&gt; display interface Pos 0/1/0
-Pos0/1/0 current state: DOWN //备注：物理状态的显示    
-Line protocol current state : DOWN
-Link quality grade :--
-Description:HUAWEl, Pos0/1/0 Interface
-Route Port,The Maximum Transmit Unit is 4470, Hold time
-Internet protocol processing : disabled
-Link layer protocol is PPP
-LCP initial
-The Vendor PN is FTLF8519P2BNL-HW
-The Vendor Name is FINISAR CORP.
-Port BW: 2.5G, Transceiver max BW: 1G, Transceiver Moc
-WaveLength: 850nm, Transmission Distance: 500m 
-Rx Power: -29.59dBm, Warning range:[-16.99, 0.00ldBm
-Tx Power: -5.44dBm, Warning range: [-9.50, 0.00]dBm
-Physical layer is Packet Over SDH
-# 说明：
-# 前面那个Rx Power是当前的接收功率，后面那个中括号
-# 内的范围是正常的功率范围，在范围之外的都不正常。
-# TX Power是当前的发送光功率，后面括号中的范围是正
-# 常的发送光功率范围。
-</code></pre></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"><span class="p">&lt;</span>HUAWEl<span class="p">&gt;</span> display interface Pos 0/1/0
+</span></span><span class="line"><span class="cl">Pos0/1/0 current state: DOWN //备注：物理状态的显示    
+</span></span><span class="line"><span class="cl">Line protocol current state : DOWN
+</span></span><span class="line"><span class="cl">Link quality grade :--
+</span></span><span class="line"><span class="cl">Description:HUAWEl, Pos0/1/0 Interface
+</span></span><span class="line"><span class="cl">Route Port,The Maximum Transmit Unit is 4470, Hold time
+</span></span><span class="line"><span class="cl">Internet protocol processing : disabled
+</span></span><span class="line"><span class="cl">Link layer protocol is PPP
+</span></span><span class="line"><span class="cl">LCP initial
+</span></span><span class="line"><span class="cl">The Vendor PN is FTLF8519P2BNL-HW
+</span></span><span class="line"><span class="cl">The Vendor Name is FINISAR CORP.
+</span></span><span class="line"><span class="cl">Port BW: 2.5G, Transceiver max BW: 1G, Transceiver Moc
+</span></span><span class="line"><span class="cl">WaveLength: 850nm, Transmission Distance: 500m 
+</span></span><span class="line"><span class="cl">Rx Power: -29.59dBm, Warning range:[-16.99, 0.00ldBm
+</span></span><span class="line"><span class="cl">Tx Power: -5.44dBm, Warning range: [-9.50, 0.00]dBm
+</span></span><span class="line"><span class="cl">Physical layer is Packet Over SDH
+</span></span><span class="line"><span class="cl"># 说明：
+</span></span><span class="line"><span class="cl"># 前面那个Rx Power是当前的接收功率，后面那个中括号
+</span></span><span class="line"><span class="cl"># 内的范围是正常的功率范围，在范围之外的都不正常。
+</span></span><span class="line"><span class="cl"># TX Power是当前的发送光功率，后面括号中的范围是正
+</span></span><span class="line"><span class="cl"># 常的发送光功率范围。
+</span></span></code></pre></div></li>
 <li>
 <p>收集信息寻求技术支持</p>
 </li>
 </ul>
 <p>（6）<strong>Pos 接口检查光模块工作状态是否正常</strong></p>
-<pre tabindex="0"><code>&lt;HUAWEI&gt; display transceiver interface GigabitEthernet 2/0/3 verbose 
-GigabitEthernet2/0/3 transceiver information: 
-------------------------------------------------------------- 
-Common information: 
-Transceiver Type:1000_BASE_SX_SFP 
-Connector Type:LC 
-Wavelength(nm):850 
-Transfer Distance(m):500(50um),300(62.5um) 
-Digital Diagnostic Monitoring:YES 
-Vendor Name:HUAWEI 
-Vendor Part Number:02315204 
-Ordering Name: 
-------------------------------------------------------------- 
-Manufacture information: 
-Manu. Serial Number:NSK1NNV 
-Manufacturing Date:2014-11-09 
-Vendor Name:HUAWEI 
-------------------------------------------------------------- 
-Alarm information: 
-------------------------------------------------------------- 
-Diagnostic information:
-Temperature(°C):39
-Voltage(V):3.32
-Bias Current(mA):6.91 //电流值
-Bias High Threshold(mA):33.34
-Bias LowThreshold(mA):1.67
-Current Rx Power(dBM):-4.59 //接口收光功率
-Default Rx Power High Threshold(dBM):0.00
-Default Rx Power LowThreshold(dBM):-16.99
-Current Tx Power(dBM):-5.10 //接口发光功率
-Default Tx Power High Threshold(dBM):0.00
-Default Tx Power LowThreshold(dBM):-12.50
-User Set Rx Power High Threshold(dBM) :0.00
-Jser Set Rx Power Low Threshold(dBM):-16.99
-User Set Tx Power High Threshold(dBM) :0.00
-User Set Tx Power Low Threshold(dBM):-12.50
-</code></pre><p>（7）<strong>网口检查对接网线是否正常</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"><span class="p">&lt;</span>HUAWEI<span class="p">&gt;</span> display transceiver interface GigabitEthernet 2/0/3 verbose 
+</span></span><span class="line"><span class="cl">GigabitEthernet2/0/3 transceiver information: 
+</span></span><span class="line"><span class="cl">------------------------------------------------------------- 
+</span></span><span class="line"><span class="cl">Common information: 
+</span></span><span class="line"><span class="cl">Transceiver Type:1000_BASE_SX_SFP 
+</span></span><span class="line"><span class="cl">Connector Type:LC 
+</span></span><span class="line"><span class="cl">Wavelength(nm):850 
+</span></span><span class="line"><span class="cl">Transfer Distance(m):500(50um),300(62.5um) 
+</span></span><span class="line"><span class="cl">Digital Diagnostic Monitoring:YES 
+</span></span><span class="line"><span class="cl">Vendor Name:HUAWEI 
+</span></span><span class="line"><span class="cl">Vendor Part Number:02315204 
+</span></span><span class="line"><span class="cl">Ordering Name: 
+</span></span><span class="line"><span class="cl">------------------------------------------------------------- 
+</span></span><span class="line"><span class="cl">Manufacture information: 
+</span></span><span class="line"><span class="cl">Manu. Serial Number:NSK1NNV 
+</span></span><span class="line"><span class="cl">Manufacturing Date:2014-11-09 
+</span></span><span class="line"><span class="cl">Vendor Name:HUAWEI 
+</span></span><span class="line"><span class="cl">------------------------------------------------------------- 
+</span></span><span class="line"><span class="cl">Alarm information: 
+</span></span><span class="line"><span class="cl">------------------------------------------------------------- 
+</span></span><span class="line"><span class="cl">Diagnostic information:
+</span></span><span class="line"><span class="cl">Temperature(°C):39
+</span></span><span class="line"><span class="cl">Voltage(V):3.32
+</span></span><span class="line"><span class="cl">Bias Current(mA):6.91 //电流值
+</span></span><span class="line"><span class="cl">Bias High Threshold(mA):33.34
+</span></span><span class="line"><span class="cl">Bias LowThreshold(mA):1.67
+</span></span><span class="line"><span class="cl">Current Rx Power(dBM):-4.59 //接口收光功率
+</span></span><span class="line"><span class="cl">Default Rx Power High Threshold(dBM):0.00
+</span></span><span class="line"><span class="cl">Default Rx Power LowThreshold(dBM):-16.99
+</span></span><span class="line"><span class="cl">Current Tx Power(dBM):-5.10 //接口发光功率
+</span></span><span class="line"><span class="cl">Default Tx Power High Threshold(dBM):0.00
+</span></span><span class="line"><span class="cl">Default Tx Power LowThreshold(dBM):-12.50
+</span></span><span class="line"><span class="cl">User Set Rx Power High Threshold(dBM) :0.00
+</span></span><span class="line"><span class="cl">Jser Set Rx Power Low Threshold(dBM):-16.99
+</span></span><span class="line"><span class="cl">User Set Tx Power High Threshold(dBM) :0.00
+</span></span><span class="line"><span class="cl">User Set Tx Power Low Threshold(dBM):-12.50
+</span></span></code></pre></div><p>（7）<strong>网口检查对接网线是否正常</strong></p>
 <ul>
 <li>对于 GE 电口，如果使用低于五类线的网线将不能够使 GE 电口以 1000M 速率 Up，所有电口对接，均推荐使用五类线以上规格的网线对接</li>
 </ul>
-<pre tabindex="0"><code>&lt;HUAWEI&gt; system-view
-[HUAWEll interface gigabitethernet 0/0/1
-[HUAWEI-GigabitEthernet0/0/1] virtual-cable-test
-Pair A length: 1meter(s)
-Pair B Iength: 1meter(s)
-Pair C length: 1meter(s)
-Pair D length: 1meter(s)
-Pair A state: Ok //回显中“Pair state”为“OK”表示正常；如果为其他状态，建议更换网线测试
-Pair B state: Ok
-Pair C state: Ok
-Pair D state: Ok
-</code></pre><ol start="3">
-<li>VLAN 信息查看</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"><span class="p">&lt;</span>HUAWEI<span class="p">&gt;</span> system-view
+</span></span><span class="line"><span class="cl">[HUAWEll interface gigabitethernet 0/0/1
+</span></span><span class="line"><span class="cl">[HUAWEI-GigabitEthernet0/0/1] virtual-cable-test
+</span></span><span class="line"><span class="cl">Pair A length: 1meter(s)
+</span></span><span class="line"><span class="cl">Pair B Iength: 1meter(s)
+</span></span><span class="line"><span class="cl">Pair C length: 1meter(s)
+</span></span><span class="line"><span class="cl">Pair D length: 1meter(s)
+</span></span><span class="line"><span class="cl">Pair A state: Ok //回显中“Pair state”为“OK”表示正常；如果为其他状态，建议更换网线测试
+</span></span><span class="line"><span class="cl">Pair B state: Ok
+</span></span><span class="line"><span class="cl">Pair C state: Ok
+</span></span><span class="line"><span class="cl">Pair D state: Ok
+</span></span></code></pre></div></li>
+<li>
+<p>VLAN 信息查看</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]dis vlan summary
+</span></span></code></pre></div></li>
+<li>
+<p>STP 信息查看</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]dis stp region-configuration //生成树域查看
+</span></span><span class="line"><span class="cl">[R]dis stp instance 1//生成树信息查看
+</span></span><span class="line"><span class="cl">[R]dis stp instance 1 brief //生成树概要信息查看
+</span></span></code></pre></div></li>
+<li>
+<p>VRRP 信息查看</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]dis vrrp brief
+</span></span></code></pre></div></li>
+<li>
+<p>OSPF 信息查看</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]dis ospf interface
+</span></span><span class="line"><span class="cl">[R]dis ospf peer bri
+</span></span><span class="line"><span class="cl">[R]dis ospf lsdb [router <span class="p">|</span> network <span class="p">|</span> summary <span class="p">|</span> asbr <span class="p">|</span> ase <span class="p">|</span> nssa] //查看
+</span></span><span class="line"><span class="cl">相应类型的 LSA 的详细信息
+</span></span><span class="line"><span class="cl">[R]dis ospf routing-table 
+</span></span></code></pre></div></li>
+<li>
+<p>BGP 信息查看</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">[R]dis bgp peer
+</span></span><span class="line"><span class="cl">[R]dis bgp routing-table
+</span></span></code></pre></div></li>
+<li>
+<p>组播信息查看</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 三层设备
+</span></span><span class="line"><span class="cl">[R]dis multicast routing-table
+</span></span><span class="line"><span class="cl">[R]dis pim routing-table
+</span></span><span class="line"><span class="cl">[R]dis pim interface
+</span></span><span class="line"><span class="cl">[R]dis pim neighbor
+</span></span><span class="line"><span class="cl">[R]dis pim bsr-info
+</span></span><span class="line"><span class="cl">[R]dis pim rp-info <span class="p">&lt;</span> 组播地址 &gt;
+</span></span><span class="line"><span class="cl">[R]dis igmp group
+</span></span><span class="line"><span class="cl">[R]dis igmp interface
+</span></span><span class="line"><span class="cl"># 二层设备
+</span></span><span class="line"><span class="cl">[S]dis igmp-snooping router-port vlan <span class="p">&lt;</span>vlan-id&gt;
+</span></span><span class="line"><span class="cl">[S]dis igmp-snooping port-info vlan <span class="p">&lt;</span>vlan-id&gt;
+</span></span><span class="line"><span class="cl">[S]dis l2-multicast forwarding-table vlan <span class="p">&lt;</span>vlan-id&gt;
+</span></span></code></pre></div></li>
+<li>
+<p>VPN 信息查看</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"># 查看 LDP 会话建立情况
+</span></span><span class="line"><span class="cl">[R]dis mpls ldp session
+</span></span><span class="line"><span class="cl">[R]dis mpls lsp
+</span></span><span class="line"><span class="cl"># 查看本地 VPN 实例路由
+</span></span><span class="line"><span class="cl">[R]dis ip routing-table vpn-instance vpna
+</span></span><span class="line"><span class="cl"># 查看 MP-BGP 路由
+</span></span><span class="line"><span class="cl">[R]dis bgp vpnv4 vpn-instance vpna routing-table
+</span></span></code></pre></div></li>
 </ol>
-<pre tabindex="0"><code>[R]dis vlan summary
-</code></pre><ol start="4">
-<li>STP 信息查看</li>
-</ol>
-<pre tabindex="0"><code>[R]dis stp region-configuration //生成树域查看
-[R]dis stp instance 1//生成树信息查看
-[R]dis stp instance 1 brief //生成树概要信息查看
-</code></pre><ol start="5">
-<li>VRRP 信息查看</li>
-</ol>
-<pre tabindex="0"><code>[R]dis vrrp brief
-</code></pre><ol start="6">
-<li>OSPF 信息查看</li>
-</ol>
-<pre tabindex="0"><code>[R]dis ospf interface
-[R]dis ospf peer bri
-[R]dis ospf lsdb [router | network | summary | asbr | ase | nssa] //查看
-相应类型的 LSA 的详细信息
-[R]dis ospf routing-table 
-</code></pre><ol start="7">
-<li>BGP 信息查看</li>
-</ol>
-<pre tabindex="0"><code>[R]dis bgp peer
-[R]dis bgp routing-table
-</code></pre><ol start="8">
-<li>组播信息查看</li>
-</ol>
-<pre tabindex="0"><code># 三层设备
-[R]dis multicast routing-table
-[R]dis pim routing-table
-[R]dis pim interface
-[R]dis pim neighbor
-[R]dis pim bsr-info
-[R]dis pim rp-info &lt; 组播地址 &gt;
-[R]dis igmp group
-[R]dis igmp interface
-# 二层设备
-[S]dis igmp-snooping router-port vlan &lt;vlan-id&gt;
-[S]dis igmp-snooping port-info vlan &lt;vlan-id&gt;
-[S]dis l2-multicast forwarding-table vlan &lt;vlan-id&gt;
-</code></pre><ol start="9">
-<li>VPN 信息查看</li>
-</ol>
-<pre tabindex="0"><code># 查看 LDP 会话建立情况
-[R]dis mpls ldp session
-[R]dis mpls lsp
-# 查看本地 VPN 实例路由
-[R]dis ip routing-table vpn-instance vpna
-# 查看 MP-BGP 路由
-[R]dis bgp vpnv4 vpn-instance vpna routing-table
-</code></pre><h2 id="附录">附录</h2>
+<h2 id="附录">附录</h2>
 <ol>
 <li>
 <p>华为路由协议优先级
@@ -1495,10 +1495,8 @@ Pair D state: Ok
 <li>
 <p>TCP/UDP 端口列表
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_08_29_TCPUDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A80-1023.png" alt="TCPUDP端口列表0-1023"></p>
-</li>
-</ol>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_08_29_TCPUDP%E7%AB%AF%E5%8F%A31024-65535.png" alt="TCPUDP端口1024-65535"></p>
-<ol start="6">
+</li>
 <li>
 <p>Windows.MSC命令
 <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2021_08_29_Windows_msc%E5%91%BD%E4%BB%A4.png" alt="Windows_msc命令"></p>
@@ -1562,105 +1560,107 @@ Pair D state: Ok
 <blockquote>
 <p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html">常用 Git 命令清单</a></p>
 </blockquote>
-<pre tabindex="0"><code>$ cd learngit
-$ git init  # 初始化Git仓库
-** create readme.txt
-** echo &#34;line 1 &#34;&gt;&gt; readme.txt
-
-$ git add readme.txt            # 添加到暂存空间
-$ git commit -m &#34;first commit&#34;  # 提交加备注信息
-** echo &#34;error line 2&#34; &gt;&gt; readme.txt
-
-$ git add readme.txt
-$ git status  # 查看状态
-** have a change.
-
-$ git reset HEAD readme.txt  # 将暂存空间内容撤销
-$ git checkout readme.txt    # 撤销工作空间内容
-** echo &#34;line2&#34; &gt;&gt; readme.txt
-$ git add readme.txt
-$ git commit -m &#34;commit line 2 &#34;
-
-$ git reset --hard HEAD^    # 回退为上个版本(删除修改)
-$ git reset --hard (gitID)  # 回退为指定版本(删除修改)
-$ git reset --soft (gitID)  # 回退为指定版本(不删除回退文件的修改)
-$ git log                   # 查看当前版本及之前版本的id号
-</code></pre><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">cd</span> learngit
+</span></span><span class="line"><span class="cl">$ git init  <span class="c1"># 初始化Git仓库</span>
+</span></span><span class="line"><span class="cl">** create readme.txt
+</span></span><span class="line"><span class="cl">** <span class="nb">echo</span> <span class="s2">&#34;line 1 &#34;</span>&gt;&gt; readme.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git add readme.txt            <span class="c1"># 添加到暂存空间</span>
+</span></span><span class="line"><span class="cl">$ git commit -m <span class="s2">&#34;first commit&#34;</span>  <span class="c1"># 提交加备注信息</span>
+</span></span><span class="line"><span class="cl">** <span class="nb">echo</span> <span class="s2">&#34;error line 2&#34;</span> &gt;&gt; readme.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git add readme.txt
+</span></span><span class="line"><span class="cl">$ git status  <span class="c1"># 查看状态</span>
+</span></span><span class="line"><span class="cl">** have a change.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git reset HEAD readme.txt  <span class="c1"># 将暂存空间内容撤销</span>
+</span></span><span class="line"><span class="cl">$ git checkout readme.txt    <span class="c1"># 撤销工作空间内容</span>
+</span></span><span class="line"><span class="cl">** <span class="nb">echo</span> <span class="s2">&#34;line2&#34;</span> &gt;&gt; readme.txt
+</span></span><span class="line"><span class="cl">$ git add readme.txt
+</span></span><span class="line"><span class="cl">$ git commit -m <span class="s2">&#34;commit line 2 &#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git reset --hard HEAD^    <span class="c1"># 回退为上个版本(删除修改)</span>
+</span></span><span class="line"><span class="cl">$ git reset --hard <span class="o">(</span>gitID<span class="o">)</span>  <span class="c1"># 回退为指定版本(删除修改)</span>
+</span></span><span class="line"><span class="cl">$ git reset --soft <span class="o">(</span>gitID<span class="o">)</span>  <span class="c1"># 回退为指定版本(不删除回退文件的修改)</span>
+</span></span><span class="line"><span class="cl">$ git log                   <span class="c1"># 查看当前版本及之前版本的id号</span>
+</span></span></code></pre></div><blockquote>
 <p>参考来自 <a href="https://oschina.gitee.io/learn-git-branching/">learn-git-branching</a></p>
 </blockquote>
-<pre tabindex="0"><code># Git 仓库创建
-$ git init                 # 将当前目录设为Git代码库
-$ git init [project-name]  # 新建并将其设为Git代码库
-$ git clone [url]          # 通过连接下载一个已有项目
-
-# Git增加文件
-$ git add [file1] [file2]  # 添加指定文件到暂存区
-$ git add [dir]            # 添加指定目录到暂存区
-$ git add .                # 添加当前所有文件到暂存区
-$ git add -p               # 添加每个变化前都要求确认
-
-# Git删除文件
-$ git rm [file1] [file2]  # 删除工作区文件并且将这次删除放入暂存区
-$ git rm --cached [file]  # 停止追踪指定文件但该文件会保留在工作区
-$ git mv [file-original] [file-renamed]
-
-# Git代码提交
-$ git commit -m [message]             # 提交暂存区到仓库区
-$ git commit -a                       # 提交工作区自上次commit之后的变化直接到仓库区
-$ git commit -v                       # 提交时显示所有diff信息
-$ git commit --amend -m [message]     # 使用一次新的commit替代上一次提交
-$ git commit --amend [file1] [file2]  # 重做上一次commit并包括指定文件的新变化
-
-# Git撤销操作
-$ git checkout .                # 恢复暂存区的所有文件到工作区
-$ git checkout [file]           # 恢复暂存区的指定文件到工作区
-$ git checkout [commit] [file]  # 恢复某个commit的指定文件到暂存区和工作区
-
-# Git重置操作
-$ git reset [file]           # 重置暂存区的指定文件；与上一次commit保持一致但工作区不变
-$ git reset --hard           # 重置暂存区与工作区文件；与上一次commit保持一致；谨慎使用
-$ git reset [commit]         # 重置当前分支的指针为指定commit；同时重置暂存区但工作区不变
-$ git reset --hard [commit]  # 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区
-$ git reset --keep [commit]  # 重置当前HEAD为指定commit，但保持暂存区和工作区不变
-
-# 新建一个commit，用来撤销指定commit
-# 后者的所有变化都将被前者抵消并且应用到当前分支
-$ git revert [commit]
-</code></pre><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Git 仓库创建</span>
+</span></span><span class="line"><span class="cl">$ git init                 <span class="c1"># 将当前目录设为Git代码库</span>
+</span></span><span class="line"><span class="cl">$ git init <span class="o">[</span>project-name<span class="o">]</span>  <span class="c1"># 新建并将其设为Git代码库</span>
+</span></span><span class="line"><span class="cl">$ git clone <span class="o">[</span>url<span class="o">]</span>          <span class="c1"># 通过连接下载一个已有项目</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Git增加文件</span>
+</span></span><span class="line"><span class="cl">$ git add <span class="o">[</span>file1<span class="o">]</span> <span class="o">[</span>file2<span class="o">]</span>  <span class="c1"># 添加指定文件到暂存区</span>
+</span></span><span class="line"><span class="cl">$ git add <span class="o">[</span>dir<span class="o">]</span>            <span class="c1"># 添加指定目录到暂存区</span>
+</span></span><span class="line"><span class="cl">$ git add .                <span class="c1"># 添加当前所有文件到暂存区</span>
+</span></span><span class="line"><span class="cl">$ git add -p               <span class="c1"># 添加每个变化前都要求确认</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Git删除文件</span>
+</span></span><span class="line"><span class="cl">$ git rm <span class="o">[</span>file1<span class="o">]</span> <span class="o">[</span>file2<span class="o">]</span>  <span class="c1"># 删除工作区文件并且将这次删除放入暂存区</span>
+</span></span><span class="line"><span class="cl">$ git rm --cached <span class="o">[</span>file<span class="o">]</span>  <span class="c1"># 停止追踪指定文件但该文件会保留在工作区</span>
+</span></span><span class="line"><span class="cl">$ git mv <span class="o">[</span>file-original<span class="o">]</span> <span class="o">[</span>file-renamed<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Git代码提交</span>
+</span></span><span class="line"><span class="cl">$ git commit -m <span class="o">[</span>message<span class="o">]</span>             <span class="c1"># 提交暂存区到仓库区</span>
+</span></span><span class="line"><span class="cl">$ git commit -a                       <span class="c1"># 提交工作区自上次commit之后的变化直接到仓库区</span>
+</span></span><span class="line"><span class="cl">$ git commit -v                       <span class="c1"># 提交时显示所有diff信息</span>
+</span></span><span class="line"><span class="cl">$ git commit --amend -m <span class="o">[</span>message<span class="o">]</span>     <span class="c1"># 使用一次新的commit替代上一次提交</span>
+</span></span><span class="line"><span class="cl">$ git commit --amend <span class="o">[</span>file1<span class="o">]</span> <span class="o">[</span>file2<span class="o">]</span>  <span class="c1"># 重做上一次commit并包括指定文件的新变化</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Git撤销操作</span>
+</span></span><span class="line"><span class="cl">$ git checkout .                <span class="c1"># 恢复暂存区的所有文件到工作区</span>
+</span></span><span class="line"><span class="cl">$ git checkout <span class="o">[</span>file<span class="o">]</span>           <span class="c1"># 恢复暂存区的指定文件到工作区</span>
+</span></span><span class="line"><span class="cl">$ git checkout <span class="o">[</span>commit<span class="o">]</span> <span class="o">[</span>file<span class="o">]</span>  <span class="c1"># 恢复某个commit的指定文件到暂存区和工作区</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Git重置操作</span>
+</span></span><span class="line"><span class="cl">$ git reset <span class="o">[</span>file<span class="o">]</span>           <span class="c1"># 重置暂存区的指定文件；与上一次commit保持一致但工作区不变</span>
+</span></span><span class="line"><span class="cl">$ git reset --hard           <span class="c1"># 重置暂存区与工作区文件；与上一次commit保持一致；谨慎使用</span>
+</span></span><span class="line"><span class="cl">$ git reset <span class="o">[</span>commit<span class="o">]</span>         <span class="c1"># 重置当前分支的指针为指定commit；同时重置暂存区但工作区不变</span>
+</span></span><span class="line"><span class="cl">$ git reset --hard <span class="o">[</span>commit<span class="o">]</span>  <span class="c1"># 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区</span>
+</span></span><span class="line"><span class="cl">$ git reset --keep <span class="o">[</span>commit<span class="o">]</span>  <span class="c1"># 重置当前HEAD为指定commit，但保持暂存区和工作区不变</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 新建一个commit，用来撤销指定commit</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 后者的所有变化都将被前者抵消并且应用到当前分支</span>
+</span></span><span class="line"><span class="cl">$ git revert <span class="o">[</span>commit<span class="o">]</span>
+</span></span></code></pre></div><ol start="2">
 <li>Git 远程仓库</li>
 </ol>
 <blockquote>
 <p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html">常用 Git 命令清单</a></p>
 </blockquote>
-<pre tabindex="0"><code># 注册github.com并创建本机的ssh-key
-$ ssh-keygen -t rsa -C &#34;123456789@qq.com&#34;
-
-# 添加ssh-key到秘钥管理里面并关联远程仓库
-$ git remote add origin git@github.com:xxx/learngit.git
-
-# 如果远程仓库已经存在内容需要先pull下面，之后再提交
-$ git pull origin master
-
-# 将本地库push到远程仓库，第一次需要加u关联，之后可以不加
-$ git push -u origin master
-
-# 仓库克隆
-$ git clone git@github.com:xxx/gitkills.git
-</code></pre><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 注册github.com并创建本机的ssh-key</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ ssh-keygen -t rsa -C <span class="s2">&#34;123456789@qq.com&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加ssh-key到秘钥管理里面并关联远程仓库</span>
+</span></span><span class="line"><span class="cl">$ git remote add origin git@github.com:xxx/learngit.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果远程仓库已经存在内容需要先pull下面，之后再提交</span>
+</span></span><span class="line"><span class="cl">$ git pull origin master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将本地库push到远程仓库，第一次需要加u关联，之后可以不加</span>
+</span></span><span class="line"><span class="cl">$ git push -u origin master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 仓库克隆</span>
+</span></span><span class="line"><span class="cl">$ git clone git@github.com:xxx/gitkills.git
+</span></span></code></pre></div><blockquote>
 <p>参考来自 <a href="https://oschina.gitee.io/learn-git-branching/">learn-git-branching</a></p>
 </blockquote>
-<pre tabindex="0"><code># Git远程分支推送
-$ git fetch [remote]          # 下载远程仓库的所有变动
-$ git pull [remote] [branch]  # 取回远程仓库的变化，并与本地分支合并
-$ git push [remote] [branch]  # 上传本地指定分支到远程仓库
-$ git push [remote] --force   # 强行推送当前分支到远程仓库，即使有冲突
-$ git push [remote] --all     # 推送所有分支到远程仓库
-
-# Git远程同分支查看
-$ git remote -v                     # 显示所有远程仓库
-$ git remote show [remote]          # 显示某个远程仓库的信息
-$ git remote add [shortname] [url]  # 增加一个新的远程仓库并命名
-</code></pre><ol start="3">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Git远程分支推送</span>
+</span></span><span class="line"><span class="cl">$ git fetch <span class="o">[</span>remote<span class="o">]</span>          <span class="c1"># 下载远程仓库的所有变动</span>
+</span></span><span class="line"><span class="cl">$ git pull <span class="o">[</span>remote<span class="o">]</span> <span class="o">[</span>branch<span class="o">]</span>  <span class="c1"># 取回远程仓库的变化，并与本地分支合并</span>
+</span></span><span class="line"><span class="cl">$ git push <span class="o">[</span>remote<span class="o">]</span> <span class="o">[</span>branch<span class="o">]</span>  <span class="c1"># 上传本地指定分支到远程仓库</span>
+</span></span><span class="line"><span class="cl">$ git push <span class="o">[</span>remote<span class="o">]</span> --force   <span class="c1"># 强行推送当前分支到远程仓库，即使有冲突</span>
+</span></span><span class="line"><span class="cl">$ git push <span class="o">[</span>remote<span class="o">]</span> --all     <span class="c1"># 推送所有分支到远程仓库</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Git远程同分支查看</span>
+</span></span><span class="line"><span class="cl">$ git remote -v                     <span class="c1"># 显示所有远程仓库</span>
+</span></span><span class="line"><span class="cl">$ git remote show <span class="o">[</span>remote<span class="o">]</span>          <span class="c1"># 显示某个远程仓库的信息</span>
+</span></span><span class="line"><span class="cl">$ git remote add <span class="o">[</span>shortname<span class="o">]</span> <span class="o">[</span>url<span class="o">]</span>  <span class="c1"># 增加一个新的远程仓库并命名</span>
+</span></span></code></pre></div><ol start="3">
 <li>Git 分支管理</li>
 </ol>
 <blockquote>
@@ -1670,48 +1670,48 @@ $ git remote add [shortname] [url]  # 增加一个新的远程仓库并命名
 <li>在工作区未提交的内容，所有分支都可以看到</li>
 <li>提交之后的内容在对应的分支内，切换只能在对应的分支内看到</li>
 </ul>
-<pre tabindex="0"><code># 查看分支列表，其中*为当前分支
-git branch
-
-# 创建分支
-git branch &lt;name&gt;
-
-# 切换分支
-git checkout &lt;name&gt;
-
-# 创建并切换分支
-git checkout -b &lt;name&gt;
-
-# 合并某分支到当前分支
-git merge &lt;name&gt;
-
-# 删除分支
-git branch -d &lt;name&gt;
-
-# 强行删除分支
-git branch -D &lt;name&gt;
-</code></pre><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查看分支列表，其中*为当前分支</span>
+</span></span><span class="line"><span class="cl">git branch
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建分支</span>
+</span></span><span class="line"><span class="cl">git branch &lt;name&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 切换分支</span>
+</span></span><span class="line"><span class="cl">git checkout &lt;name&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建并切换分支</span>
+</span></span><span class="line"><span class="cl">git checkout -b &lt;name&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 合并某分支到当前分支</span>
+</span></span><span class="line"><span class="cl">git merge &lt;name&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除分支</span>
+</span></span><span class="line"><span class="cl">git branch -d &lt;name&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 强行删除分支</span>
+</span></span><span class="line"><span class="cl">git branch -D &lt;name&gt;
+</span></span></code></pre></div><blockquote>
 <p>参考来自 <a href="https://oschina.gitee.io/learn-git-branching/">learn-git-branching</a></p>
 </blockquote>
-<pre tabindex="0"><code># Git查看分支
-$ git branch     # 列出所有本地分支
-$ git branch -r  # 列出所有远程分支
-$ git branch -a  # 列出所有本地分支和远程分支
-
-# Git分支切换
-$ git branch [branch-name]     # 新建一个分支但停留在当前分支
-$ git checkout -b [branch]     # 新建一个分支并切换到该分支
-$ git checkout [branch-name]   # 切换到指定分支并更新工作区
-$ git checkout -               # 切换到上一个分支
-$ git branch -d [branch-name]  # 删除分支
-
-# Git分支删除
-$ git push origin --delete [branch-name]  # 删除远程分支
-$ git branch -dr [remote/branch]          # 删除远程分支
-
-# 建立追踪关系，在现有分支与指定的远程分支之间
-$ git branch --set-upstream [branch] [remote-branch]
-</code></pre><ol start="4">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Git查看分支</span>
+</span></span><span class="line"><span class="cl">$ git branch     <span class="c1"># 列出所有本地分支</span>
+</span></span><span class="line"><span class="cl">$ git branch -r  <span class="c1"># 列出所有远程分支</span>
+</span></span><span class="line"><span class="cl">$ git branch -a  <span class="c1"># 列出所有本地分支和远程分支</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Git分支切换</span>
+</span></span><span class="line"><span class="cl">$ git branch <span class="o">[</span>branch-name<span class="o">]</span>     <span class="c1"># 新建一个分支但停留在当前分支</span>
+</span></span><span class="line"><span class="cl">$ git checkout -b <span class="o">[</span>branch<span class="o">]</span>     <span class="c1"># 新建一个分支并切换到该分支</span>
+</span></span><span class="line"><span class="cl">$ git checkout <span class="o">[</span>branch-name<span class="o">]</span>   <span class="c1"># 切换到指定分支并更新工作区</span>
+</span></span><span class="line"><span class="cl">$ git checkout -               <span class="c1"># 切换到上一个分支</span>
+</span></span><span class="line"><span class="cl">$ git branch -d <span class="o">[</span>branch-name<span class="o">]</span>  <span class="c1"># 删除分支</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Git分支删除</span>
+</span></span><span class="line"><span class="cl">$ git push origin --delete <span class="o">[</span>branch-name<span class="o">]</span>  <span class="c1"># 删除远程分支</span>
+</span></span><span class="line"><span class="cl">$ git branch -dr <span class="o">[</span>remote/branch<span class="o">]</span>          <span class="c1"># 删除远程分支</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 建立追踪关系，在现有分支与指定的远程分支之间</span>
+</span></span><span class="line"><span class="cl">$ git branch --set-upstream <span class="o">[</span>branch<span class="o">]</span> <span class="o">[</span>remote-branch<span class="o">]</span>
+</span></span></code></pre></div><ol start="4">
 <li>Git 冲突处理</li>
 </ol>
 <blockquote>
@@ -1720,61 +1720,61 @@ $ git branch --set-upstream [branch] [remote-branch]
 <ul>
 <li>合并时显示分支冲突先 <code>merge</code> 后修改 <code>&lt;&lt;&lt;&lt;分支1</code>、<code>&lt;&lt;&lt;分支2</code> 之间的冲突内容，然后再提交。当前分支会比被合并的分支，多一次 commit 的提交记录。</li>
 </ul>
-<pre tabindex="0"><code># 合并指定分支到当前分支
-# 禁用Fast forward功能，不删除分支且合并后保留分支
-git merge --no-ff [branch]
-
-# 选择一个commit并合并进当前分支
-$ git cherry-pick [commit]
-</code></pre><ol start="5">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 合并指定分支到当前分支</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 禁用Fast forward功能，不删除分支且合并后保留分支</span>
+</span></span><span class="line"><span class="cl">git merge --no-ff <span class="o">[</span>branch<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 选择一个commit并合并进当前分支</span>
+</span></span><span class="line"><span class="cl">$ git cherry-pick <span class="o">[</span>commit<span class="o">]</span>
+</span></span></code></pre></div><ol start="5">
 <li>Git 比对日志</li>
 </ol>
 <blockquote>
 <p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html">常用 Git 命令清单</a></p>
 </blockquote>
-<pre tabindex="0"><code># 查看分支情况
-git log --graph --pretty=oneline --abbrev-commit
-git log --graph --decorate --pretty=oneline --abbrev-commit --all
-git log --pretty=fsormat:&#39;%s %C(bold blue)(%an)%Creset&#39; --abbrev-commit
-git log --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit
-</code></pre><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查看分支情况</span>
+</span></span><span class="line"><span class="cl">git log --graph --pretty<span class="o">=</span>oneline --abbrev-commit
+</span></span><span class="line"><span class="cl">git log --graph --decorate --pretty<span class="o">=</span>oneline --abbrev-commit --all
+</span></span><span class="line"><span class="cl">git log --pretty<span class="o">=</span>fsormat:<span class="s1">&#39;%s %C(bold blue)(%an)%Creset&#39;</span> --abbrev-commit
+</span></span><span class="line"><span class="cl">git log --graph --pretty<span class="o">=</span>format:<span class="s1">&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39;</span> --abbrev-commit
+</span></span></code></pre></div><blockquote>
 <p>参考来自 <a href="https://oschina.gitee.io/learn-git-branching/">learn-git-branching</a></p>
 </blockquote>
-<pre tabindex="0"><code># Git日志格式
-
-$ git log                        # 显示当前分支的版本历史
-$ git log --stat                 # 显示commit历史及每次commit变更的文件
-$ git log -5 --pretty --oneline  # 显示过去5次提交
-$ git reflog                     # 显示当前分支的最近几次提交
-$ git shortlog -sn               # 显示所有提交过的用户，按提交次数排序
-
-# 显示某个commit之后的所有变动，每个commit占据一行
-$ git log [tag] HEAD --pretty=format:%s
-
-# 显示某个commit之后的所有变动，其&#34;提交说明&#34;必须符合搜索条件
-$ git log [tag] HEAD --grep feature
-
-# 显示某个文件的版本历史，包括文件改名
-$ git log --follow [file]
-$ git whatchanged [file]
-
-# Git高级查询
-$ git blame [file]                     # 显示指定文件是什么人在什么时间修改过
-$ git log -p [file]                    # 显示指定文件相关的每一次diff
-$ git log -S [keyword]                 # 根据关键词搜索提交历史
-$ git diff --shortstat &#34;@{0 day ago}&#34;  # 显示今天你写了多少行代码
-
-# Git 差异对比
-$ git diff  # 显示暂存区和工作区的差异
-$ git diff --cached [file]  # 显示暂存区和上一个commit的差异
-$ git diff HEAD  # 显示工作区与当前分支最新commit之间的差异
-$ git diff [first-branch]...[second-branch]  # 显示两次提交之间的差异
-
-# Git显示内容
-$ git show [commit]              # 显示某次提交的元数据和内容变化
-$ git show --name-only [commit]  # 显示某次提交发生变化的文件
-$ git show [commit]:[filename]   # 显示某次提交时某个文件的内容
-</code></pre><ol start="6">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Git日志格式</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git log                        <span class="c1"># 显示当前分支的版本历史</span>
+</span></span><span class="line"><span class="cl">$ git log --stat                 <span class="c1"># 显示commit历史及每次commit变更的文件</span>
+</span></span><span class="line"><span class="cl">$ git log -5 --pretty --oneline  <span class="c1"># 显示过去5次提交</span>
+</span></span><span class="line"><span class="cl">$ git reflog                     <span class="c1"># 显示当前分支的最近几次提交</span>
+</span></span><span class="line"><span class="cl">$ git shortlog -sn               <span class="c1"># 显示所有提交过的用户，按提交次数排序</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 显示某个commit之后的所有变动，每个commit占据一行</span>
+</span></span><span class="line"><span class="cl">$ git log <span class="o">[</span>tag<span class="o">]</span> HEAD --pretty<span class="o">=</span>format:%s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 显示某个commit之后的所有变动，其&#34;提交说明&#34;必须符合搜索条件</span>
+</span></span><span class="line"><span class="cl">$ git log <span class="o">[</span>tag<span class="o">]</span> HEAD --grep feature
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 显示某个文件的版本历史，包括文件改名</span>
+</span></span><span class="line"><span class="cl">$ git log --follow <span class="o">[</span>file<span class="o">]</span>
+</span></span><span class="line"><span class="cl">$ git whatchanged <span class="o">[</span>file<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Git高级查询</span>
+</span></span><span class="line"><span class="cl">$ git blame <span class="o">[</span>file<span class="o">]</span>                     <span class="c1"># 显示指定文件是什么人在什么时间修改过</span>
+</span></span><span class="line"><span class="cl">$ git log -p <span class="o">[</span>file<span class="o">]</span>                    <span class="c1"># 显示指定文件相关的每一次diff</span>
+</span></span><span class="line"><span class="cl">$ git log -S <span class="o">[</span>keyword<span class="o">]</span>                 <span class="c1"># 根据关键词搜索提交历史</span>
+</span></span><span class="line"><span class="cl">$ git diff --shortstat <span class="s2">&#34;@{0 day ago}&#34;</span>  <span class="c1"># 显示今天你写了多少行代码</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Git 差异对比</span>
+</span></span><span class="line"><span class="cl">$ git diff  <span class="c1"># 显示暂存区和工作区的差异</span>
+</span></span><span class="line"><span class="cl">$ git diff --cached <span class="o">[</span>file<span class="o">]</span>  <span class="c1"># 显示暂存区和上一个commit的差异</span>
+</span></span><span class="line"><span class="cl">$ git diff HEAD  <span class="c1"># 显示工作区与当前分支最新commit之间的差异</span>
+</span></span><span class="line"><span class="cl">$ git diff <span class="o">[</span>first-branch<span class="o">]</span>...<span class="o">[</span>second-branch<span class="o">]</span>  <span class="c1"># 显示两次提交之间的差异</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Git显示内容</span>
+</span></span><span class="line"><span class="cl">$ git show <span class="o">[</span>commit<span class="o">]</span>              <span class="c1"># 显示某次提交的元数据和内容变化</span>
+</span></span><span class="line"><span class="cl">$ git show --name-only <span class="o">[</span>commit<span class="o">]</span>  <span class="c1"># 显示某次提交发生变化的文件</span>
+</span></span><span class="line"><span class="cl">$ git show <span class="o">[</span>commit<span class="o">]</span>:<span class="o">[</span>filename<span class="o">]</span>   <span class="c1"># 显示某次提交时某个文件的内容</span>
+</span></span></code></pre></div><ol start="6">
 <li>Git 内容存储</li>
 </ol>
 <blockquote>
@@ -1783,22 +1783,22 @@ $ git show [commit]:[filename]   # 显示某次提交时某个文件的内容
 <ul>
 <li>正在 dev 分支工作时，需要修改 bug 并提交。应该先把 dev 当前工作区 stash 储藏起来，修改完 bug 提交后在使用 git stash pop 恢复 dev 的内容到工作区。</li>
 </ul>
-<pre tabindex="0"><code># 储藏当前工作区
-git stash
-
-# 查看储藏区
-git stash list
-
-# 恢复指定内容到工作区，不在stash内删除
-# 其中的stashid可以通过git stash list查询
-git stash apply &lt;stashid&gt;
-
-# 删除储藏区
-git stash drop &lt;stashid&gt;
-
-# 恢复stash的内容到工作区，并在stash内删除
-git stash pop
-</code></pre><ol start="7">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 储藏当前工作区</span>
+</span></span><span class="line"><span class="cl">git stash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看储藏区</span>
+</span></span><span class="line"><span class="cl">git stash list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 恢复指定内容到工作区，不在stash内删除</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 其中的stashid可以通过git stash list查询</span>
+</span></span><span class="line"><span class="cl">git stash apply &lt;stashid&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除储藏区</span>
+</span></span><span class="line"><span class="cl">git stash drop &lt;stashid&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 恢复stash的内容到工作区，并在stash内删除</span>
+</span></span><span class="line"><span class="cl">git stash pop
+</span></span></code></pre></div><ol start="7">
 <li>Git 标签管理</li>
 </ol>
 <blockquote>
@@ -1807,33 +1807,33 @@ git stash pop
 <ul>
 <li>标签基本都是发布版本的时候使用的，所以平常很少使用，了解即可。</li>
 </ul>
-<pre tabindex="0"><code># 新建标签，默认为在HEAD上，也可以指定一个commit id号
-git tag &lt;name&gt;
-
-# 指定标签信息
-git tag -a &lt;tagname&gt; -m &#34;blablablabla&#34;
-
-# 使用PGP签名标签
-git tag -s &lt;tagname&gt; -m &#34;blablablabla&#34;
-
-# 查看所有标签
-git tag
-
-# 查看指定tag的详细内容
-git show &lt;tagname&gt;
-
-# 删除tag标签
-git tag -d &lt;tagname&gt;
-
-# 推送指定标签到远程
-git push origin &lt;tagname&gt;
-
-# 推送所有标签到远程
-git push origin --tags
-
-# 从远程删除标签
-git push origin :refs/tags/&lt;tagname&gt;
-</code></pre><ol start="8">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 新建标签，默认为在HEAD上，也可以指定一个commit id号</span>
+</span></span><span class="line"><span class="cl">git tag &lt;name&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 指定标签信息</span>
+</span></span><span class="line"><span class="cl">git tag -a &lt;tagname&gt; -m <span class="s2">&#34;blablablabla&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用PGP签名标签</span>
+</span></span><span class="line"><span class="cl">git tag -s &lt;tagname&gt; -m <span class="s2">&#34;blablablabla&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看所有标签</span>
+</span></span><span class="line"><span class="cl">git tag
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看指定tag的详细内容</span>
+</span></span><span class="line"><span class="cl">git show &lt;tagname&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除tag标签</span>
+</span></span><span class="line"><span class="cl">git tag -d &lt;tagname&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 推送指定标签到远程</span>
+</span></span><span class="line"><span class="cl">git push origin &lt;tagname&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 推送所有标签到远程</span>
+</span></span><span class="line"><span class="cl">git push origin --tags
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 从远程删除标签</span>
+</span></span><span class="line"><span class="cl">git push origin :refs/tags/&lt;tagname&gt;
+</span></span></code></pre></div><ol start="8">
 <li>Git 配置管理</li>
 </ol>
 <blockquote>
@@ -1842,51 +1842,51 @@ git push origin :refs/tags/&lt;tagname&gt;
 <ul>
 <li>主要配置日常使用工具和提交记录相关的配置，需要注意的是，区分全局和本地配置。</li>
 </ul>
-<pre tabindex="0"><code># 列出配置项
-$ git config --list
-$ git config --global --list
-
-# 获取配置项
-$ git config user.name &#34;escape&#34;
-$ git config --global user.name &#34;escape&#34;
-$ git config user.email &#34;escapelife@gmail.com&#34;
-$ git config --global user.email &#34;escapelife@gmail.com&#34;
-
-# 添加配置项
-$ git config -–add site.name yiibai
-$ git config --global -–add site.name yiibai
-
-# 删除配置项
-$ git config -–unset site.name
-$ git config --global -–unset site.name
-
-# 获取帮助
-$ git help &lt;verb&gt;
-$ git help config
-
-# 配置全局默认编辑器
-$ git config --global core.editor vim
-$ git config --global core.editor emacs
-
-# 配置比较工具
-$ git config --global merge.tool vimdiff
-
-# 全局代理配置
-$ git config --global https.proxy http://127.0.0.1:1080
-$ git config --global https.proxy https://127.0.0.1:1080
-
-# 全局取消代理配置
-$ git config --global --unset http.proxy
-$ git config --global --unset https.proxy
-</code></pre><ol start="9">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 列出配置项</span>
+</span></span><span class="line"><span class="cl">$ git config --list
+</span></span><span class="line"><span class="cl">$ git config --global --list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取配置项</span>
+</span></span><span class="line"><span class="cl">$ git config user.name <span class="s2">&#34;escape&#34;</span>
+</span></span><span class="line"><span class="cl">$ git config --global user.name <span class="s2">&#34;escape&#34;</span>
+</span></span><span class="line"><span class="cl">$ git config user.email <span class="s2">&#34;escapelife@gmail.com&#34;</span>
+</span></span><span class="line"><span class="cl">$ git config --global user.email <span class="s2">&#34;escapelife@gmail.com&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加配置项</span>
+</span></span><span class="line"><span class="cl">$ git config -–add site.name yiibai
+</span></span><span class="line"><span class="cl">$ git config --global -–add site.name yiibai
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除配置项</span>
+</span></span><span class="line"><span class="cl">$ git config -–unset site.name
+</span></span><span class="line"><span class="cl">$ git config --global -–unset site.name
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取帮助</span>
+</span></span><span class="line"><span class="cl">$ git <span class="nb">help</span> &lt;verb&gt;
+</span></span><span class="line"><span class="cl">$ git <span class="nb">help</span> config
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 配置全局默认编辑器</span>
+</span></span><span class="line"><span class="cl">$ git config --global core.editor vim
+</span></span><span class="line"><span class="cl">$ git config --global core.editor emacs
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 配置比较工具</span>
+</span></span><span class="line"><span class="cl">$ git config --global merge.tool vimdiff
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 全局代理配置</span>
+</span></span><span class="line"><span class="cl">$ git config --global https.proxy http://127.0.0.1:1080
+</span></span><span class="line"><span class="cl">$ git config --global https.proxy https://127.0.0.1:1080
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 全局取消代理配置</span>
+</span></span><span class="line"><span class="cl">$ git config --global --unset http.proxy
+</span></span><span class="line"><span class="cl">$ git config --global --unset https.proxy
+</span></span></code></pre></div><ol start="9">
 <li>Git  其他操作</li>
 </ol>
 <blockquote>
 <p>参考来自 <a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html">常用 Git 命令清单</a></p>
 </blockquote>
-<pre tabindex="0"><code># 生成发布压缩包
-$ git archive
-</code></pre><ol start="10">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 生成发布压缩包</span>
+</span></span><span class="line"><span class="cl">$ git archive
+</span></span></code></pre></div><ol start="10">
 <li>快捷键总结</li>
 </ol>
 <blockquote>
@@ -1967,8 +1967,8 @@ $ git archive
 <li>git push</li>
 <li>再改用 github</li>
 <li>git remote</li>
-<li>git remote show <name></li>
-<li>git remote remove <name></li>
+<li>git remote show <code>&lt;name&gt;</code></li>
+<li>git remote remove <code>&lt;name&gt;</code></li>
 <li>git remote add origin url</li>
 <li>git push</li>
 </ul>
@@ -2070,40 +2070,42 @@ cgroups- 它允许将进程及其资源作为一个单元进行分组、隔离�
 </ol>
 <h2 id="container-use-cases">Container use cases</h2>
 <ol>
-<li><strong>Application Modernization</strong></li>
-</ol>
+<li>
+<p><strong>Application Modernization</strong></p>
 <blockquote>
 <p>Modernizing applications today means migrating programs from legacy on-premises deployments to cloud solutions. Bcoz containers are agile, they enhance an organization’s ability to migrate applications &amp; workflows seamlessly.</p>
 </blockquote>
 <p>今天的应用程序现代化意味着将程序从传统的本地部署迁移到云解决方案。 Bcoz 容器是敏捷的，它们增强了组织无缝迁移应用程序和工作流的能力。</p>
-<ol start="2">
-<li><strong>Refactor existing applications for containers</strong></li>
-</ol>
+</li>
+<li>
+<p><strong>Refactor existing applications for containers</strong></p>
 <blockquote>
 <p>Although refactoring is much more intensive than lift-and-shift migration, it enables the full benefits of a container environment.</p>
 </blockquote>
 <p>尽管重构比直接迁移要密集得多，但它可以充分发挥容器环境的优势。</p>
-<ol start="3">
-<li><strong>Deploying Microservices</strong></li>
-</ol>
+</li>
+<li>
+<p><strong>Deploying Microservices</strong></p>
 <blockquote>
 <p>The microservices architecture allows sw developers to produce apps made up of several independent deployable services. Different components of d application hosted in containers are scalable &amp; amenable to updating w/o disrupting other services.</p>
 </blockquote>
 <p>微服务架构允许软件开发人员生成由几个独立的可部署服务组成的应用程序。托管在容器中的应用程序的不同组件是可扩展的，并且可以在不中断其他服务的情况下进行更新。</p>
-<ol start="4">
-<li><strong>Provide DevOps support for continuous integration and deployment (CI/CD)</strong></li>
-</ol>
+</li>
+<li>
+<p><strong>Provide DevOps support for continuous integration and deployment (CI/CD)</strong></p>
 <blockquote>
 <p>Container technology supports streamlined build, test, and deployment from the same container images.</p>
 </blockquote>
 <p>容器技术支持从相同的容器映像简化构建、测试和部署。</p>
-<ol start="5">
-<li><strong>Provide easier deployment of repetitive jobs and tasks</strong></li>
-</ol>
+</li>
+<li>
+<p><strong>Provide easier deployment of repetitive jobs and tasks</strong></p>
 <blockquote>
 <p>Containers are being deployed to support one or more similar processes, which often run in the background, such as ETL functions or batch jobs.</p>
 </blockquote>
 <p>正在部署容器以支持一个或多个类似的流程，这些流程通常在后台运行，例如 ETL 功能或批处理作业。</p>
+</li>
+</ol>
 <h2 id="containers-vs-vms">Containers vs VMs</h2>
 <blockquote>
 <p>VM’s simulate d entire machine &amp; OS. Means VMs have simulated CPU/RAM/Filesystems/nw resources.
