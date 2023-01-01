@@ -1,4 +1,116 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>寂寞留白</title><link>https://alphapenng.github.io/zh-cn/</link><description>Recent content on 寂寞留白</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 02 Dec 2022 21:14:34 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWrt开启802.11k-v-r协议实现手机在路由器之间无缝漫游</title><link>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</link><pubDate>Fri, 02 Dec 2022 21:14:34 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</guid><description>mesh 路由器基本概念 以一张脑图梳理一下 mesh 路由器的基本概念 ⚠️ 802.11k/v/r 这三个协议必须是路由器和设备同时支持才可以起作用 ⚠️ 设备这方面我们基本不用太担心,</description><content:encoded><![CDATA[<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_epB5YQ.png" alt="toc"></p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>寂寞留白</title><link>https://alphapenng.github.io/zh-cn/</link><description>Recent content on 寂寞留白</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 31 Dec 2022 22:53:24 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>OmniEdge 异地组网部署</title><link>https://alphapenng.github.io/zh-cn/2022/12/31/omniedge-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E9%83%A8%E7%BD%B2/</link><pubDate>Sat, 31 Dec 2022 22:53:24 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/31/omniedge-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E9%83%A8%E7%BD%B2/</guid><description>OmniEdge 是什么？ 打开 OmniEdge的官网 https://omniedge.io/ 可以看到它的 slogan： 连接 任何设备 到局域网 使用 OmniEdge 的下一代异地组网 Mesh VPN，将局域网架设到网上，将任</description><content:encoded><![CDATA[<h2 id="omniedge-是什么">OmniEdge 是什么？</h2>
+<p>打开 OmniEdge的官网 <a href="https://omniedge.io/">https://omniedge.io/</a> 可以看到它的 slogan：</p>
+<blockquote>
+<p><strong>连接 任何设备 到局域网</strong>
+使用 OmniEdge 的下一代异地组网 Mesh VPN，将局域网架设到网上，将任何地方的任何设备连接到局域网，实现快速的访问。</p>
+</blockquote>
+<p>OmniEdge 的功能其实跟 WireGuard 类似，是一个 VPN 软件，可以实现远程 Mesh 互连, 组建「大」局域网。</p>
+<h2 id="为什么选择-omniedge">为什么选择 OmniEdge？</h2>
+<p>在上一篇博文 <a href="https://alphapenng.github.io/zh-cn/2022/10/10/tailscale-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E5%AE%9E%E8%B7%B5headscale-%E7%9A%84%E9%83%A8%E7%BD%B2%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8/">Tailscale 异地组网实践：Headscale 的部署方法和使用</a> 中，我选择通过 Headscale + Tailscale 来组建我的「大」局域网，但在部署完成后测试各节点连通情况时，我发现我的节点之间并没有走直连方式，都是通过中继服务器来达成连接，公共的中继服务器都在国外，通过中继连接等于迂回了路由，效果不理想。虽然可以在国内云服务器上部署私有中继服务器，参考这篇文章 <a href="https://icloudnative.io/posts/custom-derp-servers/">Tailscale 基础教程：部署私有 DERP 中继服务器</a>，但文中提到这种方案实现的前提是需要满足以下几个条件：</p>
+<ul>
+<li>需要准备一台或多台云主机</li>
+<li>要有自己的域名，并且申请了 SSL 证书</li>
+<li>如果服务器在国内，域名需要备案</li>
+</ul>
+<p>云主机我是有一台，在腾讯云上买的轻量应用服务器，享受的新用户首单特惠 88 元一年。</p>
+<div align="center"> <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101000839_c4gT7e.png" alt="lighthouse" width="50%" /> </div>
+<p>但没有申请域名，想着申请域名要花钱还要备案，就果断放弃了。</p>
+<p>于是我就转向了 OmniEdge，OmniEdge 也可以部署私有中继服务器，在 OmniEdge 中它叫做 Supernode。部署 Supernode 只需要云主机有公网 ip 就行了，另外 OmniEdge 的其他客户端部署也较为容易，只要跟着文档一步一步来就行了。</p>
+<h2 id="supernode-部署">Supernode 部署</h2>
+<ol>
+<li>
+<p>安装 docker 环境</p>
+<p>部署 Supernode 需要云主机有 docker 环境，我的云主机系统是 <code>Ubuntu Jammy 22.04 (LTS)</code>的，可以参考 docker 官方文档，按照 <a href="https://docs.docker.com/engine/install/ubuntu/">Install Docker Engine on Ubuntu</a> 指引，按步骤执行即可，最后通过 <code>sudo docker run hello-world</code> 测试是否安装成功</p>
+</li>
+<li>
+<p>安装 supernode</p>
+<p>只需要执行一条命令即可</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker run -d -p 7787:7787/udp omniedge/supernode:latest
+</span></span></code></pre></div><p>查看 supernode 是否运行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker container ls
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101005124_K9ryPa.png" alt="container_ls"></p>
+<p>查看容器日志</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker logs -f &lt;container-names&gt;
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101005614_twHYEV.png" alt="container_logs"></p>
+<p>看到以上日志，就说明 supernode 启动成功了，如果日志有报错，就根据报错再排查。</p>
+</li>
+<li>
+<p>开启云主机防火墙 7787 端口。</p>
+<p>找到云主机防火墙设置页面，在防火墙设置页添加一条规则，以允许云主机开放 udp/7787 端口。</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101010035_2bvbGK.png" alt="firewall"></p>
+</li>
+</ol>
+<p>至此，supernode 就算部署完成了，接着我们根据需要安装客户端。</p>
+<h2 id="安装-omniedge-客户端">安装 OmniEdge 客户端</h2>
+<h3 id="注册-omniedge添加虚拟网络">注册 OmniEdge，添加虚拟网络</h3>
+<p>首先访问 <a href="https://omniedge.io/register">OmniEdge 注册页面</a>，注册用户，然后登录后，点击虚拟网络选项，创建虚拟网络，免费用户只能创建一个虚拟网络，不过对于只组建一个「大」局域网的我来说，已经够了。</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101155001_vZc9Wq.png" alt="virtual-network"></p>
+<h3 id="安装-macos-客户端">安装 macOS 客户端</h3>
+<p>可以参考官方文档 <a href="https://omniedge.io/docs/article/install/macos">Installing on MacOS</a> 进行安装。</p>
+<p>这里我选择安装命令行客户端</p>
+<ol>
+<li>
+<p>安装 Tun/Tap 驱动</p>
+<ul>
+<li>下载驱动文件，<a href="https://sourceforge.net/projects/tuntaposx/files/latest/download">https://sourceforge.net/projects/tuntaposx/files/latest/download</a></li>
+<li>解压 <code>tuntap_20150118.tar.gz</code> 后双击 <code>tuntap_20150118.pkg</code> 进行安装</li>
+<li>在终端下运行 <code>sudo kextload /Library/Extensions/tap.kext</code></li>
+</ul>
+</li>
+<li>
+<p>安装命令行客户端</p>
+<ul>
+<li>
+<p>通过脚本安装：<code>curl https://omniedge.io/install/omniedge-install.sh | bash</code></p>
+</li>
+<li>
+<p>然后在此页面 <a href="https://omniedge.io/dashboard">https://omniedge.io/dashboard</a> 创建安全码</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101013508_UYY8u8.png" alt="secret-key"></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101013839_YfQbCn.png" alt="create-key"></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101014146_BzZ8zB.png" alt="list-key"></p>
+</li>
+<li>
+<p>通过刚才创建的安全码进行登录：<code>omniedge login -s &lt;yoursecuritykey&gt;</code></p>
+</li>
+<li>
+<p>加入你创建的虚拟网络：<code>sudo omniedge join</code>
+<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101092947_yPzu61.png" alt="join_virtual_network"></p>
+</li>
+</ul>
+</li>
+</ol>
+<p>至此，macOS 命令行客户端安装完成，接着我们安装 windows 客户端</p>
+<h3 id="安装-windows-客户端">安装 windows 客户端</h3>
+<p>可以参考官方文档 <a href="https://omniedge.io/docs/article/install/windows">Installing on Windows</a> 进行安装。</p>
+<p>windows 客户端安装相对简单。</p>
+<ol>
+<li>
+<p>从 <a href="https://omniedge.io/install/download/0.2.3/omniedge-setup-0.2.3.exe">这里</a> 下载 windows 安装包。下载完成后，双击运行进行安装。</p>
+</li>
+<li>
+<p>右键点击系统托盘上的 OmniEdge 图标，在弹出的菜单中选择“Log in&hellip;”。</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101094156_uEDffB.png" alt="log_in"></p>
+</li>
+<li>
+<p>登录客户端，再次打开系统托盘上的 OmniEdge 菜单，点击“Virtual Networks”，选择所要加入的虚拟网络名，点击“join”加入。</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101154006_QIkWSd.png" alt="join_virtual_network"></p>
+</li>
+<li>
+<p>当获取到虚拟网络IP地址后，即表示连接成功。</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101152134_2FrBJr.png" alt="connected"></p>
+</li>
+</ol>
+<p>至此，windows 客户端安装完成并连接成功，接着我们安装 openwrt 客户端。</p>
+<h3 id="安装-openwrt-客户端">安装 openwrt 客户端</h3>
+<p>待更新。。。</p>
+<h2 id="测试节点联通情况">测试节点联通情况</h2>
+<p>回到 mac，我们打开终端，测试一下与 windows 的连通情况，输入一下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 10.1.0.1 为 windows 客户端的虚拟网络 ip</span>
+</span></span><span class="line"><span class="cl">gping -4 10.1.0.1
+</span></span></code></pre></div><p>gping 是一个图表化 ping 命令的开源工具，可以通过 <a href="https://github.com/orf/gping">https://github.com/orf/gping</a> 下载安装。</p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101163017_tty.gif" alt="omniedge_test"></p>
+<p>从测试结果可以看出，最高延时在 158ms，最低延时在 56ms，平均延时稳定在 88ms，效果还是不错的。从我的网络情况来看，两个节点之间应该是通过中继服务器连接的，能达到这种延时不错了，就是不知道直连效果怎样。无论是在客户端还是在 supernode 上，都不知道怎样查看节点之间是直连还是中继的，今后就这样使用再看看稳定性如何。</p>
+]]></content:encoded></item><item><title>OpenWrt开启802.11k-v-r协议实现手机在路由器之间无缝漫游</title><link>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</link><pubDate>Fri, 02 Dec 2022 21:14:34 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</guid><description>mesh 路由器基本概念 以一张脑图梳理一下 mesh 路由器的基本概念 ⚠️ 802.11k/v/r 这三个协议必须是路由器和设备同时支持才可以起作用 ⚠️ 设备这方面我们基本不用太担心,</description><content:encoded><![CDATA[<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_epB5YQ.png" alt="toc"></p>
 <h2 id="mesh-路由器基本概念">mesh 路由器基本概念</h2>
 <p><code>以一张脑图梳理一下 mesh 路由器的基本概念</code></p>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_OwGgb3.png" alt="mesh"></p>
