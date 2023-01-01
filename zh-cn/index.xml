@@ -360,7 +360,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">headscale namespaces create default
 </span></span></code></pre></div><p>查看命名空间：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">headscale namespaces list
-</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225222030_3ZXzRp.png" alt="headscale_namespace"></p>
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221225222030_3ZXzRp.png" alt="headscale_namespace-m"></p>
 <h2 id="tailscale-客户端接入">Tailscale 客户端接入</h2>
 <h3 id="macos">macOS</h3>
 <p>macOS 有 3 种安装方法：</p>
@@ -434,7 +434,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/etc/init.d/tailscale <span class="nb">enable</span>
 </span></span></code></pre></div><p>查看是否设置成功</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls /etc/rc.d/S*tailscale*
-</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221226084534_1PGL1X.png" alt="tailscale_boot"></p>
+</span></span></code></pre></div><p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20221226084534_1PGL1X.png" alt="tailscale_boot-m"></p>
 </li>
 <li>
 <p>以后升级 tailscale，只需从<a href="https://pkgs.tailscale.com/stable/#static">这里</a>下载最新的安装包，下载的包名是类似 <code>1.2.10_mips</code> 这种结构，然后替换掉 <code>/usr/bin/tailscale</code> 和 <code>/usr/bin/tailscaled</code> 相同路径下的二进制文件。</p>
