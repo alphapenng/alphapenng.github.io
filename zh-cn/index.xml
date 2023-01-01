@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>寂寞留白</title><link>https://alphapenng.github.io/zh-cn/</link><description>Recent content on 寂寞留白</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 31 Dec 2022 22:53:24 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>OmniEdge 异地组网部署</title><link>https://alphapenng.github.io/zh-cn/2022/12/31/omniedge-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E9%83%A8%E7%BD%B2/</link><pubDate>Sat, 31 Dec 2022 22:53:24 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/31/omniedge-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E9%83%A8%E7%BD%B2/</guid><description>OmniEdge 是什么？ 打开 OmniEdge的官网 https://omniedge.io/ 可以看到它的 slogan： 连接任何设备到局域网。 使用 OmniEdge 的下一代异地组网 Mesh VPN，将局域网架设到网上，将</description><content:encoded><![CDATA[<h2 id="omniedge-是什么">OmniEdge 是什么？</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>寂寞留白</title><link>https://alphapenng.github.io/zh-cn/</link><description>Recent content on 寂寞留白</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 31 Dec 2022 22:53:24 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>OmniEdge 异地组网部署</title><link>https://alphapenng.github.io/zh-cn/2022/12/31/omniedge-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E9%83%A8%E7%BD%B2/</link><pubDate>Sat, 31 Dec 2022 22:53:24 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/31/omniedge-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E9%83%A8%E7%BD%B2/</guid><description>OmniEdge 是什么？ 打开 OmniEdge的官网 https://omniedge.io/ 可以看到它的 slogan： 连接任何设备到局域网。 使用 OmniEdge 的下一代异地组网 Mesh VPN，将局域网架设到网上，将</description><content:encoded><![CDATA[<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101203240_ezEtmN.png" alt="toc"></p>
+<h2 id="omniedge-是什么">OmniEdge 是什么？</h2>
 <p>打开 OmniEdge的官网 <a href="https://omniedge.io/">https://omniedge.io/</a> 可以看到它的 slogan：</p>
 <blockquote>
 <p><strong>连接任何设备到局域网。</strong>
@@ -109,7 +110,7 @@
 <p>至此，windows 客户端安装完成并连接成功，接着我们安装 openwrt 客户端。</p>
 <h3 id="安装-openwrt-客户端">安装 openwrt 客户端</h3>
 <p>待更新。。。</p>
-<h2 id="测试节点联通情况">测试节点联通情况</h2>
+<h2 id="测试节点连通情况">测试节点连通情况</h2>
 <p>回到 mac，我们打开终端，测试一下与 windows 的连通情况，输入以下命令：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 10.1.0.1 为 windows 客户端的虚拟网络 ip</span>
 </span></span><span class="line"><span class="cl">gping -4 10.1.0.1
