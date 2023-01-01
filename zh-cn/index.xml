@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>寂寞留白</title><link>https://alphapenng.github.io/zh-cn/</link><description>Recent content on 寂寞留白</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 31 Dec 2022 22:53:24 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>OmniEdge 异地组网部署</title><link>https://alphapenng.github.io/zh-cn/2022/12/31/omniedge-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E9%83%A8%E7%BD%B2/</link><pubDate>Sat, 31 Dec 2022 22:53:24 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/31/omniedge-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E9%83%A8%E7%BD%B2/</guid><description>OmniEdge 是什么？ 打开 OmniEdge的官网 https://omniedge.io/ 可以看到它的 slogan： 连接 任何设备 到局域网 使用 OmniEdge 的下一代异地组网 Mesh VPN，将局域网架设到网上，将任</description><content:encoded><![CDATA[<h2 id="omniedge-是什么">OmniEdge 是什么？</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>寂寞留白</title><link>https://alphapenng.github.io/zh-cn/</link><description>Recent content on 寂寞留白</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 31 Dec 2022 22:53:24 +0800</lastBuildDate><atom:link href="https://alphapenng.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml"/><item><title>OmniEdge 异地组网部署</title><link>https://alphapenng.github.io/zh-cn/2022/12/31/omniedge-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E9%83%A8%E7%BD%B2/</link><pubDate>Sat, 31 Dec 2022 22:53:24 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/31/omniedge-%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91%E9%83%A8%E7%BD%B2/</guid><description>OmniEdge 是什么？ 打开 OmniEdge的官网 https://omniedge.io/ 可以看到它的 slogan： 连接任何设备到局域网。 使用 OmniEdge 的下一代异地组网 Mesh VPN，将局域网架设到网上，将</description><content:encoded><![CDATA[<h2 id="omniedge-是什么">OmniEdge 是什么？</h2>
 <p>打开 OmniEdge的官网 <a href="https://omniedge.io/">https://omniedge.io/</a> 可以看到它的 slogan：</p>
 <blockquote>
-<p><strong>连接 任何设备 到局域网</strong>
+<p><strong>连接任何设备到局域网。</strong>
 使用 OmniEdge 的下一代异地组网 Mesh VPN，将局域网架设到网上，将任何地方的任何设备连接到局域网，实现快速的访问。</p>
 </blockquote>
 <p>OmniEdge 的功能其实跟 WireGuard 类似，是一个 VPN 软件，可以实现远程 Mesh 互连, 组建「大」局域网。</p>
@@ -13,7 +13,7 @@
 <li>如果服务器在国内，域名需要备案</li>
 </ul>
 <p>云主机我是有一台，在腾讯云上买的轻量应用服务器，享受的新用户首单特惠 88 元一年。</p>
-<div align="center"> <img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101000839_c4gT7e.png" alt="lighthouse" width="50%" /> </div>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101000839_c4gT7e.png" alt="lighthouse-m"></p>
 <p>但没有申请域名，想着申请域名要花钱还要备案，就果断放弃了。</p>
 <p>于是我就转向了 OmniEdge，OmniEdge 也可以部署私有中继服务器，在 OmniEdge 中它叫做 Supernode。部署 Supernode 只需要云主机有公网 ip 就行了，另外 OmniEdge 的其他客户端部署也较为容易，只要跟着文档一步一步来就行了。</p>
 <h2 id="supernode-部署">Supernode 部署</h2>
@@ -52,9 +52,15 @@
 <li>
 <p>安装 Tun/Tap 驱动</p>
 <ul>
-<li>下载驱动文件，<a href="https://sourceforge.net/projects/tuntaposx/files/latest/download">https://sourceforge.net/projects/tuntaposx/files/latest/download</a></li>
-<li>解压 <code>tuntap_20150118.tar.gz</code> 后双击 <code>tuntap_20150118.pkg</code> 进行安装</li>
-<li>在终端下运行 <code>sudo kextload /Library/Extensions/tap.kext</code></li>
+<li>
+<p>下载驱动文件：<a href="https://sourceforge.net/projects/tuntaposx/files/latest/download">https://sourceforge.net/projects/tuntaposx/files/latest/download</a></p>
+</li>
+<li>
+<p>解压 <code>tuntap_20150118.tar.gz</code> 后双击 <code>tuntap_20150118.pkg</code> 进行安装</p>
+</li>
+<li>
+<p>在终端下运行 <code>sudo kextload /Library/Extensions/tap.kext</code></p>
+</li>
 </ul>
 </li>
 <li>
@@ -73,8 +79,8 @@
 <p>通过刚才创建的安全码进行登录：<code>omniedge login -s &lt;yoursecuritykey&gt;</code></p>
 </li>
 <li>
-<p>加入你创建的虚拟网络：<code>sudo omniedge join</code>
-<img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101092947_yPzu61.png" alt="join_virtual_network"></p>
+<p>加入你创建的虚拟网络：<code>sudo omniedge join</code></p>
+<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101092947_yPzu61.png" alt="join_virtual_network"></p>
 </li>
 </ul>
 </li>
@@ -104,7 +110,7 @@
 <h3 id="安装-openwrt-客户端">安装 openwrt 客户端</h3>
 <p>待更新。。。</p>
 <h2 id="测试节点联通情况">测试节点联通情况</h2>
-<p>回到 mac，我们打开终端，测试一下与 windows 的连通情况，输入一下命令：</p>
+<p>回到 mac，我们打开终端，测试一下与 windows 的连通情况，输入以下命令：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 10.1.0.1 为 windows 客户端的虚拟网络 ip</span>
 </span></span><span class="line"><span class="cl">gping -4 10.1.0.1
 </span></span></code></pre></div><p>gping 是一个图表化 ping 命令的开源工具，可以通过 <a href="https://github.com/orf/gping">https://github.com/orf/gping</a> 下载安装。</p>
