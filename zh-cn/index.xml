@@ -117,7 +117,253 @@
 </span></span></code></pre></div><p>gping 是一个图表化 ping 命令的开源工具，可以通过 <a href="https://github.com/orf/gping">https://github.com/orf/gping</a> 下载安装。</p>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101163017_tty.gif" alt="omniedge_test"></p>
 <p>从测试结果可以看出，最高延时在 158ms，最低延时在 56ms，平均延时稳定在 88ms，效果还是不错的。从我的网络情况来看，两个节点之间应该是通过中继服务器连接的，能达到这种延时不错了，就是不知道直连效果怎样。无论是在客户端还是在 supernode 上，都不知道怎样查看节点之间是直连还是中继的，今后就这样使用再看看稳定性如何。</p>
-]]></content:encoded></item><item><title>OpenWrt开启802.11k-v-r协议实现手机在路由器之间无缝漫游</title><link>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</link><pubDate>Fri, 02 Dec 2022 21:14:34 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</guid><description>mesh 路由器基本概念 以一张脑图梳理一下 mesh 路由器的基本概念 ⚠️ 802.11k/v/r 这三个协议必须是路由器和设备同时支持才可以起作用 ⚠️ 设备这方面我们基本不用太担心,</description><content:encoded><![CDATA[<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_epB5YQ.png" alt="toc"></p>
+]]></content:encoded></item><item><title>Go 语言 go mod 包依赖管理工具使用</title><link>https://alphapenng.github.io/zh-cn/2022/12/27/go-%E8%AF%AD%E8%A8%80-go-mod-%E5%8C%85%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</link><pubDate>Tue, 27 Dec 2022 12:51:29 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/27/go-%E8%AF%AD%E8%A8%80-go-mod-%E5%8C%85%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</guid><description>💁 参考文档：Go 语言 go mod 包依赖管理工具使用详解 最早的时候，Go 语言所依赖的所有的第三方库都放在 GOPATH 这个目录下面，这就导致了同一个库只能保存一个</description><content:encoded><![CDATA[<p>💁 参考文档：<a href="http://c.biancheng.net/view/5712.html">Go 语言 go mod 包依赖管理工具使用详解</a></p>
+<p>最早的时候，Go 语言所依赖的所有的第三方库都放在 GOPATH 这个目录下面，这就导致了同一个库只能保存一个版本的代码。如果不同的项目依赖同一个第三方的库的不同版本，应该怎么解决？</p>
+<p>go module 是 Go 语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了 Go 语言默认的依赖管理工具。</p>
+<h2 id="如何使用-modules">如何使用 Modules？</h2>
+<h3 id="go111module">GO111MODULE</h3>
+<ol>
+<li>
+<p>首先需要把 golang 升级到 1.11 版本以上（建议使用最新版本）。</p>
+</li>
+<li>
+<p>设置 <code>GO111MODULE</code>。</p>
+<p>在 Go 语言 1.13 及以后的版本则不再需要设置环境变量。通过 <code>GO111MODULE</code> 可以开启或关闭 go module 工具。</p>
+<ul>
+<li>GO111MODULE=off 禁用 go module，编译时会从 GOPATH 和 vendor 文件夹中查找包；</li>
+<li>GO111MODULE=on 启用 go module，编译时会忽略 GOPATH 和 vendor 文件夹，只根据 go.mod 下载依赖；</li>
+<li>GO111MODULE=auto（默认值），当项目在 GOPATH/src 目录之外，并且项目根目录有 go.mod 文件时，开启 go module。</li>
+</ul>
+ <br>
+<p>建议都设置成 <code>GO111MODULE=on</code>。</p>
+<p>Windows 下开启 GO111MODULE 的命令为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"><span class="k">set</span> <span class="nv">GO111MODULE</span><span class="p">=</span>on
+</span></span></code></pre></div><p>MacOS 或者 Linux 下开启 GO111MODULE 的命令为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">GO111MODULE</span><span class="o">=</span>on
+</span></span></code></pre></div><p>常用的 go mod 命令如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>go mod download</td>
+<td>下载依赖包到本地（默认为 GOPATH/pkg/mod 目录）</td>
+</tr>
+<tr>
+<td>go mod edit</td>
+<td>编辑 go.mod 文件</td>
+</tr>
+<tr>
+<td>go mod graph</td>
+<td>打印模块依赖图</td>
+</tr>
+<tr>
+<td>go mod init</td>
+<td>初始化当前文件夹，创建 go.mod 文件</td>
+</tr>
+<tr>
+<td>go mod tidy</td>
+<td>增加缺少的包，删除无用的包</td>
+</tr>
+<tr>
+<td>go mod vendor</td>
+<td>将依赖复制到 vendor 目录下</td>
+</tr>
+<tr>
+<td>go mod verify</td>
+<td>校验依赖</td>
+</tr>
+<tr>
+<td>go mod why</td>
+<td>解释为什么需要依赖</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="goproxy">GOPROXY</h3>
+<p>proxy 顾名思义就是代理服务器的意思。大家都知道，国内的网络有防火墙的存在，这导致有些 Go 语言的第三方包我们无法直接通过 go get 命令获取。GOPROXY 是 Go 语言官方提供的一种通过中间代理商来为用户提供包下载服务的方式。要使用 GOPROXY 只需要设置环境变量 GOPROXY 即可。</p>
+<p>目前公开的代理服务器的地址有：</p>
+<ul>
+<li>goproxy.io；</li>
+<li>goproxy.cn：（推荐）由国内的七牛云提供。</li>
+</ul>
+<p>Windows 下设置 GOPROXY 的命令为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">go env -w GOPROXY=https://goproxy.cn,direct
+</span></span></code></pre></div><p>MacOS 或 Linux 下设置 GOPROXY 的命令为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.cn
+</span></span></code></pre></div><p>Go 语言在 1.13 版本之后 GOPROXY 默认值为 <a href="https://proxy.golang.org">https://proxy.golang.org</a>，在国内可能会存在下载慢或者无法访问的情况，所以十分建议大家将 GOPROXY 设置为国内的 goproxy.cn。</p>
+<h3 id="使用-go-get-命令下载指定版本的依赖包">使用 go get 命令下载指定版本的依赖包</h3>
+<p>执行 <code>go get</code> 命令，在下载依赖包的同时还可以指定依赖包的版本。</p>
+<ul>
+<li>运行 <code>go get -u</code> 命令会将项目中的包升级到最新的次要版本或者修订版本；</li>
+<li>运行 <code>go get -u=patch</code> 命令会将项目中的包升级到最新的修订版本；</li>
+<li>运行 <code>go get [包名]@[版本号]</code> 命令会下载对应包的指定版本或者将对应包升级到指定的版本。</li>
+</ul>
+<p>💁 <code>go get [包名]@[版本号]</code> 命令中版本号可以是 x.y.z 的形式，例如 <code>go get foo@v1.2.3</code>，也可以是 git 上的分支或 tag，例如 <code>go get foo@master</code>，还可以是 git 提交时的哈希值，例如 <code>go get foo@e3702bed2</code>。</p>
+<h2 id="如何在项目中使用">如何在项目中使用</h2>
+<p><strong>【示例 1】创建一个新项目：</strong></p>
+<ol>
+<li>
+<p>在 GOPATH 目录之外新建一个目录，并使用 <code>go mod init</code> 初始化生成 go.mod 文件。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go mod init hello
+</span></span><span class="line"><span class="cl">go: creating new go.mod: module hello
+</span></span></code></pre></div><p>go.mod 文件一旦创建后，它的内容将会被 go toolchain 全面掌控，go toolchain 会在各类命令执行时，比如 <code>go get</code>、<code>go build</code>、<code>go mod</code> 等修改和维护 go.mod 文件。</p>
+<p>go.mod 提供了 module、require、replace 和 exclude 四个命令：</p>
+<ul>
+<li>module 语句指定包的名字（路径）</li>
+<li>require 语句指定的依赖项模块；</li>
+<li>replace 语句可以替换依赖项模块；</li>
+<li>exclude 语句可以忽略依赖项模块。</li>
+</ul>
+ <br>
+<p>初始化生成的 go.mod 文件如下所示：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">module hello
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">go 1.13
+</span></span></code></pre></div></li>
+<li>
+<p>添加依赖。</p>
+<p>新建一个 main.go 文件，写入以下代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;net/http&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;github.com/labstack/echo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">e</span> <span class="o">:=</span> <span class="nx">echo</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">e</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="nx">echo</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="s">&#34;Hello, World!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">e</span><span class="p">.</span><span class="nx">Logger</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nf">Start</span><span class="p">(</span><span class="s">&#34;:1323&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>执行 <code>go run main.go</code> 运行代码会发现 go mod 会自动查找依赖自动下载：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go run main.go
+</span></span><span class="line"><span class="cl">go: finding github.com/labstack/echo v3.3.10+incompatible
+</span></span><span class="line"><span class="cl">go: downloading github.com/labstack/echo v3.3.10+incompatible
+</span></span><span class="line"><span class="cl">go: extracting github.com/labstack/echo v3.3.10+incompatible
+</span></span><span class="line"><span class="cl">go: finding github.com/labstack/gommon v0.3.0
+</span></span><span class="line"><span class="cl">......
+</span></span><span class="line"><span class="cl">go: finding golang.org/x/text v0.3.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">____    __
+</span></span><span class="line"><span class="cl">/ __/___/ /  ___
+</span></span><span class="line"><span class="cl">/ _// __/ _ <span class="se">\/</span> _ <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>/___/<span class="se">\_</span>_/_//_/<span class="se">\_</span>__/ v3.3.10-dev
+</span></span><span class="line"><span class="cl">High performance, minimalist Go web framework
+</span></span><span class="line"><span class="cl">https://echo.labstack.com
+</span></span><span class="line"><span class="cl">____________________________________O/_______
+</span></span><span class="line"><span class="cl">                                                    O<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>⇨ http server started on <span class="o">[</span>::<span class="o">]</span>:1323
+</span></span></code></pre></div><p>现在查看 go.mod 内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">module hello
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">go 1.13
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">require <span class="o">(</span>
+</span></span><span class="line"><span class="cl">    github.com/labstack/echo v3.3.10+incompatible // indirect
+</span></span><span class="line"><span class="cl">    github.com/labstack/gommon v0.3.0 // indirect
+</span></span><span class="line"><span class="cl">    golang.org/x/crypto v0.0.0-20191206172530-e9b2fee46413 // indirect
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span></code></pre></div><p>go module 安装 package 的原则是先拉取最新的 release tag，若无 tag 则拉取最新的 commit，详见 <a href="https://github.com/golang/go/wiki/Modules">Modules 官方</a>介绍。</p>
+<p>go 会自动生成一个 go.sum 文件来记录 dependency tree：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38<span class="o">=</span>
+</span></span><span class="line"><span class="cl">github.com/labstack/echo v3.3.10+incompatible h1:pGRcYk231ExFAyoAjAfD85kQzRJCRI8bbnE7CX5OEgg<span class="o">=</span>
+</span></span><span class="line"><span class="cl">github.com/labstack/echo v3.3.10+incompatible/go.mod h1:0INS7j/VjnFxD4E2wkz67b8cVwCLbBmJyDaka6Cmk1s<span class="o">=</span>
+</span></span><span class="line"><span class="cl">github.com/labstack/gommon v0.3.0 h1:JEeO0bvc78PKdyHxloTKiF8BD5iGrH8T6MSeGvSgob0<span class="o">=</span>
+</span></span><span class="line"><span class="cl">github.com/labstack/gommon v0.3.0/go.mod h1:MULnywXg0yavhxWKc+lOruYdAhDwPK9wf0OL7NoOu+k<span class="o">=</span>
+</span></span><span class="line"><span class="cl">github.com/mattn/go-colorable v0.1.2 h1:/bC9yWikZXAL9uJdulbSfyVNIR3n3trXl+v8+1sx8mU<span class="o">=</span>
+</span></span><span class="line"><span class="cl">... 省略很多行
+</span></span></code></pre></div><p>再次执行脚本 <code>go run main.go</code> 发现跳过了检查并安装依赖的步骤。</p>
+<p>可以使用命令 <code>go list -m -u all</code> 来检查可以升级的 package，使用 <code>go get -u need-upgrade-package</code> 升级后会将新的依赖版本更新到 go.mod * 也可以使用 <code>go get -u</code> 升级所有依赖。</p>
+</li>
+</ol>
+<p><strong>【示例 2】改造现有项目。</strong></p>
+<p>项目目录结构为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">├─ main.go
+</span></span><span class="line"><span class="cl">│
+</span></span><span class="line"><span class="cl">└─ api
+</span></span><span class="line"><span class="cl">      └─ apis.go
+</span></span></code></pre></div><p>main.go 源码为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">api</span> <span class="s">&#34;./api&#34;</span>  <span class="c1">// 这里使用的是相对路径
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s">&#34;github.com/labstack/echo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">e</span> <span class="o">:=</span> <span class="nx">echo</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">e</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="nx">api</span><span class="p">.</span><span class="nx">HelloWorld</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">e</span><span class="p">.</span><span class="nx">Logger</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nf">Start</span><span class="p">(</span><span class="s">&#34;:1323&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>api/apis.go 源码为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">api</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;net/http&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;github.com/labstack/echo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">HelloWorld</span><span class="p">(</span><span class="nx">c</span> <span class="nx">echo</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="s">&#34;hello world&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol>
+<li>
+<p>使用 <code>go mod init ***</code> 初始化 go.mod。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go mod init hello
+</span></span><span class="line"><span class="cl">go: creating new go.mod: module hello
+</span></span></code></pre></div></li>
+<li>
+<p>运行 <code>go run main.go</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go run main.go
+</span></span><span class="line"><span class="cl">go: finding golang.org/x/crypto latest
+</span></span><span class="line"><span class="cl">build _/D_/code/src/api: cannot find module <span class="k">for</span> path _/D_/code/src/api
+</span></span></code></pre></div><p>首先还是会查找并下载安装依赖，然后运行脚本 main.go，这里会抛出一个错误：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">build _/D_/code/src/api: cannot find module <span class="k">for</span> path _/D_/code/src/api
+</span></span></code></pre></div><p>但是 go.mod 已经更新：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">module hello
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">go 1.13
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">require <span class="o">(</span>
+</span></span><span class="line"><span class="cl">    github.com/labstack/echo v3.3.10+incompatible // indirect
+</span></span><span class="line"><span class="cl">    github.com/labstack/gommon v0.3.0 // indirect
+</span></span><span class="line"><span class="cl">    golang.org/x/crypto v0.0.0-20191206172530-e9b2fee46413 // indirect
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span></code></pre></div><p>那为什么会抛出这个错误呢？</p>
+<p>这是因为 main.go 中使用 internal package 的方法跟以前已经不同了，由于 go.mod 会扫描同工作目录下所有 package 并且变更引入方法，必须将 hello 当成路径的前缀，也就是需要写成 import hello/api，以往 GOPATH/dep 模式允许的 import ./api 已经失效。</p>
+</li>
+<li>
+<p>更新旧的 package import 方式。</p>
+<p>所以 main.go 需要改写成：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">api</span> <span class="s">&#34;hello/api&#34;</span> <span class="c1">// 这里使用的是相对路径
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s">&#34;github.com/labstack/echo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">e</span> <span class="o">:=</span> <span class="nx">echo</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">e</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="nx">api</span><span class="p">.</span><span class="nx">HelloWorld</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">e</span><span class="p">.</span><span class="nx">Logger</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nf">Start</span><span class="p">(</span><span class="s">&#34;:1323&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>到这里就和新创建一个项目没什么区别了。</p>
+</li>
+</ol>
+<h2 id="使用-replace-替换无法直接获取的-package">使用 replace 替换无法直接获取的 package</h2>
+<p>由于某些已知的原因，并不是所有的 package 都能成功下载，比如：golang.org 下的包。</p>
+<p>modules 可以通过在 go.mod 文件中使用 replace 指令替换成 github 上对应的库，比如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">replace <span class="o">(</span>
+</span></span><span class="line"><span class="cl">    golang.org/x/crypto v0.0.0-20190313024323-a1f597ede03a <span class="o">=</span>&gt; github.com/golang/crypto v0.0.0-20190313024323-a1f597ede03a
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span></code></pre></div><p>或者</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">replace golang.org/x/crypto v0.0.0-20190313024323-a1f597ede03a <span class="o">=</span>&gt; github.com/golang/crypto v0.0.0-20190313024323-a1f597ede03a
+</span></span></code></pre></div>]]></content:encoded></item><item><title>OpenWrt开启802.11k-v-r协议实现手机在路由器之间无缝漫游</title><link>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</link><pubDate>Fri, 02 Dec 2022 21:14:34 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/02/openwrt%E5%BC%80%E5%90%AF802.11k-v-r%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E6%97%A0%E7%BC%9D%E6%BC%AB%E6%B8%B8/</guid><description>mesh 路由器基本概念 以一张脑图梳理一下 mesh 路由器的基本概念 ⚠️ 802.11k/v/r 这三个协议必须是路由器和设备同时支持才可以起作用 ⚠️ 设备这方面我们基本不用太担心,</description><content:encoded><![CDATA[<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_epB5YQ.png" alt="toc"></p>
 <h2 id="mesh-路由器基本概念">mesh 路由器基本概念</h2>
 <p><code>以一张脑图梳理一下 mesh 路由器的基本概念</code></p>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/2022_12_07_OwGgb3.png" alt="mesh"></p>
