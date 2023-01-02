@@ -117,10 +117,11 @@
 </span></span></code></pre></div><p>gping 是一个图表化 ping 命令的开源工具，可以通过 <a href="https://github.com/orf/gping">https://github.com/orf/gping</a> 下载安装。</p>
 <p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230101163017_tty.gif" alt="omniedge_test"></p>
 <p>从测试结果可以看出，最高延时在 158ms，最低延时在 56ms，平均延时稳定在 88ms，效果还是不错的。从我的网络情况来看，两个节点之间应该是通过中继服务器连接的，能达到这种延时不错了，就是不知道直连效果怎样。无论是在客户端还是在 supernode 上，都不知道怎样查看节点之间是直连还是中继的，今后就这样使用再看看稳定性如何。</p>
-]]></content:encoded></item><item><title>Go 语言 go mod 包依赖管理工具使用</title><link>https://alphapenng.github.io/zh-cn/2022/12/27/go-%E8%AF%AD%E8%A8%80-go-mod-%E5%8C%85%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</link><pubDate>Tue, 27 Dec 2022 12:51:29 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/27/go-%E8%AF%AD%E8%A8%80-go-mod-%E5%8C%85%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</guid><description>💁 参考文档：Go 语言 go mod 包依赖管理工具使用详解 最早的时候，Go 语言所依赖的所有的第三方库都放在 GOPATH 这个目录下面，这就导致了同一个库只能保存一个</description><content:encoded><![CDATA[<p>💁 参考文档：<a href="http://c.biancheng.net/view/5712.html">Go 语言 go mod 包依赖管理工具使用详解</a></p>
+]]></content:encoded></item><item><title>Go 语言 go mod 包依赖管理工具使用</title><link>https://alphapenng.github.io/zh-cn/2022/12/27/go-%E8%AF%AD%E8%A8%80-go-mod-%E5%8C%85%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</link><pubDate>Tue, 27 Dec 2022 12:51:29 +0800</pubDate><guid>https://alphapenng.github.io/zh-cn/2022/12/27/go-%E8%AF%AD%E8%A8%80-go-mod-%E5%8C%85%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</guid><description>💁 参考文档：Go 语言 go mod 包依赖管理工具使用详解 最早的时候，Go 语言所依赖的所有的第三方库都放在 GOPATH 这个目录下面，这就导致了同一个库只能保存一个</description><content:encoded><![CDATA[<p><img src="https://alphapenng-1305651397.cos.ap-shanghai.myqcloud.com/uPic/20230102212930_vYigVu.png" alt="toc"></p>
+<p>💁 参考文档：<a href="http://c.biancheng.net/view/5712.html">Go 语言 go mod 包依赖管理工具使用详解</a></p>
 <p>最早的时候，Go 语言所依赖的所有的第三方库都放在 GOPATH 这个目录下面，这就导致了同一个库只能保存一个版本的代码。如果不同的项目依赖同一个第三方的库的不同版本，应该怎么解决？</p>
 <p>go module 是 Go 语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了 Go 语言默认的依赖管理工具。</p>
-<h2 id="如何使用-modules">如何使用 Modules？</h2>
+<h2 id="如何使用-modules">如何使用 Modules</h2>
 <h3 id="go111module">GO111MODULE</h3>
 <ol>
 <li>
